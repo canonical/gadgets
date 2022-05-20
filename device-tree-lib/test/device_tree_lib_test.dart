@@ -2,7 +2,7 @@ import 'package:device_tree_lib/all.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
+  group('Device tree parser tests', () {
     final reporter =
         DeviceTreeParser.fromInxiReport("./test/fixture/inxi-athena.json");
 
@@ -47,6 +47,37 @@ void main() {
       expect(deviceInfo.gccVersion, map["gcc"]);
       expect(deviceInfo.defaultShell, map["default"]);
       expect(deviceInfo.wakeups, map["wakeups"]);
+    });
+
+    test('USB device info', () {
+      const usbDeviceMaps = [
+        {
+          "rev": "2.0",
+          "speed": "480 Mb/s",
+          "chip-ID": "1d6b:0002",
+          "Hub": "1-0:1",
+          "info": "Hi-speed hub with single TT",
+          "ports": "14",
+          "class-ID": "0900"
+        },
+        {
+          "info": "Logitech StreamCam",
+          "class-ID": "0300",
+          "type": "Video,Audio,HID",
+          "serial": "A1071525",
+          "chip-ID": "046d:0893",
+          "speed": "480 Mb/s",
+          "driver": "hid-generic,snd-usb-audio,usbhid,uvcvideo",
+          "rev": "2.1",
+          "interfaces": "6",
+          "power": "500mA",
+          "Device": "1-2:2"
+        }
+      ];
+
+      var devices = usbDeviceMaps.map((m) => USBDevice.fromMap(m));
+      expect(devices.length, 2);
+      print(devices);
     });
   });
 }

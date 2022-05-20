@@ -4,5 +4,6 @@
 library device_tree_reporter_lib;
 
 export 'src/device_tree.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/info.dart';
+export 'src/device_tree_parser.dart';
+export 'src/usb.dart';
