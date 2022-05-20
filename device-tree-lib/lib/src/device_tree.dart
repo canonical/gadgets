@@ -13,11 +13,11 @@ class DeviceInfoInxiKey {
   static final String tool = "tool";
   static final String uptime = "Uptime";
   static final String shell = "Shell";
-  static final String clang = "Clang";
+  static final String clang = "clang";
   static final String version = "v";
   static final String inxiVersion = "inxi";
-  static final String initSystem = "initSystem";
-  static final String runLevel = "runLevel";
+  static final String initSystem = "Init";
+  static final String runLevel = "runlevel";
   static final String gccVersion = "gcc";
   static final String defaultShell = "default";
   static final String wakeups = "wakeups";

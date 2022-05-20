@@ -1,4 +1,4 @@
-import 'package:device_tree_reporter_lib/device_tree_reporter_lib.dart';
+import 'package:device_tree_lib/all.dart';
 import 'package:test/test.dart';
 
 void main() {
