@@ -17,7 +17,7 @@ class InxiKey {
 
 class DeviceTree {
   final DeviceInfo info;
-  final Array<USBDevice> usbDevices;
+  final Iterable<USBDevice> usbDevices;
 
   const DeviceTree(this.info, this.usbDevices);
 
@@ -27,9 +27,9 @@ class DeviceTree {
       throw MissingDeviceReportKeyException(InxiKey.info);
     }
 
-    Array<Map<String, dynamic>>? usbDeviceMaps = map[InxiKey.usb];
-    if (infoMap == null) {
-      throw MissingDeviceReportKeyException(InxiKey.info);
+    Iterable<Map<String, dynamic>>? usbDeviceMaps = map[InxiKey.usb];
+    if (usbDeviceMaps == null) {
+      throw MissingDeviceReportKeyException(InxiKey.usb);
     }
     var devices = usbDeviceMaps.map((m) => USBDevice.fromMap(m));
 

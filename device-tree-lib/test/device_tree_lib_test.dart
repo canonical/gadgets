@@ -77,7 +77,6 @@ void main() {
 
       var devices = usbDeviceMaps.map((m) => USBDevice.fromMap(m));
       expect(devices.length, 2);
-      print(devices);
     });
   });
 }
