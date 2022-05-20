@@ -1,5 +1,3 @@
-import 'dart:html_common';
-
 import 'package:device_tree_reporter_lib/device_tree_reporter_lib.dart';
 import 'package:args/args.dart';
 import 'package:test/expect.dart';
