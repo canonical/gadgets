@@ -35,6 +35,18 @@ void main() {
       };
 
       var deviceInfo = DeviceInfo.fromMap(map);
+      expect(deviceInfo.tool, map["tool"]);
+      expect(deviceInfo.uptime, map["Uptime"]);
+      expect(deviceInfo.shell, map["Shell"]);
+      expect(deviceInfo.clangVersion, map["clang"]);
+      expect(deviceInfo.version, map["v"]);
+      expect(deviceInfo.inxiVersion, map["inxi"]);
+      expect(deviceInfo.runLevel, map["runlevel"]);
+      expect(deviceInfo.initSystem, map["Init"]);
+      expect(deviceInfo.runLevel, map["runlevel"]);
+      expect(deviceInfo.gccVersion, map["gcc"]);
+      expect(deviceInfo.defaultShell, map["default"]);
+      expect(deviceInfo.wakeups, map["wakeups"]);
     });
   });
 }
