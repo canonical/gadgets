@@ -60,9 +60,23 @@ class MemoryCapacity {
 }
 
 class MemorySlotSummary {
-  MemorySlotSummary() {}
+  final String note;
+  final String maxModuleSize;
+  final int slots;
+  final String errorCorrection;
+  final String capacity;
+  final String array; // TODO: not sure what this is, maybe just drop?
+
+  MemorySlotSummary(this.note, this.maxModuleSize, this.slots,
+      this.errorCorrection, this.capacity, this.array);
   factory MemorySlotSummary.fromMap(Map<String, dynamic> map) {
-    return MemorySlotSummary();
+    return MemorySlotSummary(
+        map[InxiKeyMemorySlotSummary.note]!,
+        map[InxiKeyMemorySlotSummary.maxModuleSize]!,
+        map[InxiKeyMemorySlotSummary.slots]!,
+        map[InxiKeyMemorySlotSummary.ec]!,
+        map[InxiKeyMemorySlotSummary.capacity]!,
+        map[InxiKeyMemorySlotSummary.array]);
   }
 }
 
@@ -117,23 +131,21 @@ class FilledMemorySlot extends MemorySlot {
       this.device);
   factory FilledMemorySlot.fromMap(Map<String, String> map) {
     return FilledMemorySlot(
-        map[InxiKeyMemorySlot.manufacturer]!,
-        map[InxiKeyMemorySlot.detail]!,
-        map[InxiKeyMemorySlot.speed]!,
-        map[InxiKeyMemorySlot.type]!,
-        map[InxiKeyMemorySlot.total]!,
-        map[InxiKeyMemorySlot.partNumber]!,
-        map[InxiKeyMemorySlot.size]!,
-        map[InxiKeyMemorySlot.serial]!,
-        map[InxiKeyMemorySlot.device]!,
-        map[InxiKeyMemorySlot.busWidth]!);
+      map[InxiKeyMemorySlot.manufacturer]!,
+      map[InxiKeyMemorySlot.detail]!,
+      map[InxiKeyMemorySlot.speed]!,
+      map[InxiKeyMemorySlot.type]!,
+      map[InxiKeyMemorySlot.total]!,
+      map[InxiKeyMemorySlot.partNumber]!,
+      map[InxiKeyMemorySlot.size]!,
+      map[InxiKeyMemorySlot.serial]!,
+      map[InxiKeyMemorySlot.busWidth]!,
+      map[InxiKeyMemorySlot.device]!,
+    );
   }
 }
 
-
-
 /*
-
 "Memory": [
     {
       "total": "94.25 GiB",

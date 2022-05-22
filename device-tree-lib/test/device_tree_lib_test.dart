@@ -80,13 +80,19 @@ void main() {
       expect(devices.length, 2);
     });
 
-    test('Memory info parsing', () {
+    test('Memory capacity info parsing', () {
       const dynamic memoryCapacitySummaryMap = {
         "total": "94.25 GiB",
         "used": "22.97 GiB (24.4%)",
         "RAM": ""
       };
+      final memoryCapacity = MemoryCapacity.fromMap(memoryCapacitySummaryMap);
+      expect(memoryCapacity.total, '94.25 GiB');
+      expect(memoryCapacity.used, '22.97 GiB (24.4%)');
+      expect(memoryCapacity.ram, '');
+    });
 
+    test('Memory slot summary parsing', () {
       const dynamic memorySlotSummaryMap = {
         "note": "est.",
         "max-module-size": "64 GiB",
@@ -96,6 +102,16 @@ void main() {
         "Array": ""
       };
 
+      final memorySlotSummary = MemorySlotSummary.fromMap(memorySlotSummaryMap);
+      expect(memorySlotSummary.note, 'est.');
+      expect(memorySlotSummary.maxModuleSize, '64 GiB');
+      expect(memorySlotSummary.slots, 8);
+      expect(memorySlotSummary.errorCorrection, 'None');
+      expect(memorySlotSummary.capacity, '512 GiB');
+      expect(memorySlotSummary.array, '');
+    });
+
+    test('Filled memory slot  map', () {
       const dynamic filledMemorySlotMap = {
         "part-no": "CMK16GX4M2B3000C15",
         "total": "64 bits",
@@ -109,10 +125,17 @@ void main() {
         "detail": "synchronous unbuffered (unregistered)"
       };
 
-      var memoryCapacity = MemoryCapacity.fromMap(memoryCapacitySummaryMap);
-      expect(memoryCapacity.total, '94.25 GiB');
-      expect(memoryCapacity.used, '22.97 GiB (24.4%)');
-      expect(memoryCapacity.ram, '');
+      final memorySlotSummary = FilledMemorySlot.fromMap(filledMemorySlotMap);
+      expect(memorySlotSummary.partNumber, 'CMK16GX4M2B3000C15');
+      expect(memorySlotSummary.total, '64 bits');
+      expect(memorySlotSummary.device, 'DIMM 0');
+      expect(memorySlotSummary.busWidth, '64 bits');
+      expect(memorySlotSummary.serial, 'N/A');
+      expect(memorySlotSummary.size, '8 GiB');
+      expect(memorySlotSummary.manufacturer, 'Corsair');
+      expect(memorySlotSummary.speed, '2133 MT/s');
+      expect(memorySlotSummary.type, 'DDR4');
+      expect(memorySlotSummary.detail, 'synchronous unbuffered (unregistered)');
     });
   });
 }
