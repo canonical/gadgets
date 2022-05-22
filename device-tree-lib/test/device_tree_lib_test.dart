@@ -1,6 +1,8 @@
 import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/src/memory.dart';
 import 'package:test/test.dart';
+import 'dart:convert';
+import 'dart:io';
 
 void main() {
   group('Device tree parser tests', () {
@@ -29,10 +31,10 @@ void main() {
         "running-in": "run-inxi",
         "alt": "11",
         "Init": "systemd",
-        "runlevel": 5,
+        "runlevel": "5",
         "gcc": "11.2.0",
         "default": "Bash",
-        "wakeups": 8
+        "wakeups": "8"
       };
 
       var deviceInfo = DeviceInfo.fromMap(map);
@@ -42,12 +44,11 @@ void main() {
       expect(deviceInfo.clangVersion, map["clang"]);
       expect(deviceInfo.version, map["v"]);
       expect(deviceInfo.inxiVersion, map["inxi"]);
-      expect(deviceInfo.runLevel, map["runlevel"]);
+      expect(deviceInfo.runLevel, int.parse(map["runlevel"]));
       expect(deviceInfo.initSystem, map["Init"]);
-      expect(deviceInfo.runLevel, map["runlevel"]);
       expect(deviceInfo.gccVersion, map["gcc"]);
       expect(deviceInfo.defaultShell, map["default"]);
-      expect(deviceInfo.wakeups, map["wakeups"]);
+      expect(deviceInfo.wakeups, int.parse(map["wakeups"]));
     });
 
     test('USB device info', () {
@@ -111,7 +112,7 @@ void main() {
       expect(memorySlotSummary.array, '');
     });
 
-    test('Filled memory slot  map', () {
+    test('Filled memory slot map', () {
       const dynamic filledMemorySlotMap = {
         "part-no": "CMK16GX4M2B3000C15",
         "total": "64 bits",
@@ -136,6 +137,31 @@ void main() {
       expect(memorySlotSummary.speed, '2133 MT/s');
       expect(memorySlotSummary.type, 'DDR4');
       expect(memorySlotSummary.detail, 'synchronous unbuffered (unregistered)');
+
+      final factoryMadMemorySlotSummary =
+          MemorySlotFactory.fromMap(filledMemorySlotMap);
+      expect(memorySlotSummary.runtimeType,
+          factoryMadMemorySlotSummary.runtimeType);
+    });
+
+    test('Memory info from an inxi map', () async {
+      File report = File('./test/fixture/inxi-athena.json');
+      Map<String, dynamic> parsedReport =
+          json.decode(await report.readAsString());
+      Iterable<Map<String, dynamic>> memoryInfo =
+          List<Map<String, dynamic>>.from(parsedReport['Memory']);
+      Map<String, dynamic> capacity = memoryInfo.elementAt(0);
+      Map<String, dynamic> slotSummary = memoryInfo.elementAt(1);
+      Iterable<Map<String, dynamic>> slots = memoryInfo.skip(2);
+
+      final memorySummary =
+          MemorySummary.fromMaps(capacity, slotSummary, slots);
+
+      final memorySummaryFromReportMap = MemorySummary.fromReport(parsedReport);
+      // TODO: Do proper assertions for this.
+      expect(memorySummary.slots.length, 8);
+      expect(
+          memorySummary.capacity.ram, memorySummaryFromReportMap.capacity.ram);
     });
   });
 }

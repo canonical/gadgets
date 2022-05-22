@@ -36,13 +36,22 @@ class MemorySummary {
   MemorySummary(this.capacity, this.slotSummary, this.slots);
 
   factory MemorySummary.fromMaps(
-      Map<String, String> capacityMap,
+      Map<String, dynamic> capacityMap,
       Map<String, dynamic> slotSummaryMap,
-      Iterable<Map<String, String>> slotsMaps) {
+      Iterable<Map<String, dynamic>> slotsMaps) {
     return MemorySummary(
         MemoryCapacity.fromMap(capacityMap),
         MemorySlotSummary.fromMap(slotSummaryMap),
         slotsMaps.map((m) => MemorySlotFactory.fromMap(m)));
+  }
+
+  factory MemorySummary.fromReport(Map<String, dynamic> report) {
+    final memorySummaryInfo = report["Memory"];
+    Map<String, dynamic> capacityMap = memorySummaryInfo.elementAt(0);
+    Map<String, dynamic> slotSummaryMap = memorySummaryInfo.elementAt(1);
+    Iterable<Map<String, dynamic>> slotsMaps =
+        List<Map<String, dynamic>>.from(memorySummaryInfo.skip(2)!);
+    return MemorySummary.fromMaps(capacityMap, slotSummaryMap, slotsMaps);
   }
 }
 
@@ -53,7 +62,7 @@ class MemoryCapacity {
 
   MemoryCapacity(this.total, this.used, this.ram);
 
-  factory MemoryCapacity.fromMap(Map<String, String> map) {
+  factory MemoryCapacity.fromMap(Map<String, dynamic> map) {
     return MemoryCapacity(map[InxiKeyMemoryCapacity.total]!,
         map[InxiKeyMemoryCapacity.used]!, map[InxiKeyMemoryCapacity.ram]!);
   }
@@ -89,14 +98,14 @@ class EmptyMemorySlot implements MemorySlot {
   final String device;
 
   EmptyMemorySlot(this.device);
-  factory EmptyMemorySlot.fromMap(Map<String, String> map) {
+  factory EmptyMemorySlot.fromMap(Map<String, dynamic> map) {
     assert(map['size'] == 'No Module Installed');
     return EmptyMemorySlot(map[InxiKeyMemorySlot.device]!);
   }
 }
 
 class MemorySlotFactory {
-  static fromMap(Map<String, String> map) {
+  static fromMap(Map<String, dynamic> map) {
     if (map[InxiKeyMemorySlot.size] == 'No Module Installed') {
       return EmptyMemorySlot.fromMap(map);
     } else {
@@ -129,7 +138,7 @@ class FilledMemorySlot extends MemorySlot {
       this.serial,
       this.busWidth,
       this.device);
-  factory FilledMemorySlot.fromMap(Map<String, String> map) {
+  factory FilledMemorySlot.fromMap(Map<String, dynamic> map) {
     return FilledMemorySlot(
       map[InxiKeyMemorySlot.manufacturer]!,
       map[InxiKeyMemorySlot.detail]!,

@@ -46,10 +46,11 @@ class DeviceInfo {
     var version = map[DeviceInfoInxiKey.version] as String;
     var inxiVersion = map[DeviceInfoInxiKey.inxiVersion] as String;
     var initSystem = map[DeviceInfoInxiKey.initSystem] as String;
-    var runLevel = map[DeviceInfoInxiKey.runLevel] as int;
+
+    var runLevel = int.parse(map[DeviceInfoInxiKey.runLevel]);
     var gccVersion = map[DeviceInfoInxiKey.gccVersion] as String;
     var defaultShell = map[DeviceInfoInxiKey.defaultShell] as String;
-    var wakeups = map[DeviceInfoInxiKey.wakeups] as int;
+    var wakeups = int.parse(map[DeviceInfoInxiKey.wakeups]);
 
     return DeviceInfo(tool, uptime, shell, clang, version, inxiVersion,
         initSystem, runLevel, gccVersion, defaultShell, wakeups);

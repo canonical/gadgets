@@ -21,16 +21,11 @@ class DeviceTree {
 
   const DeviceTree(this.info, this.usbDevices);
 
-  factory DeviceTree.fromMap(Map<String, dynamic> map) {
-    Map<String, dynamic>? infoMap = map[InxiKey.info];
-    if (infoMap == null) {
-      throw MissingDeviceReportKeyException(InxiKey.info);
-    }
+  factory DeviceTree.fromReport(Map<String, dynamic> map) {
+    Map<String, dynamic> infoMap = map[InxiKey.info]!.elementAt(0)!;
 
-    Iterable<Map<String, dynamic>>? usbDeviceMaps = map[InxiKey.usb];
-    if (usbDeviceMaps == null) {
-      throw MissingDeviceReportKeyException(InxiKey.usb);
-    }
+    Iterable<Map<String, dynamic>> usbDeviceMaps =
+        List<Map<String, dynamic>>.from(map[InxiKey.usb]!);
     var devices = usbDeviceMaps.map((m) => USBDevice.fromMap(m));
 
     return DeviceTree(DeviceInfo.fromMap(infoMap), devices);

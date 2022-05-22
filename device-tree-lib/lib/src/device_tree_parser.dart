@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:device_tree_lib/src/device_tree.dart';
+
 class DeviceTreeParser {
   File report;
 
@@ -11,7 +13,8 @@ class DeviceTreeParser {
     return DeviceTreeParser(file);
   }
 
-  void parse() async {
-    Object parsedReport = json.decode(await report.readAsString());
+  Future<DeviceTree> parse() async {
+    final parsedReport = json.decode(await report.readAsString());
+    return DeviceTree.fromReport(parsedReport);
   }
 }

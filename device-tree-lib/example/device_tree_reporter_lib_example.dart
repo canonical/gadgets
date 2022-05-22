@@ -1,6 +1,5 @@
 import 'package:device_tree_lib/all.dart';
 import 'package:args/args.dart';
-import 'package:test/expect.dart';
 
 void main(List<String> argv) {
   final parser = ArgParser()..addCommand("report");
