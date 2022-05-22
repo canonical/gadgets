@@ -1,4 +1,5 @@
 import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/src/memory.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -77,6 +78,41 @@ void main() {
 
       var devices = usbDeviceMaps.map((m) => USBDevice.fromMap(m));
       expect(devices.length, 2);
+    });
+
+    test('Memory info parsing', () {
+      const dynamic memoryCapacitySummaryMap = {
+        "total": "94.25 GiB",
+        "used": "22.97 GiB (24.4%)",
+        "RAM": ""
+      };
+
+      const dynamic memorySlotSummaryMap = {
+        "note": "est.",
+        "max-module-size": "64 GiB",
+        "slots": 8,
+        "EC": "None",
+        "capacity": "512 GiB",
+        "Array": ""
+      };
+
+      const dynamic filledMemorySlotMap = {
+        "part-no": "CMK16GX4M2B3000C15",
+        "total": "64 bits",
+        "Device": "DIMM 0",
+        "bus-width": "64 bits",
+        "serial": "N/A",
+        "size": "8 GiB",
+        "manufacturer": "Corsair",
+        "speed": "2133 MT/s",
+        "type": "DDR4",
+        "detail": "synchronous unbuffered (unregistered)"
+      };
+
+      var memoryCapacity = MemoryCapacity.fromMap(memoryCapacitySummaryMap);
+      expect(memoryCapacity.total, '94.25 GiB');
+      expect(memoryCapacity.used, '22.97 GiB (24.4%)');
+      expect(memoryCapacity.ram, '');
     });
   });
 }
