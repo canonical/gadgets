@@ -162,6 +162,12 @@ void main() {
       expect(memorySummary.slots.length, 8);
       expect(
           memorySummary.capacity.ram, memorySummaryFromReportMap.capacity.ram);
+      expect(memorySummary.capacity.total,
+          memorySummaryFromReportMap.capacity.total);
+      expect(memorySummary.slotSummary.capacity,
+          memorySummaryFromReportMap.slotSummary.capacity);
+      expect(memorySummary.slotSummary.errorCorrection,
+          memorySummaryFromReportMap.slotSummary.errorCorrection);
     });
   });
 }
