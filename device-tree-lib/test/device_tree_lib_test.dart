@@ -158,7 +158,7 @@ void main() {
           MemorySummary.fromMaps(capacity, slotSummary, slots);
 
       final memorySummaryFromReportMap = MemorySummary.fromReport(parsedReport);
-      // TODO: Do proper assertions for this.
+      // TODO: Do proper assertions for this (equality by JSON roundtrip?)
       expect(memorySummary.slots.length, 8);
       expect(
           memorySummary.capacity.ram, memorySummaryFromReportMap.capacity.ram);
