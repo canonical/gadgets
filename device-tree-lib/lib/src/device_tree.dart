@@ -1,7 +1,5 @@
 import 'dart:core';
 import 'package:device_tree_lib/all.dart';
-import 'package:device_tree_lib/src/info.dart';
-import 'package:device_tree_lib/src/usb.dart';
 
 class ReportNotFoundError implements Exception {}
 

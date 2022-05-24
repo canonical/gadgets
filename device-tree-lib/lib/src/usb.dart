@@ -1,5 +1,3 @@
-import 'package:device_tree_lib/src/device_tree.dart';
-
 class USBInxiKey {
   static final String revision = "rev";
   static final String speed = "speed";

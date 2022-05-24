@@ -4,7 +4,11 @@ import 'package:test/test.dart';
 import 'dart:convert';
 import 'dart:io';
 
+File report = File('./test/fixture/inxi-athena.json');
+late final Map<String, dynamic> parsedReport;
 void main() {
+  setUpAll(
+      (() async => parsedReport = json.decode(await report.readAsString())));
   group('Device tree parser tests', () {
     final reporter =
         DeviceTreeParser.fromInxiReport("./test/fixture/inxi-athena.json");
@@ -145,9 +149,6 @@ void main() {
     });
 
     test('Memory info from an inxi map', () async {
-      File report = File('./test/fixture/inxi-athena.json');
-      Map<String, dynamic> parsedReport =
-          json.decode(await report.readAsString());
       Iterable<Map<String, dynamic>> memoryInfo =
           List<Map<String, dynamic>>.from(parsedReport['Memory']);
       Map<String, dynamic> capacity = memoryInfo.elementAt(0);
@@ -168,6 +169,17 @@ void main() {
           memorySummaryFromReportMap.slotSummary.capacity);
       expect(memorySummary.slotSummary.errorCorrection,
           memorySummaryFromReportMap.slotSummary.errorCorrection);
+    });
+
+    test('Bluetooth info from an inxi map', () async {
+      final bluetoothSummary = BluetoothSummary.fromReport(parsedReport);
+      expect(bluetoothSummary.chip.chipID, '8087:0aa7');
+      expect(bluetoothSummary.chip.busID, '1-9:4');
+      expect(bluetoothSummary.chip.driver, 'btusb');
+      expect(bluetoothSummary.chip.version, '0.8');
+      expect(bluetoothSummary.chip.device, 'Intel Wireless-AC 3168 Bluetooth');
+      expect(bluetoothSummary.chip.type, 'USB');
+      expect(bluetoothSummary.chip.classID, 'e001');
     });
   });
 }
