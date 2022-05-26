@@ -11,7 +11,7 @@ class USBInxiKey {
   static final String driver = "driver";
   static final String interfaces = "interfaces";
   static final String power = "power";
-  static final String device = "Device";
+  static final String name = "Device";
 }
 
 class USBDevice {
@@ -28,7 +28,7 @@ class USBDevice {
   final String? driver;
   final String? interfaces;
   final String? power;
-  final String? device;
+  final String? name;
 
   const USBDevice(
       this.revision,
@@ -43,7 +43,7 @@ class USBDevice {
       this.driver,
       this.interfaces,
       this.power,
-      this.device);
+      this.name);
 
   factory USBDevice.fromMap(Map<String, dynamic> map) {
     var revision = map[USBInxiKey.revision] as String;
@@ -66,9 +66,9 @@ class USBDevice {
     var driver = map[USBInxiKey.driver] as String?;
     var interfaces = map[USBInxiKey.interfaces] as String?;
     var power = map[USBInxiKey.power] as String?;
-    var device = map[USBInxiKey.device] as String?;
+    var name = map[USBInxiKey.name] as String?;
 
     return USBDevice(revision, speed, chipID, hub, info, ports, classID, type,
-        serial, driver, interfaces, power, device);
+        serial, driver, interfaces, power, name);
   }
 }

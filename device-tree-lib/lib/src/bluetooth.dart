@@ -3,29 +3,29 @@ import 'dart:core';
 import 'package:device_tree_lib/src/device_tree.dart';
 
 class InxiKeyBluetooth {
-  static final String chipID = 'chip-ID';
-  static final String busID = 'bus-ID';
-  static final String driver = 'driver';
-  static final String version = 'v';
-  static final String device = 'Device';
-  static final String type = 'type';
-  static final String classID = 'class-ID';
+  static const String chipID = 'chip-ID';
+  static const String busID = 'bus-ID';
+  static const String driver = 'driver';
+  static const String version = 'v';
+  static const String device = 'Device';
+  static const String type = 'type';
+  static const String classID = 'class-ID';
 
-  static final String bluetoothService = 'bt-service';
-  static final String state = 'state';
-  static final String address = 'address';
-  static final String rfkID = 'rfk-id';
-  static final String hardware = 'hardware';
-  static final String id = 'ID';
-  static final String rfkBlock = 'rfk-block';
-  static final String software = 'software';
-  static final String report = 'Report';
+  static const String bluetoothService = 'bt-service';
+  static const String state = 'state';
+  static const String address = 'address';
+  static const String rfkID = 'rfk-id';
+  static const String hardware = 'hardware';
+  static const String id = 'ID';
+  static const String rfkBlock = 'rfk-block';
+  static const String software = 'software';
+  static const String report = 'Report';
 
-  static final String linkPolicy = 'link-policy';
-  static final String scoMTU = 'sco-mtu';
-  static final String info = 'Info';
-  static final String linkMode = 'link-mode';
-  static final String aclMTU = 'acl-mtu';
+  static const String linkPolicy = 'link-policy';
+  static const String scoMTU = 'sco-mtu';
+  static const String info = 'Info';
+  static const String linkMode = 'link-mode';
+  static const String aclMTU = 'acl-mtu';
 }
 
 class BluetoothSummary {
