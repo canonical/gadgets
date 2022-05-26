@@ -1,7 +1,9 @@
+import 'package:device_tree_lib/all.dart';
+
 class InxiKeyAudio {
   static const String driver = 'driver';
   static const String classID = 'class-ID';
-  static const String device = 'Device';
+  static const String name = 'Device';
   static const String lanes = 'lanes';
   static const String version = 'v';
   static const String vendor = 'vendor';
@@ -15,23 +17,58 @@ class InxiKeyAudio {
   static const String running = 'running';
 }
 
+class UnexpectedAudioDeviceEntryException implements Exception {}
+
 class AudioSummary {
   final Iterable<AudioServer> servers;
   final Iterable<AudioDevice> devices;
 
   AudioSummary(this.servers, this.devices);
+
+  factory AudioSummary.fromMaps(Iterable<Map<String, dynamic>> maps) {
+    maps.map((map) => 
+        for (var key in map.keys) {
+        if (PCIAudioDevice._expectedKeys.contains(key)) {
+          return PCIAudioDevice.fromMap(map);
+        }
+        else if (USBAudioDevice._expectedKeys.contains(keys)) {
+          return USBAudioDevice.fromMap(map);
+        }
+        else if (AudioServer._expectedKeys.contains(keys)) {
+          return AudioServer.fromMap(map);
+        }
+      }
+    );
+    throw UnexpectedAudioDeviceEntryException();
+  }
 }
 
-class AudioDevice {
-  final String device;
+abstract class AudioDevice {
+  final String name;
   final String driver;
   final String classID;
+
+  AudioDevice(this.name, this.driver, this.classID);
 }
 
 class PCIAudioDevice extends AudioDevice {
   final int lanes;
   final int gen;
   final String pcie;
+
+  PCIAudioDevice(String name, String driver, String classID, this.lanes,
+      this.gen, this.pcie)
+      : super(name, driver, classID);
+
+  factory PCIAudioDevice.fromMap(Map<String, dynamic> map) {
+    return PCIAudioDevice(map[InxiKeyAudio.name], map[InxiKeyAudio.driver], map[InxiKeyAudio.classID], map[InxiKeyAudio.lanes], map[InxiKeyAudio.gen], map[InxiKeyAudio.pcie]);
+  }
+
+  static final Set<String> _expectedKeys = {
+    InxiKeyAudio.lanes,
+    InxiKeyAudio.gen,
+    InxiKeyAudio.pcie
+  };
 }
 
 class USBAudioDevice extends AudioDevice {
@@ -40,6 +77,10 @@ class USBAudioDevice extends AudioDevice {
   final String speed;
   final String busID;
   final String chipID;
+
+  USBAudioDevice(String name, String driver, String classID, this.version,
+      this.vendor, this.speed, this.busID, this.chipID)
+      : super(name, driver, classID);
 }
 
 class AudioServer {
