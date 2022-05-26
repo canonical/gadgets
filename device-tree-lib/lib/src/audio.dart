@@ -12,6 +12,7 @@ class InxiKeyAudio {
   static const String busID = 'bus-ID';
   static const String chipID = 'chip-ID';
   static const String pcie = 'pcie';
+  static const String type = 'type';
 
   static const String audioServerName = 'Audio Server';
   static const String running = 'running';
@@ -21,25 +22,26 @@ class UnexpectedAudioDeviceEntryException implements Exception {}
 
 class AudioSummary {
   final Iterable<AudioServer> servers;
-  final Iterable<AudioDevice> devices;
+  final Iterable<PCIAudioDevice> pciAudioDevices;
+  final Iterable<USBAudioDevice> usbAudioDevices;
 
-  AudioSummary(this.servers, this.devices);
+  AudioSummary(this.servers, this.pciAudioDevices, this.usbAudioDevices);
 
   factory AudioSummary.fromMaps(Iterable<Map<String, dynamic>> maps) {
-    maps.map((map) => 
-        for (var key in map.keys) {
-        if (PCIAudioDevice._expectedKeys.contains(key)) {
-          return PCIAudioDevice.fromMap(map);
-        }
-        else if (USBAudioDevice._expectedKeys.contains(keys)) {
-          return USBAudioDevice.fromMap(map);
-        }
-        else if (AudioServer._expectedKeys.contains(keys)) {
-          return AudioServer.fromMap(map);
-        }
+    List<AudioServer> audioServers = [];
+    List<PCIAudioDevice> pciDevices = [];
+    List<USBAudioDevice> usbDevices = [];
+
+    for (var map in maps) {
+      if (PCIAudioDevice.representsPCIAudioDevice(map)) {
+        pciDevices.add(PCIAudioDevice.fromMap(map));
+      } else if (USBAudioDevice.representsUSBAudioDevice(map)) {
+        usbDevices.add(USBAudioDevice.fromMap(map));
+      } else if (AudioServer.representsAudioServer(map)) {
+        audioServers.add(AudioServer.fromMap(map));
       }
-    );
-    throw UnexpectedAudioDeviceEntryException();
+    }
+    return AudioSummary(audioServers, pciDevices, usbDevices);
   }
 }
 
@@ -61,7 +63,17 @@ class PCIAudioDevice extends AudioDevice {
       : super(name, driver, classID);
 
   factory PCIAudioDevice.fromMap(Map<String, dynamic> map) {
-    return PCIAudioDevice(map[InxiKeyAudio.name], map[InxiKeyAudio.driver], map[InxiKeyAudio.classID], map[InxiKeyAudio.lanes], map[InxiKeyAudio.gen], map[InxiKeyAudio.pcie]);
+    return PCIAudioDevice(
+        map[InxiKeyAudio.name],
+        map[InxiKeyAudio.driver],
+        map[InxiKeyAudio.classID],
+        map[InxiKeyAudio.lanes],
+        map[InxiKeyAudio.gen],
+        map[InxiKeyAudio.pcie]);
+  }
+
+  static bool representsPCIAudioDevice(Map<String, dynamic> map) {
+    return map.keys.any((k) => PCIAudioDevice._expectedKeys.contains(k));
   }
 
   static final Set<String> _expectedKeys = {
@@ -81,6 +93,22 @@ class USBAudioDevice extends AudioDevice {
   USBAudioDevice(String name, String driver, String classID, this.version,
       this.vendor, this.speed, this.busID, this.chipID)
       : super(name, driver, classID);
+
+  factory USBAudioDevice.fromMap(Map<String, dynamic> map) {
+    return USBAudioDevice(
+        map[InxiKeyAudio.name],
+        map[InxiKeyAudio.driver],
+        map[InxiKeyAudio.classID],
+        map[InxiKeyAudio.version],
+        map[InxiKeyAudio.vendor],
+        map[InxiKeyAudio.speed],
+        map[InxiKeyAudio.busID],
+        map[InxiKeyAudio.chipID]);
+  }
+
+  static bool representsUSBAudioDevice(Map<String, dynamic> map) {
+    return map[InxiKeyAudio.type] == 'USB';
+  }
 }
 
 class AudioServer {
@@ -93,6 +121,10 @@ class AudioServer {
   factory AudioServer.fromMap(Map<String, dynamic> map) {
     return AudioServer(map[InxiKeyAudio.audioServerName]!,
         map[InxiKeyAudio.running]!, map[InxiKeyAudio.version]!);
+  }
+
+  static bool representsAudioServer(Map<String, dynamic> map) {
+    return map[InxiKeyAudio.audioServerName] != null;
   }
 }
 
