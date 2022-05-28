@@ -1,7 +1,5 @@
 import 'dart:core';
 
-import 'package:device_tree_lib/src/device_tree.dart';
-
 class InxiKeyBluetooth {
   static const String chipID = 'chip-ID';
   static const String busID = 'bus-ID';

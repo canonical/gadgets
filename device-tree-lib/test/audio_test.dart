@@ -68,10 +68,14 @@ void main() {
     test('Parse audio summary from an Inxi report-like map', () {
       final summary = AudioSummary.fromReport(audioMap);
       expect(summary.pciAudioDevices.length, 2);
+      expect(summary.usbAudioDevices.length, 2);
+      expect(summary.servers.length, 2);
     });
 
     test('Parse audio summary from an Inxi report file', () {
       final audioSummary = AudioSummary.fromReport(parsedReport);
+      expect(audioSummary.pciAudioDevices.length, 2);
+      expect(audioSummary.usbAudioDevices.length, 2);
     });
   });
 }

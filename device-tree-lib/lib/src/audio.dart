@@ -1,5 +1,3 @@
-import 'package:device_tree_lib/all.dart';
-
 class InxiKeyAudio {
   static const String driver = 'driver';
   static const String classID = 'class-ID';
