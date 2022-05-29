@@ -1,3 +1,9 @@
+import 'package:test/test.dart';
+
+void main() {
+  group('', () {});
+}
+
 const networkMap = {
   "Network": [
     {

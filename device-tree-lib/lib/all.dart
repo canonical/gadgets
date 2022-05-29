@@ -9,3 +9,4 @@ export 'src/device_tree_parser.dart';
 export 'src/usb.dart';
 export 'src/bluetooth.dart';
 export 'src/audio.dart';
+export 'src/system.dart';
