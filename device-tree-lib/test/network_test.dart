@@ -1,7 +1,9 @@
 import 'package:test/test.dart';
 
 void main() {
-  group('', () {});
+  group('Test network interface gathering', () {
+    test('Test parsing from Inxi report', () {});
+  });
 }
 
 const networkMap = {
