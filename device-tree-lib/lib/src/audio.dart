@@ -12,7 +12,7 @@ class InxiKeyAudio {
   static const String pcie = 'pcie';
   static const String type = 'type';
 
-  static const String audioServerName = 'Audio Server';
+  static const String audioServerName = 'Sound Server';
   static const String running = 'running';
 }
 
@@ -123,7 +123,7 @@ class AudioServer {
 
   factory AudioServer.fromMap(Map<String, dynamic> map) {
     return AudioServer(map[InxiKeyAudio.audioServerName]!,
-        map[InxiKeyAudio.running]!, map[InxiKeyAudio.version]!);
+        map[InxiKeyAudio.running]! == "yes", map[InxiKeyAudio.version]!);
   }
 
   static bool representsAudioServer(Map<String, dynamic> map) {

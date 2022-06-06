@@ -68,14 +68,29 @@ void main() {
     test('Parse audio summary from an Inxi report-like map', () {
       final summary = AudioSummary.fromReport(audioMap);
       expect(summary.pciAudioDevices.length, 2);
+      expect(summary.pciAudioDevices.first.gen, 3);
+      expect(summary.pciAudioDevices.first.lanes, 16);
+      expect(summary.pciAudioDevices.first.pcie, "");
+      expect(summary.pciAudioDevices.first.classID, "0403");
+      expect(summary.pciAudioDevices.first.driver, "snd_hda_intel");
+      expect(summary.pciAudioDevices.first.name, "AMD Family 17h HD Audio");
+
       expect(summary.usbAudioDevices.length, 2);
-      expect(summary.servers.length, 2);
+      expect(summary.usbAudioDevices.first.busID, '1-2:2');
+      expect(summary.usbAudioDevices.first.chipID, '046d:0893');
+      expect(summary.usbAudioDevices.first.speed, null);
+      expect(summary.usbAudioDevices.first.vendor, null);
+      expect(summary.usbAudioDevices.first.version, null);
+      expect(summary.usbAudioDevices.first.classID, "0300");
+
+      expect(summary.servers.length, 3);
     });
 
     test('Parse audio summary from an Inxi report file', () {
       final audioSummary = AudioSummary.fromReport(parsedReport);
       expect(audioSummary.pciAudioDevices.length, 2);
       expect(audioSummary.usbAudioDevices.length, 2);
+      expect(audioSummary.servers.length, 3);
     });
   });
 }
