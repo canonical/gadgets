@@ -10,3 +10,4 @@ export 'src/usb.dart';
 export 'src/bluetooth.dart';
 export 'src/audio.dart';
 export 'src/system.dart';
+export 'src/partition.dart';

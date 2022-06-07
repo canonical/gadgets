@@ -39,9 +39,20 @@ class NetworkDevice {
 
   final NetworkInterface interface;
 
-  NetworkDevice()
+  NetworkDevice(
+      this.busID,
+      this.version,
+      this.lanes,
+      this.device,
+      this.vendor,
+      this.classID,
+      this.gen,
+      this.pcie,
+      this.driver,
+      this.chipID,
+      this.port,
+      this.speed,
+      this.interface);
 }
 
-class NetworkInterface {
-
-}
+class NetworkInterface {}
