@@ -1,3 +1,5 @@
+import 'dart:core';
+
 class _InxiKeyGraphics {
   static const String linkMax = 'link-max';
   static const String alternativeDrivers = 'alternate';
@@ -24,7 +26,7 @@ class _InxiKeyGraphics {
   static const String gpu = 'gpu';
   static const String x = 'X';
   static const String server = 'server';
-  static const String display = 'display';
+  static const String display = 'Display';
   static const String unloaded = 'unloaded';
   static const String displayID = 'display-ID';
   static const String compositor = 'compositor';
@@ -47,14 +49,43 @@ class _InxiKeyGraphics {
 class GraphicsSummary {
   // choosing not to call these 'GPU's since could also be video capture etc.
   final DisplayServer displayServer;
+  final DisplayRenderer renderer;
   final Iterable<PCIGraphicsDevice> pciGraphicsDevices;
   final Iterable<USBGraphicsDevice> usbGraphicsDevices;
   final Iterable<Screen> screens;
   final Iterable<Display> displays;
-  final Iterable<DisplayRenderer> renderers;
 
   GraphicsSummary(this.pciGraphicsDevices, this.usbGraphicsDevices,
-      this.displayServer, this.screens, this.displays, this.renderers);
+      this.displayServer, this.screens, this.displays, this.renderer);
+
+  factory GraphicsSummary.fromReport(
+      Map<String, List<Map<String, dynamic>>> reportMap) {
+    final entries = reportMap['Graphics']!;
+
+    final pciDevices = entries
+        .where(
+            (element) => PCIGraphicsDevice.representsPCIGraphicsDevice(element))
+        .map((element) => PCIGraphicsDevice.fromMap(element));
+    final usbDevices = entries
+        .where(
+            (element) => USBGraphicsDevice.representsUSBGraphicsDevice(element))
+        .map((element) => USBGraphicsDevice.fromMap(element));
+
+    final displayServer = DisplayServer.fromMap(entries.firstWhere(
+        (element) => DisplayServer.representsDisplayServer(element))!);
+    final renderer = DisplayRenderer.fromMap(entries.firstWhere(
+        (element) => DisplayRenderer.representsDisplayRenderer(element))!);
+
+    final screens = entries
+        .where((element) => Screen.representsScreen(element))
+        .map((element) => Screen.fromMap(element));
+    final displays = entries
+        .where((element) => Display.representsDisplay(element))
+        .map((element) => Display.fromMap(element));
+
+    return GraphicsSummary(
+        pciDevices, usbDevices, displayServer, screens, displays, renderer);
+  }
 }
 
 class PCIGraphicsDevice {
@@ -115,6 +146,10 @@ class PCIGraphicsDevice {
         map[_InxiKeyGraphics.chipID]!,
         map[_InxiKeyGraphics.ports]!);
   }
+
+  static bool representsPCIGraphicsDevice(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.lanes] != null;
+  }
 }
 
 class USBGraphicsDevice {
@@ -139,6 +174,10 @@ class USBGraphicsDevice {
         map[_InxiKeyGraphics.classID]!,
         map[_InxiKeyGraphics.type]!);
   }
+
+  static bool representsUSBGraphicsDevice(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.classID];
+  }
 }
 
 class DisplayServer {
@@ -149,7 +188,6 @@ class DisplayServer {
   final String gpu;
   final String X;
   final String server;
-  final String name;
   final String display;
   final String unloaded;
   final String displayID;
@@ -163,7 +201,6 @@ class DisplayServer {
       this.gpu,
       this.X,
       this.server,
-      this.name,
       this.display,
       this.unloaded,
       this.displayID,
@@ -178,17 +215,20 @@ class DisplayServer {
         map[_InxiKeyGraphics.gpu]!,
         map[_InxiKeyGraphics.x]!,
         map[_InxiKeyGraphics.server]!,
-        map[_InxiKeyGraphics.name]!,
         map[_InxiKeyGraphics.display]!,
         map[_InxiKeyGraphics.unloaded]!,
         map[_InxiKeyGraphics.displayID]!,
         map[_InxiKeyGraphics.compositor]!);
   }
+
+  static bool representsDisplayServer(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.compositor] != null;
+  }
 }
 
 class Screen {
   final double dpi;
-  final String screen;
+  final int screen;
   final String resolution;
   final String diagonal;
   final String size;
@@ -202,6 +242,10 @@ class Screen {
         map[_InxiKeyGraphics.resolution]!,
         map[_InxiKeyGraphics.diagonal]!,
         map[_InxiKeyGraphics.size]!);
+  }
+
+  static bool representsScreen(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.screen];
   }
 }
 
@@ -225,6 +269,10 @@ class Display {
         map[_InxiKeyGraphics.hz]!,
         map[_InxiKeyGraphics.diag]!);
   }
+
+  static bool representsDisplay(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.monitor];
+  }
 }
 
 class DisplayRenderer {
@@ -241,5 +289,9 @@ class DisplayRenderer {
         map[_InxiKeyGraphics.renderer]!,
         map[_InxiKeyGraphics.version]!,
         map[_InxiKeyGraphics.openGL]!);
+  }
+
+  static bool representsDisplayRenderer(Map<String, dynamic> map) {
+    return map[_InxiKeyGraphics.renderer] != null;
   }
 }

@@ -1,7 +1,15 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Test parsing graphics information out', () {});
+  group('Test parsing graphics information out', () {
+    test('Test parsing from Inxi report', () {
+      final summary = GraphicsSummary.fromReport(reportMap);
+
+      // TODO: Write up assertions.
+      expect(summary.renderer.directRender, true);
+    });
+  });
 }
 
 const reportMap = {
