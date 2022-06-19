@@ -6,7 +6,7 @@ void main(List<String> argv) {
   ArgResults parsed = parser.parse(argv);
 
   if (parsed.command!.name == "report") {
-    for (var path in parsed.rest) {
+    for (final path in parsed.rest) {
       var deviceTree = DeviceTreeParser.fromInxiReport(path);
       deviceTree.parse();
     }

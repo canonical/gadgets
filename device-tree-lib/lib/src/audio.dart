@@ -30,7 +30,7 @@ class AudioSummary {
     List<PCIAudioDevice> pciDevices = [];
     List<USBAudioDevice> usbDevices = [];
 
-    for (var map in maps) {
+    for (final map in maps) {
       if (PCIAudioDevice.representsPCIAudioDevice(map)) {
         pciDevices.add(PCIAudioDevice.fromMap(map));
       } else if (USBAudioDevice.representsUSBAudioDevice(map)) {
