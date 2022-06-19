@@ -1,0 +1,657 @@
+{
+  "Network": [
+    {
+      "v": "kernel",
+      "driver": "virtio_mmio",
+      "bus-ID": "N/A",
+      "chip-ID": "virtio:21c0000",
+      "class-ID": "ethernet",
+      "port": "N/A",
+      "Device": "mmio"
+    },
+    {
+      "mac": "00:1c:42:05:3e:ce",
+      "state": "up",
+      "duplex": "unknown",
+      "IF": "eth0",
+      "speed": "-1"
+    },
+    {
+      "scope": "global",
+      "IP v4": "10.211.55.3/24",
+      "type": "dynamic noprefixroute",
+      "broadcast": "10.211.55.255"
+    },
+    {
+      "type": "temporary dynamic",
+      "scope": "global",
+      "IP v6": "fdb2:2c26:f4e4:0:e214:1fa6:e586:4ac3/64"
+    },
+    {
+      "type": "dynamic mngtmpaddr noprefixroute",
+      "scope": "global",
+      "IP v6": "fdb2:2c26:f4e4:0:df0a:6d84:a6e2:955b/64"
+    },
+    {
+      "type": "noprefixroute",
+      "scope": "link",
+      "IP v6": "fe80::770c:ab48:d35d:c21a/64"
+    },
+    {
+      "mac": "02:42:2c:b9:79:5d",
+      "IF-ID": "docker0",
+      "state": "down"
+    },
+    {
+      "IP v4": "172.17.0.1/16",
+      "broadcast": "172.17.255.255",
+      "scope": "global"
+    },
+    {
+      "mac": "52:54:00:e9:17:53",
+      "state": "down",
+      "IF-ID": "virbr0"
+    },
+    {
+      "scope": "global",
+      "broadcast": "192.168.122.255",
+      "IP v4": "192.168.122.1/24"
+    },
+    {
+      "WAN IP": "195.165.136.70"
+    }
+  ],
+  "Graphics": [
+    {
+      "Device": "Red Hat Virtio GPU",
+      "driver": "virtio-pci",
+      "v": "1",
+      "vendor": "Parallels",
+      "bus-ID": "00:0a.0",
+      "chip-ID": "1af4:1050",
+      "class-ID": "0300"
+    },
+    {
+      "type": "USB",
+      "chip-ID": "203a:fff9",
+      "serial": "47B4B64B70674B9CAD2BAE273A71F4B5",
+      "driver": "uvcvideo",
+      "Device": "PARALLELS FaceTime HD Camera",
+      "bus-ID": "3-3:4",
+      "class-ID": "0e02"
+    },
+    {
+      "screens": "1",
+      "gpu": "virtio_gpu",
+      "Display": "",
+      "display-ID": ":0",
+      "loaded": "modesetting",
+      "v": "1.22.1.1",
+      "server": "X.Org",
+      "compositor": "gnome-shell",
+      "driver": "",
+      "X": "",
+      "unloaded": "fbdev"
+    },
+    {
+      "s-diag": "1078mm (42.4\")",
+      "s-res": "3456x2160",
+      "Screen": "0",
+      "s-dpi": "96",
+      "s-size": "914x571mm (36.0x22.5\")"
+    },
+    {
+      "hz": "60",
+      "mapped": "Virtual-1",
+      "min": "640x480",
+      "size": "N/A",
+      "Monitor": "XWAYLAND0",
+      "res": "3456x2160",
+      "modes": "",
+      "max": "3456x2160"
+    },
+    {
+      "compat-v": "3.1",
+      "v": "4.0 Mesa 22.0.1",
+      "OpenGL": "",
+      "direct render": "Yes",
+      "renderer": "virgl"
+    }
+  ],
+  "RAID": [
+    {
+      "Message": "No RAID data found."
+    }
+  ],
+  "Bluetooth": [
+    {
+      "Message": "No bluetooth data found."
+    }
+  ],
+  "USB": [
+    {
+      "class-ID": "0900",
+      "chip-ID": "1d6b:0002",
+      "speed": "480 Mb/s",
+      "ports": "15",
+      "info": "Full speed or root hub",
+      "Hub": "1-0:1",
+      "rev": "2.0"
+    },
+    {
+      "Device": "1-1:2",
+      "driver": "usblp",
+      "interfaces": "1",
+      "type": "Printer",
+      "speed": "480 Mb/s",
+      "chip-ID": "203a:fffa",
+      "info": "PARALLELS Virtual Printer (Print to PDF (Mac Desktop))",
+      "rev": "2.0",
+      "serial": "TAG11d87aca0",
+      "class-ID": "0701"
+    },
+    {
+      "info": "Hi-speed hub with single TT",
+      "ports": "2",
+      "rev": "2.0",
+      "Hub": "2-0:1",
+      "class-ID": "0900",
+      "chip-ID": "1d6b:0002",
+      "speed": "480 Mb/s"
+    },
+    {
+      "chip-ID": "1d6b:0003",
+      "class-ID": "0900",
+      "speed": "10 Gb/s",
+      "rev": "3.1",
+      "Hub": "3-0:1",
+      "info": "Super-speed hub",
+      "ports": "12"
+    },
+    {
+      "class-ID": "0300",
+      "rev": "3.0",
+      "serial": "PW3.0",
+      "chip-ID": "203a:fffc",
+      "info": "PARALLELS Virtual Mouse",
+      "speed": "5 Gb/s",
+      "type": "Mouse",
+      "interfaces": "2",
+      "driver": "hid-generic,usbhid",
+      "Device": "3-1:2"
+    },
+    {
+      "chip-ID": "203a:fffb",
+      "info": "PARALLELS Virtual Keyboard",
+      "speed": "5 Gb/s",
+      "class-ID": "0301",
+      "rev": "3.0",
+      "serial": "PW3.0",
+      "type": "Keyboard",
+      "interfaces": "1",
+      "driver": "hid-generic,usbhid",
+      "Device": "3-2:3"
+    },
+    {
+      "interfaces": "2",
+      "driver": "uvcvideo",
+      "Device": "3-3:4",
+      "info": "PARALLELS FaceTime HD Camera",
+      "chip-ID": "203a:fff9",
+      "speed": "5 Gb/s",
+      "class-ID": "0e02",
+      "serial": "47B4B64B70674B9CAD2BAE273A71F4B5",
+      "rev": "3.1",
+      "type": "Video"
+    }
+  ],
+  "CPU": [
+    {
+      "model": "N/A",
+      "variant": "armv8",
+      "model-id": "0",
+      "family": "8",
+      "Info": "",
+      "type": "MCP",
+      "bits": 64,
+      "arch": "ARMv8",
+      "stepping": "0"
+    },
+    {
+      "cache": "N/A",
+      "cores": 2,
+      "smt": "<unsupported>",
+      "cpus": "1",
+      "Topology": ""
+    },
+    {
+      "cores": "No per core speed data found.",
+      "bogomips": "N/A",
+      "min/max": "N/A",
+      "base/boost": "2000/2000",
+      "Speed": "N/A"
+    },
+    {
+      "Features": "aes asimd asimddp asimdfhm asimdhp asimdrdm atomics cpuid crc32 dcpodp dcpop dit evtstrm fcma flagm flagm2 fp fphp frint ilrcpc jscvt lrcpc paca pacg pmull sb sha1 sha2 sha3 sha512 ssbs uscat"
+    },
+    {
+      "Vulnerabilities": ""
+    },
+    {
+      "Type": "itlb_multihit",
+      "status": "Not affected"
+    },
+    {
+      "status": "Not affected",
+      "Type": "l1tf"
+    },
+    {
+      "Type": "mds",
+      "status": "Not affected"
+    },
+    {
+      "status": "Not affected",
+      "Type": "meltdown"
+    },
+    {
+      "status": "Not affected",
+      "Type": "mmio_stale_data"
+    },
+    {
+      "Type": "spec_store_bypass",
+      "mitigation": "Speculative Store Bypass disabled via prctl"
+    },
+    {
+      "Type": "spectre_v1",
+      "mitigation": "__user pointer sanitization"
+    },
+    {
+      "status": "Not affected",
+      "Type": "spectre_v2"
+    },
+    {
+      "Type": "srbds",
+      "status": "Not affected"
+    },
+    {
+      "status": "Not affected",
+      "Type": "tsx_async_abort"
+    }
+  ],
+  "Swap": [
+    {
+      "cache-pressure": "100 (default)",
+      "Kernel": "",
+      "swappiness": "60 (default)"
+    },
+    {
+      "size": "2 GiB",
+      "file": "/swap.img",
+      "type": "file",
+      "ID": "swap-1",
+      "used": "1.49 GiB (74.3%)",
+      "priority": "-2"
+    }
+  ],
+  "Info": [
+    {
+      "Init": "systemd",
+      "runlevel": "5",
+      "v": "249",
+      "running-in": "run-inxi",
+      "tool": "systemctl",
+      "Compilers": "",
+      "Processes": 253,
+      "inxi": "3.3.13",
+      "alt": "11/9",
+      "default": "Bash",
+      "gcc": "11.2.0",
+      "Shell": "Sudo (sudo)",
+      "Uptime": "9h 48m",
+      "clang": "14.0.0-1ubuntu1"
+    }
+  ],
+  "Partition": [
+    {
+      "dev": "/dev/sda2",
+      "fs": "ext4",
+      "block-size": "4096 B",
+      "raw-size": "63.5 GiB",
+      "ID": "/",
+      "uuid": "732910d6-ddae-4a95-ab9e-9f5c9edc555a",
+      "label": "N/A",
+      "maj-min": "8:2",
+      "size": "62.25 GiB (98.04%)",
+      "used": "24.69 GiB (39.7%)"
+    },
+    {
+      "size": "511 MiB (99.80%)",
+      "used": "3.5 MiB (0.7%)",
+      "maj-min": "8:1",
+      "uuid": "6498-78BB",
+      "label": "N/A",
+      "ID": "/boot/efi",
+      "raw-size": "512 MiB",
+      "block-size": "512 B",
+      "fs": "vfat",
+      "dev": "/dev/sda1"
+    },
+    {
+      "ID": "/media/psf/Home",
+      "raw-size": "N/A",
+      "fs": "prl_fs",
+      "used": "160.49 GiB (8.6%)",
+      "size": "1.81 TiB",
+      "source": "ERR-102"
+    },
+    {
+      "size": "1.81 TiB",
+      "used": "160.49 GiB (8.6%)",
+      "source": "ERR-102",
+      "ID": "/media/psf/iCloud",
+      "raw-size": "N/A",
+      "fs": "prl_fs"
+    }
+  ],
+  "Sensors": [
+    {
+      "Message": "No sensor data found. Is lm-sensors configured?"
+    }
+  ],
+  "System": [
+    {
+      "v": "11.2.0",
+      "parameters": "BOOT_IMAGE=/boot/vmlinuz-5.15.0-39-generic root=UUID=732910d6-ddae-4a95-ab9e-9f5c9edc555a ro",
+      "bits": 64,
+      "compiler": "gcc",
+      "Kernel": "5.15.0-39-generic aarch64",
+      "Host": "theia"
+    },
+    {
+      "Console": "pty pts/2",
+      "DM": "GDM3 42.0",
+      "Distro": "Ubuntu 22.04 LTS (Jammy Jellyfish)",
+      "wm": "gnome-shell"
+    }
+  ],
+  "Unmounted": [
+    {
+      "Message": "No unmounted partitions found."
+    }
+  ],
+  "Memory": [
+    {
+      "used": "3.09 GiB (80.9%)",
+      "total": "3.82 GiB",
+      "RAM": ""
+    },
+    {
+      "slots": 1,
+      "note": "est.",
+      "EC": "None",
+      "Array": "",
+      "max-module-size": "4 GiB",
+      "capacity": "4 GiB"
+    },
+    {
+      "size": "4 GiB",
+      "detail": "edo",
+      "serial": "N/A",
+      "speed": "N/A",
+      "manufacturer": "N/A",
+      "bus-width": "32 bits",
+      "part-no": "N/A",
+      "type": "DRAM",
+      "total": "32 bits",
+      "Device": "<BAD INDEX>"
+    }
+  ],
+  "Repos": [
+    {
+      "lib": 1160,
+      "Packages": 2277,
+      "snap": 14,
+      "flatpak": 6,
+      "apt": 2257
+    },
+    {
+      "Active apt repos in": "/etc/apt/sources.list"
+    },
+    [
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-updates main restricted",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy universe",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-updates universe",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy multiverse",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-updates multiverse",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-backports main restricted universe multiverse",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security universe",
+      "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security multiverse"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/archive_canonical_com_ubuntu.list"
+    },
+    [
+      "deb http://archive.canonical.com/ubuntu jammy partner"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/deb_nodesource_com_node_14_x.list"
+    },
+    [
+      "deb [signed-by=/usr/share/keyrings/nodesource.asc] https://deb.nodesource.com/node_14.x impish main"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/deb_nodesource_com_node_16_x.list"
+    },
+    [
+      "deb [signed-by=/usr/share/keyrings/nodesource.asc] https://deb.nodesource.com/node_16.x jammy main"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/download_docker_com_linux_ubuntu.list"
+    },
+    [
+      "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.asc] https://download.docker.com/linux/ubuntu jammy stable"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/github-cli.list"
+    },
+    [
+      "deb [arch=arm64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/packages_microsoft_com_repos_edge.list"
+    },
+    [
+      "deb [arch=arm64 signed-by=/usr/share/keyrings/microsoft.asc] https://packages.microsoft.com/repos/edge/ stable main"
+    ],
+    {
+      "Active apt repos in": "/etc/apt/sources.list.d/vscode.list"
+    },
+    [
+      "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
+    ]
+  ],
+  "Logical": [
+    {
+      "Message": "No logical block device data found."
+    }
+  ],
+  "Drives": [
+    {
+      "total": "64 GiB",
+      "used": "185.18 GiB (289.3%)",
+      "Local Storage": ""
+    },
+    {
+      "SMART Message": "Required tool smartctl not installed. Check --recommends"
+    },
+    {
+      "type": "SSD",
+      "model": "ubuntu-linux-20.04-desktop-0 SSD",
+      "size": "64 GiB",
+      "maj-min": "8:0",
+      "block-size": "",
+      "physical": "4096 B",
+      "serial": "13EWFVC4RQC4DEGS47J6",
+      "ID": "/dev/sda",
+      "scheme": "GPT",
+      "rev": "J9WM",
+      "speed": "1.5 Gb/s",
+      "logical": "512 B"
+    },
+    {
+      "Optical": "/dev/sr0",
+      "rev": "R103",
+      "model": "Virtual DVD-ROM",
+      "dev-links": "cdrom",
+      "vendor": "N/A"
+    },
+    {
+      "state": "running",
+      "Features": "",
+      "dvd": "yes",
+      "multisession": "yes",
+      "speed": "44",
+      "audio": "yes",
+      "rw": "none"
+    }
+  ],
+  "Processes": [
+    {
+      "CPU top": "5 of 253"
+    },
+    {
+      "cpu": "96.7%",
+      "pid": "150881",
+      "command": "gnome-keyring-daemon",
+      "1": "",
+      "mem": "6.84 MiB (0.1%)"
+    },
+    {
+      "2": "",
+      "pid": "143304",
+      "cpu": "8.9%",
+      "command": "code",
+      "mem": "228.7 MiB (5.8%)"
+    },
+    {
+      "command": "code",
+      "cpu": "3.3%",
+      "pid": "143277",
+      "3": "",
+      "mem": "54.9 MiB (1.4%)"
+    },
+    {
+      "mem": "209.5 MiB (5.3%)",
+      "4": "",
+      "pid": "2071",
+      "cpu": "2.9%",
+      "command": "gnome-shell"
+    },
+    {
+      "cpu": "2.3%",
+      "pid": "150965",
+      "command": "firefox",
+      "5": "",
+      "mem": "446.7 MiB (11.4%)"
+    },
+    {
+      "Memory top": "5 of 253"
+    },
+    {
+      "mem": "446.7 MiB (11.4%)",
+      "1": "",
+      "cpu": "2.3%",
+      "command": "firefox",
+      "pid": "150965"
+    },
+    {
+      "mem": "348.3 MiB (8.9%)",
+      "pid": "143453",
+      "cpu": "2.1%",
+      "command": "dart",
+      "2": ""
+    },
+    {
+      "command": "code",
+      "cpu": "8.9%",
+      "3": "",
+      "pid": "143304",
+      "mem": "228.7 MiB (5.8%)"
+    },
+    {
+      "mem": "209.5 MiB (5.3%)",
+      "4": "",
+      "cpu": "2.9%",
+      "command": "gnome-shell",
+      "pid": "2071"
+    },
+    {
+      "5": "",
+      "mem": "154.1 MiB (3.9%)",
+      "pid": "2413",
+      "cpu": "1.0%",
+      "command": "xwayland"
+    }
+  ],
+  "PCI Slots": [
+    {
+      "Message": "No ARM data found for this feature."
+    }
+  ],
+  "Audio": [
+    {
+      "Device": "Intel 82801I HD Audio",
+      "v": "kernel",
+      "driver": "snd_hda_intel",
+      "pcie": "",
+      "lanes": "1",
+      "vendor": "Parallels",
+      "bus-ID": "00:01.0",
+      "chip-ID": "8086:293e",
+      "speed": "2.5 GT/s",
+      "gen": 1,
+      "class-ID": "0403"
+    },
+    {
+      "v": "k5.15.0-39-generic",
+      "Sound Server": "ALSA",
+      "running": "yes"
+    },
+    {
+      "v": "15.99.1",
+      "running": "yes",
+      "Sound Server": "PulseAudio"
+    },
+    {
+      "v": "0.3.48",
+      "running": "yes",
+      "Sound Server": "PipeWire"
+    }
+  ],
+  "Machine": [
+    {
+      "product": "Parallels ARM Virtual Machine",
+      "System": "Parallels GmbH.",
+      "type": 2,
+      "Type": "Unknown",
+      "v": "0.1",
+      "serial": "N/A",
+      "Chassis": ""
+    },
+    {
+      "Mobo": "Parallels ARM Virtual Machine",
+      "UEFI": "Parallels GmbH.",
+      "date": "Mon, 30 May 2022 20:20:31",
+      "model": "Parallels ARM Virtual Platform",
+      "v": "0.1",
+      "serial": "N/A"
+    }
+  ],
+  "Battery": [
+    {
+      "Message": "No system battery data found. Is one present?"
+    }
+  ]
+}
