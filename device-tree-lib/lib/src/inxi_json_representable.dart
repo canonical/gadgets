@@ -1,4 +1,4 @@
-class MethodUnimplementedException extends Exception {
+class MethodUnimplementedException implements Exception {
   MethodUnimplementedException();
 }
 

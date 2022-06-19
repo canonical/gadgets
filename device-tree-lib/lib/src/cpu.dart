@@ -1,16 +1,25 @@
 class CPUSummary {
   final CPU cpu;
-  final CPUCache cache;
+  final CPUCoreInfo coreInfo;
   final CompilerFlags flags;
   final CPUCoreFrequencyInfo coreFrequencyInfo;
 
-  CPUSummary(this.cpu, this.cache, this.flags, this.coreFrequencyInfo);
+  CPUSummary(this.cpu, this.coreInfo, this.flags, this.coreFrequencyInfo);
 
-  factory CPUSummary.fromReport(Map<String, List<Map<String, dynamic>>> map) {
-    final cpuSummaryMap = map['CPU']!;
-    for (final map in cpuSummaryMap) {}
+  factory CPUSummary.fromReport(
+      Map<String, List<Map<String, dynamic>>> reportMap) {
+    final cpuSummaryMaps = reportMap['CPU']!;
+    final cpu = CPU.fromMap(
+        cpuSummaryMaps.firstWhere((element) => CPU.isRepresentation(element)));
+    final core = CPUCoreInfo.fromMap(cpuSummaryMaps
+        .firstWhere((element) => CPUCoreInfo.isRepresentation(element)));
+    final flags = CompilerFlags.fromMap(cpuSummaryMaps
+        .firstWhere((element) => CompilerFlags.isRepresentation(element)));
+    final coreFrequencyInfo = CPUCoreFrequencyInfo.fromMap(
+        cpuSummaryMaps.firstWhere(
+            (element) => CPUCoreFrequencyInfo.isRepresentation(element)));
 
-    return CPUSummary(cpu, cache, flags, coreFrequencyInfo);
+    return CPUSummary(cpu, core, flags, coreFrequencyInfo);
   }
 }
 
@@ -46,7 +55,7 @@ class CPU {
   }
 }
 
-class CPUCache {
+class CPUCoreInfo {
   final int tpc;
   final String l2;
   final int threads;
@@ -58,11 +67,11 @@ class CPUCache {
   final String l3;
   final String description;
 
-  CPUCache(this.tpc, this.l2, this.threads, this.l1, this.smt, this.cores,
+  CPUCoreInfo(this.tpc, this.l2, this.threads, this.l1, this.smt, this.cores,
       this.cache, this.cpus, this.l3, this.description);
 
-  factory CPUCache.fromMap(Map<String, dynamic> map) {
-    return CPUCache(
+  factory CPUCoreInfo.fromMap(Map<String, dynamic> map) {
+    return CPUCoreInfo(
         map['tpc']!,
         map['L2']!,
         map['threads']!,
@@ -70,7 +79,7 @@ class CPUCache {
         map['smt']!,
         map['cores']!,
         map['cache']!,
-        map['cpus']!,
+        int.parse(map['cpus']!),
         map['L3']!,
         map['desc']!);
   }
@@ -83,7 +92,7 @@ class CPUCache {
 class CPUCoreFrequencyInfo {
   final String minMax;
   final String driver;
-  final String avg;
+  final int avg;
   final String boost;
   final String extClock;
   final String governor;
@@ -106,7 +115,7 @@ class CPUCoreFrequencyInfo {
       this.coreFrequencies);
 
   factory CPUCoreFrequencyInfo.fromMap(Map<String, dynamic> map) {
-    List<int> freqs = List.filled(0, 0);
+    final freqs = <int>[];
     int i = 1;
     while (true) {
       final freq = map[i.toString()];
@@ -119,7 +128,7 @@ class CPUCoreFrequencyInfo {
     return CPUCoreFrequencyInfo(
         map['min/max'],
         map['driver'],
-        map['enabled'],
+        map['avg'],
         map['boost'],
         map['ext-clock'],
         map['governor'],
