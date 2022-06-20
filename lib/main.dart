@@ -1,9 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import './app_controller.dart';
+import './home_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+void generateSampleTree(TreeNode parent) {
+  final childrenIds = kDataSample[parent.id];
+  if (childrenIds == null) return;
+
+  parent.addChildren(
+    childrenIds.map(
+      (String childId) => TreeNode(id: childId, label: 'Sample Node'),
+    ),
+  );
+  parent.children.forEach(generateSampleTree);
+}
+
+const String kRootId = 'Root';
+
+const Map<String, List<String>> kDataSample = {
+  kRootId: ['A', 'B', 'C', 'D', 'E', 'F'],
+  'A': ['A 1', 'A 2'],
+  'A 2': ['A 2 1'],
+  'B': ['B 1', 'B 2', 'B 3'],
+  'B 1': ['B 1 1'],
+  'B 1 1': ['B 1 1 1', 'B 1 1 2'],
+  'B 2': ['B 2 1'],
+  'B 2 1': ['B 2 1 1'],
+  'C': ['C 1', 'C 2', 'C 3', 'C 4'],
+  'C 1': ['C 1 1'],
+  'D': ['D 1'],
+  'D 1': ['D 1 1'],
+  'E': ['E 1'],
+  'F': ['F 1', 'F 2'],
+};
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,6 +47,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -49,68 +84,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  late final AppController appController = AppController();
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  @override
+  void dispose() {
+    appController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    return AppControllerScope(
+      controller: appController,
+      child: MaterialApp(
+        title: 'TreeView Example',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: FutureBuilder<void>(
+          future: appController.init(),
+          builder: (_, __) {
+            if (appController.isInitialized) {
+              return const _Unfocus(child: HomePage());
+            }
+            return const Center(child: CircularProgressIndicator());
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class _Unfocus extends StatelessWidget {
+  const _Unfocus({Key? key, required this.child}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: FocusScope.of(context).unfocus,
+      child: child,
     );
   }
 }
