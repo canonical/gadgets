@@ -4,8 +4,12 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import './app_controller.dart';
 import './home_page.dart';
 
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'app_controller_provider.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 void generateSampleTree(TreeNode parent) {
@@ -49,23 +53,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: const YaruTheme(child: MyHomePage(title: 'Flutter Demo Home Page')),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -80,20 +75,23 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  late final AppController appController = AppController();
+class MyHomePageState extends ConsumerState<MyHomePage> {
+  // late final AppController appController = AppController();
 
   @override
   void dispose() {
-    appController.dispose();
+    ref.read(appControllerProvider).dispose();
+    // appController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final appController = ref.read(appControllerProvider);
+
     return AppControllerScope(
       controller: appController,
       child: MaterialApp(

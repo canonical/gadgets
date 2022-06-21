@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
 class _ResponsiveBody extends StatelessWidget {
   const _ResponsiveBody({Key? key}) : super(key: key);
 
+/*
   @override
   Widget build(BuildContext context) {
     if (MediaQuery.of(context).size.width < 600) {
@@ -46,6 +47,18 @@ class _ResponsiveBody extends StatelessWidget {
           color: Colors.black26,
         ),
         Expanded(child: SettingsView()),
+      ],
+    );
+  }
+  */
+  @override
+  Widget build(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 600) {
+      return const CustomTreeView();
+    }
+    return Row(
+      children: const [
+        Flexible(flex: 2, child: CustomTreeView()),
       ],
     );
   }
