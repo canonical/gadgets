@@ -1,11 +1,11 @@
 part of 'settings_view.dart';
 
-class _ToggleRoundedCornersButton extends StatelessWidget {
+class _ToggleRoundedCornersButton extends ConsumerWidget {
   const _ToggleRoundedCornersButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final appController = AppController.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appController = ref.read(appControllerProvider);
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: appController.treeViewTheme,
       builder: (_, theme, child) {

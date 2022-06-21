@@ -1,11 +1,11 @@
 part of 'settings_view.dart';
 
-class _LineStyleSelector extends StatelessWidget {
+class _LineStyleSelector extends ConsumerWidget {
   const _LineStyleSelector({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final appController = AppController.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appController = ref.read(appControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: appController.treeViewTheme,

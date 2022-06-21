@@ -1,11 +1,11 @@
 part of 'settings_view.dart';
 
-class _SwapExpansionButton extends StatelessWidget {
+class _SwapExpansionButton extends ConsumerWidget {
   const _SwapExpansionButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final appController = AppController.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appController = ref.read(appControllerProvider);
 
     return ValueListenableBuilder<ExpansionButtonType>(
       valueListenable: appController.expansionButtonType,

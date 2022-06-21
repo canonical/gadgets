@@ -1,19 +1,20 @@
 part of 'settings_view.dart';
 
-class _LineThicknessSlider extends StatefulWidget {
+class _LineThicknessSlider extends ConsumerStatefulWidget {
   const _LineThicknessSlider({Key? key}) : super(key: key);
 
   @override
   __LineThicknessSliderState createState() => __LineThicknessSliderState();
 }
 
-class __LineThicknessSliderState extends State<_LineThicknessSlider> {
+class __LineThicknessSliderState extends ConsumerState<_LineThicknessSlider> {
   var value = 2.0;
 
   void update(double val) => setState(() => value = val);
 
   @override
   Widget build(BuildContext context) {
+    final appController = ref.read(appControllerProvider);
     return _SettingsButtonBar(
       label: 'Line Thickness: $value',
       singleChildPadding: EdgeInsets.zero,
@@ -26,14 +27,14 @@ class __LineThicknessSliderState extends State<_LineThicknessSlider> {
           min: 1,
           label: '$value',
           activeColor: kDarkBlue,
-          onChangeEnd: _updateLineThickness,
+          onChangeEnd: (double lineThickness) =>
+              _updateLineThickness(lineThickness, appController),
         ),
       ],
     );
   }
 
-  void _updateLineThickness(double lineThickness) {
-    final appController = AppController.of(context);
+  void _updateLineThickness(double lineThickness, AppController appController) {
     appController.updateTheme(
       appController.treeViewTheme.value.copyWith(
         lineThickness: lineThickness,

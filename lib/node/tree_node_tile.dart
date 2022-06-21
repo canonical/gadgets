@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:inspector_gadget/app_controller_provider.dart';
 
 import '../common/common.dart';
 import '../app_controller.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part '_actions_chip.dart';
 part '_selector.dart';
@@ -14,17 +16,17 @@ const RoundedRectangleBorder kRoundedRectangleBorder = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(12)),
 );
 
-class TreeNodeTile extends StatefulWidget {
+class TreeNodeTile extends ConsumerStatefulWidget {
   const TreeNodeTile({Key? key}) : super(key: key);
 
   @override
   _TreeNodeTileState createState() => _TreeNodeTileState();
 }
 
-class _TreeNodeTileState extends State<TreeNodeTile> {
+class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
-    final appController = AppController.of(context);
+    final appController = ref.read(appControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
 
     return InkWell(

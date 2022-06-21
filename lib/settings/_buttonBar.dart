@@ -1,6 +1,6 @@
 part of 'settings_view.dart';
 
-class _SettingsButtonBar extends StatelessWidget {
+class _SettingsButtonBar extends ConsumerWidget {
   const _SettingsButtonBar({
     Key? key,
     required this.children,
@@ -15,7 +15,7 @@ class _SettingsButtonBar extends StatelessWidget {
   final EdgeInsetsGeometry buttonBarPadding;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: Color(0x331565c0),

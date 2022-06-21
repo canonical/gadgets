@@ -8,11 +8,11 @@ class AppController with ChangeNotifier {
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
 
-  static AppController of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<AppControllerScope>()!
-        .controller;
-  }
+  // static AppController of(BuildContext context) {
+  //  return context
+  //      .dependOnInheritedWidgetOfExactType<AppControllerScope>()!
+  //      .controller;
+  // }
 
   Future<void> init() async {
     if (_isInitialized) return;

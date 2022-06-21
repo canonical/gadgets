@@ -1,19 +1,22 @@
 part of 'tree_node_tile.dart';
 
-class _NodeActionsChip extends StatefulWidget {
+class _NodeActionsChip extends ConsumerStatefulWidget {
   const _NodeActionsChip({Key? key}) : super(key: key);
 
   @override
-  State<_NodeActionsChip> createState() => _NodeActionsChipState();
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _NodeActionsChipState();
+  }
 }
 
-class _NodeActionsChipState extends State<_NodeActionsChip> {
+class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   final GlobalKey<PopupMenuButtonState> _popupMenuKey = GlobalKey();
 
   PopupMenuButtonState? get _menu => _popupMenuKey.currentState;
 
   @override
   Widget build(BuildContext context) {
+    final appController = AppController();
     final nodeScope = TreeNodeScope.of(context);
 
     return PopupMenuButton<int>(
@@ -26,9 +29,9 @@ class _NodeActionsChipState extends State<_NodeActionsChip> {
       itemBuilder: (_) => kPopupMenuItems,
       onSelected: (int selected) {
         if (selected == 0) {
-          showAddNodeDialog(context, nodeScope.node);
+          showAddNodeDialog(context, ref, nodeScope.node);
         } else {
-          _delete(context, deleteSubtree: selected == 2);
+          _delete(appController, context, deleteSubtree: selected == 2);
         }
       },
       child: RawChip(
@@ -51,16 +54,16 @@ class _NodeActionsChipState extends State<_NodeActionsChip> {
   }
 
   void _delete(
+    AppController appController,
     BuildContext context, {
     required bool deleteSubtree,
   }) {
-    final treeController = AppController.of(context).treeController;
     final treeNode = TreeNodeScope.of(context).node;
-    final parent = treeNode.parent ?? treeController.rootNode;
+    final parent = treeNode.parent ?? appController.treeController.rootNode;
 
     treeNode.delete(recursive: deleteSubtree);
 
-    treeController.refreshNode(parent, keepExpandedNodes: true);
+    appController.treeController.refreshNode(parent, keepExpandedNodes: true);
   }
 }
 

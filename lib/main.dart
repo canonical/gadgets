@@ -95,7 +95,7 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
     return AppControllerScope(
       controller: appController,
       child: MaterialApp(
-        title: 'TreeView Example',
+        title: 'Inspector Gadget',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,

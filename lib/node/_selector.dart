@@ -1,12 +1,12 @@
 part of 'tree_node_tile.dart';
 
-class _NodeSelector extends StatelessWidget {
+class _NodeSelector extends ConsumerWidget {
   const _NodeSelector({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final id = TreeNodeScope.of(context).node.id;
-    final appController = AppController.of(context);
+    final appController = ref.read(appControllerProvider);
 
     return AnimatedBuilder(
       animation: appController,

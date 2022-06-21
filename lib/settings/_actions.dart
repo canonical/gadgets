@@ -1,40 +1,41 @@
 part of 'settings_view.dart';
 
-class _Actions extends StatelessWidget {
+class _Actions extends ConsumerWidget {
   const _Actions({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appController = ref.read(appControllerProvider);
     return Wrap(
       spacing: 10,
       runSpacing: 10,
       children: [
         _Action(
           label: const Text('Add Top Level Node'),
-          onPressed: () async => await showAddNodeDialog(context),
+          onPressed: () async => await showAddNodeDialog(context, ref),
         ),
         _Action(
           label: const Text('Expand All'),
-          onPressed: AppController.of(context).treeController.expandAll,
+          onPressed: appController.treeController.expandAll,
         ),
         _Action(
           label: const Text('Collapse All'),
-          onPressed: AppController.of(context).treeController.collapseAll,
+          onPressed: appController.treeController.collapseAll,
         ),
         _Action(
           label: const Text('Select All'),
-          onPressed: AppController.of(context).selectAll,
+          onPressed: appController.selectAll,
         ),
         _Action(
           label: const Text('Deselect All'),
-          onPressed: () => AppController.of(context).selectAll(false),
+          onPressed: () => appController.selectAll(false),
         ),
       ],
     );
   }
 }
 
-class _Action extends StatelessWidget {
+class _Action extends ConsumerWidget {
   const _Action({
     Key? key,
     required this.label,
@@ -45,7 +46,7 @@ class _Action extends StatelessWidget {
   final VoidCallback? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
         primary: kDarkBlue,

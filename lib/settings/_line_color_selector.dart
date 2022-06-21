@@ -1,11 +1,11 @@
 part of 'settings_view.dart';
 
-class _LineColorSelector extends StatelessWidget {
+class _LineColorSelector extends ConsumerWidget {
   const _LineColorSelector({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final appController = AppController.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appController = ref.read(appControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: appController.treeViewTheme,
@@ -37,7 +37,7 @@ class _LineColorSelector extends StatelessWidget {
   ];
 }
 
-class _ColoredCircle extends StatefulWidget {
+class _ColoredCircle extends ConsumerStatefulWidget {
   const _ColoredCircle({
     Key? key,
     required this.color,
@@ -51,10 +51,12 @@ class _ColoredCircle extends StatefulWidget {
   final ValueChanged<Color> onColorChanged;
 
   @override
-  State<_ColoredCircle> createState() => _ColoredCircleState();
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _ColoredCircleState();
+  }
 }
 
-class _ColoredCircleState extends State<_ColoredCircle> {
+class _ColoredCircleState extends ConsumerState<_ColoredCircle> {
   bool _isHovering = false;
 
   @override
