@@ -7,6 +7,8 @@ import 'package:device_tree_lib/src/drive.dart';
 import 'package:device_tree_lib/src/machine.dart';
 import 'package:device_tree_lib/src/memory.dart';
 import 'package:device_tree_lib/src/raid.dart';
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
 class ReportNotFoundError implements Exception {}
 
@@ -15,7 +17,7 @@ class MissingDeviceReportKeyException implements Exception {
   const MissingDeviceReportKeyException(this.key);
 }
 
-class DeviceTree {
+class DeviceTree implements TreeNodeRepresentable {
   final DeviceInfo info;
   final USBSummary usbSummary;
   final AudioSummary audioSummary;
@@ -62,5 +64,10 @@ class DeviceTree {
   static Future<DeviceTree> from({required File file}) async {
     Map<String, dynamic> map = await json.decode(await file.readAsString());
     return DeviceTree.fromReport(map);
+  }
+
+  TreeNode treeNodeRepresentation() {
+    final hostname = systemSummary.kernel.host;
+    return TreeNode(id: "device-tree", data: this, label: "Device ($hostname)");
   }
 }

@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class InxiKeyAudio {
   static const String driver = 'driver';
   static const String classID = 'class-ID';
@@ -18,7 +21,7 @@ class InxiKeyAudio {
 
 class UnexpectedAudioDeviceEntryException implements Exception {}
 
-class AudioSummary {
+class AudioSummary implements TreeNodeRepresentable {
   final Iterable<AudioServer> servers;
   final Iterable<PCIAudioDevice> pciAudioDevices;
   final Iterable<USBAudioDevice> usbAudioDevices;
@@ -46,9 +49,20 @@ class AudioSummary {
     final items = List<Map<String, dynamic>>.from(report['Audio']);
     return AudioSummary.fromMaps(items);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "audio-summary", data: this, label: "Audio Devices");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [servers, pciAudioDevices, usbAudioDevices]
+        .expand((element) => element);
+  }
 }
 
-abstract class AudioDevice {
+abstract class AudioDevice implements TreeNodeRepresentable {
   final String name;
   final String driver;
   final String classID;
@@ -56,6 +70,7 @@ abstract class AudioDevice {
   const AudioDevice(this.name, this.driver, this.classID);
 }
 
+// TODO: Add bus-ID, chip-ID fields
 class PCIAudioDevice extends AudioDevice {
   final int lanes;
   final int gen;
@@ -84,6 +99,19 @@ class PCIAudioDevice extends AudioDevice {
     InxiKeyAudio.gen,
     InxiKeyAudio.pcie
   };
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "pci-audio-device-$name-$driver",
+        data: this,
+        label: "$name ($driver)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
 class USBAudioDevice extends AudioDevice {
@@ -112,9 +140,22 @@ class USBAudioDevice extends AudioDevice {
   static bool representsUSBAudioDevice(Map<String, dynamic> map) {
     return map[InxiKeyAudio.type] == 'USB';
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "usb-audio-device-$name-$driver-$busID",
+        data: this,
+        label: "$name ($driver)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class AudioServer {
+class AudioServer implements TreeNodeRepresentable {
   final String name;
   final bool running;
   final String version;
@@ -128,5 +169,15 @@ class AudioServer {
 
   static bool representsAudioServer(Map<String, dynamic> map) {
     return map[InxiKeyAudio.audioServerName] != null;
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "audio-server-$name-$version", data: this, label: name);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }
