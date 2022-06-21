@@ -26,12 +26,11 @@ class DriveSummary {
   final Iterable<Drive> drives;
 
   DriveSummary(this.capacity, this.drives);
-  factory DriveSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> reportMap) {
-    final maps = reportMap["Drives"]!;
+  factory DriveSummary.fromReport(Map<String, dynamic> reportMap) {
+    final maps = (reportMap["Drives"]! as List).cast<Map<String, dynamic>>();
     final capacity = DriveCapacity.fromMap(
         maps.firstWhere((element) => element[_InxiKeyDrive.total] != null));
-    final drives = maps
+    final Iterable<Drive> drives = maps
         .where((element) => element[_InxiKeyDrive.id] != null)
         .map((d) => Drive.fromMap(d));
 

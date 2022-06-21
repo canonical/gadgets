@@ -3,9 +3,8 @@ class RAIDSummary {
 
   RAIDSummary(this.volumes);
 
-  factory RAIDSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> report) {
-    final raidMaps = report['RAID']!;
+  factory RAIDSummary.fromReport(Map<String, dynamic> report) {
+    final raidMaps = (report['RAID']! as List).cast<Map<String, dynamic>>();
 
     // TODO: Detect RAID volumes in a more sophisticated way.
     // filtering by count <= 2 removes reports of no RAID:

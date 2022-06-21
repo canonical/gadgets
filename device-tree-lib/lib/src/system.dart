@@ -4,8 +4,7 @@ class SystemSummary {
 
   SystemSummary(this.kernel, this.environment);
 
-  factory SystemSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> report) {
+  factory SystemSummary.fromReport(Map<String, dynamic> report) {
     final Map<String, dynamic> kernelMap = report['System']![0];
     final Map<String, dynamic> environmentMap = report['System']![1];
 

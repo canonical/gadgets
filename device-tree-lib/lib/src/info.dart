@@ -38,8 +38,7 @@ class DeviceInfo {
       this.defaultShell,
       this.wakeups);
 
-  factory DeviceInfo.fromReport(
-      Map<String, List<Map<String, dynamic>>> report) {
+  factory DeviceInfo.fromReport(Map<String, dynamic> report) {
     return DeviceInfo.fromMap(report["Info"]!.first);
   }
 

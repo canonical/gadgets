@@ -76,9 +76,9 @@ class MachineSummary {
 
   MachineSummary(this.uefi, this.oemInfo);
 
-  factory MachineSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> reportMap) {
-    final machineEntries = reportMap['Machine']!;
+  factory MachineSummary.fromReport(Map<String, dynamic> reportMap) {
+    final machineEntries =
+        (reportMap['Machine']! as List).cast<Map<String, dynamic>>();
 
     final oemInfoMapMaybe = machineEntries
         .firstWhereOrNull((element) => OEMInfo.representsOEMInfo(element));

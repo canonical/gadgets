@@ -6,8 +6,7 @@ class CPUSummary {
 
   CPUSummary(this.cpu, this.coreInfo, this.flags, this.coreFrequencyInfo);
 
-  factory CPUSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> reportMap) {
+  factory CPUSummary.fromReport(Map<String, dynamic> reportMap) {
     final cpuSummaryMaps = reportMap['CPU']!;
     final cpu = CPU.fromMap(
         cpuSummaryMaps.firstWhere((element) => CPU.isRepresentation(element)));

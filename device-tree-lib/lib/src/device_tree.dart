@@ -1,4 +1,7 @@
 import 'dart:core';
+import 'dart:io';
+import 'dart:convert';
+
 import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/src/drive.dart';
 import 'package:device_tree_lib/src/machine.dart';
@@ -27,32 +30,37 @@ class DeviceTree {
   final SystemSummary systemSummary;
 
   const DeviceTree(
-      this.info,
-      this.usbSummary,
-      this.audioSummary,
-      this.bluetoothSummary,
-      this.cpuSummary,
-      this.driveSummary,
-      this.graphicsSummary,
-      this.machineSummary,
-      this.memorySummary,
-      this.partitionSummary,
-      this.raidSummary,
-      this.systemSummary);
+      {required this.info,
+      required this.usbSummary,
+      required this.audioSummary,
+      required this.bluetoothSummary,
+      required this.cpuSummary,
+      required this.driveSummary,
+      required this.graphicsSummary,
+      required this.machineSummary,
+      required this.memorySummary,
+      required this.partitionSummary,
+      required this.raidSummary,
+      required this.systemSummary});
 
-  factory DeviceTree.fromReport(Map<String, List<Map<String, dynamic>>> map) {
+  factory DeviceTree.fromReport(Map<String, dynamic> map) {
     return DeviceTree(
-        DeviceInfo.fromReport(map),
-        USBSummary.fromReport(map),
-        AudioSummary.fromReport(map),
-        BluetoothSummary.fromReport(map),
-        CPUSummary.fromReport(map),
-        DriveSummary.fromReport(map),
-        GraphicsSummary.fromReport(map),
-        MachineSummary.fromReport(map),
-        MemorySummary.fromReport(map),
-        PartitionSummary.fromReport(map),
-        RAIDSummary.fromReport(map),
-        SystemSummary.fromReport(map));
+        info: DeviceInfo.fromReport(map),
+        usbSummary: USBSummary.fromReport(map),
+        audioSummary: AudioSummary.fromReport(map),
+        bluetoothSummary: BluetoothSummary.fromReport(map),
+        cpuSummary: CPUSummary.fromReport(map),
+        driveSummary: DriveSummary.fromReport(map),
+        graphicsSummary: GraphicsSummary.fromReport(map),
+        machineSummary: MachineSummary.fromReport(map),
+        memorySummary: MemorySummary.fromReport(map),
+        partitionSummary: PartitionSummary.fromReport(map),
+        raidSummary: RAIDSummary.fromReport(map),
+        systemSummary: SystemSummary.fromReport(map));
+  }
+
+  static Future<DeviceTree> from({required File file}) async {
+    Map<String, dynamic> map = await json.decode(await file.readAsString());
+    return DeviceTree.fromReport(map);
   }
 }

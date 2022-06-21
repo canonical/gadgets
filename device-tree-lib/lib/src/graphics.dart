@@ -58,9 +58,9 @@ class GraphicsSummary {
   GraphicsSummary(this.pciGraphicsDevices, this.usbGraphicsDevices,
       this.displayServer, this.screens, this.displays, this.renderer);
 
-  factory GraphicsSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> reportMap) {
-    final entries = reportMap['Graphics']!;
+  factory GraphicsSummary.fromReport(Map<String, dynamic> reportMap) {
+    final entries =
+        (reportMap['Graphics']! as List).cast<Map<String, dynamic>>();
 
     final pciDevices = entries
         .where(
@@ -72,9 +72,9 @@ class GraphicsSummary {
         .map((element) => USBGraphicsDevice.fromMap(element));
 
     final displayServer = DisplayServer.fromMap(entries.firstWhere(
-        (element) => DisplayServer.representsDisplayServer(element))!);
+        (element) => DisplayServer.representsDisplayServer(element)));
     final renderer = DisplayRenderer.fromMap(entries.firstWhere(
-        (element) => DisplayRenderer.representsDisplayRenderer(element))!);
+        (element) => DisplayRenderer.representsDisplayRenderer(element)));
 
     final screens = entries
         .where((element) => Screen.representsScreen(element))

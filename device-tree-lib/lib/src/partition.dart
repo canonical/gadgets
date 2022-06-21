@@ -16,8 +16,7 @@ class PartitionSummary {
   Iterable<Partition> partitions;
   PartitionSummary(this.partitions);
 
-  factory PartitionSummary.fromReport(
-      Map<String, List<Map<String, dynamic>>> report) {
+  factory PartitionSummary.fromReport(Map<String, dynamic> report) {
     return PartitionSummary(Partition.fromReport(report));
   }
 }
@@ -63,8 +62,9 @@ class Partition {
         map[_InxiKeyPartition.mapped]!);
   }
 
-  static Iterable<Partition> fromReport(
-      Map<String, List<Map<String, dynamic>>> reportMap) {
-    return reportMap["Partition"]!.map((p) => Partition.fromMap(p));
+  static Iterable<Partition> fromReport(Map<String, dynamic> reportMap) {
+    return (reportMap["Partition"]! as List)
+        .cast<Map<String, dynamic>>()
+        .map((p) => Partition.fromMap(p));
   }
 }
