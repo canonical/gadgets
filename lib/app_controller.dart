@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 enum ExpansionButtonType { folderFile, chevron }
 
 class AppController with ChangeNotifier {
+  // TODO: Give an input file, read the input file, and map that into tree nodes
   FutureProvider<TreeViewController> treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
     final rootNode = TreeNode(id: kRootId);

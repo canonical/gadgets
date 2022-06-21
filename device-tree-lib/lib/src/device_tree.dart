@@ -66,8 +66,14 @@ class DeviceTree implements TreeNodeRepresentable {
     return DeviceTree.fromReport(map);
   }
 
+  @override
   TreeNode treeNodeRepresentation() {
     final hostname = systemSummary.kernel.host;
     return TreeNode(id: "device-tree", data: this, label: "Device ($hostname)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [audioSummary];
   }
 }
