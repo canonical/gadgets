@@ -14,6 +14,18 @@ class USBInxiKey {
   static final String name = "Device";
 }
 
+class USBSummary {
+  Iterable<USBDevice> devices;
+  USBSummary(this.devices);
+
+  factory USBSummary.fromReport(
+      Map<String, List<Map<String, dynamic>>> report) {
+    Iterable<Map<String, dynamic>> usbDeviceMaps =
+        List<Map<String, dynamic>>.from(report["USB"]!);
+    return USBSummary(usbDeviceMaps.map((m) => USBDevice.fromMap(m)));
+  }
+}
+
 class USBDevice {
   final String revision;
   final String speed;

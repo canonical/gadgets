@@ -12,6 +12,16 @@ class _InxiKeyPartition {
   static const String mapped = 'mapped';
 }
 
+class PartitionSummary {
+  Iterable<Partition> partitions;
+  PartitionSummary(this.partitions);
+
+  factory PartitionSummary.fromReport(
+      Map<String, List<Map<String, dynamic>>> report) {
+    return PartitionSummary(Partition.fromReport(report));
+  }
+}
+
 class Partition {
   final String majorMinor;
   final String blockSize;

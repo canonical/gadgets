@@ -38,6 +38,11 @@ class DeviceInfo {
       this.defaultShell,
       this.wakeups);
 
+  factory DeviceInfo.fromReport(
+      Map<String, List<Map<String, dynamic>>> report) {
+    return DeviceInfo.fromMap(report["Info"]!.first);
+  }
+
   factory DeviceInfo.fromMap(Map<String, dynamic> map) {
     var tool = map[DeviceInfoInxiKey.tool] as String;
     var uptime = map[DeviceInfoInxiKey.uptime] as String;
