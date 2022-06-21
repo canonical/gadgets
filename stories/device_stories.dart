@@ -12,4 +12,4 @@ ProviderScope providerOverride(
         overrides: [appControllerProvider.overrideWithValue(AppController())],
         child: child);
 
-Widget customTreeView() => const ProviderScope(child: DeviceTreeView());
+Widget deviceTreeView() => const ProviderScope(child: DeviceTreeView());
