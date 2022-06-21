@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'settings/settings_view.dart';
-import 'custom_tree_view.dart';
+import 'device_tree_view.dart';
 
 const String url = '''
 https://github.com/mbaumgartenbr/flutter_tree_view/tree/main/example
@@ -54,11 +54,11 @@ class _ResponsiveBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (MediaQuery.of(context).size.width < 600) {
-      return const CustomTreeView();
+      return const DeviceTreeView();
     }
     return Row(
       children: const [
-        Flexible(flex: 2, child: CustomTreeView()),
+        Flexible(flex: 2, child: DeviceTreeView()),
       ],
     );
   }
