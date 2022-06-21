@@ -5,16 +5,16 @@ import 'package:inspector_gadget/app_controller_provider.dart';
 
 import 'node/tree_node_tile.dart';
 
-class CustomTreeView extends ConsumerStatefulWidget {
-  const CustomTreeView({Key? key}) : super(key: key);
+class DeviceTreeView extends ConsumerStatefulWidget {
+  const DeviceTreeView({Key? key}) : super(key: key);
 
   @override
-  CustomTreeViewState createState() => CustomTreeViewState();
+  DeviceTreeViewState createState() => DeviceTreeViewState();
 }
 
 final defaultTreeViewTheme = ValueNotifier(const TreeViewTheme());
 
-class CustomTreeViewState extends ConsumerState<CustomTreeView> {
+class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   @override
   Widget build(BuildContext context) {
     final appController = ref.read(appControllerProvider);
