@@ -56,9 +56,7 @@ class AppController with ChangeNotifier {
     ref.read(treeControllerProvider).whenData((treeController) {
       final nodeToScroll =
           node.parent == treeController.rootNode ? node : node.parent ?? node;
-      final double offset = treeController != null
-          ? treeController.indexOf(nodeToScroll) * nodeHeight
-          : 0.0;
+      final double offset = treeController.indexOf(nodeToScroll) * nodeHeight;
 
       scrollController.animateTo(
         offset,
