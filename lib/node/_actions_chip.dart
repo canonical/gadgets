@@ -16,7 +16,6 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
 
   @override
   Widget build(BuildContext context) {
-    final appController = AppController();
     final nodeScope = TreeNodeScope.of(context);
 
     return PopupMenuButton<int>(
@@ -31,7 +30,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         if (selected == 0) {
           showAddNodeDialog(context, ref, nodeScope.node);
         } else {
-          _delete(appController, context, deleteSubtree: selected == 2);
+          _delete(ref, context, deleteSubtree: selected == 2);
         }
       },
       child: RawChip(
@@ -54,16 +53,19 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   }
 
   void _delete(
-    AppController appController,
+    WidgetRef ref,
     BuildContext context, {
     required bool deleteSubtree,
   }) {
-    final treeNode = TreeNodeScope.of(context).node;
-    final parent = treeNode.parent ?? appController.treeController.rootNode;
+    final appController = ref.read(appControllerProvider);
 
-    treeNode.delete(recursive: deleteSubtree);
+    ref.watch(appController.treeControllerProvider).whenData((treeController) {
+      final treeNode = TreeNodeScope.of(context).node;
+      final parent = treeNode.parent ?? treeController.rootNode;
 
-    appController.treeController.refreshNode(parent, keepExpandedNodes: true);
+      treeNode.delete(recursive: deleteSubtree);
+      treeController.refreshNode(parent, keepExpandedNodes: true);
+    });
   }
 }
 

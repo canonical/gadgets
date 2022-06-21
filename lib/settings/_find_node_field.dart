@@ -61,23 +61,27 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
 
   void _submitted(AppController appController) {
     final appController = ref.read(appControllerProvider);
-    final id = controller.text.trim();
-    final node = appController.treeController.find(id);
+    final treeController = ref.watch(appController.treeControllerProvider);
 
-    if (node == null) {
-      showSnackBar(
-        context,
-        'No node was found with ID:  $id',
-        duration: const Duration(seconds: 3),
-      );
-    } else {
-      appController.toggleSelection(id, true);
-      if (!appController.treeController.isExpanded(id)) {
-        appController.treeController.expandUntil(node);
+    treeController.whenData((treeController) {
+      final id = controller.text.trim();
+      final node = treeController.find(id);
+
+      if (node == null) {
+        showSnackBar(
+          context,
+          'No node was found with ID:  $id',
+          duration: const Duration(seconds: 3),
+        );
+      } else {
+        appController.toggleSelection(id, true);
+        if (!treeController.isExpanded(id)) {
+          treeController.expandUntil(node);
+        }
+        appController.scrollTo(ref, node);
       }
-      appController.scrollTo(node);
-    }
-    controller.clear();
-    focusNode.unfocus();
+      controller.clear();
+      focusNode.unfocus();
+    });
   }
 }

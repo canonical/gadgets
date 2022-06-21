@@ -93,24 +93,22 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
     final appController = ref.read(appControllerProvider);
 
     return AppControllerScope(
-      controller: appController,
-      child: MaterialApp(
-        title: 'Inspector Gadget',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: FutureBuilder<void>(
-          future: appController.init(),
-          builder: (_, __) {
-            if (appController.isInitialized) {
-              return const _Unfocus(child: HomePage());
-            }
-            return const Center(child: CircularProgressIndicator());
-          },
-        ),
-      ),
-    );
+        controller: appController,
+        child: MaterialApp(
+          title: 'Inspector Gadget',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: ref.watch(appController.treeControllerProvider).when(
+              data: (_) {
+                return const _Unfocus(child: HomePage());
+              },
+              error: (error, _) => Center(child: Text('Error: $error')),
+              loading: () {
+                return const Center(child: CircularProgressIndicator());
+              }),
+        ));
   }
 }
 

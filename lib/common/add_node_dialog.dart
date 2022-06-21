@@ -8,41 +8,43 @@ const _kDarkBlue = Color(0xFF1565C0);
 Future<void> showAddNodeDialog(BuildContext context, WidgetRef ref,
     [TreeNode? node]) async {
   final appController = ref.read(appControllerProvider);
-  final treeController = appController.treeController;
 
-  final _node = node ?? appController.rootNode;
+  ref
+      .watch(appController.treeControllerProvider)
+      .whenData((treeController) async {
+    final theNode = node ?? treeController.rootNode;
+    final isSmallDisplay = MediaQuery.of(context).size.width < 600;
 
-  final _isSmallDisplay = MediaQuery.of(context).size.width < 600;
+    FormData? formData;
 
-  FormData? formData;
-
-  if (_isSmallDisplay) {
-    formData = await showModalBottomSheet<FormData>(
-      enableDrag: false,
-      context: context,
-      builder: (_) => AddNodeDialog(parentLabel: _node.id),
-    );
-  } else {
-    formData = await showDialog<FormData>(
-      context: context,
-      builder: (_) => Dialog(
-        child: AddNodeDialog(parentLabel: _node.id),
-      ),
-    );
-  }
-  if (formData != null) {
-    _node.addChild(TreeNode(id: formData.id, label: formData.label));
-
-    if (_node.isRoot) {
-      treeController.reset(keepExpandedNodes: true);
-      //
-    } else if (treeController.isExpanded(_node.id)) {
-      //
-      treeController.refreshNode(_node);
+    if (isSmallDisplay) {
+      formData = await showModalBottomSheet<FormData>(
+        enableDrag: false,
+        context: context,
+        builder: (_) => AddNodeDialog(parentLabel: theNode.id),
+      );
     } else {
-      treeController.expandNode(_node);
+      formData = await showDialog<FormData>(
+        context: context,
+        builder: (_) => Dialog(
+          child: AddNodeDialog(parentLabel: theNode.id),
+        ),
+      );
     }
-  }
+    if (formData != null) {
+      theNode.addChild(TreeNode(id: formData.id, label: formData.label));
+
+      if (theNode.isRoot) {
+        treeController.reset(keepExpandedNodes: true);
+        //
+      } else if (treeController.isExpanded(theNode.id)) {
+        //
+        treeController.refreshNode(theNode);
+      } else {
+        treeController.expandNode(theNode);
+      }
+    }
+  });
 }
 
 class AddNodeDialog extends StatefulWidget {

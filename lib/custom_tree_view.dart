@@ -20,21 +20,24 @@ class CustomTreeViewState extends ConsumerState<CustomTreeView> {
     final appController = ref.read(appControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: appController != null
-          ? appController.treeViewTheme
-          : defaultTreeViewTheme,
+      valueListenable: appController.treeViewTheme,
       builder: (_, treeViewTheme, __) {
-        return Scrollbar(
-          isAlwaysShown: false,
-          controller: appController.scrollController,
-          child: TreeView(
-            controller: appController.treeController,
-            theme: treeViewTheme,
-            scrollController: appController.scrollController,
-            nodeHeight: appController != null ? appController.nodeHeight : 40.0,
-            nodeBuilder: (_, __) => const TreeNodeTile(),
-          ),
-        );
+        return ref.watch(appController.treeControllerProvider).when(
+            data: (treeController) {
+              return Scrollbar(
+                isAlwaysShown: false,
+                controller: appController.scrollController,
+                child: TreeView(
+                  controller: treeController,
+                  theme: treeViewTheme,
+                  scrollController: appController.scrollController,
+                  nodeHeight: appController.nodeHeight,
+                  nodeBuilder: (_, __) => const TreeNodeTile(),
+                ),
+              );
+            },
+            error: (error, _) => Center(child: Text('Error: $error')),
+            loading: () => const Center(child: CircularProgressIndicator()));
       },
     );
   }

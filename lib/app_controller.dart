@@ -1,31 +1,55 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum ExpansionButtonType { folderFile, chevron }
 
 class AppController with ChangeNotifier {
   /*
-  AppController() {
-    treeController = TreeViewController(rootNode: rootNode);
-  }*/
-
-  bool _isInitialized = false;
-  bool get isInitialized => _isInitialized;
-
   Future<void> init() async {
     if (_isInitialized) return;
 
     final rootNode = TreeNode(id: kRootId);
     generateSampleTree(rootNode);
 
-    treeController = TreeViewController(
+    _treeController = TreeViewController(
       rootNode: rootNode,
     );
 
     _isInitialized = true;
     notifyListeners();
-  }
+  }*/
+
+  // late final TreeViewController _treeController;
+  // bool _isInitialized = false;
+
+  /*
+  FutureProvider<TreeViewController> treeControllerProvider() {
+    return FutureProvider<TreeViewController>((ref) async {
+      if (_isInitialized) {
+        return _treeController;
+      } else {
+        final rootNode = TreeNode(id: kRootId);
+        generateSampleTree(rootNode);
+
+        _isInitialized = true;
+        _treeController = TreeViewController(rootNode: rootNode);
+        print("Tree Controller ready!");
+        notifyListeners();
+        return _treeController;
+      }
+    });
+  }*/
+  FutureProvider<TreeViewController> treeControllerProvider =
+      FutureProvider<TreeViewController>((ref) async {
+    final rootNode = TreeNode(id: kRootId);
+    generateSampleTree(rootNode);
+
+    final treeController = TreeViewController(rootNode: rootNode);
+    print("Tree Controller ready!");
+    return treeController;
+  });
 
   //* == == == == == TreeView == == == == ==
 
@@ -43,22 +67,20 @@ class AppController with ChangeNotifier {
   void _select(String id) => _selectedNodes[id] = true;
   void _deselect(String id) => _selectedNodes.remove(id);
 
-  void selectAll([bool select = true]) {
-    if (select) {
-      rootNode.descendants.forEach(
-        (descendant) => _selectedNodes[descendant.id] = true,
-      );
-    } else {
-      rootNode.descendants.forEach(
-        (descendant) => _selectedNodes.remove(descendant.id),
-      );
-    }
-    notifyListeners();
+  void selectAll(WidgetRef ref, [bool select = true]) {
+    ref.read(treeControllerProvider).whenData((treeController) {
+      if (select) {
+        for (var descendant in treeController.rootNode.descendants) {
+          _selectedNodes[descendant.id] = true;
+        }
+      } else {
+        for (var descendant in treeController.rootNode.descendants) {
+          _selectedNodes.remove(descendant.id);
+        }
+      }
+      notifyListeners();
+    });
   }
-
-  TreeNode get rootNode => treeController.rootNode;
-
-  late final TreeViewController treeController;
 
   //* == == == == == Scroll == == == == ==
 
@@ -66,15 +88,20 @@ class AppController with ChangeNotifier {
 
   late final scrollController = ScrollController();
 
-  void scrollTo(TreeNode node) {
-    final nodeToScroll = node.parent == rootNode ? node : node.parent ?? node;
-    final offset = treeController.indexOf(nodeToScroll) * nodeHeight;
+  void scrollTo(WidgetRef ref, TreeNode node) {
+    ref.read(treeControllerProvider).whenData((treeController) {
+      final nodeToScroll =
+          node.parent == treeController.rootNode ? node : node.parent ?? node;
+      final double offset = treeController != null
+          ? treeController.indexOf(nodeToScroll) * nodeHeight
+          : 0.0;
 
-    scrollController.animateTo(
-      offset,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
-    );
+      scrollController.animateTo(
+        offset,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.ease,
+      );
+    });
   }
 
   //* == == == == == General == == == == ==
@@ -92,7 +119,7 @@ class AppController with ChangeNotifier {
 
   @override
   void dispose() {
-    treeController.dispose();
+    // _treeController.dispose();
     scrollController.dispose();
 
     treeViewTheme.dispose();
