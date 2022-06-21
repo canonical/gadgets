@@ -1,4 +1,4 @@
-# device_tree
+# Inspector Gadget
 
 A new Flutter project.
 

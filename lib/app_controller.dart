@@ -5,14 +5,13 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 enum ExpansionButtonType { folderFile, chevron }
 
 class AppController with ChangeNotifier {
+  /*
+  AppController() {
+    treeController = TreeViewController(rootNode: rootNode);
+  }*/
+
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
-
-  // static AppController of(BuildContext context) {
-  //  return context
-  //      .dependOnInheritedWidgetOfExactType<AppControllerScope>()!
-  //      .controller;
-  // }
 
   Future<void> init() async {
     if (_isInitialized) return;
@@ -25,6 +24,7 @@ class AppController with ChangeNotifier {
     );
 
     _isInitialized = true;
+    notifyListeners();
   }
 
   //* == == == == == TreeView == == == == ==
