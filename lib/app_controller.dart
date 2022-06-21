@@ -6,48 +6,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 enum ExpansionButtonType { folderFile, chevron }
 
 class AppController with ChangeNotifier {
-  /*
-  Future<void> init() async {
-    if (_isInitialized) return;
-
-    final rootNode = TreeNode(id: kRootId);
-    generateSampleTree(rootNode);
-
-    _treeController = TreeViewController(
-      rootNode: rootNode,
-    );
-
-    _isInitialized = true;
-    notifyListeners();
-  }*/
-
-  // late final TreeViewController _treeController;
-  // bool _isInitialized = false;
-
-  /*
-  FutureProvider<TreeViewController> treeControllerProvider() {
-    return FutureProvider<TreeViewController>((ref) async {
-      if (_isInitialized) {
-        return _treeController;
-      } else {
-        final rootNode = TreeNode(id: kRootId);
-        generateSampleTree(rootNode);
-
-        _isInitialized = true;
-        _treeController = TreeViewController(rootNode: rootNode);
-        print("Tree Controller ready!");
-        notifyListeners();
-        return _treeController;
-      }
-    });
-  }*/
   FutureProvider<TreeViewController> treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
     final rootNode = TreeNode(id: kRootId);
     generateSampleTree(rootNode);
 
     final treeController = TreeViewController(rootNode: rootNode);
-    print("Tree Controller ready!");
     return treeController;
   });
 
