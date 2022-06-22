@@ -237,7 +237,7 @@ class VulnerabilityInfo implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [];
+    return vulnerabilities;
   }
 }
 
