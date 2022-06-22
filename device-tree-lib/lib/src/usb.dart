@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class USBInxiKey {
   static final String revision = "rev";
   static final String speed = "speed";
@@ -14,7 +17,7 @@ class USBInxiKey {
   static final String name = "Device";
 }
 
-class USBSummary {
+class USBSummary implements TreeNodeRepresentable {
   Iterable<USBDevice> devices;
   USBSummary(this.devices);
 
@@ -23,9 +26,19 @@ class USBSummary {
         List<Map<String, dynamic>>.from(report["USB"]!);
     return USBSummary(usbDeviceMaps.map((m) => USBDevice.fromMap(m)));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "usb", data: this, label: "USB Devices");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return this.devices;
+  }
 }
 
-class USBDevice {
+class USBDevice implements TreeNodeRepresentable {
   final String revision;
   final String speed;
   final String chipID;
@@ -81,5 +94,18 @@ class USBDevice {
 
     return USBDevice(revision, speed, chipID, hub, info, ports, classID, type,
         serial, driver, interfaces, power, name);
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: name ?? "(Untitled)",
+        data: this,
+        label: "name: $name, driver: $driver");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }

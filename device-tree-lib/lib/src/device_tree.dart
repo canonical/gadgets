@@ -74,6 +74,6 @@ class DeviceTree implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [audioSummary, bluetoothSummary];
+    return [usbSummary, audioSummary, bluetoothSummary];
   }
 }

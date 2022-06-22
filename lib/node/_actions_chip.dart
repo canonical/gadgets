@@ -78,7 +78,6 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     child: ListTile(
       dense: true,
       title: Text('Add child'),
-      subtitle: Text('Opens dialog to add a child'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
     ),
@@ -89,8 +88,7 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     height: 28,
     child: ListTile(
       dense: true,
-      title: Text('Delete this node only'),
-      subtitle: Text('Moves children one level up'),
+      title: Text('Delete node'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.delete_rounded, color: Colors.deepOrange),
     ),
@@ -101,8 +99,7 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     height: 28,
     child: ListTile(
       dense: true,
-      title: Text('Delete entire subtree'),
-      subtitle: Text('Children gets deleted too'),
+      title: Text('Delete subtree'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.delete_forever_rounded, color: Colors.red),
     ),
