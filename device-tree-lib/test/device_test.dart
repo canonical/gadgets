@@ -12,10 +12,6 @@ void main() {
     final reporter =
         DeviceTreeParser.fromInxiReport("./test/fixture/inxi-athena.json");
 
-    setUp(() {
-      // Additional setup goes here.
-    });
-
     test('Test inxi report parsing', () {
       reporter.parse();
       // expect(reporter.reportPath, isTrue);

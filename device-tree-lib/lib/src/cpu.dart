@@ -1,10 +1,16 @@
-class CPUSummary {
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'dart:collection';
+
+class CPUSummary implements TreeNodeRepresentable {
   final CPU cpu;
   final CPUCoreInfo coreInfo;
   final CompilerFlags flags;
   final CPUCoreFrequencyInfo coreFrequencyInfo;
+  final VulnerabilityInfo vulnerabilityInfo;
 
-  CPUSummary(this.cpu, this.coreInfo, this.flags, this.coreFrequencyInfo);
+  CPUSummary(this.cpu, this.coreInfo, this.flags, this.coreFrequencyInfo,
+      this.vulnerabilityInfo);
 
   factory CPUSummary.fromReport(Map<String, dynamic> reportMap) {
     final cpuSummaryMaps = reportMap['CPU']!;
@@ -17,12 +23,23 @@ class CPUSummary {
     final coreFrequencyInfo = CPUCoreFrequencyInfo.fromMap(
         cpuSummaryMaps.firstWhere(
             (element) => CPUCoreFrequencyInfo.isRepresentation(element)));
+    final vulnerabilityInfo = VulnerabilityInfo.fromReport(reportMap);
 
-    return CPUSummary(cpu, core, flags, coreFrequencyInfo);
+    return CPUSummary(cpu, core, flags, coreFrequencyInfo, vulnerabilityInfo);
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "CPU", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [cpu, coreInfo, flags, coreFrequencyInfo];
   }
 }
 
-class CPU {
+class CPU implements TreeNodeRepresentable {
   final String family;
   final int stepping;
   final String microcode;
@@ -52,9 +69,19 @@ class CPU {
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['model'] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: model, data: this, label: "$modelID ($architecture)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class CPUCoreInfo {
+class CPUCoreInfo implements TreeNodeRepresentable {
   final int tpc;
   final String l2;
   final int threads;
@@ -86,9 +113,21 @@ class CPUCoreInfo {
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['L1'] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: description,
+        label: "$cores cores, $threads threads across $cpus CPUs");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class CPUCoreFrequencyInfo {
+class CPUCoreFrequencyInfo implements TreeNodeRepresentable {
   final String minMax;
   final String driver;
   final int avg;
@@ -140,9 +179,22 @@ class CPUCoreFrequencyInfo {
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['driver'] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "min/max freq: $minMax",
+        data: this,
+        label: "avg freq: $avg, base/boost: $baseBoost");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class CompilerFlags {
+class CompilerFlags implements TreeNodeRepresentable {
   final String flags;
 
   CompilerFlags(this.flags);
@@ -154,9 +206,32 @@ class CompilerFlags {
   static bool isRepresentation(Map<String, dynamic> map) {
     return map["Flags"] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Flags", data: this, label: flags);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class Vulnerability {
+class VulnerabilityInfo {
+  Iterable<Vulnerability> vulnerabilities;
+
+  VulnerabilityInfo(this.vulnerabilities);
+
+  factory VulnerabilityInfo.fromReport(Map<String, dynamic> map) {
+    return VulnerabilityInfo((map["CPU"]! as List)
+        .cast<Map<String, dynamic>>()
+        .where((element) => Vulnerability.isRepresentation(element))
+        .map(Vulnerability.fromMap));
+  }
+}
+
+class Vulnerability implements TreeNodeRepresentable {
   final String status;
   final String type;
   final String? mitigation;
@@ -169,5 +244,19 @@ class Vulnerability {
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['Type'] != null && map['status'] != null;
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    final mitigationString = mitigation ?? "(No mitigation)";
+    return TreeNode(
+        id: type,
+        data: this,
+        label: "status:$status, mitigation: $mitigationString");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }
