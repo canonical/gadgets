@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class _InxiKeyDrive {
   static const String total = 'total';
   static const String used = 'used';
