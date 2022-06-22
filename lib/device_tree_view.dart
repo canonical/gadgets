@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:inspector_gadget/app_controller_provider.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 
 import 'node/tree_node_tile.dart';
 
@@ -17,7 +17,7 @@ final defaultTreeViewTheme = ValueNotifier(const TreeViewTheme());
 class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final appController = ref.read(deviceReportControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: appController.treeViewTheme,

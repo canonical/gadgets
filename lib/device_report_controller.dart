@@ -5,8 +5,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum ExpansionButtonType { folderFile, chevron }
 
-class AppController with ChangeNotifier {
-  // TODO: Give an input file, read the input file, and map that into tree nodes
+class DeviceReportController with ChangeNotifier {
+  final String? inputPath;
+  DeviceReportController({this.inputPath});
+
   FutureProvider<TreeViewController> treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
     final rootNode = TreeNode(id: kRootId);
@@ -98,7 +100,7 @@ class AppControllerScope extends InheritedWidget {
     required Widget child,
   }) : super(key: key, child: child);
 
-  final AppController controller;
+  final DeviceReportController controller;
 
   @override
   bool updateShouldNotify(AppControllerScope oldWidget) => false;

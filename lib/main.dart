@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:args/args.dart';
 import './app_controller.dart';
 import './home_page.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'app_controller_provider.dart';
 
-void main() {
+void main(List<String> args) {
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -79,8 +79,6 @@ class MyHomePage extends ConsumerStatefulWidget {
 }
 
 class MyHomePageState extends ConsumerState<MyHomePage> {
-  // late final AppController appController = AppController();
-
   @override
   void dispose() {
     ref.read(appControllerProvider).dispose();
