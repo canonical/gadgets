@@ -77,7 +77,7 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     height: 28,
     child: ListTile(
       dense: true,
-      title: Text('Add child'),
+      title: Text('Add note'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
     ),
@@ -88,7 +88,7 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     height: 28,
     child: ListTile(
       dense: true,
-      title: Text('Delete node'),
+      title: Text('Delete'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.delete_rounded, color: Colors.deepOrange),
     ),
