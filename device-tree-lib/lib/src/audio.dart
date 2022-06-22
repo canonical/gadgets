@@ -52,7 +52,7 @@ class AudioSummary implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "audio", data: this, label: "Audio Devices");
+    return TreeNode(id: "Audio", data: this);
   }
 
   @override
@@ -102,10 +102,7 @@ class PCIAudioDevice extends AudioDevice {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(
-        id: "pci-audio-device-$name-$driver",
-        data: this,
-        label: "$name ($driver)");
+    return TreeNode(id: name, data: this, label: "$name ($driver)");
   }
 
   @override
@@ -173,7 +170,7 @@ class AudioServer implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "audio-server-$name-$version", data: this, label: name);
+    return TreeNode(id: name, data: this, label: "$version, running: $running");
   }
 
   @override

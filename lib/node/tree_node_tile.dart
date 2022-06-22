@@ -40,17 +40,17 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
             children: buttonType == ExpansionButtonType.folderFile
                 ? const [
                     LinesWidget(),
+                    _NodeSelector(),
                     NodeWidgetLeadingIcon(useFoldersOnly: true),
                     _NodeActionsChip(),
-                    _NodeSelector(),
                     SizedBox(width: 8),
                     Expanded(child: _NodeTitle()),
                   ]
                 : const [
                     LinesWidget(),
                     SizedBox(width: 4),
-                    _NodeActionsChip(),
                     _NodeSelector(),
+                    _NodeActionsChip(),
                     SizedBox(width: 8),
                     Expanded(child: _NodeTitle()),
                     ExpandNodeIcon(expandedColor: _kDarkBlue),

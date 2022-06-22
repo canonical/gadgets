@@ -56,7 +56,7 @@ class BluetoothSummary implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "bluetooth", data: this, label: "Bluetooth Devices");
+    return TreeNode(id: "Bluetooth", data: this);
   }
 
   @override
@@ -90,7 +90,8 @@ class BluetoothChip implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "bluetooth-chip", data: this, label: "Bluetooth chip");
+    return TreeNode(
+        id: "bluetooth-chip", data: this, label: "$chipID ($driver)");
   }
 
   @override

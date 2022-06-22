@@ -20,7 +20,7 @@ class DeviceReportController with ChangeNotifier {
     final path = inputPath;
     if (path != null) {
       final deviceTree = await DeviceTree.from(file: File(path));
-      final rootNode = generateTree(deviceTree);
+      final rootNode = generateTree(deviceTree, null);
       return TreeViewController(rootNode: rootNode);
     }
     final rootNode = TreeNode(id: sampleRootId);
@@ -85,7 +85,8 @@ class DeviceReportController with ChangeNotifier {
 
   //* == == == == == General == == == == ==
 
-  final treeViewTheme = ValueNotifier(const TreeViewTheme());
+  final treeViewTheme = ValueNotifier(const TreeViewTheme(
+      lineStyle: LineStyle.connected, roundLineCorners: true));
   final expansionButtonType = ValueNotifier(ExpansionButtonType.folderFile);
 
   void updateTheme(TreeViewTheme theme) {

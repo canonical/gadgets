@@ -5,17 +5,12 @@ abstract class TreeNodeRepresentable {
   Iterable<TreeNodeRepresentable> children();
 }
 
-TreeNode generateTree(TreeNodeRepresentable treeNodeRepresentable) {
-  var parent = treeNodeRepresentable.treeNodeRepresentation();
-  print(parent);
-  var children = treeNodeRepresentable.children();
-  print(children);
-  if (children.isEmpty) {
-    return parent;
+TreeNode generateTree(TreeNodeRepresentable item, TreeNode? connectedTo) {
+  final node = item.treeNodeRepresentation();
+  connectedTo?.addChild(node);
+
+  for (final child in item.children()) {
+    generateTree(child, node);
   }
-
-  parent.addChildren(children.map((c) => c.treeNodeRepresentation()));
-  children.forEach(generateTree);
-
-  return parent;
+  return node;
 }

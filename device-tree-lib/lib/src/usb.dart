@@ -29,7 +29,7 @@ class USBSummary implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "usb", data: this, label: "USB Devices");
+    return TreeNode(id: "USB", data: this);
   }
 
   @override
@@ -99,9 +99,7 @@ class USBDevice implements TreeNodeRepresentable {
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(
-        id: name ?? "(Untitled)",
-        data: this,
-        label: "name: $name, driver: $driver");
+        id: info, data: this, label: "name: $info ($name), driver: $driver");
   }
 
   @override
