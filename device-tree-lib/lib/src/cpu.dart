@@ -35,7 +35,7 @@ class CPUSummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [cpu, coreInfo, flags, coreFrequencyInfo];
+    return [cpu, coreInfo, flags, coreFrequencyInfo, vulnerabilityInfo];
   }
 }
 
@@ -218,7 +218,7 @@ class CompilerFlags implements TreeNodeRepresentable {
   }
 }
 
-class VulnerabilityInfo {
+class VulnerabilityInfo implements TreeNodeRepresentable {
   Iterable<Vulnerability> vulnerabilities;
 
   VulnerabilityInfo(this.vulnerabilities);
@@ -228,6 +228,16 @@ class VulnerabilityInfo {
         .cast<Map<String, dynamic>>()
         .where((element) => Vulnerability.isRepresentation(element))
         .map(Vulnerability.fromMap));
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "CPU vulnerabilities", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }
 

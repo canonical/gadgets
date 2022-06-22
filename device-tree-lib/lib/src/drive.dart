@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class _InxiKeyDrive {
   static const String total = 'total';
   static const String used = 'used';
@@ -19,7 +22,7 @@ class _InxiKeyDrive {
   static const String physical = 'physical';
 }
 
-class DriveSummary {
+class DriveSummary implements TreeNodeRepresentable {
   final DriveCapacity capacity;
   final Iterable<Drive> drives;
 
@@ -34,9 +37,24 @@ class DriveSummary {
 
     return DriveSummary(capacity, drives);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Drives", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    List<List<TreeNodeRepresentable>> childList = [
+      [capacity],
+      drives.toList()
+    ];
+
+    return childList.expand((element) => element);
+  }
 }
 
-class DriveCapacity {
+class DriveCapacity implements TreeNodeRepresentable {
   final String total;
   final String used;
 
@@ -44,9 +62,20 @@ class DriveCapacity {
   factory DriveCapacity.fromMap(Map<String, dynamic> map) {
     return DriveCapacity(map[_InxiKeyDrive.total]!, map[_InxiKeyDrive.used]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "Drive capacity", data: this, label: "used: $used, total: $total");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class Drive {
+class Drive implements TreeNodeRepresentable {
   final String id;
   final String blockSize;
   final String vendor;
@@ -97,5 +126,15 @@ class Drive {
         map[_InxiKeyDrive.logical]!,
         map[_InxiKeyDrive.majorMinor]!,
         map[_InxiKeyDrive.physical]!);
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: model, data: this, label: "size: $size");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }

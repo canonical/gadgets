@@ -1,5 +1,8 @@
 import 'dart:core';
 
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class _InxiKeyGraphics {
   static const String linkMax = 'link-max';
   static const String alternativeDrivers = 'alternate';
@@ -46,7 +49,7 @@ class _InxiKeyGraphics {
   static const String openGL = 'OpenGL';
 }
 
-class GraphicsSummary {
+class GraphicsSummary implements TreeNodeRepresentable {
   // choosing not to call these 'GPU's since could also be video capture etc.
   final DisplayServer displayServer;
   final DisplayRenderer renderer;
@@ -86,9 +89,27 @@ class GraphicsSummary {
     return GraphicsSummary(
         pciDevices, usbDevices, displayServer, screens, displays, renderer);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Graphics", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    Iterable<Iterable<TreeNodeRepresentable>> childList = [
+      [displayServer],
+      pciGraphicsDevices,
+      usbGraphicsDevices,
+      screens,
+      displays,
+      [renderer]
+    ];
+    return childList.expand((child) => child); // flatmap
+  }
 }
 
-class PCIGraphicsDevice {
+class PCIGraphicsDevice implements TreeNodeRepresentable {
   final String linkMax;
   final String alternativeDrivers;
   final String active;
@@ -150,9 +171,19 @@ class PCIGraphicsDevice {
   static bool representsPCIGraphicsDevice(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.lanes] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: name, data: this, label: "active:$active, $vendor");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class USBGraphicsDevice {
+class USBGraphicsDevice implements TreeNodeRepresentable {
   final String driver;
   final String name;
   final String chipID;
@@ -178,9 +209,20 @@ class USBGraphicsDevice {
   static bool representsUSBGraphicsDevice(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.classID];
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: name, data: this, label: "type: $type, driver: $driver");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class DisplayServer {
+class DisplayServer implements TreeNodeRepresentable {
   final String driver;
   final String loaded;
   final String version;
@@ -224,9 +266,22 @@ class DisplayServer {
   static bool representsDisplayServer(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.compositor] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "Display server",
+        data: this,
+        label: "$server ($display, gpu: $gpu, compositor: $compositor)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class Screen {
+class Screen implements TreeNodeRepresentable {
   final double dpi;
   final int screen;
   final String resolution;
@@ -247,9 +302,22 @@ class Screen {
   static bool representsScreen(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.screen];
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "Screen $screen",
+        data: this,
+        label: "$resolution (dpi:$dpi, size: $size)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class Display {
+class Display implements TreeNodeRepresentable {
   final String resolution;
   final double dpi;
   final String monitor;
@@ -273,9 +341,22 @@ class Display {
   static bool representsDisplay(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.monitor];
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "Monitor $monitor",
+        data: this,
+        label: "resolution: $resolution ($hz), dpi: $dpi");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class DisplayRenderer {
+class DisplayRenderer implements TreeNodeRepresentable {
   final bool directRender;
   final String renderer;
   final String version;
@@ -293,5 +374,19 @@ class DisplayRenderer {
 
   static bool representsDisplayRenderer(Map<String, dynamic> map) {
     return map[_InxiKeyGraphics.renderer] != null;
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: renderer,
+        data: this,
+        label:
+            "direct render: $directRender, version: $version, OpenGL: $openGL");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }

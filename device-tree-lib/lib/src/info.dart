@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class DeviceInfoInxiKey {
   static final String tool = "tool";
   static final String uptime = "Uptime";
@@ -12,7 +15,7 @@ class DeviceInfoInxiKey {
   static final String wakeups = "wakeups";
 }
 
-class DeviceInfo {
+class DeviceInfo implements TreeNodeRepresentable {
   final String tool;
   final String uptime;
   final String shell;
@@ -58,5 +61,19 @@ class DeviceInfo {
 
     return DeviceInfo(tool, uptime, shell, clang, version, inxiVersion,
         initSystem, runLevel, gccVersion, defaultShell, wakeups);
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "OS info",
+        data: this,
+        label:
+            "uptime: $uptime, shell: $shell, clang: $clangVersion, gcc: $gccVersion, wakeups: $wakeups");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
   }
 }

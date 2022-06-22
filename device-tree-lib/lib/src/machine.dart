@@ -1,3 +1,5 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
 
 class _InxiKeyMachine {
@@ -14,7 +16,7 @@ class _InxiKeyMachine {
   static const String system = 'System';
 }
 
-class OEMInfo {
+class OEMInfo implements TreeNodeRepresentable {
   final String serial;
   final int typeIdentifier;
   final String typeName;
@@ -40,9 +42,23 @@ class OEMInfo {
   static bool representsOEMInfo(Map<String, dynamic> map) {
     return map[_InxiKeyMachine.product] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "OEM info",
+        data: this,
+        label:
+            "serial: $serial, type: $typeName ($typeIdentifier), product: $product");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class UEFI {
+class UEFI implements TreeNodeRepresentable {
   final String uefi;
   final String version;
   final String date;
@@ -68,9 +84,20 @@ class UEFI {
   static bool representsUEFI(Map<String, dynamic> map) {
     return map[_InxiKeyMachine.uefi] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "$uefi ($version)", data: this, label: "model: $motherboardModel");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class MachineSummary {
+class MachineSummary implements TreeNodeRepresentable {
   final UEFI uefi;
   final OEMInfo? oemInfo;
 
@@ -88,5 +115,20 @@ class MachineSummary {
 
     return MachineSummary(uefi,
         oemInfoMapMaybe != null ? OEMInfo.fromMap(oemInfoMapMaybe) : null);
+  }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Motherboard", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    List<TreeNodeRepresentable> c = [];
+    if (oemInfo != null) {
+      c.add(oemInfo!);
+    }
+    c.add(uefi);
+    return c;
   }
 }
