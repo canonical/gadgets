@@ -1,5 +1,8 @@
 import 'dart:core';
 
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class InxiKeyBluetooth {
   static const String chipID = 'chip-ID';
   static const String busID = 'bus-ID';
@@ -26,7 +29,7 @@ class InxiKeyBluetooth {
   static const String aclMTU = 'acl-mtu';
 }
 
-class BluetoothSummary {
+class BluetoothSummary implements TreeNodeRepresentable {
   final BluetoothChip chip;
   final BluetoothService service;
   final BluetoothLink link;
@@ -50,9 +53,19 @@ class BluetoothSummary {
     return BluetoothSummary.fromMaps(
         chip: chipMap, service: serviceMap, link: linkMap);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "bluetooth", data: this, label: "Bluetooth Devices");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [service, chip, link];
+  }
 }
 
-class BluetoothChip {
+class BluetoothChip implements TreeNodeRepresentable {
   final String chipID;
   final String busID;
   final String driver;
@@ -74,9 +87,19 @@ class BluetoothChip {
         map[InxiKeyBluetooth.type]!,
         map[InxiKeyBluetooth.classID]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "bluetooth-chip", data: this, label: "Bluetooth chip");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class BluetoothService {
+class BluetoothService implements TreeNodeRepresentable {
   final String bluetoothService;
   final String state;
   final String address;
@@ -102,9 +125,22 @@ class BluetoothService {
         map[InxiKeyBluetooth.software]!,
         map[InxiKeyBluetooth.report]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: id,
+        data: this,
+        label: "Bluetooth service status: $state (address: $address)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class BluetoothLink {
+class BluetoothLink implements TreeNodeRepresentable {
   final String linkPolicy;
   final String scoMTU;
   final String info;
@@ -122,36 +158,18 @@ class BluetoothLink {
         map[InxiKeyBluetooth.linkMode]!,
         map[InxiKeyBluetooth.aclMTU]!);
   }
-}
 
-/*
-"Bluetooth": [
-    {
-      "chip-ID": "8087:0aa7",
-      "bus-ID": "1-9:4",
-      "driver": "btusb",
-      "v": "0.8",
-      "Device": "Intel Wireless-AC 3168 Bluetooth",
-      "type": "USB",
-      "class-ID": "e001"
-    },
-    {
-      "bt-service": "enabled,running",
-      "state": "down",
-      "address": "1C:4D:70:22:81:CE",
-      "rfk-id": "0",
-      "hardware": "no",
-      "ID": "hci0",
-      "rfk-block": "",
-      "software": "yes",
-      "Report": "hciconfig"
-    },
-    {
-      "link-policy": "rswitch sniff",
-      "sco-mtu": "96:6",
-      "Info": "",
-      "link-mode": "peripheral accept",
-      "acl-mtu": "1021:4"
-    }
-  ]
-  */
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "bluetooth-link",
+        data: this,
+        label:
+            "Link mode: $linkMode, policy: $linkPolicy, sco-mtu: $scoMTU, acl-mtu: $aclMTU");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
+}

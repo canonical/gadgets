@@ -52,7 +52,7 @@ class AudioSummary implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "audio-summary", data: this, label: "Audio Devices");
+    return TreeNode(id: "audio", data: this, label: "Audio Devices");
   }
 
   @override

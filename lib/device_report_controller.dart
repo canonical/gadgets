@@ -1,22 +1,36 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'sample_tree.dart';
+
+import 'dart:core';
+import 'dart:io';
+import 'package:device_tree_lib/all.dart';
+
 enum ExpansionButtonType { folderFile, chevron }
 
 class DeviceReportController with ChangeNotifier {
   final String? inputPath;
-  DeviceReportController({this.inputPath});
 
-  FutureProvider<TreeViewController> treeControllerProvider =
+  late final treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
-    final rootNode = TreeNode(id: kRootId);
+    final path = inputPath;
+    if (path != null) {
+      final deviceTree = await DeviceTree.from(file: File(path));
+      final rootNode = generateTree(deviceTree);
+      return TreeViewController(rootNode: rootNode);
+    }
+    final rootNode = TreeNode(id: sampleRootId);
     generateSampleTree(rootNode);
 
     final treeController = TreeViewController(rootNode: rootNode);
     return treeController;
   });
+
+  DeviceReportController({this.inputPath});
 
   //* == == == == == TreeView == == == == ==
 
@@ -105,34 +119,3 @@ class DeviceReportControllerScope extends InheritedWidget {
   @override
   bool updateShouldNotify(DeviceReportControllerScope oldWidget) => false;
 }
-
-void generateSampleTree(TreeNode parent) {
-  final childrenIds = kDataSample[parent.id];
-  if (childrenIds == null) return;
-
-  parent.addChildren(
-    childrenIds.map(
-      (String childId) => TreeNode(id: childId, label: 'Sample Node'),
-    ),
-  );
-  parent.children.forEach(generateSampleTree);
-}
-
-const String kRootId = 'Root';
-
-const Map<String, List<String>> kDataSample = {
-  kRootId: ['A', 'B', 'C', 'D', 'E', 'F'],
-  'A': ['A 1', 'A 2'],
-  'A 2': ['A 2 1'],
-  'B': ['B 1', 'B 2', 'B 3'],
-  'B 1': ['B 1 1'],
-  'B 1 1': ['B 1 1 1', 'B 1 1 2'],
-  'B 2': ['B 2 1'],
-  'B 2 1': ['B 2 1 1'],
-  'C': ['C 1', 'C 2', 'C 3', 'C 4'],
-  'C 1': ['C 1 1'],
-  'D': ['D 1'],
-  'D 1': ['D 1 1'],
-  'E': ['E 1'],
-  'F': ['F 1', 'F 2'],
-};
