@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:inspector_gadget/app_controller_provider.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 
 import '../common/common.dart';
-import '../app_controller.dart';
+import '../device_report_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part '_actions_chip.dart';
@@ -26,14 +26,15 @@ class TreeNodeTile extends ConsumerStatefulWidget {
 class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
 
     return InkWell(
       onTap: () => _describeAncestors(nodeScope.node),
-      onLongPress: () => appController.toggleSelection(nodeScope.node.id),
+      onLongPress: () =>
+          deviceReportController.toggleSelection(nodeScope.node.id),
       child: ValueListenableBuilder<ExpansionButtonType>(
-        valueListenable: appController.expansionButtonType,
+        valueListenable: deviceReportController.expansionButtonType,
         builder: (context, ExpansionButtonType buttonType, __) {
           return Row(
             children: buttonType == ExpansionButtonType.folderFile

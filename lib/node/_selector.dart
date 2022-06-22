@@ -6,18 +6,18 @@ class _NodeSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final id = TreeNodeScope.of(context).node.id;
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return AnimatedBuilder(
-      animation: appController,
+      animation: deviceReportController,
       builder: (_, __) {
         return Checkbox(
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(3)),
           ),
           activeColor: Colors.green.shade600,
-          value: appController.isSelected(id),
-          onChanged: (_) => appController.toggleSelection(id),
+          value: deviceReportController.isSelected(id),
+          onChanged: (_) => deviceReportController.toggleSelection(id),
         );
       },
     );

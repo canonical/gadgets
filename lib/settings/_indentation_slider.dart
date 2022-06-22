@@ -14,7 +14,7 @@ class __IndentationSliderState extends ConsumerState<_IndentationSlider> {
 
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     return _SettingsButtonBar(
       label: 'Node indent increment: $value',
       singleChildPadding: EdgeInsets.zero,
@@ -27,15 +27,17 @@ class __IndentationSliderState extends ConsumerState<_IndentationSlider> {
           min: 8.0,
           label: '$value',
           activeColor: kDarkBlue,
-          onChangeEnd: (double indent) => _updateIndent(indent, appController),
+          onChangeEnd: (double indent) =>
+              _updateIndent(indent, deviceReportController),
         ),
       ],
     );
   }
 
-  void _updateIndent(double indent, AppController appController) {
-    appController.updateTheme(
-      appController.treeViewTheme.value.copyWith(
+  void _updateIndent(
+      double indent, DeviceReportController deviceReportController) {
+    deviceReportController.updateTheme(
+      deviceReportController.treeViewTheme.value.copyWith(
         indent: indent,
       ),
     );

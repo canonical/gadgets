@@ -93,8 +93,8 @@ class DeviceReportController with ChangeNotifier {
   }
 }
 
-class AppControllerScope extends InheritedWidget {
-  const AppControllerScope({
+class DeviceReportControllerScope extends InheritedWidget {
+  const DeviceReportControllerScope({
     Key? key,
     required this.controller,
     required Widget child,
@@ -103,7 +103,7 @@ class AppControllerScope extends InheritedWidget {
   final DeviceReportController controller;
 
   @override
-  bool updateShouldNotify(AppControllerScope oldWidget) => false;
+  bool updateShouldNotify(DeviceReportControllerScope oldWidget) => false;
 }
 
 void generateSampleTree(TreeNode parent) {

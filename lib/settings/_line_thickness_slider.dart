@@ -14,7 +14,7 @@ class __LineThicknessSliderState extends ConsumerState<_LineThicknessSlider> {
 
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     return _SettingsButtonBar(
       label: 'Line Thickness: $value',
       singleChildPadding: EdgeInsets.zero,
@@ -28,15 +28,16 @@ class __LineThicknessSliderState extends ConsumerState<_LineThicknessSlider> {
           label: '$value',
           activeColor: kDarkBlue,
           onChangeEnd: (double lineThickness) =>
-              _updateLineThickness(lineThickness, appController),
+              _updateLineThickness(lineThickness, deviceReportController),
         ),
       ],
     );
   }
 
-  void _updateLineThickness(double lineThickness, AppController appController) {
-    appController.updateTheme(
-      appController.treeViewTheme.value.copyWith(
+  void _updateLineThickness(
+      double lineThickness, DeviceReportController deviceReportController) {
+    deviceReportController.updateTheme(
+      deviceReportController.treeViewTheme.value.copyWith(
         lineThickness: lineThickness,
       ),
     );

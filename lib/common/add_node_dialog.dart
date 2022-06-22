@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:inspector_gadget/app_controller_provider.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 
 const _kDarkBlue = Color(0xFF1565C0);
 
 Future<void> showAddNodeDialog(BuildContext context, WidgetRef ref,
     [TreeNode? node]) async {
-  final appController = ref.read(appControllerProvider);
+  final deviceReportController = ref.read(deviceReportControllerProvider);
 
   ref
-      .watch(appController.treeControllerProvider)
+      .watch(deviceReportController.treeControllerProvider)
       .whenData((treeController) async {
     final theNode = node ?? treeController.rootNode;
     final isSmallDisplay = MediaQuery.of(context).size.width < 600;

@@ -5,16 +5,16 @@ class _LineStyleSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: appController.treeViewTheme,
+      valueListenable: deviceReportController.treeViewTheme,
       builder: (_, TreeViewTheme theme, __) {
         final selectedLineStyle = theme.lineStyle;
 
         void changeLineStyle(LineStyle style) {
           if (style == selectedLineStyle) return;
-          appController.updateTheme(
+          deviceReportController.updateTheme(
             theme.copyWith(lineStyle: style),
           );
         }

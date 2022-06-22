@@ -5,14 +5,14 @@ class _SwapExpansionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return ValueListenableBuilder<ExpansionButtonType>(
-      valueListenable: appController.expansionButtonType,
+      valueListenable: deviceReportController.expansionButtonType,
       builder: (_, ExpansionButtonType selectedType, Widget? child) {
         void changeButton(ExpansionButtonType newType) {
           if (newType == selectedType) return;
-          appController.updateExpansionButton(newType);
+          deviceReportController.updateExpansionButton(newType);
         }
 
         final arrowColor = selectedType == ExpansionButtonType.chevron

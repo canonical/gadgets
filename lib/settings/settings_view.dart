@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:inspector_gadget/app_controller_provider.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../common/common.dart';
-import '../app_controller.dart';
+import '../device_report_controller.dart';
 
 part '_actions.dart';
 part '_buttonBar.dart';

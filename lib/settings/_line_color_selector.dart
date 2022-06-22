@@ -5,10 +5,10 @@ class _LineColorSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: appController.treeViewTheme,
+      valueListenable: deviceReportController.treeViewTheme,
       builder: (_, TreeViewTheme theme, __) {
         return _SettingsButtonBar(
           label: 'Line Color',
@@ -19,7 +19,8 @@ class _LineColorSelector extends ConsumerWidget {
               isSelected: theme.lineColor == color,
               onColorChanged: (color) {
                 if (color == theme.lineColor) return;
-                appController.updateTheme(theme.copyWith(lineColor: color));
+                deviceReportController
+                    .updateTheme(theme.copyWith(lineColor: color));
               },
             );
           }).toList(growable: false),

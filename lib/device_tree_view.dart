@@ -17,21 +17,21 @@ final defaultTreeViewTheme = ValueNotifier(const TreeViewTheme());
 class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: appController.treeViewTheme,
+      valueListenable: deviceReportController.treeViewTheme,
       builder: (_, treeViewTheme, __) {
-        return ref.watch(appController.treeControllerProvider).when(
+        return ref.watch(deviceReportController.treeControllerProvider).when(
             data: (treeController) {
               return Scrollbar(
                 isAlwaysShown: false,
-                controller: appController.scrollController,
+                controller: deviceReportController.scrollController,
                 child: TreeView(
                   controller: treeController,
                   theme: treeViewTheme,
-                  scrollController: appController.scrollController,
-                  nodeHeight: appController.nodeHeight,
+                  scrollController: deviceReportController.scrollController,
+                  nodeHeight: deviceReportController.nodeHeight,
                   nodeBuilder: (_, __) => const TreeNodeTile(),
                 ),
               );

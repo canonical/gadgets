@@ -57,9 +57,11 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
     BuildContext context, {
     required bool deleteSubtree,
   }) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
-    ref.watch(appController.treeControllerProvider).whenData((treeController) {
+    ref
+        .watch(deviceReportController.treeControllerProvider)
+        .whenData((treeController) {
       final treeNode = TreeNodeScope.of(context).node;
       final parent = treeNode.parent ?? treeController.rootNode;
 

@@ -33,8 +33,9 @@ class _Actions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
-    final treeController = ref.watch(appController.treeControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final treeController =
+        ref.watch(deviceReportController.treeControllerProvider);
 
     return treeController.when(
         data: (treeController) {
@@ -56,11 +57,11 @@ class _Actions extends ConsumerWidget {
               ),
               _Action(
                 label: const Text('Select All'),
-                onPressed: () => appController.selectAll(ref, true),
+                onPressed: () => deviceReportController.selectAll(ref, true),
               ),
               _Action(
                 label: const Text('Deselect All'),
-                onPressed: () => appController.selectAll(ref, false),
+                onPressed: () => deviceReportController.selectAll(ref, false),
               ),
             ],
           );

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:args/args.dart';
-import './app_controller.dart';
+import 'device_report_controller.dart';
 import './home_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'app_controller_provider.dart';
+import 'device_report_controller_provider.dart';
 
 void main(List<String> args) {
   runApp(const ProviderScope(child: MyApp()));
@@ -81,24 +81,24 @@ class MyHomePage extends ConsumerStatefulWidget {
 class MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   void dispose() {
-    ref.read(appControllerProvider).dispose();
-    // appController.dispose();
+    ref.read(deviceReportControllerProvider).dispose();
+    // deviceReportController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
 
-    return AppControllerScope(
-        controller: appController,
+    return DeviceReportControllerScope(
+        controller: deviceReportController,
         child: MaterialApp(
           title: 'Inspector Gadget',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
-          home: ref.watch(appController.treeControllerProvider).when(
+          home: ref.watch(deviceReportController.treeControllerProvider).when(
               data: (_) {
                 return const _Unfocus(child: HomePage());
               },

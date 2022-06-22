@@ -5,9 +5,9 @@ class _ToggleRoundedCornersButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: appController.treeViewTheme,
+      valueListenable: deviceReportController.treeViewTheme,
       builder: (_, theme, child) {
         return SwitchListTile(
           title: const Text(
@@ -30,8 +30,8 @@ class _ToggleRoundedCornersButton extends ConsumerWidget {
 
             if (oldValue == value) return;
 
-            appController.updateTheme(
-              appController.treeViewTheme.value
+            deviceReportController.updateTheme(
+              deviceReportController.treeViewTheme.value
                   .copyWith(roundLineCorners: value),
             );
           },

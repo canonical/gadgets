@@ -25,7 +25,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
 
   @override
   Widget build(BuildContext context) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     return TextField(
       controller: controller,
       cursorColor: Colors.blueGrey,
@@ -46,7 +46,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
         ),
         suffixIcon: IconButton(
           onPressed: () {
-            _submitted(appController);
+            _submitted(deviceReportController);
           },
           splashRadius: 20,
           tooltip: 'Search',
@@ -54,14 +54,15 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
         ),
       ),
       onSubmitted: (_) {
-        _submitted(appController);
+        _submitted(deviceReportController);
       },
     );
   }
 
-  void _submitted(AppController appController) {
-    final appController = ref.read(appControllerProvider);
-    final treeController = ref.watch(appController.treeControllerProvider);
+  void _submitted(DeviceReportController deviceReportController) {
+    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final treeController =
+        ref.watch(deviceReportController.treeControllerProvider);
 
     treeController.whenData((treeController) {
       final id = controller.text.trim();
@@ -74,11 +75,11 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
           duration: const Duration(seconds: 3),
         );
       } else {
-        appController.toggleSelection(id, true);
+        deviceReportController.toggleSelection(id, true);
         if (!treeController.isExpanded(id)) {
           treeController.expandUntil(node);
         }
-        appController.scrollTo(ref, node);
+        deviceReportController.scrollTo(ref, node);
       }
       controller.clear();
       focusNode.unfocus();

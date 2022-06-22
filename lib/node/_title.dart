@@ -5,13 +5,13 @@ class _NodeTitle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appController = ref.read(appControllerProvider);
+    final deviceReportController = ref.read(deviceReportControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
 
     return AnimatedBuilder(
-      animation: appController,
+      animation: deviceReportController,
       builder: (_, __) {
-        final textStyle = appController.isSelected(nodeScope.node.id)
+        final textStyle = deviceReportController.isSelected(nodeScope.node.id)
             ? Theme.of(context)
                 .textTheme //
                 .subtitle1
