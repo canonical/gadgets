@@ -34,11 +34,16 @@ class _InxiKeyGraphics {
   static const String displayID = 'display-ID';
   static const String compositor = 'compositor';
 
-  static const String dpi = 's-dpi';
+  static const String screenDPI = 's-dpi';
   static const String screen = 'Screen';
-  static const String resolution = 's-res';
-  static const String diagonal = 's-diag';
-  static const String size = 's-size';
+  static const String screenResolution = 's-res';
+  static const String screenDiagonal = 's-diag';
+  static const String screenSize = 's-size';
+
+  static const String displayDPI = 'dpi';
+  static const String displayResolution = "res";
+  static const String displayDiagonal = "diag";
+  static const String displaySize = "size";
 
   static const String monitor = 'Monitor';
   static const String hz = 'hz';
@@ -292,11 +297,11 @@ class Screen implements TreeNodeRepresentable {
 
   factory Screen.fromMap(Map<String, dynamic> map) {
     return Screen(
-        double.parse(map[_InxiKeyGraphics.dpi]),
+        double.parse(map[_InxiKeyGraphics.screenDPI]),
         int.parse(map[_InxiKeyGraphics.screen]),
-        map[_InxiKeyGraphics.resolution]!,
-        map[_InxiKeyGraphics.diagonal]!,
-        map[_InxiKeyGraphics.size]!);
+        map[_InxiKeyGraphics.screenResolution]!,
+        map[_InxiKeyGraphics.screenDiagonal]!,
+        map[_InxiKeyGraphics.screenSize]!);
   }
 
   static bool representsScreen(Map<String, dynamic> map) {
@@ -331,13 +336,10 @@ class Display implements TreeNodeRepresentable {
   factory Display.fromMap(Map<String, dynamic> map) {
     print(map);
     return Display(
-        "foo",
-        // map[_InxiKeyGraphics.resolution],
-        2.0,
-        // map[_InxiKeyGraphics.dpi],
+        map[_InxiKeyGraphics.displayResolution],
+        double.parse(map[_InxiKeyGraphics.displayDPI]),
         map[_InxiKeyGraphics.monitor],
-        "foo",
-        // map[_InxiKeyGraphics.size],
+        map[_InxiKeyGraphics.displaySize],
         int.parse(map[_InxiKeyGraphics.hz]),
         map[_InxiKeyGraphics.diag]);
   }
