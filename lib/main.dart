@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:args/args.dart';
+import 'package:inspector_gadget/device_tree_view.dart';
 import 'device_report_controller.dart';
-import './home_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'device_report_controller_provider.dart';
@@ -63,15 +62,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -100,7 +90,7 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
           ),
           home: ref.watch(deviceReportController.treeControllerProvider).when(
               data: (_) {
-                return const _Unfocus(child: HomePage());
+                return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
               },
               error: (error, _) => Center(child: Text('Error: $error')),
               loading: () {
