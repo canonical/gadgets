@@ -1,5 +1,8 @@
 import 'dart:core';
 
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class InxiKeyMemoryCapacity {
   static final String total = 'total';
   static final String used = 'used';
@@ -28,7 +31,7 @@ class InxiKeyMemorySlot {
   static final String detail = 'detail';
 }
 
-class MemorySummary {
+class MemorySummary implements TreeNodeRepresentable {
   final MemoryCapacity capacity;
   final MemorySlotSummary slotSummary;
   final Iterable<MemorySlot> slots;
@@ -53,9 +56,25 @@ class MemorySummary {
         List<Map<String, dynamic>>.from(memorySummaryInfo.skip(2)!);
     return MemorySummary.fromMaps(capacityMap, slotSummaryMap, slotsMaps);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Memory", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    final items = [
+      [capacity],
+      [slotSummary],
+      slots.cast<TreeNodeRepresentable>()
+    ];
+
+    return items.expand((e) => e);
+  }
 }
 
-class MemoryCapacity {
+class MemoryCapacity implements TreeNodeRepresentable {
   final String total;
   final String used;
   final String ram;
@@ -66,9 +85,20 @@ class MemoryCapacity {
     return MemoryCapacity(map[InxiKeyMemoryCapacity.total]!,
         map[InxiKeyMemoryCapacity.used]!, map[InxiKeyMemoryCapacity.ram]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "$used / $total",
+      data: this,
+      label: "used: $used, total: $total ($ram)");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
-class MemorySlotSummary {
+class MemorySlotSummary implements TreeNodeRepresentable {
   final String note;
   final String maxModuleSize;
   final int slots;
@@ -87,13 +117,26 @@ class MemorySlotSummary {
         map[InxiKeyMemorySlotSummary.capacity]!,
         map[InxiKeyMemorySlotSummary.array]);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "$slots memory slots ($capacity)",
+        data: this,
+        label: "error correction: $errorCorrection");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
 
 abstract class MemorySlot {
   abstract final String device;
 }
 
-class EmptyMemorySlot implements MemorySlot {
+class EmptyMemorySlot implements MemorySlot, TreeNodeRepresentable {
   @override
   final String device;
 
@@ -102,6 +145,13 @@ class EmptyMemorySlot implements MemorySlot {
     assert(map['size'] == 'No Module Installed');
     return EmptyMemorySlot(map[InxiKeyMemorySlot.device]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: "(Empty Memory Slot)", data: this);
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
 
 class MemorySlotFactory {
@@ -114,7 +164,7 @@ class MemorySlotFactory {
   }
 }
 
-class FilledMemorySlot extends MemorySlot {
+class FilledMemorySlot extends MemorySlot implements TreeNodeRepresentable {
   final String manufacturer;
   final String detail;
   final String speed;
@@ -152,103 +202,17 @@ class FilledMemorySlot extends MemorySlot {
       map[InxiKeyMemorySlot.device]!,
     );
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(
+        id: "$type ($manufacturer)",
+        data: this,
+        label: "$partNumber ($detail, $speed)");
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() {
+    return [];
+  }
 }
-
-/*
-"Memory": [
-    {
-      "total": "94.25 GiB",
-      "used": "22.97 GiB (24.4%)",
-      "RAM": ""
-    },
-    {
-      "note": "est.",
-      "max-module-size": "64 GiB",
-      "slots": 8,
-      "EC": "None",
-      "capacity": "512 GiB",
-      "Array": ""
-    },
-    {
-      "part-no": "CMK16GX4M2B3000C15",
-      "total": "64 bits",
-      "Device": "DIMM 0",
-      "bus-width": "64 bits",
-      "serial": "N/A",
-      "size": "8 GiB",
-      "manufacturer": "Corsair",
-      "speed": "2133 MT/s",
-      "type": "DDR4",
-      "detail": "synchronous unbuffered (unregistered)"
-    },
-    {
-      "total": "64 bits",
-      "part-no": "CMK64GX4M2E3200C16",
-      "size": "32 GiB",
-      "serial": "N/A",
-      "bus-width": "64 bits",
-      "Device": "DIMM 1",
-      "manufacturer": "Corsair",
-      "detail": "synchronous unbuffered (unregistered)",
-      "speed": "2133 MT/s",
-      "type": "DDR4"
-    },
-    {
-      "total": "64 bits",
-      "part-no": "CMK16GX4M2B3000C15",
-      "bus-width": "64 bits",
-      "Device": "DIMM 0",
-      "serial": "N/A",
-      "size": "8 GiB",
-      "manufacturer": "Corsair",
-      "detail": "synchronous unbuffered (unregistered)",
-      "type": "DDR4",
-      "speed": "2133 MT/s"
-    },
-    {
-      "Device": "DIMM 1",
-      "size": "No Module Installed"
-    },
-    {
-      "manufacturer": "Corsair",
-      "detail": "synchronous unbuffered (unregistered)",
-      "speed": "2133 MT/s",
-      "type": "DDR4",
-      "total": "64 bits",
-      "part-no": "CMK16GX4M2B3000C15",
-      "size": "8 GiB",
-      "serial": "N/A",
-      "Device": "DIMM 0",
-      "bus-width": "64 bits"
-    },
-    {
-      "detail": "synchronous unbuffered (unregistered)",
-      "type": "DDR4",
-      "speed": "2133 MT/s",
-      "manufacturer": "Corsair",
-      "Device": "DIMM 1",
-      "bus-width": "64 bits",
-      "serial": "N/A",
-      "size": "32 GiB",
-      "total": "64 bits",
-      "part-no": "CMK64GX4M2E3200C16"
-    },
-    {
-      "speed": "2133 MT/s",
-      "type": "DDR4",
-      "detail": "synchronous unbuffered (unregistered)",
-      "manufacturer": "Corsair",
-      "Device": "DIMM 0",
-      "bus-width": "64 bits",
-      "size": "8 GiB",
-      "serial": "N/A",
-      "part-no": "CMK16GX4M2B3000C15",
-      "total": "64 bits"
-    },
-    {
-      "Device": "DIMM 1",
-      "size": "No Module Installed"
-    }
-  ]
-
-  */

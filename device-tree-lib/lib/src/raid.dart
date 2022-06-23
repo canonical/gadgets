@@ -1,4 +1,7 @@
-class RAIDSummary {
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
+class RAIDSummary implements TreeNodeRepresentable {
   Iterable<RAID> volumes;
 
   RAIDSummary(this.volumes);
@@ -14,9 +17,15 @@ class RAIDSummary {
     return RAIDSummary(
         raidMaps.where((e) => e.length > 2).map((e) => RAID.fromMap(e)));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(id: "RAID", data: this);
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => volumes;
 }
 
-class RAID {
+class RAID implements TreeNodeRepresentable {
   final String free;
   final String status;
   final String level;
@@ -32,4 +41,13 @@ class RAID {
     return RAID(map['free'], map['status'], map['level'], map['Device'],
         map['allocated'], map['size'], map['type']);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "$device ($type)",
+      data: this,
+      label: "$free out of allocated $allocated, total size: $size ($status)");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }

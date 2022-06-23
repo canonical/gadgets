@@ -17,9 +17,19 @@ samples, guidance on mobile development, and a full API reference.
 
 ## TODO
 
+### UI
+
 - [ ] Read-only nodes
 - [ ] Create nodes
 - [ ] Create comments
-- [ ] Associate test plans
 - [ ] Icons
-- [ ] Type information: devices / peripherals
+- [ ] Typed nodes: devices / peripherals / system / kernel / ...
+
+### Checkbox integration
+
+- [ ] Spec
+- [ ] Associate test plans
+
+### Backend
+
+- [ ] lshw

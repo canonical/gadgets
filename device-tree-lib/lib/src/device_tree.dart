@@ -75,12 +75,18 @@ class DeviceTree implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
+      systemSummary,
+      machineSummary,
+      info,
+      memorySummary,
+      cpuSummary,
+      partitionSummary,
+      raidSummary,
       usbSummary,
       audioSummary,
-      bluetoothSummary,
-      cpuSummary,
-      info,
-      machineSummary
-    ];
+      bluetoothSummary
+    ].where((item) {
+      return true;
+    });
   }
 }

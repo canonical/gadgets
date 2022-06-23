@@ -1,4 +1,7 @@
-class SystemSummary {
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
+class SystemSummary implements TreeNodeRepresentable {
   final Kernel kernel;
   final Environment environment;
 
@@ -11,6 +14,13 @@ class SystemSummary {
     return SystemSummary(
         Kernel.fromMap(kernelMap), Environment.fromMap(environmentMap));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: "System (${kernel.host})", data: this);
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [kernel, environment];
 }
 
 class _InxiKeyKernel {
@@ -29,7 +39,7 @@ class _InxiKeyEnvironment {
   static const String distro = 'Distro';
 }
 
-class Kernel {
+class Kernel implements TreeNodeRepresentable {
   final String compilerVersion;
   final String compiler;
   final int bits;
@@ -49,9 +59,19 @@ class Kernel {
         map[_InxiKeyKernel.kernelVersion]!,
         map[_InxiKeyKernel.parameters]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "Kernel",
+      data: this,
+      label:
+          "$kernelVersion ($bits, $compilerVersion), parameters: $parameters");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
 
-class Environment {
+class Environment implements TreeNodeRepresentable {
   final String displayManager;
   final String console;
   final String windowManager;
@@ -67,4 +87,13 @@ class Environment {
         map[_InxiKeyEnvironment.windowManager]!,
         map[_InxiKeyEnvironment.distro]!);
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "Environment",
+      label:
+          "distribution: $distro, display manager: $displayManager, window manager: $windowManager, console: $console");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }

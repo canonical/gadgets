@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class _InxiKeyPartition {
   static const String majorMinor = "maj-min";
   static const String blockSize = 'block-size';
@@ -12,16 +15,22 @@ class _InxiKeyPartition {
   static const String mapped = 'mapped';
 }
 
-class PartitionSummary {
+class PartitionSummary implements TreeNodeRepresentable {
   Iterable<Partition> partitions;
   PartitionSummary(this.partitions);
 
   factory PartitionSummary.fromReport(Map<String, dynamic> report) {
     return PartitionSummary(Partition.fromReport(report));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(id: "Partitions", data: this);
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => partitions;
 }
 
-class Partition {
+class Partition implements TreeNodeRepresentable {
   final String majorMinor;
   final String blockSize;
   final String device;
@@ -67,4 +76,11 @@ class Partition {
         .cast<Map<String, dynamic>>()
         .map((p) => Partition.fromMap(p));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "$used ($size)", data: this, label: "$fs, block size: $blockSize");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
