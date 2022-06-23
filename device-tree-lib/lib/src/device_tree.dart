@@ -82,6 +82,7 @@ class DeviceTree implements TreeNodeRepresentable {
       cpuSummary,
       partitionSummary,
       raidSummary,
+      graphicsSummary,
       usbSummary,
       audioSummary,
       bluetoothSummary

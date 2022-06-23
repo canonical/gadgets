@@ -5,8 +5,14 @@ void main() {
   group('Test parsing graphics information out', () {
     test('Test parsing from Inxi report', () {
       final summary = GraphicsSummary.fromReport(reportMap);
+      expect(summary.pciGraphicsDevices.length, 1);
+      expect(summary.pciGraphicsDevices.first.active, "none");
+      expect(summary.pciGraphicsDevices.first.alternativeDrivers,
+          "nvidiafb,nouveau,nvidia_drm");
+      expect(summary.pciGraphicsDevices.first.busID, "43:00.0");
+      expect(summary.pciGraphicsDevices.first.chipID, "10de:2204");
+      expect(summary.pciGraphicsDevices.first.classID, "0300");
 
-      // TODO: Write up assertions.
       expect(summary.renderer.directRender, true);
     });
   });

@@ -119,7 +119,7 @@ class PCIGraphicsDevice implements TreeNodeRepresentable {
   final String empty;
   final String driver;
   final String busID;
-  final String gen;
+  final int gen;
   final String vendor;
   final String classID;
   final String version;
@@ -149,23 +149,23 @@ class PCIGraphicsDevice implements TreeNodeRepresentable {
 
   factory PCIGraphicsDevice.fromMap(Map<String, dynamic> map) {
     return PCIGraphicsDevice(
-        map[_InxiKeyGraphics.linkMax]!,
-        map[_InxiKeyGraphics.alternativeDrivers]!,
-        map[_InxiKeyGraphics.active]!,
-        map[_InxiKeyGraphics.off]!,
-        map[_InxiKeyGraphics.speed]!,
-        map[_InxiKeyGraphics.pcie]!,
-        map[_InxiKeyGraphics.empty]!,
-        map[_InxiKeyGraphics.driver]!,
-        map[_InxiKeyGraphics.busID]!,
-        map[_InxiKeyGraphics.generation]!,
-        map[_InxiKeyGraphics.vendor]!,
-        map[_InxiKeyGraphics.classID]!,
-        map[_InxiKeyGraphics.version]!,
-        map[_InxiKeyGraphics.name]!,
-        int.parse(map[_InxiKeyGraphics.lanes]!),
-        map[_InxiKeyGraphics.chipID]!,
-        map[_InxiKeyGraphics.ports]!);
+        map[_InxiKeyGraphics.linkMax],
+        map[_InxiKeyGraphics.alternativeDrivers],
+        map[_InxiKeyGraphics.active],
+        map[_InxiKeyGraphics.off],
+        map[_InxiKeyGraphics.speed],
+        map[_InxiKeyGraphics.pcie],
+        map[_InxiKeyGraphics.empty],
+        map[_InxiKeyGraphics.driver],
+        map[_InxiKeyGraphics.busID],
+        map[_InxiKeyGraphics.generation],
+        map[_InxiKeyGraphics.vendor],
+        map[_InxiKeyGraphics.classID],
+        map[_InxiKeyGraphics.version],
+        map[_InxiKeyGraphics.name],
+        int.parse(map[_InxiKeyGraphics.lanes]),
+        map[_InxiKeyGraphics.chipID],
+        map[_InxiKeyGraphics.ports]);
   }
 
   static bool representsPCIGraphicsDevice(Map<String, dynamic> map) {
@@ -197,23 +197,23 @@ class USBGraphicsDevice implements TreeNodeRepresentable {
 
   factory USBGraphicsDevice.fromMap(Map<String, dynamic> map) {
     return USBGraphicsDevice(
-        map[_InxiKeyGraphics.driver]!,
-        map[_InxiKeyGraphics.name]!,
-        map[_InxiKeyGraphics.chipID]!,
-        map[_InxiKeyGraphics.busID]!,
-        map[_InxiKeyGraphics.serial]!,
-        map[_InxiKeyGraphics.classID]!,
-        map[_InxiKeyGraphics.type]!);
+        map[_InxiKeyGraphics.driver],
+        map[_InxiKeyGraphics.name],
+        map[_InxiKeyGraphics.chipID],
+        map[_InxiKeyGraphics.busID],
+        map[_InxiKeyGraphics.serial],
+        map[_InxiKeyGraphics.classID],
+        map[_InxiKeyGraphics.type]);
   }
 
   static bool representsUSBGraphicsDevice(Map<String, dynamic> map) {
-    return map[_InxiKeyGraphics.classID];
+    return map[_InxiKeyGraphics.serial] != null;
   }
 
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(
-        id: name, data: this, label: "type: $type, driver: $driver");
+        id: name, data: this, label: "type: $type (driver: $driver)");
   }
 
   @override
@@ -292,15 +292,15 @@ class Screen implements TreeNodeRepresentable {
 
   factory Screen.fromMap(Map<String, dynamic> map) {
     return Screen(
-        map[_InxiKeyGraphics.dpi]!,
-        map[_InxiKeyGraphics.screen]!,
+        double.parse(map[_InxiKeyGraphics.dpi]),
+        int.parse(map[_InxiKeyGraphics.screen]),
         map[_InxiKeyGraphics.resolution]!,
         map[_InxiKeyGraphics.diagonal]!,
         map[_InxiKeyGraphics.size]!);
   }
 
   static bool representsScreen(Map<String, dynamic> map) {
-    return map[_InxiKeyGraphics.screen];
+    return map[_InxiKeyGraphics.screen] != null;
   }
 
   @override
@@ -329,17 +329,21 @@ class Display implements TreeNodeRepresentable {
       this.diagonal);
 
   factory Display.fromMap(Map<String, dynamic> map) {
+    print(map);
     return Display(
-        map[_InxiKeyGraphics.resolution]!,
-        map[_InxiKeyGraphics.dpi]!,
-        map[_InxiKeyGraphics.monitor]!,
-        map[_InxiKeyGraphics.size]!,
-        map[_InxiKeyGraphics.hz]!,
-        map[_InxiKeyGraphics.diag]!);
+        "foo",
+        // map[_InxiKeyGraphics.resolution],
+        2.0,
+        // map[_InxiKeyGraphics.dpi],
+        map[_InxiKeyGraphics.monitor],
+        "foo",
+        // map[_InxiKeyGraphics.size],
+        int.parse(map[_InxiKeyGraphics.hz]),
+        map[_InxiKeyGraphics.diag]);
   }
 
   static bool representsDisplay(Map<String, dynamic> map) {
-    return map[_InxiKeyGraphics.monitor];
+    return map[_InxiKeyGraphics.monitor] != null;
   }
 
   @override
