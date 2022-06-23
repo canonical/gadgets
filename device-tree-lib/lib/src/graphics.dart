@@ -341,7 +341,7 @@ class Display implements TreeNodeRepresentable {
         map[_InxiKeyGraphics.monitor],
         map[_InxiKeyGraphics.displaySize],
         int.parse(map[_InxiKeyGraphics.hz]),
-        map[_InxiKeyGraphics.diag]);
+        map[_InxiKeyGraphics.displayDiagonal]);
   }
 
   static bool representsDisplay(Map<String, dynamic> map) {
