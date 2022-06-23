@@ -85,8 +85,6 @@ class DeviceTree implements TreeNodeRepresentable {
       usbSummary,
       audioSummary,
       bluetoothSummary
-    ].where((item) {
-      return true;
-    });
+    ];
   }
 }

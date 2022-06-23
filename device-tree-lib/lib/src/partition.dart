@@ -37,11 +37,11 @@ class Partition implements TreeNodeRepresentable {
   final String rawSize;
   final String uuid;
   final String size;
-  final String used;
+  final String? used;
   final String label;
   final String id;
   final String fs;
-  final String mapped;
+  final String? mapped;
 
   Partition(
       this.majorMinor,
@@ -58,17 +58,17 @@ class Partition implements TreeNodeRepresentable {
 
   factory Partition.fromMap(Map<String, dynamic> map) {
     return Partition(
-        map[_InxiKeyPartition.majorMinor]!,
-        map[_InxiKeyPartition.blockSize]!,
-        map[_InxiKeyPartition.device]!,
-        map[_InxiKeyPartition.rawSize]!,
-        map[_InxiKeyPartition.uuid]!,
-        map[_InxiKeyPartition.size]!,
-        map[_InxiKeyPartition.used]!,
-        map[_InxiKeyPartition.label]!,
-        map[_InxiKeyPartition.id]!,
-        map[_InxiKeyPartition.fs]!,
-        map[_InxiKeyPartition.mapped]!);
+        map[_InxiKeyPartition.majorMinor],
+        map[_InxiKeyPartition.blockSize],
+        map[_InxiKeyPartition.device],
+        map[_InxiKeyPartition.rawSize],
+        map[_InxiKeyPartition.uuid],
+        map[_InxiKeyPartition.size],
+        map[_InxiKeyPartition.used],
+        map[_InxiKeyPartition.label],
+        map[_InxiKeyPartition.id],
+        map[_InxiKeyPartition.fs],
+        map[_InxiKeyPartition.mapped]);
   }
 
   static Iterable<Partition> fromReport(Map<String, dynamic> reportMap) {
@@ -78,8 +78,8 @@ class Partition implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() => TreeNode(
-      id: "$used ($size)", data: this, label: "$fs, block size: $blockSize");
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: "$used ($size)", data: this, label: "$fs ($device)");
 
   @override
   Iterable<TreeNodeRepresentable> children() => [];
