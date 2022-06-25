@@ -77,7 +77,7 @@ class Kernel implements TreeNodeRepresentable {
         Detail(
             parent: this, key: "Compiler", value: "$compiler $compilerVersion"),
         Detail(
-            parent: this, key: "Kernel", value: "$kernelVersion ($bits-bit)"),
+            parent: this, key: "Kernel", value: "$kernelVersion ($bits bits)"),
         Detail(parent: this, key: "Boot parameters", value: parameters)
       ];
 }
@@ -106,5 +106,10 @@ class Environment implements TreeNodeRepresentable {
           "distribution: $distro, display manager: $displayManager, window manager: $windowManager, console: $console");
 
   @override
-  Iterable<TreeNodeRepresentable> children() => [];
+  Iterable<TreeNodeRepresentable> children() => [
+        Detail(parent: this, key: "Distribution", value: distro),
+        Detail(parent: this, key: "Login manager", value: displayManager),
+        Detail(parent: this, key: "Window manager", value: windowManager),
+        Detail(parent: this, key: "Console", value: console)
+      ];
 }
