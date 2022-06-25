@@ -234,14 +234,14 @@ void main() {
         1200,
         1200
       ]);
-      expect(cpuSummary.coreFrequencyInfo.driver, 'acpi-cpufreq');
-      expect(cpuSummary.coreFrequencyInfo.extClock, '100 MHz');
-      expect(cpuSummary.coreFrequencyInfo.governor, 'schedutil');
-      expect(cpuSummary.coreFrequencyInfo.minMax, '1200/4679');
-      expect(cpuSummary.coreFrequencyInfo.volts, '1.2 V');
+      expect(cpuSummary.coreFrequencyInfo?.driver, 'acpi-cpufreq');
+      expect(cpuSummary.coreFrequencyInfo?.extClock, '100 MHz');
+      expect(cpuSummary.coreFrequencyInfo?.governor, 'schedutil');
+      expect(cpuSummary.coreFrequencyInfo?.minMax, '1200/4679');
+      expect(cpuSummary.coreFrequencyInfo?.volts, '1.2 V');
 
       expect(
-          cpuSummary.flags.flags,
+          cpuSummary.flags?.flags,
           """
 3dnowprefetch abm adx aes aperfmperf 
 apic arat avic avx avx2 bmi1 bmi2 bpext 
@@ -269,7 +269,7 @@ xsave xsavec xsaveerptr xsaveopt xsaves"""
     test('Test parsing CPU info from Athena inxi report', () {
       // TODO: Add assertions also for the Athena report.
       final cpuSummary = CPUSummary.fromReport(athenaReport);
-      expect(cpuSummary.coreInfo.l1, '1.5 MiB');
+      expect(cpuSummary.coreInfo?.l1, '1.5 MiB');
     });
   });
 }
