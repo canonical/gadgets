@@ -12,5 +12,6 @@ TreeNode generateTree(TreeNodeRepresentable item, TreeNode? connectedTo) {
   for (final child in item.children()) {
     generateTree(child, node);
   }
+  print("Done");
   return node;
 }

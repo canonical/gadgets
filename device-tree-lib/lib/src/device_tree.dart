@@ -1,6 +1,6 @@
+import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
-import 'dart:convert';
 
 import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/src/battery.dart';
@@ -92,7 +92,10 @@ class DeviceTree implements TreeNodeRepresentable {
       [graphicsSummary],
       [usbSummary],
       [audioSummary],
-      [bluetoothSummary ?? List<TreeNodeRepresentable>.empty()]
-    ].expand((e) => e).cast<TreeNodeRepresentable>();
+      bluetoothSummary != null ? [bluetoothSummary!] : []
+    ]
+        .cast<List<TreeNodeRepresentable>>()
+        .expand((e) => e)
+        .cast<TreeNodeRepresentable>();
   }
 }

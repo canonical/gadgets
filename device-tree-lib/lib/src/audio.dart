@@ -57,8 +57,12 @@ class AudioSummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [servers, pciAudioDevices, usbAudioDevices]
+    print("Children requested");
+    final children = [servers, pciAudioDevices, usbAudioDevices]
         .expand((element) => element);
+    print(children.runtimeType);
+    print("CHILDREN GOT");
+    return children;
   }
 }
 

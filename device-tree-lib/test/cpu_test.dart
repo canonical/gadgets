@@ -201,22 +201,22 @@ void main() {
       expect(cpuSummary.cpu.stepping, 0);
       expect(cpuSummary.cpu.type, 'MT MCP');
 
-      expect(cpuSummary.coreInfo.cache, '');
-      expect(cpuSummary.coreInfo.cores, 8);
-      expect(cpuSummary.coreInfo.cpus, 1);
-      expect(cpuSummary.coreInfo.description, 'd-8x32 KiB; i-8x32 KiB');
-      expect(cpuSummary.coreInfo.l1, '512 KiB');
-      expect(cpuSummary.coreInfo.l2, '4 MiB');
-      expect(cpuSummary.coreInfo.l3, '16 MiB');
-      expect(cpuSummary.coreInfo.smt, 'enabled');
-      expect(cpuSummary.coreInfo.threads, 16);
-      expect(cpuSummary.coreInfo.tpc, 2);
+      expect(cpuSummary.coreInfo?.cache, '');
+      expect(cpuSummary.coreInfo?.cores, 8);
+      expect(cpuSummary.coreInfo?.cpus, 1);
+      expect(cpuSummary.coreInfo?.description, 'd-8x32 KiB; i-8x32 KiB');
+      expect(cpuSummary.coreInfo?.l1, '512 KiB');
+      expect(cpuSummary.coreInfo?.l2, '4 MiB');
+      expect(cpuSummary.coreInfo?.l3, '16 MiB');
+      expect(cpuSummary.coreInfo?.smt, 'enabled');
+      expect(cpuSummary.coreInfo?.threads, 16);
+      expect(cpuSummary.coreInfo?.tpc, 2);
 
-      expect(cpuSummary.coreFrequencyInfo.avg, 1200);
-      expect(cpuSummary.coreFrequencyInfo.baseBoost, '3300/4650');
-      expect(cpuSummary.coreFrequencyInfo.bogomips, 105403);
-      expect(cpuSummary.coreFrequencyInfo.boost, 'enabled');
-      expect(cpuSummary.coreFrequencyInfo.coreFrequencies, [
+      expect(cpuSummary.coreFrequencyInfo?.avg, 1200);
+      expect(cpuSummary.coreFrequencyInfo?.baseBoost, '3300/4650');
+      expect(cpuSummary.coreFrequencyInfo?.bogomips, 105403);
+      expect(cpuSummary.coreFrequencyInfo?.boost, 'enabled');
+      expect(cpuSummary.coreFrequencyInfo?.coreFrequencies, [
         1200,
         1200,
         1200,

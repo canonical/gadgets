@@ -58,7 +58,7 @@ class CPUSummary implements TreeNodeRepresentable {
       flags != null ? [flags!] : [],
       coreFrequencyInfo != null ? [coreFrequencyInfo!] : [],
       [vulnerabilityInfo]
-    ].cast<List<TreeNodeRepresentable>>().expand((e) => e);
+    ].expand((e) => e).cast<TreeNodeRepresentable>();
   }
 }
 

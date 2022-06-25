@@ -324,19 +324,20 @@ class Screen implements TreeNodeRepresentable {
 
 class Display implements TreeNodeRepresentable {
   final String resolution;
-  final double dpi;
+  final double? dpi;
   final String monitor;
   final String size;
   final int hz;
-  final String diagonal;
+  final String? diagonal;
 
   Display(this.resolution, this.dpi, this.monitor, this.size, this.hz,
       this.diagonal);
 
   factory Display.fromMap(Map<String, dynamic> map) {
+    final rawDPI = map[_InxiKeyGraphics.displayDPI];
     return Display(
         map[_InxiKeyGraphics.displayResolution],
-        double.parse(map[_InxiKeyGraphics.displayDPI]),
+        rawDPI != null ? double.parse(rawDPI) : null,
         map[_InxiKeyGraphics.monitor],
         map[_InxiKeyGraphics.displaySize],
         int.parse(map[_InxiKeyGraphics.hz]),
