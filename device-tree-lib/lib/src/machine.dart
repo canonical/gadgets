@@ -44,16 +44,19 @@ class OEMInfo implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "OEM information", data: this, label: version);
+    return TreeNode(id: "OEM Information", data: this, label: version);
   }
 
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
-      Detail(parent: this, key: "Type", value: typeName),
-      Detail(parent: this, key: "Model", value: "$version ($product)"),
+      Detail(
+          parent: this,
+          key: "Device Model",
+          value: "$version ($product, $typeName)"),
       Detail(parent: this, key: "Serial", value: serial),
-      Detail(parent: this, key: "System", value: system),
+      Detail(parent: this, key: "Vendor", value: system),
+      // Detail(parent: this, key: "Type", value: typeName),
       // Detail(parent: this, key: "Product", value: product),
       // Detail(parent: this, key: "Type identifier", value: typeIdentifier),
     ];
@@ -90,12 +93,23 @@ class UEFI implements TreeNodeRepresentable {
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(
-        id: "$uefi ($version)", data: this, label: "model: $motherboardModel");
+        id: "UEFI Information", data: this, label: motherboardModel);
   }
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [];
+    return [
+      [Detail(parent: this, key: "Device Vendor", value: motherboardVendor)],
+      [Detail(parent: this, key: "Device Model", value: motherboardModel)],
+      [
+        Detail(
+            parent: this, key: "UEFI Version", value: "$uefi $version ($date)")
+      ],
+      [Detail(parent: this, key: "Device Serial #", value: serial)],
+      machineType != null
+          ? [Detail(parent: this, key: "Type", value: machineType)]
+          : List<TreeNodeRepresentable>.empty(),
+    ].cast<List<TreeNodeRepresentable>>().expand((e) => e);
   }
 }
 
@@ -121,7 +135,7 @@ class MachineSummary implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "Motherboard", data: this);
+    return TreeNode(id: "Computer", data: this);
   }
 
   @override

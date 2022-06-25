@@ -79,8 +79,8 @@ class DeviceTree implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
-      systemSummary,
       machineSummary,
+      systemSummary,
       info,
       batterySummary,
       memorySummary,

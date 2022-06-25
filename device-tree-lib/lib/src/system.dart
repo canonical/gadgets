@@ -17,7 +17,8 @@ class SystemSummary implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() => TreeNode(id: "System", data: this);
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: "Operating System", data: this);
 
   @override
   Iterable<TreeNodeRepresentable> children() => [
