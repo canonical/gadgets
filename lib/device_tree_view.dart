@@ -3,6 +3,8 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 
+import 'package:device_tree_lib/all.dart';
+
 import 'node/tree_node_tile.dart';
 
 class DeviceTreeView extends ConsumerStatefulWidget {
@@ -28,12 +30,17 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                 isAlwaysShown: false,
                 controller: deviceReportController.scrollController,
                 child: TreeView(
-                  controller: treeController,
-                  theme: treeViewTheme,
-                  scrollController: deviceReportController.scrollController,
-                  nodeHeight: deviceReportController.nodeHeight,
-                  nodeBuilder: (_, __) => const TreeNodeTile(),
-                ),
+                    controller: treeController,
+                    theme: treeViewTheme,
+                    scrollController: deviceReportController.scrollController,
+                    nodeHeight: deviceReportController.nodeHeight,
+                    nodeBuilder: (BuildContext context, TreeNode node) {
+                      // if (node.data is Partition) {
+                      //  return const Text("PARTITION");
+                      //} else {
+                      return const TreeNodeTile();
+                      // }
+                    }),
               );
             },
             error: (error, _) => Center(child: Text('Error: $error')),
