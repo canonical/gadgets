@@ -46,6 +46,7 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
             },
             error: (error, trace) {
               if (kDebugMode) {
+                print(error);
                 print(trace);
               }
               return Center(child: Text('Error in value listenable: $error'));

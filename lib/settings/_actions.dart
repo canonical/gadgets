@@ -68,6 +68,7 @@ class _Actions extends ConsumerWidget {
         },
         error: (error, trace) {
           if (kDebugMode) {
+            print(error);
             print(trace);
           }
           return Center(child: Text('Error in tree view: $error'));

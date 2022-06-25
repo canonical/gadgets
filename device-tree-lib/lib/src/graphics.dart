@@ -116,9 +116,9 @@ class GraphicsSummary implements TreeNodeRepresentable {
 
 class PCIGraphicsDevice implements TreeNodeRepresentable {
   final String linkMax;
-  final String alternativeDrivers;
+  final String? alternativeDrivers;
   final String active;
-  final String off;
+  final String? off;
   final String speed;
   final String pcie;
   final String empty;
@@ -229,14 +229,14 @@ class USBGraphicsDevice implements TreeNodeRepresentable {
 
 class DisplayServer implements TreeNodeRepresentable {
   final String driver;
-  final String loaded;
+  final String? loaded;
   final String version;
   final String screens;
   final String gpu;
-  final String X;
+  final String? X;
   final String server;
   final String display;
-  final String unloaded;
+  final String? unloaded;
   final String displayID;
   final String compositor;
 
@@ -256,14 +256,14 @@ class DisplayServer implements TreeNodeRepresentable {
   factory DisplayServer.fromMap(Map<String, dynamic> map) {
     return DisplayServer(
         map[_InxiKeyGraphics.driver]!,
-        map[_InxiKeyGraphics.loaded]!,
+        map[_InxiKeyGraphics.loaded],
         map[_InxiKeyGraphics.version]!,
         map[_InxiKeyGraphics.screens]!,
         map[_InxiKeyGraphics.gpu]!,
-        map[_InxiKeyGraphics.x]!,
+        map[_InxiKeyGraphics.x],
         map[_InxiKeyGraphics.server]!,
         map[_InxiKeyGraphics.display]!,
-        map[_InxiKeyGraphics.unloaded]!,
+        map[_InxiKeyGraphics.unloaded],
         map[_InxiKeyGraphics.displayID]!,
         map[_InxiKeyGraphics.compositor]!);
   }

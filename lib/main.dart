@@ -101,6 +101,7 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
             return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
           }, error: (error, trace) {
             if (kDebugMode) {
+              print(error);
               print(trace);
             }
             return Center(

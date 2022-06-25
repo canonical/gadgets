@@ -31,14 +31,14 @@ class PartitionSummary implements TreeNodeRepresentable {
 }
 
 class Partition implements TreeNodeRepresentable {
-  final String majorMinor;
-  final String blockSize;
-  final String device;
+  final String? majorMinor;
+  final String? blockSize;
+  final String? device;
   final String rawSize;
-  final String uuid;
+  final String? uuid;
   final String size;
   final String? used;
-  final String label;
+  final String? label;
   final String id;
   final String fs;
   final String? mapped;
