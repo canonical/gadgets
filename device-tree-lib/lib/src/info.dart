@@ -27,7 +27,7 @@ class DeviceInfo implements TreeNodeRepresentable {
   final int runLevel;
   final String gccVersion;
   final String defaultShell;
-  final int wakeups;
+  final int? wakeups;
 
   const DeviceInfo(
       this.tool,
@@ -58,7 +58,10 @@ class DeviceInfo implements TreeNodeRepresentable {
     var runLevel = int.parse(map[DeviceInfoInxiKey.runLevel]);
     var gccVersion = map[DeviceInfoInxiKey.gccVersion] as String;
     var defaultShell = map[DeviceInfoInxiKey.defaultShell] as String;
-    var wakeups = int.parse(map[DeviceInfoInxiKey.wakeups]);
+
+    final rawWakeups = map[DeviceInfoInxiKey.wakeups];
+    var wakeups =
+        rawWakeups != null ? int.parse(map[DeviceInfoInxiKey.wakeups]) : null;
 
     return DeviceInfo(tool, uptime, shell, clang, version, inxiVersion,
         initSystem, runLevel, gccVersion, defaultShell, wakeups);

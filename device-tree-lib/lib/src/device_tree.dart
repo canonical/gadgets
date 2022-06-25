@@ -22,7 +22,7 @@ class DeviceTree implements TreeNodeRepresentable {
   final DeviceInfo info;
   final USBSummary usbSummary;
   final AudioSummary audioSummary;
-  final BluetoothSummary bluetoothSummary;
+  final BluetoothSummary? bluetoothSummary;
   final BatterySummary batterySummary;
   final CPUSummary cpuSummary;
   final DriveSummary driveSummary;
@@ -53,7 +53,9 @@ class DeviceTree implements TreeNodeRepresentable {
         info: DeviceInfo.fromReport(map),
         usbSummary: USBSummary.fromReport(map),
         audioSummary: AudioSummary.fromReport(map),
-        bluetoothSummary: BluetoothSummary.fromReport(map),
+        bluetoothSummary: BluetoothSummary.bluetoothDetectedInReport(map)
+            ? BluetoothSummary.fromReport(map)
+            : null,
         batterySummary: BatterySummary.fromReport(map),
         cpuSummary: CPUSummary.fromReport(map),
         driveSummary: DriveSummary.fromReport(map),
@@ -79,18 +81,18 @@ class DeviceTree implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
-      machineSummary,
-      systemSummary,
-      info,
-      batterySummary,
-      memorySummary,
-      cpuSummary,
-      partitionSummary,
-      raidSummary,
-      graphicsSummary,
-      usbSummary,
-      audioSummary,
-      bluetoothSummary
-    ];
+      [machineSummary],
+      [systemSummary],
+      [info],
+      [batterySummary],
+      [memorySummary],
+      [cpuSummary],
+      [partitionSummary],
+      [raidSummary],
+      [graphicsSummary],
+      [usbSummary],
+      [audioSummary],
+      [bluetoothSummary ?? List<TreeNodeRepresentable>.empty()]
+    ].expand((e) => e).cast<TreeNodeRepresentable>();
   }
 }

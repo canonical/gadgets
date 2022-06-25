@@ -1,27 +1,45 @@
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:collection/collection.dart';
 
 class CPUSummary implements TreeNodeRepresentable {
   final CPU cpu;
-  final CPUCoreInfo coreInfo;
-  final CompilerFlags flags;
-  final CPUCoreFrequencyInfo coreFrequencyInfo;
+  final CPUCoreInfo? coreInfo;
+  final CompilerFlags? flags;
+  final CPUCoreFrequencyInfo? coreFrequencyInfo;
   final VulnerabilityInfo vulnerabilityInfo;
 
   CPUSummary(this.cpu, this.coreInfo, this.flags, this.coreFrequencyInfo,
       this.vulnerabilityInfo);
 
   factory CPUSummary.fromReport(Map<String, dynamic> reportMap) {
-    final cpuSummaryMaps = reportMap['CPU']!;
+    final cpuSummaryMaps =
+        (reportMap['CPU']! as List).cast<Map<String, dynamic>>();
+
     final cpu = CPU.fromMap(
         cpuSummaryMaps.firstWhere((element) => CPU.isRepresentation(element)));
-    final core = CPUCoreInfo.fromMap(cpuSummaryMaps
-        .firstWhere((element) => CPUCoreInfo.isRepresentation(element)));
-    final flags = CompilerFlags.fromMap(cpuSummaryMaps
-        .firstWhere((element) => CompilerFlags.isRepresentation(element)));
-    final coreFrequencyInfo = CPUCoreFrequencyInfo.fromMap(
-        cpuSummaryMaps.firstWhere(
-            (element) => CPUCoreFrequencyInfo.isRepresentation(element)));
+
+    final cpuCoreInfoDetected =
+        cpuSummaryMaps.any((element) => CPUCoreInfo.isRepresentation(element));
+    final core = cpuCoreInfoDetected
+        ? CPUCoreInfo.fromMap(cpuSummaryMaps
+            .firstWhere((element) => CPUCoreInfo.isRepresentation(element)))
+        : null;
+
+    final compilerFlagsDetected = cpuSummaryMaps
+        .any((element) => CompilerFlags.isRepresentation(element));
+    final flags = compilerFlagsDetected
+        ? CompilerFlags.fromMap(cpuSummaryMaps
+            .firstWhere((element) => CompilerFlags.isRepresentation(element)))
+        : null;
+
+    final coreFreqDetected = cpuSummaryMaps
+        .any((element) => CPUCoreFrequencyInfo.isRepresentation(element));
+    final coreFrequencyInfo = coreFreqDetected
+        ? CPUCoreFrequencyInfo.fromMap(cpuSummaryMaps.firstWhere(
+            (element) => CPUCoreFrequencyInfo.isRepresentation(element)))
+        : null;
+
     final vulnerabilityInfo = VulnerabilityInfo.fromReport(reportMap);
 
     return CPUSummary(cpu, core, flags, coreFrequencyInfo, vulnerabilityInfo);
@@ -34,20 +52,26 @@ class CPUSummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [cpu, coreInfo, flags, coreFrequencyInfo, vulnerabilityInfo];
+    return [
+      [cpu],
+      coreInfo != null ? [coreInfo!] : [],
+      flags != null ? [flags!] : [],
+      coreFrequencyInfo != null ? [coreFrequencyInfo!] : [],
+      [vulnerabilityInfo]
+    ].cast<List<TreeNodeRepresentable>>().expand((e) => e);
   }
 }
 
 class CPU implements TreeNodeRepresentable {
   final String family;
   final int stepping;
-  final String microcode;
+  final String? microcode;
   final String model;
   final String modelID;
   final String type;
   final int bits;
   final String architecture;
-  final String socket;
+  final String? socket;
 
   CPU(this.family, this.stepping, this.microcode, this.model, this.modelID,
       this.type, this.bits, this.architecture, this.socket);
@@ -56,13 +80,13 @@ class CPU implements TreeNodeRepresentable {
     return CPU(
         map['family']!,
         int.parse(map['stepping']!),
-        map['microcode']!,
+        map['microcode'],
         map['model']!,
         map['model-id']!,
         map['type']!,
         map['bits']!,
         map['arch']!,
-        map['socket']!);
+        map['socket']);
   }
 
   static bool isRepresentation(Map<String, dynamic> map) {
@@ -111,6 +135,10 @@ class CPUCoreInfo implements TreeNodeRepresentable {
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['L1'] != null;
+  }
+
+  static bool cpuCoreInfoDetected(Map<String, dynamic> map) {
+    return true;
   }
 
   @override

@@ -46,12 +46,25 @@ class BluetoothSummary implements TreeNodeRepresentable {
 
   factory BluetoothSummary.fromReport(Map<String, dynamic> report) {
     final bluetoothSummaryInfo = report["Bluetooth"]!;
+
+    // TODO: Make this work correctly with _multiple_ bluetooth chips.
     Map<String, dynamic> chipMap = bluetoothSummaryInfo.elementAt(0);
     Map<String, dynamic> serviceMap = bluetoothSummaryInfo.elementAt(1);
     Map<String, dynamic> linkMap = bluetoothSummaryInfo.elementAt(2);
 
     return BluetoothSummary.fromMaps(
         chip: chipMap, service: serviceMap, link: linkMap);
+  }
+
+  static bool bluetoothDetectedInReport(Map<String, dynamic> report) {
+    final bluetoothEntries =
+        (report["Bluetooth"] as List).cast<Map<String, dynamic>>();
+    if (bluetoothEntries.length == 1 &&
+        bluetoothEntries.first["Message"] == "No bluetooth data found.") {
+      return false;
+    }
+    return bluetoothEntries.length >=
+        3; // at least one combo of chip, service, link needed.
   }
 
   @override
