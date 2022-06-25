@@ -1,0 +1,551 @@
+[
+  {
+    "System": [
+      {
+        "Kernel": "21.5.0",
+        "Console": "s001",
+        "OS": "Darwin 21.5.0",
+        "compiler": "clang",
+        "Host": "theia-wifi.home",
+        "arch": "arm64",
+        "bits": 64,
+        "v": "13.1.6"
+      }
+    ]
+  },
+  {
+    "Machine": [
+      {
+        "Type": "N/A",
+        "date": "N/A",
+        "v": "N/A",
+        "serial": "N/A",
+        "Mobo": "N/A",
+        "BIOS": "N/A",
+        "model": "N/A"
+      }
+    ]
+  },
+  {
+    "Battery": [
+      {
+        "Message": "No battery data found. Try with --dmidecode"
+      }
+    ]
+  },
+  {
+    "Memory": [
+      {
+        "used": "",
+        "total": "",
+        "RAM": ""
+      },
+      {
+        "RAM Report": "",
+        "missing": "Required tool dmidecode not installed. Check --recommends"
+      }
+    ]
+  },
+  {
+    "PCI Slots": [
+      {
+        "Message": "No ARM data found for this feature."
+      }
+    ]
+  },
+  {
+    "CPU": [
+      {
+        "arch": "arm64",
+        "family": "N/A",
+        "model": "Apple M1 Max",
+        "type": "MCP",
+        "model-id": "N/A",
+        "stepping": "N/A",
+        "bits": 64,
+        "Info": "10-core"
+      },
+      {
+        "cores": "No OS support for core speeds.",
+        "min/max": "N/A",
+        "Speed": "N/A"
+      },
+      {
+        "Features": "N/A"
+      },
+      {
+        "Vulnerabilities": "No CPU vulnerability/bugs data available."
+      }
+    ]
+  },
+  {
+    "Graphics": [
+      {
+        "Message": "No ARM data found for this feature."
+      },
+      {
+        "server": "No display server data found. Headless machine?",
+        "tty": "173x39",
+        "Display": ""
+      },
+      {
+        "Message": "Unable to show GL data. Required tool glxinfo missing."
+      }
+    ]
+  },
+  {
+    "Audio": [
+      {
+        "Message": "No ARM data found for this feature."
+      }
+    ]
+  },
+  {
+    "Network": [
+      {
+        "Message": "No ARM data found for this feature."
+      },
+      {
+        "IF-ID": "anpi2",
+        "state": "inactive",
+        "speed": "N/A",
+        "mac": "86:74:a9:7a:c3:33",
+        "duplex": "N/A"
+      },
+      {
+        "scope": "link",
+        "IP v6": "fe80::8474:a9ff:fe7a:c333%anpi2"
+      },
+      {
+        "mac": "86:74:a9:7a:c3:32",
+        "duplex": "N/A",
+        "state": "inactive",
+        "speed": "N/A",
+        "IF-ID": "anpi1"
+      },
+      {
+        "scope": "link",
+        "IP v6": "fe80::8474:a9ff:fe7a:c332%anpi1"
+      },
+      {
+        "IF-ID": "anpi0",
+        "speed": "N/A",
+        "state": "inactive",
+        "mac": "86:74:a9:7a:c3:31",
+        "duplex": "N/A"
+      },
+      {
+        "scope": "link",
+        "IP v6": "fe80::8474:a9ff:fe7a:c331%anpi0"
+      },
+      {
+        "mac": "86:74:a9:7a:c3:11",
+        "duplex": "N/A",
+        "IF-ID": "en4",
+        "speed": "N/A",
+        "state": "inactive"
+      },
+      {
+        "speed": "N/A",
+        "state": "inactive",
+        "IF-ID": "en5",
+        "duplex": "N/A",
+        "mac": "86:74:a9:7a:c3:12"
+      },
+      {
+        "IF-ID": "en6",
+        "state": "inactive",
+        "speed": "N/A",
+        "duplex": "N/A",
+        "mac": "86:74:a9:7a:c3:13"
+      },
+      {
+        "state": "inactive",
+        "speed": "N/A",
+        "IF-ID": "en1",
+        "duplex": "N/A",
+        "mac": "36:7d:9f:74:da:c0"
+      },
+      {
+        "IF-ID": "en2",
+        "state": "inactive",
+        "speed": "N/A",
+        "duplex": "N/A",
+        "mac": "36:7d:9f:74:da:c4"
+      },
+      {
+        "duplex": "N/A",
+        "mac": "36:7d:9f:74:da:c8",
+        "speed": "N/A",
+        "state": "inactive",
+        "IF-ID": "en3"
+      },
+      {
+        "mac": "be:d0:74:09:9b:ac",
+        "duplex": "N/A",
+        "state": "inactive",
+        "speed": "N/A",
+        "IF-ID": "ap1"
+      },
+      {
+        "duplex": "N/A",
+        "mac": "bc:d0:74:09:9b:ac",
+        "state": "active",
+        "speed": "N/A",
+        "IF-ID": "en0"
+      },
+      {
+        "Message": "Output throttled. IPs: 2; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "bridge0",
+        "state": "inactive",
+        "speed": "N/A",
+        "mac": "36:7d:9f:74:da:c0",
+        "duplex": "N/A"
+      },
+      {
+        "speed": "N/A",
+        "state": "active",
+        "IF-ID": "awdl0",
+        "duplex": "N/A",
+        "mac": "72:30:1f:5c:26:db"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "speed": "N/A",
+        "state": "active",
+        "IF-ID": "llw0",
+        "mac": "72:30:1f:5c:26:db",
+        "duplex": "N/A"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "bridge100",
+        "speed": "N/A",
+        "state": "active",
+        "mac": "be:d0:74:90:15:64",
+        "duplex": "N/A"
+      },
+      {
+        "Message": "Output throttled. IPs: 2; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "state": "active",
+        "speed": "N/A",
+        "IF-ID": "vmenet0",
+        "duplex": "N/A",
+        "mac": "42:58:0a:b6:ba:e2"
+      },
+      {
+        "duplex": "N/A",
+        "mac": "b6:81:13:1e:6f:6a",
+        "state": "active",
+        "speed": "N/A",
+        "IF-ID": "vmenet1"
+      },
+      {
+        "speed": "N/A",
+        "state": "active",
+        "IF-ID": "bridge101",
+        "mac": "be:d0:74:90:15:65",
+        "duplex": "N/A"
+      },
+      {
+        "Message": "Output throttled. IPs: 2; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "vmenet2",
+        "state": "active",
+        "speed": "N/A",
+        "mac": "1e:bd:7b:06:7e:ef",
+        "duplex": "N/A"
+      },
+      {
+        "WAN IP": "195.165.136.70"
+      }
+    ]
+  },
+  {
+    "Bluetooth": [
+      {
+        "Message": "No bluetooth data found."
+      }
+    ]
+  },
+  {
+    "Logical": [
+      {
+        "Message": "Logical block device feature unsupported in Darwin."
+      }
+    ]
+  },
+  {
+    "RAID": [
+      {
+        "Message": "No RAID data found."
+      }
+    ]
+  },
+  {
+    "Drives": [
+      {
+        "total": "dmesg.boot not found",
+        "Local Storage": "",
+        "used": "0 KiB"
+      },
+      {
+        "SMART Message": "Required tool smartctl not installed. Check --recommends"
+      },
+      {
+        "Message": "dmesg.boot not found"
+      }
+    ]
+  },
+  {
+    "Partition": [
+      {
+        "size": "1%",
+        "ID": "/",
+        "dev": "/dev/disk3s1s1",
+        "fs": "a",
+        "used": "/ (0%)"
+      },
+      {
+        "dev": "/dev/disk3s5",
+        "fs": "a",
+        "ID": "/System/Volumes/Data",
+        "size": "9%",
+        "used": "/System/Volumes/Data (0%)"
+      },
+      {
+        "fs": "a",
+        "mapped": "auto_home",
+        "ID": "/System/Volumes/Data/home",
+        "size": "100%",
+        "used": "/System/Volumes/Data/home (0%)"
+      },
+      {
+        "dev": "/dev/disk1s3",
+        "fs": "a",
+        "size": "1%",
+        "ID": "/System/Volumes/Hardware",
+        "used": "/System/Volumes/Hardware (0%)"
+      },
+      {
+        "used": "/System/Volumes/Preboot (0%)",
+        "dev": "/dev/disk3s2",
+        "fs": "a",
+        "size": "1%",
+        "ID": "/System/Volumes/Preboot"
+      },
+      {
+        "used": "/System/Volumes/Update (0%)",
+        "ID": "/System/Volumes/Update",
+        "size": "1%",
+        "dev": "/dev/disk3s4",
+        "fs": "a"
+      },
+      {
+        "used": "/System/Volumes/VM (0%)",
+        "dev": "/dev/disk3s6",
+        "fs": "a",
+        "ID": "/System/Volumes/VM",
+        "size": "1%"
+      },
+      {
+        "used": "/System/Volumes/iSCPreboot (0%)",
+        "size": "2%",
+        "ID": "/System/Volumes/iSCPreboot",
+        "fs": "a",
+        "dev": "/dev/disk1s1"
+      },
+      {
+        "fs": "a",
+        "dev": "/dev/disk1s2",
+        "ID": "/System/Volumes/xarts",
+        "size": "2%",
+        "used": "/System/Volumes/xarts (0%)"
+      },
+      {
+        "used": "/Volumes/Sensei (0%)",
+        "label": "N/A",
+        "ID": "/Volumes/Sensei",
+        "dev": "/dev/disk4s2",
+        "size": "81%",
+        "fs": "h",
+        "uuid": "N/A"
+      },
+      {
+        "size": "81%",
+        "uuid": "N/A",
+        "fs": "h",
+        "ID": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/T/dCTBMh",
+        "dev": "/dev/disk7s2",
+        "used": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/T/dCTBMh (0%)",
+        "label": "N/A"
+      },
+      {
+        "size": "100%",
+        "uuid": "N/A",
+        "fs": "h",
+        "label": "N/A",
+        "used": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/T/kDuAeR (0%)",
+        "ID": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/T/kDuAeR",
+        "dev": "/dev/disk5s2"
+      },
+      {
+        "source": "ERR-102",
+        "fs": "n",
+        "ID": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/X/292562CF-52AF-5BFA-85B9-BF89903DF3DB",
+        "size": "9%",
+        "used": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/X/292562CF-52AF-5BFA-85B9-BF89903DF3DB (0%)"
+      },
+      {
+        "source": "ERR-102",
+        "fs": "n",
+        "ID": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/X/579B96AF-EF59-5631-9A2D-9FD91FE2D454",
+        "size": "8%",
+        "used": "/private/var/folders/3s/4bcc7tm93lv1zdx8k14nb1wr0000gn/X/579B96AF-EF59-5631-9A2D-9FD91FE2D454 (0%)"
+      }
+    ]
+  },
+  {
+    "Swap": [
+      {
+        "Alert": "No swap data was found."
+      }
+    ]
+  },
+  {
+    "Unmounted": [
+      {
+        "Message": "Unmounted partition feature unsupported in Darwin."
+      }
+    ]
+  },
+  {
+    "USB": [
+      {
+        "Missing": "This feature requires one of these tools: usbdevs/usbconfig"
+      }
+    ]
+  },
+  {
+    "Sensors": [
+      {
+        "Platform": "No OS support. Is a comparable Darwin sensors tool available?"
+      }
+    ]
+  },
+  {
+    "Repos": [
+      {
+        "Packages": "No packages detected. Unsupported package manager?"
+      },
+      {
+        "Alert": "No repo data detected. Does inxi support Darwin?"
+      }
+    ]
+  },
+  {
+    "Processes": [
+      {
+        "CPU top": "5 of 628"
+      },
+      {
+        "command": "parallels",
+        "pid": "1462",
+        "cpu": "6.7%",
+        "1": "",
+        "mem": "7771.4 MiB (11.9%)"
+      },
+      {
+        "pid": "362",
+        "command": "windowserver",
+        "2": "",
+        "mem": "369.9 MiB (0.6%)",
+        "cpu": "5.8%"
+      },
+      {
+        "pid": "1289",
+        "3": "",
+        "command": "xprotectservice",
+        "mem": "113.0 MiB (0.2%)",
+        "cpu": "5.5%"
+      },
+      {
+        "mem": "345.6 MiB (0.5%)",
+        "cpu": "2.7%",
+        "pid": "654",
+        "command": "terminal",
+        "4": ""
+      },
+      {
+        "command": "syspolicyd",
+        "pid": "361",
+        "5": "",
+        "cpu": "2.5%",
+        "mem": "72.2 MiB (0.1%)"
+      },
+      {
+        "Memory top": "5 of 628"
+      },
+      {
+        "1": "",
+        "cpu": "6.7%",
+        "mem": "7771.4 MiB (11.9%)",
+        "command": "parallels",
+        "pid": "1462"
+      },
+      {
+        "cpu": "0.0%",
+        "mem": "1170.7 MiB (1.8%)",
+        "2": "",
+        "command": "firefox",
+        "pid": "15583"
+      },
+      {
+        "cpu": "0.0%",
+        "mem": "826.8 MiB (1.3%)",
+        "3": "",
+        "command": "visual",
+        "pid": "20397"
+      },
+      {
+        "mem": "682.7 MiB (1.0%)",
+        "cpu": "0.0%",
+        "pid": "20419",
+        "command": "dart",
+        "4": ""
+      },
+      {
+        "mem": "540.5 MiB (0.8%)",
+        "cpu": "0.0%",
+        "pid": "505",
+        "5": "",
+        "command": "mds_stores"
+      }
+    ]
+  },
+  {
+    "Info": [
+      {
+        "Init": "launchd",
+        "v": "N/A",
+        "Compilers": "",
+        "gcc": "N/A",
+        "Shell": "Bash (sudo)",
+        "Uptime": "19d 9h 32m",
+        "Processes": 628,
+        "running-in": "s001",
+        "inxi": "3.3.19",
+        "clang": "13.1.6"
+      }
+    ]
+  }
+]
