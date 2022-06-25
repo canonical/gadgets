@@ -1,3 +1,4 @@
+import 'package:device_tree_lib/src/detail_node.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
@@ -23,10 +24,9 @@ class OEMInfo implements TreeNodeRepresentable {
   final String version;
   final String product;
   final String system;
-  final String chassis;
 
   OEMInfo(this.serial, this.typeIdentifier, this.typeName, this.version,
-      this.product, this.system, this.chassis);
+      this.product, this.system);
 
   factory OEMInfo.fromMap(Map<String, dynamic> map) {
     return OEMInfo(
@@ -35,8 +35,7 @@ class OEMInfo implements TreeNodeRepresentable {
         map[_InxiKeyMachine.typeName]!,
         map[_InxiKeyMachine.version]!,
         map[_InxiKeyMachine.product]!,
-        map[_InxiKeyMachine.system]!,
-        map[_InxiKeyMachine.chassis]!);
+        map[_InxiKeyMachine.system]!);
   }
 
   static bool representsOEMInfo(Map<String, dynamic> map) {
@@ -45,16 +44,19 @@ class OEMInfo implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(
-        id: "OEM info",
-        data: this,
-        label:
-            "serial: $serial, type: $typeName ($typeIdentifier), product: $product");
+    return TreeNode(id: "OEM information", data: this, label: version);
   }
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [];
+    return [
+      Detail(parent: this, key: "Type", value: typeName),
+      Detail(parent: this, key: "Model", value: "$version ($product)"),
+      Detail(parent: this, key: "Serial", value: serial),
+      Detail(parent: this, key: "System", value: system),
+      // Detail(parent: this, key: "Product", value: product),
+      // Detail(parent: this, key: "Type identifier", value: typeIdentifier),
+    ];
   }
 }
 
