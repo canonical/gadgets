@@ -1,5 +1,6 @@
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'detail_node.dart';
 
 class SystemSummary implements TreeNodeRepresentable {
   final Kernel kernel;
@@ -16,11 +17,14 @@ class SystemSummary implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() =>
-      TreeNode(id: "System (${kernel.host})", data: this);
+  TreeNode treeNodeRepresentation() => TreeNode(id: "System", data: this);
 
   @override
-  Iterable<TreeNodeRepresentable> children() => [kernel, environment];
+  Iterable<TreeNodeRepresentable> children() => [
+        Detail(parent: this, key: "Hostname", value: kernel.host),
+        kernel,
+        environment
+      ];
 }
 
 class _InxiKeyKernel {
@@ -68,7 +72,14 @@ class Kernel implements TreeNodeRepresentable {
           "$kernelVersion ($bits, $compilerVersion), parameters: $parameters");
 
   @override
-  Iterable<TreeNodeRepresentable> children() => [];
+  Iterable<TreeNodeRepresentable> children() => [
+        Detail(parent: this, key: "Machine name", value: host),
+        Detail(
+            parent: this, key: "Compiler", value: "$compiler $compilerVersion"),
+        Detail(
+            parent: this, key: "Kernel", value: "$kernelVersion ($bits-bit)"),
+        Detail(parent: this, key: "Boot parameters", value: parameters)
+      ];
 }
 
 class Environment implements TreeNodeRepresentable {
