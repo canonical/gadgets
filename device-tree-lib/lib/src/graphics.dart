@@ -334,7 +334,6 @@ class Display implements TreeNodeRepresentable {
       this.diagonal);
 
   factory Display.fromMap(Map<String, dynamic> map) {
-    print(map);
     return Display(
         map[_InxiKeyGraphics.displayResolution],
         double.parse(map[_InxiKeyGraphics.displayDPI]),

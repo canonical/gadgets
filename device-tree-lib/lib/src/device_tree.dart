@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/src/battery.dart';
 import 'package:device_tree_lib/src/drive.dart';
 import 'package:device_tree_lib/src/machine.dart';
 import 'package:device_tree_lib/src/memory.dart';
@@ -22,6 +23,7 @@ class DeviceTree implements TreeNodeRepresentable {
   final USBSummary usbSummary;
   final AudioSummary audioSummary;
   final BluetoothSummary bluetoothSummary;
+  final BatterySummary batterySummary;
   final CPUSummary cpuSummary;
   final DriveSummary driveSummary;
   final GraphicsSummary graphicsSummary;
@@ -36,6 +38,7 @@ class DeviceTree implements TreeNodeRepresentable {
       required this.usbSummary,
       required this.audioSummary,
       required this.bluetoothSummary,
+      required this.batterySummary,
       required this.cpuSummary,
       required this.driveSummary,
       required this.graphicsSummary,
@@ -51,6 +54,7 @@ class DeviceTree implements TreeNodeRepresentable {
         usbSummary: USBSummary.fromReport(map),
         audioSummary: AudioSummary.fromReport(map),
         bluetoothSummary: BluetoothSummary.fromReport(map),
+        batterySummary: BatterySummary.fromReport(map),
         cpuSummary: CPUSummary.fromReport(map),
         driveSummary: DriveSummary.fromReport(map),
         graphicsSummary: GraphicsSummary.fromReport(map),
@@ -78,6 +82,7 @@ class DeviceTree implements TreeNodeRepresentable {
       systemSummary,
       machineSummary,
       info,
+      batterySummary,
       memorySummary,
       cpuSummary,
       partitionSummary,

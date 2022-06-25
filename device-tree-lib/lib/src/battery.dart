@@ -1,3 +1,6 @@
+import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class UnexpectedBatteryValue implements Exception {
   Map<String, dynamic> value;
   UnexpectedBatteryValue(this.value);
@@ -5,7 +8,7 @@ class UnexpectedBatteryValue implements Exception {
       "Unexpected battery value $value (of type ${value.runtimeType})";
 }
 
-class BatterySummary {
+class BatterySummary implements TreeNodeRepresentable {
   Iterable<BatteryLike> batteries;
 
   BatterySummary(this.batteries);
@@ -24,11 +27,19 @@ class BatterySummary {
       }
     }));
   }
+
+  @override
+  TreeNode treeNodeRepresentation() {
+    return TreeNode(id: "Batteries", data: this);
+  }
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => batteries;
 }
 
-abstract class BatteryLike {}
+abstract class BatteryLike implements TreeNodeRepresentable {}
 
-abstract class Battery implements BatteryLike {
+abstract class Battery implements BatteryLike, TreeNodeRepresentable {
   final String status;
   final String serial;
   final String model;
@@ -41,7 +52,7 @@ abstract class Battery implements BatteryLike {
       required this.charge});
 }
 
-class MachineBattery extends Battery {
+class MachineBattery extends Battery implements TreeNodeRepresentable {
   final String type;
   final String id;
   final int cycles;
@@ -79,9 +90,18 @@ class MachineBattery extends Battery {
   static bool isRepresentation(Map<String, dynamic> map) {
     return map["cycles"] != null;
   }
+
+  @override
+  TreeNode treeNodeRepresentation() => TreeNode(
+      id: "Device Battery ($type)",
+      data: this,
+      label: "$charge ($status, $condition)");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
 
-class PeripheralBattery extends Battery {
+class PeripheralBattery extends Battery implements TreeNodeRepresentable {
   final String rechargeable;
   final String device;
 
@@ -106,12 +126,24 @@ class PeripheralBattery extends Battery {
 
   static bool isRepresentation(Map<String, dynamic> map) =>
       map['Device'] != null;
+
+  @override
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: model, data: this, label: "$charge ($status)");
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
 
 class NoBatteryDetected implements BatteryLike {
   NoBatteryDetected();
-  static bool isRepresentation(Map<String, dynamic> map) {
-    print(map);
-    return map.keys.length == 1 && map['Message'] != null;
-  }
+  static bool isRepresentation(Map<String, dynamic> map) =>
+      map.keys.length == 1 && map['Message'] != null;
+
+  @override
+  TreeNode treeNodeRepresentation() =>
+      TreeNode(id: "(No battery detected)", data: this);
+
+  @override
+  Iterable<TreeNodeRepresentable> children() => [];
 }
