@@ -13,7 +13,7 @@ void main() {
       expect(summary.pciGraphicsDevices.first.chipID, "10de:2204");
       expect(summary.pciGraphicsDevices.first.classID, "0300");
 
-      expect(summary.renderer.directRender, true);
+      expect(summary.renderer?.directRender, true);
     });
   });
 }

@@ -17,16 +17,16 @@ class DeviceInfoInxiKey {
 }
 
 class DeviceInfo implements TreeNodeRepresentable {
-  final String tool;
+  final String? tool;
   final String uptime;
   final String shell;
   final String clangVersion;
   final String version; // not sure which version this is?
   final String inxiVersion;
   final String initSystem;
-  final int runLevel;
+  final int? runLevel;
   final String gccVersion;
-  final String defaultShell;
+  final String? defaultShell;
   final int? wakeups;
 
   const DeviceInfo(
@@ -47,7 +47,8 @@ class DeviceInfo implements TreeNodeRepresentable {
   }
 
   factory DeviceInfo.fromMap(Map<String, dynamic> map) {
-    var tool = map[DeviceInfoInxiKey.tool] as String;
+    // TODO: handle an alternative key "inxi" for "tool".
+    var tool = map[DeviceInfoInxiKey.tool] as String?;
     var uptime = map[DeviceInfoInxiKey.uptime] as String;
     var shell = map[DeviceInfoInxiKey.shell] as String;
     var clang = map[DeviceInfoInxiKey.clang] as String;
@@ -55,9 +56,12 @@ class DeviceInfo implements TreeNodeRepresentable {
     var inxiVersion = map[DeviceInfoInxiKey.inxiVersion] as String;
     var initSystem = map[DeviceInfoInxiKey.initSystem] as String;
 
-    var runLevel = int.parse(map[DeviceInfoInxiKey.runLevel]);
+    var runLevel = map[DeviceInfoInxiKey.runLevel] != null
+        ? int.parse(map[DeviceInfoInxiKey.runLevel])
+        : null;
+
     var gccVersion = map[DeviceInfoInxiKey.gccVersion] as String;
-    var defaultShell = map[DeviceInfoInxiKey.defaultShell] as String;
+    var defaultShell = map[DeviceInfoInxiKey.defaultShell] as String?;
 
     final rawWakeups = map[DeviceInfoInxiKey.wakeups];
     var wakeups =

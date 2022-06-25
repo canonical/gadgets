@@ -126,6 +126,7 @@ class MachineSummary implements TreeNodeRepresentable {
     final oemInfoMapMaybe = machineEntries
         .firstWhereOrNull((element) => OEMInfo.representsOEMInfo(element));
 
+    print(machineEntries);
     final uefi = UEFI.fromMap(
         machineEntries.firstWhere((element) => UEFI.representsUEFI(element)));
 

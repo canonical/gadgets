@@ -18,6 +18,11 @@ class MissingDeviceReportKeyException implements Exception {
   const MissingDeviceReportKeyException(this.key);
 }
 
+class UnexpectedReportFormat implements Exception {
+  final dynamic report;
+  const UnexpectedReportFormat(this.report);
+}
+
 class DeviceTree implements TreeNodeRepresentable {
   final DeviceInfo info;
   final USBSummary usbSummary;
@@ -68,8 +73,22 @@ class DeviceTree implements TreeNodeRepresentable {
   }
 
   static Future<DeviceTree> from({required File file}) async {
-    Map<String, dynamic> map = await json.decode(await file.readAsString());
-    return DeviceTree.fromReport(map);
+    final rawData = await json.decode(await file.readAsString());
+
+    // it's either a map or a list.
+    // when a list, need to reduce it down to a map.
+    if (rawData is List) {
+      final Map<String, dynamic> map = {};
+      final rawList = (rawData as List).cast<Map<String, dynamic>>();
+      for (final entry in rawList) {
+        assert(entry.length == 1);
+        map[entry.keys.first] = entry.values.first;
+      }
+      return DeviceTree.fromReport(map);
+    } else if (rawData is Map) {
+      return DeviceTree.fromReport(rawData as Map<String, dynamic>);
+    }
+    throw UnexpectedReportFormat(rawData);
   }
 
   @override
@@ -95,9 +114,6 @@ class DeviceTree implements TreeNodeRepresentable {
       bluetoothSummary != null
           ? [bluetoothSummary!]
           : List<TreeNodeRepresentable>.empty()
-    ]
-        .cast<List<TreeNodeRepresentable>>()
-        .expand((e) => e)
-        .cast<TreeNodeRepresentable>();
+    ].expand((e) => e);
   }
 }

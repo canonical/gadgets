@@ -64,7 +64,7 @@ class CPUSummary implements TreeNodeRepresentable {
 
 class CPU implements TreeNodeRepresentable {
   final String family;
-  final int stepping;
+  final int? stepping;
   final String? microcode;
   final String model;
   final String modelID;
@@ -77,9 +77,12 @@ class CPU implements TreeNodeRepresentable {
       this.type, this.bits, this.architecture, this.socket);
 
   factory CPU.fromMap(Map<String, dynamic> map) {
+    final rawStepping = map['stepping'];
     return CPU(
         map['family']!,
-        int.parse(map['stepping']!),
+        rawStepping != null && rawStepping != 'N/A'
+            ? int.parse(map['stepping']!)
+            : null,
         map['microcode'],
         map['model']!,
         map['model-id']!,

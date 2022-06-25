@@ -56,8 +56,8 @@ class _InxiKeyGraphics {
 
 class GraphicsSummary implements TreeNodeRepresentable {
   // choosing not to call these 'GPU's since could also be video capture etc.
-  final DisplayServer displayServer;
-  final DisplayRenderer renderer;
+  final DisplayServer? displayServer;
+  final DisplayRenderer? renderer;
   final Iterable<PCIGraphicsDevice> pciGraphicsDevices;
   final Iterable<USBGraphicsDevice> usbGraphicsDevices;
   final Iterable<Screen> screens;
@@ -79,10 +79,19 @@ class GraphicsSummary implements TreeNodeRepresentable {
             (element) => USBGraphicsDevice.representsUSBGraphicsDevice(element))
         .map((element) => USBGraphicsDevice.fromMap(element));
 
-    final displayServer = DisplayServer.fromMap(entries.firstWhere(
-        (element) => DisplayServer.representsDisplayServer(element)));
-    final renderer = DisplayRenderer.fromMap(entries.firstWhere(
-        (element) => DisplayRenderer.representsDisplayRenderer(element)));
+    final displayServerDetected = entries
+        .any((element) => DisplayServer.representsDisplayServer(element));
+    final displayServer = displayServerDetected
+        ? DisplayServer.fromMap(entries.firstWhere(
+            (element) => DisplayServer.representsDisplayServer(element)))
+        : null;
+
+    final displayRendererDetected = entries
+        .any((element) => DisplayRenderer.representsDisplayRenderer(element));
+    final renderer = displayRendererDetected
+        ? DisplayRenderer.fromMap(entries.firstWhere(
+            (element) => DisplayRenderer.representsDisplayRenderer(element)))
+        : null;
 
     final screens = entries
         .where((element) => Screen.representsScreen(element))
@@ -103,12 +112,14 @@ class GraphicsSummary implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     Iterable<Iterable<TreeNodeRepresentable>> childList = [
-      [displayServer],
+      displayServer != null
+          ? [displayServer!]
+          : List<TreeNodeRepresentable>.empty(),
       pciGraphicsDevices,
       usbGraphicsDevices,
       screens,
       displays,
-      [renderer]
+      renderer != null ? [renderer!] : List<TreeNodeRepresentable>.empty()
     ];
     return childList.expand((child) => child); // flatmap
   }
