@@ -5,9 +5,17 @@ import 'package:inspector_gadget/device_tree_view.dart';
 import 'device_report_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'device_report_controller_provider.dart';
 
 void main(List<String> args) {
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    if (kReleaseMode) {
+      exit(1);
+    }
+  };
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -90,12 +98,16 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
           ),
           home: ref.watch(deviceReportController.treeControllerProvider).when(
               data: (_) {
-                return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
-              },
-              error: (error, _) => Center(child: Text('Error: $error')),
-              loading: () {
-                return const Center(child: CircularProgressIndicator());
-              }),
+            return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
+          }, error: (error, trace) {
+            if (kDebugMode) {
+              print(trace);
+            }
+            return Center(
+                child: Text('Error in device report controller scope: $error'));
+          }, loading: () {
+            return const Center(child: CircularProgressIndicator());
+          }),
         ));
   }
 }

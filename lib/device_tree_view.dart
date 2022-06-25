@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 
 import 'package:device_tree_lib/all.dart';
+import 'package:flutter/foundation.dart';
 
 import 'node/tree_node_tile.dart';
 
@@ -43,7 +44,12 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                     }),
               );
             },
-            error: (error, _) => Center(child: Text('Error: $error')),
+            error: (error, trace) {
+              if (kDebugMode) {
+                print(trace);
+              }
+              return Center(child: Text('Error in value listenable: $error'));
+            },
             loading: () => const Center(child: CircularProgressIndicator()));
       },
     );

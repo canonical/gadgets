@@ -1,3 +1,4 @@
+import 'package:device_tree_lib/src/detail_node.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
@@ -75,6 +76,16 @@ class DeviceInfo implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() {
-    return [];
+    return [
+      Detail(parent: this, key: "uptime", value: uptime),
+      Detail(
+          parent: this, key: "shell", value: "$shell (default: $defaultShell)"),
+      Detail(parent: this, key: "gcc version", value: gccVersion),
+      Detail(parent: this, key: "clang version", value: clangVersion),
+      Detail(parent: this, key: "version", value: version),
+      Detail(parent: this, key: "# system wakeups", value: wakeups),
+      Detail(
+          parent: this, key: "init system", value: "$initSystem ($runLevel)"),
+    ];
   }
 }
