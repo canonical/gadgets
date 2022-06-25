@@ -66,11 +66,11 @@ class DeviceInfo implements TreeNodeRepresentable {
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(
-        id: "OS info",
-        data: this,
-        // label:
-        //    "uptime: $uptime, shell: $shell, clang: $clangVersion, gcc: $gccVersion, wakeups: $wakeups");
-    )
+      id: "OS info",
+      data: this,
+      // label:
+      //    "uptime: $uptime, shell: $shell, clang: $clangVersion, gcc: $gccVersion, wakeups: $wakeups");
+    );
   }
 
   @override
