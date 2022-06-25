@@ -92,7 +92,9 @@ class DeviceTree implements TreeNodeRepresentable {
       [graphicsSummary],
       [usbSummary],
       [audioSummary],
-      bluetoothSummary != null ? [bluetoothSummary!] : []
+      bluetoothSummary != null
+          ? [bluetoothSummary!]
+          : List<TreeNodeRepresentable>.empty()
     ]
         .cast<List<TreeNodeRepresentable>>()
         .expand((e) => e)
