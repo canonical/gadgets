@@ -56,7 +56,7 @@ class BluetoothSummary implements TreeNodeRepresentable {
         chip: chipMap, service: serviceMap, link: linkMap);
   }
 
-  static bool bluetoothDetectedInReport(Map<String, dynamic> report) {
+  static bool isDetectedIn({required Map<String, dynamic> report}) {
     final bluetoothEntries =
         (report["Bluetooth"] as List).cast<Map<String, dynamic>>();
     if (bluetoothEntries.length == 1 &&

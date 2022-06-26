@@ -57,6 +57,17 @@ class MemorySummary implements TreeNodeRepresentable {
     return MemorySummary.fromMaps(capacityMap, slotSummaryMap, slotsMaps);
   }
 
+  static bool isDetectedIn({required Map<String, dynamic> report}) {
+    final rawMemory = report["Memory"];
+    if (rawMemory == null || rawMemory is! List) {
+      return false;
+    }
+
+    return !rawMemory.any((entry) =>
+        MemoryCapacity.isDetectedIn(map: entry) ||
+        MemorySlotSummary.isDetectedIn(map: entry));
+  }
+
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(id: "Memory", data: this);
@@ -85,6 +96,9 @@ class MemoryCapacity implements TreeNodeRepresentable {
     return MemoryCapacity(map[InxiKeyMemoryCapacity.total]!,
         map[InxiKeyMemoryCapacity.used]!, map[InxiKeyMemoryCapacity.ram]!);
   }
+
+  static bool isDetectedIn({required Map<String, dynamic> map}) =>
+      map['total'] != '' && map['used'] != '' && map['ram'] != '';
 
   @override
   TreeNode treeNodeRepresentation() => TreeNode(
@@ -116,6 +130,13 @@ class MemorySlotSummary implements TreeNodeRepresentable {
         map[InxiKeyMemorySlotSummary.ec]!,
         map[InxiKeyMemorySlotSummary.capacity]!,
         map[InxiKeyMemorySlotSummary.array]);
+  }
+
+  static bool isDetectedIn({required Map<String, dynamic> map}) {
+    // handles the case of:
+    // {RAM Report: ,
+    //  missing: Required tool dmidecode not installed. Check --recommends}
+    return map["RAM Report"] != null && map["missing"] != null;
   }
 
   @override

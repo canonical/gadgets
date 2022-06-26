@@ -33,10 +33,10 @@ void main() {
       expect(summary.kernel.parameters,
           'BOOT_IMAGE=/vmlinuz-5.15.0-33-generic root=UUID=1eb80bc1-3f78-48bd-a8f8-a7aa6e01c65b ro quiet splash rd.driver.blacklist=nouveau nvidia-drm.modeset=1 vt.handoff=7');
 
-      expect(summary.environment.displayManager, 'GDM3 42.0');
-      expect(summary.environment.console, 'pty pts/3');
-      expect(summary.environment.windowManager, 'gnome-shell');
-      expect(summary.environment.distro, 'Ubuntu 22.04 LTS (Jammy Jellyfish)');
+      expect(summary.environment?.displayManager, 'GDM3 42.0');
+      expect(summary.environment?.console, 'pty pts/3');
+      expect(summary.environment?.windowManager, 'gnome-shell');
+      expect(summary.environment?.distro, 'Ubuntu 22.04 LTS (Jammy Jellyfish)');
     });
   });
 }

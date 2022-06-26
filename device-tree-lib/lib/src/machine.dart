@@ -13,7 +13,6 @@ class _InxiKeyMachine {
   static const String typeName = 'Type';
   static const String typeIdentifier = 'type';
   static const String product = 'product';
-  static const String chassis = 'Chassis';
   static const String system = 'System';
 }
 
@@ -38,7 +37,7 @@ class OEMInfo implements TreeNodeRepresentable {
         map[_InxiKeyMachine.system]!);
   }
 
-  static bool representsOEMInfo(Map<String, dynamic> map) {
+  static bool isRepresentation(Map<String, dynamic> map) {
     return map[_InxiKeyMachine.product] != null;
   }
 
@@ -124,14 +123,23 @@ class MachineSummary implements TreeNodeRepresentable {
         (reportMap['Machine']! as List).cast<Map<String, dynamic>>();
 
     final oemInfoMapMaybe = machineEntries
-        .firstWhereOrNull((element) => OEMInfo.representsOEMInfo(element));
+        .firstWhereOrNull((element) => OEMInfo.isRepresentation(element));
 
-    print(machineEntries);
     final uefi = UEFI.fromMap(
         machineEntries.firstWhere((element) => UEFI.representsUEFI(element)));
 
     return MachineSummary(uefi,
         oemInfoMapMaybe != null ? OEMInfo.fromMap(oemInfoMapMaybe) : null);
+  }
+
+  static bool isDetectedIn({required Map<String, dynamic> report}) {
+    final entries = report["Machine"];
+    if (entries == null) {
+      return false;
+    }
+    final machineList = (entries as List).cast<Map<String, dynamic>>();
+    return machineList.any((element) =>
+        OEMInfo.isRepresentation(element) || UEFI.representsUEFI(element));
   }
 
   @override

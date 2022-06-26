@@ -1,19 +1,24 @@
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'detail_node.dart';
+import 'package:collection/collection.dart';
 
 class SystemSummary implements TreeNodeRepresentable {
   final Kernel kernel;
-  final Environment environment;
+  final Environment? environment;
 
   SystemSummary(this.kernel, this.environment);
 
   factory SystemSummary.fromReport(Map<String, dynamic> report) {
-    final Map<String, dynamic> kernelMap = report['System']![0];
-    final Map<String, dynamic> environmentMap = report['System']![1];
+    final rawSystemEntries = report['System'] as List;
+    final kernelMap = rawSystemEntries
+        .firstWhere((element) => Kernel.isRepresentation(element));
 
-    return SystemSummary(
-        Kernel.fromMap(kernelMap), Environment.fromMap(environmentMap));
+    final environmentMap = rawSystemEntries
+        .firstWhereOrNull((element) => Environment.isRepresentation(element));
+
+    return SystemSummary(Kernel.fromMap(kernelMap),
+        environmentMap != null ? Environment.fromMap(environmentMap) : null);
   }
 
   @override
@@ -22,10 +27,12 @@ class SystemSummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() => [
-        Detail(parent: this, key: "Hostname", value: kernel.host),
-        kernel,
-        environment
-      ];
+        [Detail(parent: this, key: "Hostname", value: kernel.host)],
+        [kernel],
+        environment != null
+            ? [environment!]
+            : List<TreeNodeRepresentable>.empty()
+      ].expand((element) => element);
 }
 
 class _InxiKeyKernel {
@@ -50,7 +57,7 @@ class Kernel implements TreeNodeRepresentable {
   final int bits;
   final String host;
   final String kernelVersion;
-  final String parameters;
+  final String? parameters;
 
   Kernel(this.compilerVersion, this.compiler, this.bits, this.host,
       this.kernelVersion, this.parameters);
@@ -62,7 +69,11 @@ class Kernel implements TreeNodeRepresentable {
         map[_InxiKeyKernel.bits]!,
         map[_InxiKeyKernel.host]!,
         map[_InxiKeyKernel.kernelVersion]!,
-        map[_InxiKeyKernel.parameters]!);
+        map[_InxiKeyKernel.parameters]);
+  }
+
+  static bool isRepresentation(Map<String, dynamic> map) {
+    return map['Kernel'] != null;
   }
 
   @override
@@ -93,11 +104,16 @@ class Environment implements TreeNodeRepresentable {
       this.displayManager, this.console, this.windowManager, this.distro);
 
   factory Environment.fromMap(Map<String, dynamic> map) {
+    print(map);
     return Environment(
         map[_InxiKeyEnvironment.displayManager]!,
         map[_InxiKeyEnvironment.console]!,
         map[_InxiKeyEnvironment.windowManager]!,
         map[_InxiKeyEnvironment.distro]!);
+  }
+
+  static bool isRepresentation(Map<String, dynamic> map) {
+    return map['Console'] != null && map['DM'] != null;
   }
 
   @override

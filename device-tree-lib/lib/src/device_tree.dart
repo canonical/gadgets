@@ -32,8 +32,8 @@ class DeviceTree implements TreeNodeRepresentable {
   final CPUSummary cpuSummary;
   final DriveSummary driveSummary;
   final GraphicsSummary graphicsSummary;
-  final MachineSummary machineSummary;
-  final MemorySummary memorySummary;
+  final MachineSummary? machineSummary;
+  final MemorySummary? memorySummary;
   final PartitionSummary partitionSummary;
   final RAIDSummary raidSummary;
   final SystemSummary systemSummary;
@@ -58,15 +58,19 @@ class DeviceTree implements TreeNodeRepresentable {
         info: DeviceInfo.fromReport(map),
         usbSummary: USBSummary.fromReport(map),
         audioSummary: AudioSummary.fromReport(map),
-        bluetoothSummary: BluetoothSummary.bluetoothDetectedInReport(map)
+        bluetoothSummary: BluetoothSummary.isDetectedIn(report: map)
             ? BluetoothSummary.fromReport(map)
             : null,
         batterySummary: BatterySummary.fromReport(map),
         cpuSummary: CPUSummary.fromReport(map),
         driveSummary: DriveSummary.fromReport(map),
         graphicsSummary: GraphicsSummary.fromReport(map),
-        machineSummary: MachineSummary.fromReport(map),
-        memorySummary: MemorySummary.fromReport(map),
+        machineSummary: MachineSummary.isDetectedIn(report: map)
+            ? MachineSummary.fromReport(map)
+            : null,
+        memorySummary: MemorySummary.isDetectedIn(report: map)
+            ? MemorySummary.fromReport(map)
+            : null,
         partitionSummary: PartitionSummary.fromReport(map),
         raidSummary: RAIDSummary.fromReport(map),
         systemSummary: SystemSummary.fromReport(map));
@@ -79,7 +83,7 @@ class DeviceTree implements TreeNodeRepresentable {
     // when a list, need to reduce it down to a map.
     if (rawData is List) {
       final Map<String, dynamic> map = {};
-      final rawList = (rawData as List).cast<Map<String, dynamic>>();
+      final rawList = rawData.cast<Map<String, dynamic>>();
       for (final entry in rawList) {
         assert(entry.length == 1);
         map[entry.keys.first] = entry.values.first;
@@ -100,11 +104,15 @@ class DeviceTree implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
-      [machineSummary],
+      machineSummary != null
+          ? [machineSummary!]
+          : List<TreeNodeRepresentable>.empty(),
       [systemSummary],
       [info],
       [batterySummary],
-      [memorySummary],
+      memorySummary != null
+          ? [memorySummary!]
+          : List<TreeNodeRepresentable>.empty(),
       [cpuSummary],
       [partitionSummary],
       [raidSummary],

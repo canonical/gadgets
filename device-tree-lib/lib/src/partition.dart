@@ -34,7 +34,7 @@ class Partition implements TreeNodeRepresentable {
   final String? majorMinor;
   final String? blockSize;
   final String? device;
-  final String rawSize;
+  final String? rawSize;
   final String? uuid;
   final String size;
   final String? used;
