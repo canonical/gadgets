@@ -25,7 +25,7 @@ class UnexpectedReportFormat implements Exception {
 
 class DeviceTree implements TreeNodeRepresentable {
   final DeviceInfo info;
-  final USBSummary usbSummary;
+  final USBSummary? usbSummary;
   final AudioSummary audioSummary;
   final BluetoothSummary? bluetoothSummary;
   final BatterySummary batterySummary;
@@ -56,7 +56,9 @@ class DeviceTree implements TreeNodeRepresentable {
   factory DeviceTree.fromReport(Map<String, dynamic> map) {
     return DeviceTree(
         info: DeviceInfo.fromReport(map),
-        usbSummary: USBSummary.fromReport(map),
+        usbSummary: USBSummary.isDetectedIn(report: map)
+            ? USBSummary.fromReport(map)
+            : null,
         audioSummary: AudioSummary.fromReport(map),
         bluetoothSummary: BluetoothSummary.isDetectedIn(report: map)
             ? BluetoothSummary.fromReport(map)
@@ -117,7 +119,7 @@ class DeviceTree implements TreeNodeRepresentable {
       [partitionSummary],
       [raidSummary],
       [graphicsSummary],
-      [usbSummary],
+      usbSummary != null ? [usbSummary!] : List<TreeNodeRepresentable>.empty(),
       [audioSummary],
       bluetoothSummary != null
           ? [bluetoothSummary!]

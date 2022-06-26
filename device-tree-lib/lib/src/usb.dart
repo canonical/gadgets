@@ -27,6 +27,22 @@ class USBSummary implements TreeNodeRepresentable {
     return USBSummary(usbDeviceMaps.map((m) => USBDevice.fromMap(m)));
   }
 
+  static bool isDetectedIn({required Map<String, dynamic> report}) {
+    if (!report.containsKey('USB')) {
+      return false;
+    }
+
+    final rawUSB = report['USB'];
+    if (rawUSB is! List) {
+      return false;
+    }
+
+    // handling the following case:
+    // {Missing: This feature requires one of these tools: usbdevs/usbconfig}
+    return !(rawUSB.length == 1 &&
+        rawUSB.any((element) => element['Missing'] != null));
+  }
+
   @override
   TreeNode treeNodeRepresentation() {
     return TreeNode(id: "USB", data: this);
@@ -70,6 +86,7 @@ class USBDevice implements TreeNodeRepresentable {
       this.name);
 
   factory USBDevice.fromMap(Map<String, dynamic> map) {
+    print(map);
     var revision = map[USBInxiKey.revision] as String;
     var speed = map[USBInxiKey.speed] as String;
     var chipID = map[USBInxiKey.chipID] as String;
