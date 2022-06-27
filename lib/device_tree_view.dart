@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:inspector_gadget/battery_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 
 import 'package:device_tree_lib/all.dart';
@@ -36,11 +37,12 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                     scrollController: deviceReportController.scrollController,
                     nodeHeight: deviceReportController.nodeHeight,
                     nodeBuilder: (BuildContext context, TreeNode node) {
-                      // if (node.data is Partition) {
-                      //  return const Text("PARTITION");
-                      //} else {
-                      return const TreeNodeTile();
-                      // }
+                      final data = node.data;
+                      if (data is Battery) {
+                        return BatteryView(battery: data);
+                      } else {
+                        return const TreeNodeTile();
+                      }
                     }),
               );
             },
