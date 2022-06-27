@@ -104,7 +104,6 @@ class Environment implements TreeNodeRepresentable {
       this.displayManager, this.console, this.windowManager, this.distro);
 
   factory Environment.fromMap(Map<String, dynamic> map) {
-    print(map);
     return Environment(
         map[_InxiKeyEnvironment.displayManager]!,
         map[_InxiKeyEnvironment.console]!,

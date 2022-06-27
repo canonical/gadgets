@@ -86,7 +86,6 @@ class USBDevice implements TreeNodeRepresentable {
       this.name);
 
   factory USBDevice.fromMap(Map<String, dynamic> map) {
-    print(map);
     var revision = map[USBInxiKey.revision] as String;
     var speed = map[USBInxiKey.speed] as String;
     var chipID = map[USBInxiKey.chipID] as String;
