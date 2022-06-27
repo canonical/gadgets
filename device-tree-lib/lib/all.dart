@@ -13,3 +13,4 @@ export 'src/system.dart';
 export 'src/partition.dart';
 export 'src/graphics.dart';
 export 'src/cpu.dart';
+export 'src/battery.dart';
