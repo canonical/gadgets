@@ -13,11 +13,11 @@ class BatteryView extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [header(), batteryChargeBar(), footer()],
+          children: [header(context), batteryChargeBar(), footer(context)],
         ));
   }
 
-  Widget header() {
+  Widget header(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(left: 6, top: 2, bottom: 2, right: 0),
         child: Align(
@@ -33,27 +33,33 @@ class BatteryView extends StatelessWidget {
                         ? battery.model
                         : "Computer Battery",
                     textAlign: TextAlign.left,
-                    style: const TextStyle(
-                        fontSize: 13, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.titleSmall!.color,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
                   )),
             ])));
   }
 
-  Widget footer() {
+  Widget footer(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(left: 6, top: 3, bottom: 0, right: 0),
         child: Row(children: [
-          batteryHealth(),
+          batteryHealth(context),
           const Spacer(),
           Text(battery.status,
-              style:
-                  const TextStyle(fontSize: 13, fontWeight: FontWeight.normal)),
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodySmall!.color,
+                  fontSize: 13,
+                  fontWeight: FontWeight.normal)),
           const SizedBox(width: 6)
         ]));
   }
 
-  Widget batteryHealth() {
+  Widget batteryHealth(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     final battery = this.battery;
+
     if (battery is MachineBattery) {
       return Row(children: [
         const Icon(
@@ -63,7 +69,10 @@ class BatteryView extends StatelessWidget {
         ),
         const SizedBox(width: 2),
         Text(battery.condition,
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.normal))
+            style: TextStyle(
+                color: textTheme.bodySmall!.color,
+                fontSize: 13,
+                fontWeight: FontWeight.normal))
       ]);
     } else {
       return Container();
