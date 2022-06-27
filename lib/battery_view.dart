@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:unicons/unicons.dart';
 
@@ -11,15 +10,40 @@ class BatteryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [header(context), batteryChargeBar(), footer(context)],
-        ));
+        padding: const EdgeInsets.all(10),
+        child: roundedRectangleBackground(
+            context: context,
+            height: 96,
+            child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 16.0, right: 16.0, top: 4, bottom: 6),
+                child: Column(
+                  children: [
+                    header(context),
+                    batteryChargeBar(),
+                    footer(context)
+                  ],
+                ))));
+  }
+
+  Widget roundedRectangleBackground(
+      {required BuildContext context,
+      required Widget child,
+      required double height}) {
+    return IntrinsicHeight(
+        child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).highlightColor,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+            ),
+            child: child));
   }
 
   Widget header(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 6, top: 2, bottom: 2, right: 0),
+        padding: const EdgeInsets.only(left: 6, top: 0, bottom: 2, right: 0),
         child: Align(
             alignment: Alignment.centerLeft,
             child: Row(children: [
@@ -81,7 +105,6 @@ class BatteryView extends StatelessWidget {
 
   Widget batteryChargeBar() {
     return Container(
-      height: 40,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 107, 212, 95),
@@ -90,11 +113,13 @@ class BatteryView extends StatelessWidget {
         ),
       ),
       child: Center(
-          child: Text(battery.charge,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 53, 106, 47)))),
+          child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(battery.charge,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 53, 106, 47))))),
     );
   }
 }
