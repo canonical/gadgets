@@ -110,7 +110,7 @@ class DeviceTree implements TreeNodeRepresentable {
           ? [machineSummary!]
           : List<TreeNodeRepresentable>.empty(),
       [systemSummary],
-      [info],
+      // [info],
       [batterySummary],
       memorySummary != null
           ? [memorySummary!]

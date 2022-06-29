@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:unicons/unicons.dart';
 
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
 class BatteryView extends StatelessWidget {
   final Battery battery;
 
@@ -9,8 +11,11 @@ class BatteryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nodeScope = TreeNodeScope.of(context);
+
     return Padding(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.only(
+            top: 10, bottom: 10, right: 10, left: nodeScope.indentation),
         child: roundedRectangleBackground(
             context: context,
             height: 96,
@@ -55,7 +60,7 @@ class BatteryView extends StatelessWidget {
                   child: Text(
                     battery is PeripheralBattery
                         ? battery.model
-                        : "Computer Battery",
+                        : "Laptop Battery (${battery.model})",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Theme.of(context).textTheme.titleSmall!.color,
@@ -103,23 +108,65 @@ class BatteryView extends StatelessWidget {
     }
   }
 
+  static final _chargePattern = RegExp(r'(\d+\.\d+)%');
+
+  double? parsedCharge(String charge) {
+    final foundMatch = _chargePattern.firstMatch(charge)?.group(1);
+    if (foundMatch != null) {
+      return double.parse(foundMatch) / 100.0;
+    } else {
+      return null;
+    }
+  }
+
+  Color barColor({required double charge}) => Color.lerp(
+      const Color.fromARGB(255, 255, 0, 8),
+      const Color.fromARGB(255, 107, 212, 95),
+      charge)!;
+
+  Color barTitleColor({required double charge}) => Color.lerp(
+      const Color.fromARGB(255, 127, 0, 4),
+      const Color.fromARGB(255, 53, 106, 47),
+      charge)!;
+
   Widget batteryChargeBar() {
-    return Container(
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 107, 212, 95),
-        borderRadius: BorderRadius.all(
-          Radius.circular(12.0),
-        ),
-      ),
-      child: Center(
+    final charge = parsedCharge(battery.charge);
+    if (charge == null) {
+      return Container();
+    }
+
+    return Stack(children: [
+      SizedBox(
+          height: 40,
+          child: Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+            ),
+          )),
+      SizedBox(
+          height: 40,
+          child: FractionallySizedBox(
+              widthFactor: charge,
+              child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: barColor(charge: charge),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                  )))),
+      Center(
           child: Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Text(battery.charge,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: Color.fromARGB(255, 53, 106, 47))))),
-    );
+                      color: barTitleColor(charge: charge)))))
+    ]);
   }
 }

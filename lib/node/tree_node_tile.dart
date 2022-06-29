@@ -36,26 +36,28 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
       child: ValueListenableBuilder<ExpansionButtonType>(
         valueListenable: deviceReportController.expansionButtonType,
         builder: (context, ExpansionButtonType buttonType, __) {
-          return Row(
-            children: buttonType == ExpansionButtonType.folderFile
-                ? const [
-                    LinesWidget(),
-                    _NodeSelector(),
-                    NodeWidgetLeadingIcon(useFoldersOnly: true),
-                    _NodeActionsChip(),
-                    SizedBox(width: 8),
-                    Expanded(child: _NodeTitle()),
-                  ]
-                : const [
-                    LinesWidget(),
-                    SizedBox(width: 4),
-                    _NodeSelector(),
-                    _NodeActionsChip(),
-                    SizedBox(width: 8),
-                    Expanded(child: _NodeTitle()),
-                    ExpandNodeIcon(expandedColor: _kDarkBlue),
-                  ],
-          );
+          return SizedBox(
+              height: 40, // TODO: Should this be intrinsic height?
+              child: Row(
+                children: buttonType == ExpansionButtonType.folderFile
+                    ? const [
+                        LinesWidget(),
+                        _NodeSelector(),
+                        NodeWidgetLeadingIcon(useFoldersOnly: true),
+                        _NodeActionsChip(),
+                        SizedBox(width: 8),
+                        Expanded(child: _NodeTitle()),
+                      ]
+                    : const [
+                        LinesWidget(),
+                        SizedBox(width: 4),
+                        _NodeSelector(),
+                        _NodeActionsChip(),
+                        SizedBox(width: 8),
+                        Expanded(child: _NodeTitle()),
+                        ExpandNodeIcon(expandedColor: _kDarkBlue),
+                      ],
+              ));
         },
       ),
     );

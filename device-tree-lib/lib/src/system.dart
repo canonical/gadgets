@@ -116,10 +116,7 @@ class Environment implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() => TreeNode(
-      id: "Environment",
-      label:
-          "distribution: $distro, display manager: $displayManager, window manager: $windowManager, console: $console");
+  TreeNode treeNodeRepresentation() => TreeNode(id: "Environment", data: this);
 
   @override
   Iterable<TreeNodeRepresentable> children() => [

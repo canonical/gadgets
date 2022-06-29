@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 import 'sample_tree.dart';
 
@@ -16,7 +17,7 @@ class DeviceReportController with ChangeNotifier {
   final String? inputPath;
 
   late final treeControllerProvider =
-      FutureProvider<TreeViewController>((ref) async {
+      FutureProvider.autoDispose<TreeViewController>((ref) async {
     final path = inputPath;
     if (path != null) {
       final deviceTree = await DeviceTree.from(file: File(path));
@@ -65,21 +66,23 @@ class DeviceReportController with ChangeNotifier {
 
   //* == == == == == Scroll == == == == ==
 
-  final nodeHeight = 40.0;
+  final double? nodeHeight = null;
 
-  late final scrollController = ScrollController();
+  late final scrollController = AutoScrollController();
 
   void scrollTo(WidgetRef ref, TreeNode node) {
     ref.read(treeControllerProvider).whenData((treeController) {
       final nodeToScroll =
           node.parent == treeController.rootNode ? node : node.parent ?? node;
-      final double offset = treeController.indexOf(nodeToScroll) * nodeHeight;
 
-      scrollController.animateTo(
-        offset,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.ease,
-      );
+      final nodeHeight = this.nodeHeight;
+      ;
+      final nodeIndex = treeController.indexOf(nodeToScroll);
+      final double offset = nodeIndex * (nodeHeight ?? 40.0);
+
+      scrollController.scrollToIndex(nodeIndex,
+          preferPosition: AutoScrollPosition.begin,
+          duration: const Duration(milliseconds: 500));
     });
   }
 
@@ -99,7 +102,6 @@ class DeviceReportController with ChangeNotifier {
 
   @override
   void dispose() {
-    // _treeController.dispose();
     scrollController.dispose();
 
     treeViewTheme.dispose();

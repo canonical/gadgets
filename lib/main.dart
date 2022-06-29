@@ -80,7 +80,6 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   void dispose() {
     ref.read(deviceReportControllerProvider).dispose();
-    // deviceReportController.dispose();
     super.dispose();
   }
 
@@ -97,8 +96,16 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
           home: ref.watch(deviceReportController.treeControllerProvider).when(
-              data: (_) {
-            return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
+              data: (TreeViewController treeViewController) {
+            return Stack(
+              children: [
+                const _Unfocus(child: Scaffold(body: DeviceTreeView())),
+                // ElevatedButton(
+                //    onPressed: () => deviceReportController.scrollTo(
+                //        ref, treeViewController.nodeAt(7)),
+                //    child: const Text("Scroll"))
+              ],
+            );
           }, error: (error, trace) {
             if (kDebugMode) {
               print(error);
