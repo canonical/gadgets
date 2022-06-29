@@ -34,6 +34,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         }
       },
       child: RawChip(
+        labelPadding: const EdgeInsets.only(left: 2, right: 8),
         onPressed: () => _menu?.showButtonMenu(),
         backgroundColor: const Color(0x331565c0),
         label: Text(
@@ -43,13 +44,20 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        avatar: const Icon(
-          Icons.settings_rounded,
+        avatar: Icon(
+          _iconData(node: nodeScope.node),
           size: 20,
           color: _kDarkBlue,
         ),
       ),
     );
+  }
+
+  IconData _iconData({required TreeNode node}) {
+    if (node.data is BatterySummary) {
+      return UniconsSolid.battery_bolt;
+    }
+    return Icons.settings_rounded;
   }
 
   void _delete(
@@ -77,7 +85,7 @@ const kPopupMenuItems = <PopupMenuEntry<int>>[
     height: 28,
     child: ListTile(
       dense: true,
-      title: Text('Add note'),
+      title: Text('Add node'),
       contentPadding: EdgeInsets.symmetric(horizontal: 4),
       leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
     ),

@@ -1,3 +1,4 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
@@ -5,6 +6,10 @@ import 'package:inspector_gadget/device_report_controller_provider.dart';
 import '../common/common.dart';
 import '../device_report_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:unicons/unicons.dart';
+
+import 'package:device_tree_lib/all.dart';
 
 part '_actions_chip.dart';
 part '_selector.dart';
@@ -27,10 +32,12 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
     final deviceReportController = ref.read(deviceReportControllerProvider);
+    final treeController =
+        ref.read(deviceReportController.treeControllerProvider).value!;
     final nodeScope = TreeNodeScope.of(context);
 
     return InkWell(
-      onTap: () => _describeAncestors(nodeScope.node),
+      onTap: () => treeController.toggleExpanded(nodeScope.node),
       onLongPress: () =>
           deviceReportController.toggleSelection(nodeScope.node.id),
       child: ValueListenableBuilder<ExpansionButtonType>(
@@ -39,7 +46,7 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
           return SizedBox(
               height: 40, // TODO: Should this be intrinsic height?
               child: Row(
-                children: buttonType == ExpansionButtonType.folderFile
+                children: /* buttonType == ExpansionButtonType.folderFile
                     ? const [
                         LinesWidget(),
                         _NodeSelector(),
@@ -48,15 +55,16 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
                         SizedBox(width: 8),
                         Expanded(child: _NodeTitle()),
                       ]
-                    : const [
-                        LinesWidget(),
-                        SizedBox(width: 4),
-                        _NodeSelector(),
-                        _NodeActionsChip(),
-                        SizedBox(width: 8),
-                        Expanded(child: _NodeTitle()),
-                        ExpandNodeIcon(expandedColor: _kDarkBlue),
-                      ],
+                    :*/
+                    const [
+                  LinesWidget(),
+                  SizedBox(width: 4),
+                  _NodeSelector(),
+                  _NodeActionsChip(),
+                  SizedBox(width: 4),
+                  Expanded(child: _NodeTitle()),
+                  // ExpandNodeIcon(expandedColor: _kDarkBlue),
+                ],
               ));
         },
       ),

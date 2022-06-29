@@ -97,15 +97,7 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
           ),
           home: ref.watch(deviceReportController.treeControllerProvider).when(
               data: (TreeViewController treeViewController) {
-            return Stack(
-              children: [
-                const _Unfocus(child: Scaffold(body: DeviceTreeView())),
-                // ElevatedButton(
-                //    onPressed: () => deviceReportController.scrollTo(
-                //        ref, treeViewController.nodeAt(7)),
-                //    child: const Text("Scroll"))
-              ],
-            );
+            return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
           }, error: (error, trace) {
             if (kDebugMode) {
               print(error);
