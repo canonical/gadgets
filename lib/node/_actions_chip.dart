@@ -25,7 +25,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       color: Colors.blueGrey.shade100,
       shape: kRoundedRectangleBorder,
       elevation: 6,
-      itemBuilder: (_) => kPopupMenuItems,
+      itemBuilder: (_) => _popupMenuItems(nodeScope.node),
       onSelected: (int selected) {
         if (selected == 0) {
           showAddNodeDialog(context, ref, nodeScope.node);
@@ -82,37 +82,46 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   }
 }
 
-const kPopupMenuItems = <PopupMenuEntry<int>>[
-  PopupMenuItem(
-    value: 0,
-    height: 28,
-    child: ListTile(
-      dense: true,
-      title: Text('Add node'),
-      contentPadding: EdgeInsets.symmetric(horizontal: 4),
-      leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
+List<PopupMenuEntry<int>> _popupMenuItems(TreeNode node) {
+  final isInternal = node.children.isNotEmpty;
+
+  final List<PopupMenuEntry<int>> items = [
+    const PopupMenuItem(
+      value: 0,
+      height: 28,
+      child: ListTile(
+        dense: true,
+        title: Text('Add'),
+        contentPadding: EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
+      ),
     ),
-  ),
-  PopupMenuDivider(height: 1),
-  PopupMenuItem(
-    value: 1,
-    height: 28,
-    child: ListTile(
-      dense: true,
-      title: Text('Delete'),
-      contentPadding: EdgeInsets.symmetric(horizontal: 4),
-      leading: Icon(Icons.delete_rounded, color: Colors.deepOrange),
-    ),
-  ),
-  PopupMenuDivider(height: 1),
-  PopupMenuItem(
-    value: 2,
-    height: 28,
-    child: ListTile(
-      dense: true,
-      title: Text('Delete subtree'),
-      contentPadding: EdgeInsets.symmetric(horizontal: 4),
-      leading: Icon(Icons.delete_forever_rounded, color: Colors.red),
-    ),
-  ),
-];
+    const PopupMenuDivider(height: 1),
+    const PopupMenuItem(
+      value: 1,
+      height: 28,
+      child: ListTile(
+        dense: true,
+        title: Text('Delete'),
+        contentPadding: EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.delete_rounded, color: Colors.deepOrange),
+      ),
+    )
+  ];
+
+  if (isInternal) {
+    items.add(const PopupMenuDivider(height: 1));
+    items.add(const PopupMenuItem(
+      value: 2,
+      height: 28,
+      child: ListTile(
+        dense: true,
+        title: Text('Delete subtree'),
+        contentPadding: EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.delete_forever_rounded, color: Colors.red),
+      ),
+    ));
+  }
+
+  return items;
+}

@@ -37,7 +37,7 @@ class _ActionsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         const _SettingsHeader(text: 'Actions'),
         const Spacer(),
         const Tooltip(
@@ -45,18 +45,19 @@ class _ActionsHeader extends StatelessWidget {
               'TreeView API. It\'s just present to demonstrate\n'
               'how customizable the TreeView is.',
           verticalOffset: 16,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.deepOrange,
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontSize: 16,
             color: Colors.white,
             letterSpacing: 1.025,
             height: 1.5,
           ),
-          padding: EdgeInsets.all(16),
-          child: Icon(Icons.info_outline_rounded, color: Colors.deepOrange),
+          padding: const EdgeInsets.all(16),
+          child:
+              const Icon(Icons.info_outline_rounded, color: Colors.deepOrange),
         ),
         const SizedBox(width: 8),
       ],

@@ -57,12 +57,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Inspector Gadget',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const YaruTheme(child: MyHomePage(title: 'Flutter Demo Home Page')),
+      home: const YaruTheme(child: MyHomePage(title: 'Inspector Gadget')),
     );
   }
 }

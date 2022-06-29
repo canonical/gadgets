@@ -8,7 +8,6 @@ import '../device_report_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:unicons/unicons.dart';
-
 import 'package:device_tree_lib/all.dart';
 
 part '_actions_chip.dart';
@@ -51,7 +50,7 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
                   const LinesWidget(),
                   const SizedBox(width: 4),
                   isInternalNode ? const _NodeSelector() : Container(),
-                  isInternalNode ? const _NodeActionsChip() : Container(),
+                  const _NodeActionsChip(),
                   const SizedBox(width: 4),
                   const Expanded(child: _NodeTitle()),
                 ],
