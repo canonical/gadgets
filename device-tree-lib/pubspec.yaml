@@ -7,6 +7,9 @@ environment:
   sdk: ">=2.17.3 <3.0.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
+  unicons: ^2.1.0
   flutter_fancy_tree_view:
     git:
       url: git@github.com:mz2/flutter_tree_view.git

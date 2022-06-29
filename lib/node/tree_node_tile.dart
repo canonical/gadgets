@@ -25,16 +25,17 @@ class TreeNodeTile extends ConsumerStatefulWidget {
   const TreeNodeTile({Key? key}) : super(key: key);
 
   @override
-  _TreeNodeTileState createState() => _TreeNodeTileState();
+  TreeNodeTileState createState() => TreeNodeTileState();
 }
 
-class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
+class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
     final deviceReportController = ref.read(deviceReportControllerProvider);
     final treeController =
         ref.read(deviceReportController.treeControllerProvider).value!;
     final nodeScope = TreeNodeScope.of(context);
+    final isInternalNode = nodeScope.node.children.isNotEmpty;
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
@@ -44,40 +45,19 @@ class _TreeNodeTileState extends ConsumerState<TreeNodeTile> {
         valueListenable: deviceReportController.expansionButtonType,
         builder: (context, ExpansionButtonType buttonType, __) {
           return SizedBox(
-              height: 40, // TODO: Should this be intrinsic height?
+              height: 40,
               child: Row(
-                children: /* buttonType == ExpansionButtonType.folderFile
-                    ? const [
-                        LinesWidget(),
-                        _NodeSelector(),
-                        NodeWidgetLeadingIcon(useFoldersOnly: true),
-                        _NodeActionsChip(),
-                        SizedBox(width: 8),
-                        Expanded(child: _NodeTitle()),
-                      ]
-                    :*/
-                    const [
-                  LinesWidget(),
-                  SizedBox(width: 4),
-                  _NodeSelector(),
-                  _NodeActionsChip(),
-                  SizedBox(width: 4),
-                  Expanded(child: _NodeTitle()),
-                  // ExpandNodeIcon(expandedColor: _kDarkBlue),
+                children: [
+                  const LinesWidget(),
+                  const SizedBox(width: 4),
+                  isInternalNode ? const _NodeSelector() : Container(),
+                  isInternalNode ? const _NodeActionsChip() : Container(),
+                  const SizedBox(width: 4),
+                  const Expanded(child: _NodeTitle()),
                 ],
               ));
         },
       ),
-    );
-  }
-
-  void _describeAncestors(TreeNode node) {
-    final ancestors = node.ancestors.map((ancestor) => ancestor.id).join('/');
-
-    showSnackBar(
-      context,
-      'Path of "${node.label}": /$ancestors/${node.id}',
-      duration: const Duration(seconds: 3),
     );
   }
 }

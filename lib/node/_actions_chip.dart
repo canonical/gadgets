@@ -53,10 +53,13 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
     );
   }
 
+  // FIXME: Move this to TreeNode subclass?
   IconData _iconData({required TreeNode node}) {
-    if (node.data is BatterySummary) {
-      return UniconsSolid.battery_bolt;
+    final nodeData = node.data;
+    if (nodeData is WithIcon) {
+      return nodeData.iconData;
     }
+
     return Icons.settings_rounded;
   }
 

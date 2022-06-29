@@ -14,3 +14,5 @@ export 'src/partition.dart';
 export 'src/graphics.dart';
 export 'src/cpu.dart';
 export 'src/battery.dart';
+export 'src/machine.dart';
+export 'src/with_icon.dart';

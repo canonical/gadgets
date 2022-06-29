@@ -1,7 +1,10 @@
 import 'package:device_tree_lib/src/detail_node.dart';
+import 'package:device_tree_lib/src/with_icon.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
+
+import 'package:unicons/unicons.dart';
 
 class _InxiKeyMachine {
   static const String uefi = 'UEFI';
@@ -112,7 +115,7 @@ class UEFI implements TreeNodeRepresentable {
   }
 }
 
-class MachineSummary implements TreeNodeRepresentable {
+class MachineSummary implements TreeNodeRepresentable, WithIcon {
   final UEFI uefi;
   final OEMInfo? oemInfo;
 
@@ -155,5 +158,22 @@ class MachineSummary implements TreeNodeRepresentable {
     }
     c.add(uefi);
     return c;
+  }
+
+  @override
+  get iconData {
+    if (oemInfo?.typeName.toLowerCase() == "laptop" ||
+        uefi.machineType?.toLowerCase() == "laptop") {
+      return UniconsLine.laptop;
+    } else if (oemInfo?.typeName.toLowerCase() == "desktop" ||
+        uefi.machineType == "desktop") {
+      return UniconsLine.desktop;
+    } else if (oemInfo?.typeName.toLowerCase() == "server" ||
+        uefi.machineType?.toLowerCase() == "server") {
+      return UniconsLine.server;
+    } else if (uefi.uefi == "Parallels GmbH.") {
+      return UniconsLine.laptop_cloud;
+    }
+    return UniconsLine.circuit; // TODO: this is a pretty arbitrary fallback...
   }
 }
