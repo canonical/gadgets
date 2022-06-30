@@ -56,33 +56,31 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Inspector Gadget',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const YaruTheme(
-        child: MyHomePage(title: 'Inspector Gadget'),
-        data: YaruThemeData(
-            variant: YaruVariant.bark,
-            highContrast: true,
-            themeMode: ThemeMode.system),
+    return YaruTheme(
+      data: const YaruThemeData(themeMode: ThemeMode.light),
+      builder: (context, yaru, child) => MaterialApp(
+        title: 'Inspector Gadget',
+        debugShowCheckedModeBanner: false,
+        theme: yaruLight,
+        darkTheme: yaruLight,
+        highContrastTheme: yaruHighContrastLight,
+        highContrastDarkTheme: yaruHighContrastDark,
+        home: const HomeScreen(title: 'Inspector Gadget'),
       ),
     );
   }
 }
 
-class MyHomePage extends ConsumerStatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  MyHomePageState createState() => MyHomePageState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class MyHomePageState extends ConsumerState<MyHomePage> {
+class HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void dispose() {
     ref.read(deviceReportControllerProvider).dispose();
@@ -94,27 +92,21 @@ class MyHomePageState extends ConsumerState<MyHomePage> {
     final deviceReportController = ref.read(deviceReportControllerProvider);
 
     return DeviceReportControllerScope(
-        controller: deviceReportController,
-        child: MaterialApp(
-          title: 'Inspector Gadget',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          home: ref.watch(deviceReportController.treeControllerProvider).when(
-              data: (TreeViewController treeViewController) {
-            return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
-          }, error: (error, trace) {
-            if (kDebugMode) {
-              print(error);
-              print(trace);
-            }
-            return Center(
-                child: Text('Error in device report controller scope: $error'));
-          }, loading: () {
-            return const Center(child: CircularProgressIndicator());
-          }),
-        ));
+      controller: deviceReportController,
+      child: ref.watch(deviceReportController.treeControllerProvider).when(
+          data: (TreeViewController treeViewController) {
+        return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
+      }, error: (error, trace) {
+        if (kDebugMode) {
+          print(error);
+          print(trace);
+        }
+        return Center(
+            child: Text('Error in device report controller scope: $error'));
+      }, loading: () {
+        return const Center(child: CircularProgressIndicator());
+      }),
+    );
   }
 }
 

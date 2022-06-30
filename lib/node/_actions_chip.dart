@@ -22,10 +22,11 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       key: _popupMenuKey,
       tooltip: 'Show Actions',
       offset: const Offset(0, 32),
-      color: Colors.blueGrey.shade100,
-      shape: kRoundedRectangleBorder,
-      elevation: 6,
-      itemBuilder: (_) => _popupMenuItems(nodeScope.node),
+      shape: RoundedRectangleBorder(
+          side: BorderSide(color: Theme.of(context).focusColor),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      elevation: 12,
+      itemBuilder: (_) => _popupMenuItems(context, nodeScope.node),
       onSelected: (int selected) {
         if (selected == 0) {
           showAddNodeDialog(context, ref, nodeScope.node);
@@ -36,19 +37,20 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       child: RawChip(
         labelPadding: const EdgeInsets.only(left: 2, right: 8),
         onPressed: () => _menu?.showButtonMenu(),
-        backgroundColor:
-            Theme.of(context).canvasColor, //  const Color(0x331565c0),
+        backgroundColor: nodeScope.node.children.isNotEmpty
+            ? Theme.of(context).primaryColorLight
+            : Theme.of(context).backgroundColor, //  const Color(0x331565c0),
         label: Text(
           nodeScope.node.id,
-          style: const TextStyle(
-            color: _kDarkBlue,
+          style: TextStyle(
+            color: Theme.of(context).primaryColorDark,
             fontWeight: FontWeight.w600,
           ),
         ),
         avatar: Icon(
           _iconData(node: nodeScope.node),
           size: 20,
-          color: _kDarkBlue,
+          color: Theme.of(context).accentColor,
         ),
       ),
     );
@@ -83,43 +85,44 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   }
 }
 
-List<PopupMenuEntry<int>> _popupMenuItems(TreeNode node) {
+List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
   final isInternal = node.children.isNotEmpty;
+  final iconColor = Theme.of(context).accentColor;
 
   final List<PopupMenuEntry<int>> items = [
-    const PopupMenuItem(
+    PopupMenuItem(
       value: 0,
       height: 28,
       child: ListTile(
         dense: true,
-        title: Text('Add'),
-        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.add_circle_rounded, color: _kDarkBlue),
+        title: const Text('Add'),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.add_circle_rounded, color: iconColor),
       ),
     ),
     const PopupMenuDivider(height: 1),
-    const PopupMenuItem(
+    PopupMenuItem(
       value: 1,
       height: 28,
       child: ListTile(
         dense: true,
-        title: Text('Delete'),
-        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.delete_rounded, color: Colors.deepOrange),
+        title: const Text('Delete'),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.delete_rounded, color: iconColor),
       ),
     )
   ];
 
   if (isInternal) {
     items.add(const PopupMenuDivider(height: 1));
-    items.add(const PopupMenuItem(
+    items.add(PopupMenuItem(
       value: 2,
       height: 28,
       child: ListTile(
         dense: true,
-        title: Text('Delete subtree'),
-        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.delete_forever_rounded, color: Colors.red),
+        title: const Text('Delete subtree'),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.delete_forever_rounded, color: iconColor),
       ),
     ));
   }
