@@ -18,7 +18,7 @@ class BatteryView extends StatelessWidget {
             top: 10, bottom: 10, right: 10, left: nodeScope.indentation),
         child: roundedRectangleBackground(
             context: context,
-            height: 96,
+            height: 76,
             child: Padding(
                 padding: const EdgeInsets.only(
                     left: 16.0, right: 16.0, top: 4, bottom: 6),
@@ -137,7 +137,7 @@ class BatteryView extends StatelessWidget {
 
     return Stack(children: [
       SizedBox(
-          height: 40,
+          height: 30,
           child: Container(
             width: double.infinity,
             decoration: const BoxDecoration(
@@ -148,7 +148,7 @@ class BatteryView extends StatelessWidget {
             ),
           )),
       SizedBox(
-          height: 40,
+          height: 30,
           child: FractionallySizedBox(
               widthFactor: charge,
               child: Container(
@@ -161,7 +161,7 @@ class BatteryView extends StatelessWidget {
                   )))),
       Center(
           child: Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              padding: const EdgeInsets.only(top: 1, bottom: 0),
               child: Text(battery.charge,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
