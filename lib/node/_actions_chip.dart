@@ -17,14 +17,16 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   @override
   Widget build(BuildContext context) {
     final nodeScope = TreeNodeScope.of(context);
+    final shape = RoundedRectangleBorder(
+        side: BorderSide(color: Theme.of(context).focusColor),
+        borderRadius: const BorderRadius.all(Radius.circular(10)));
+    final theme = Theme.of(context);
 
     return PopupMenuButton<int>(
       key: _popupMenuKey,
       tooltip: 'Show Actions',
       offset: const Offset(0, 32),
-      shape: RoundedRectangleBorder(
-          side: BorderSide(color: Theme.of(context).focusColor),
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      shape: shape,
       elevation: 12,
       itemBuilder: (_) => _popupMenuItems(context, nodeScope.node),
       onSelected: (int selected) {
@@ -37,20 +39,23 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       child: RawChip(
         labelPadding: const EdgeInsets.only(left: 2, right: 8),
         onPressed: () => _menu?.showButtonMenu(),
-        backgroundColor: nodeScope.node.children.isNotEmpty
-            ? Theme.of(context).primaryColorLight
-            : Theme.of(context).backgroundColor, //  const Color(0x331565c0),
+        shape: shape,
+        backgroundColor: nodeScope.node.children.isEmpty
+            ? theme.backgroundColor
+            : theme.backgroundColor, //  const Color(0x331565c0),
         label: Text(
           nodeScope.node.id,
           style: TextStyle(
-            color: Theme.of(context).primaryColorDark,
+            color: theme.textTheme.headline1?.color,
             fontWeight: FontWeight.w600,
           ),
         ),
         avatar: Icon(
           _iconData(node: nodeScope.node),
           size: 20,
-          color: Theme.of(context).accentColor,
+          color: theme.brightness == Brightness.dark
+              ? lighten(theme.colorScheme.primary, 0.15)
+              : darken(theme.colorScheme.primary, 0.02),
         ),
       ),
     );

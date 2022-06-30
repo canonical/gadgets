@@ -27,7 +27,7 @@ class PartitionSummary implements TreeNodeRepresentable, WithIcon {
   }
 
   @override
-  TreeNode treeNodeRepresentation() => TreeNode(id: "Partitions", data: this);
+  TreeNode treeNodeRepresentation() => TreeNode(id: "Storage", data: this);
 
   @override
   Iterable<TreeNodeRepresentable> children() => partitions;

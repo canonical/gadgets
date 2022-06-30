@@ -61,8 +61,8 @@ class MyApp extends StatelessWidget {
       builder: (context, yaru, child) => MaterialApp(
         title: 'Inspector Gadget',
         debugShowCheckedModeBanner: false,
-        theme: yaruLight,
-        darkTheme: yaruLight,
+        theme: yaru.variant?.theme ?? yaruLight,
+        darkTheme: yaru.variant?.darkTheme ?? yaruDark,
         highContrastTheme: yaruHighContrastLight,
         highContrastDarkTheme: yaruHighContrastDark,
         home: const HomeScreen(title: 'Inspector Gadget'),

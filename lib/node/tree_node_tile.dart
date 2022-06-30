@@ -7,6 +7,7 @@ import '../common/common.dart';
 import '../device_report_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../color_modifications.dart';
 import 'package:unicons/unicons.dart';
 import 'package:device_tree_lib/all.dart';
 
