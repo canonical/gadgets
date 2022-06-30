@@ -1,5 +1,8 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
 
 class InxiKeyAudio {
   static const String driver = 'driver';
@@ -21,7 +24,7 @@ class InxiKeyAudio {
 
 class UnexpectedAudioDeviceEntryException implements Exception {}
 
-class AudioSummary implements TreeNodeRepresentable {
+class AudioSummary implements TreeNodeRepresentable, WithIcon {
   final Iterable<AudioServer> servers;
   final Iterable<PCIAudioDevice> pciAudioDevices;
   final Iterable<USBAudioDevice> usbAudioDevices;
@@ -61,6 +64,9 @@ class AudioSummary implements TreeNodeRepresentable {
         .expand((element) => element);
     return children;
   }
+
+  @override
+  get iconData => UniconsLine.volume_off;
 }
 
 abstract class AudioDevice implements TreeNodeRepresentable {

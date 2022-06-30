@@ -62,7 +62,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const YaruTheme(child: MyHomePage(title: 'Inspector Gadget')),
+      home: const YaruTheme(
+        child: MyHomePage(title: 'Inspector Gadget'),
+        data: YaruThemeData(
+            variant: YaruVariant.bark,
+            highContrast: true,
+            themeMode: ThemeMode.system),
+      ),
     );
   }
 }

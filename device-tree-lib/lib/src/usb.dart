@@ -1,5 +1,8 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
 
 class USBInxiKey {
   static final String revision = "rev";
@@ -17,7 +20,7 @@ class USBInxiKey {
   static final String name = "Device";
 }
 
-class USBSummary implements TreeNodeRepresentable {
+class USBSummary implements TreeNodeRepresentable, WithIcon {
   Iterable<USBDevice> devices;
   USBSummary(this.devices);
 
@@ -44,14 +47,13 @@ class USBSummary implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "USB", data: this);
-  }
+  TreeNode treeNodeRepresentation() => TreeNode(id: "USB", data: this);
 
   @override
-  Iterable<TreeNodeRepresentable> children() {
-    return this.devices;
-  }
+  Iterable<TreeNodeRepresentable> children() => devices;
+
+  @override
+  get iconData => Icons.usb;
 }
 
 class USBDevice implements TreeNodeRepresentable {

@@ -1,7 +1,10 @@
 import 'dart:core';
 
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
+import 'package:flutter/material.dart';
 
 class _InxiKeyGraphics {
   static const String linkMax = 'link-max';
@@ -54,7 +57,7 @@ class _InxiKeyGraphics {
   static const String openGL = 'OpenGL';
 }
 
-class GraphicsSummary implements TreeNodeRepresentable {
+class GraphicsSummary implements TreeNodeRepresentable, WithIcon {
   // choosing not to call these 'GPU's since could also be video capture etc.
   final DisplayServer? displayServer;
   final DisplayRenderer? renderer;
@@ -105,9 +108,7 @@ class GraphicsSummary implements TreeNodeRepresentable {
   }
 
   @override
-  TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "Graphics", data: this);
-  }
+  TreeNode treeNodeRepresentation() => TreeNode(id: "Graphics", data: this);
 
   @override
   Iterable<TreeNodeRepresentable> children() {
@@ -123,6 +124,9 @@ class GraphicsSummary implements TreeNodeRepresentable {
     ];
     return childList.expand((child) => child); // flatmap
   }
+
+  @override
+  get iconData => Icons.display_settings_rounded;
 }
 
 class PCIGraphicsDevice implements TreeNodeRepresentable {

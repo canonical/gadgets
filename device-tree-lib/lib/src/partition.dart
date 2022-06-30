@@ -1,5 +1,8 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
+import 'package:flutter/widgets.dart';
 
 class _InxiKeyPartition {
   static const String majorMinor = "maj-min";
@@ -15,7 +18,7 @@ class _InxiKeyPartition {
   static const String mapped = 'mapped';
 }
 
-class PartitionSummary implements TreeNodeRepresentable {
+class PartitionSummary implements TreeNodeRepresentable, WithIcon {
   Iterable<Partition> partitions;
   PartitionSummary(this.partitions);
 
@@ -28,6 +31,9 @@ class PartitionSummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() => partitions;
+
+  @override
+  get iconData => UniconsLine.hdd;
 }
 
 class Partition implements TreeNodeRepresentable {

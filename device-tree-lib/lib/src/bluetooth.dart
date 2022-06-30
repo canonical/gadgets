@@ -1,7 +1,9 @@
 import 'dart:core';
 
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
 
 class InxiKeyBluetooth {
   static const String chipID = 'chip-ID';
@@ -29,7 +31,7 @@ class InxiKeyBluetooth {
   static const String aclMTU = 'acl-mtu';
 }
 
-class BluetoothSummary implements TreeNodeRepresentable {
+class BluetoothSummary implements TreeNodeRepresentable, WithIcon {
   final BluetoothChip chip;
   final BluetoothService service;
   final BluetoothLink link;
@@ -76,6 +78,9 @@ class BluetoothSummary implements TreeNodeRepresentable {
   Iterable<TreeNodeRepresentable> children() {
     return [service, chip, link];
   }
+
+  @override
+  get iconData => UniconsLine.bluetooth_b;
 }
 
 class BluetoothChip implements TreeNodeRepresentable {

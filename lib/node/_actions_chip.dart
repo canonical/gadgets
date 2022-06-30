@@ -36,7 +36,8 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       child: RawChip(
         labelPadding: const EdgeInsets.only(left: 2, right: 8),
         onPressed: () => _menu?.showButtonMenu(),
-        backgroundColor: const Color(0x331565c0),
+        backgroundColor:
+            Theme.of(context).canvasColor, //  const Color(0x331565c0),
         label: Text(
           nodeScope.node.id,
           style: const TextStyle(

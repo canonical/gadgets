@@ -2,6 +2,7 @@ import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:unicons/unicons.dart';
+import 'package:flutter/widgets.dart';
 
 class UnexpectedBatteryValue implements Exception {
   Map<String, dynamic> value;
@@ -10,7 +11,7 @@ class UnexpectedBatteryValue implements Exception {
       "Unexpected battery value $value (of type ${value.runtimeType})";
 }
 
-class BatterySummary implements TreeNodeRepresentable {
+class BatterySummary implements TreeNodeRepresentable, WithIcon {
   Iterable<BatteryLike> batteries;
 
   BatterySummary(this.batteries);
@@ -37,6 +38,9 @@ class BatterySummary implements TreeNodeRepresentable {
 
   @override
   Iterable<TreeNodeRepresentable> children() => batteries;
+
+  @override
+  get iconData => UniconsLine.bolt_alt;
 }
 
 abstract class BatteryLike implements TreeNodeRepresentable {}

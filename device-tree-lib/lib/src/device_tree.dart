@@ -110,14 +110,16 @@ class DeviceTree implements TreeNodeRepresentable {
           ? [machineSummary!]
           : List<TreeNodeRepresentable>.empty(),
       [systemSummary],
-      // [info],
+      // [info], // doesn't carry anything very useful beyond sys summary above.
       [batterySummary],
       memorySummary != null
           ? [memorySummary!]
           : List<TreeNodeRepresentable>.empty(),
       [cpuSummary],
       [partitionSummary],
-      [raidSummary],
+      raidSummary.volumes.isNotEmpty
+          ? [raidSummary]
+          : List<TreeNodeRepresentable>.empty(),
       [graphicsSummary],
       usbSummary != null ? [usbSummary!] : List<TreeNodeRepresentable>.empty(),
       [audioSummary],

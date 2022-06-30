@@ -1,9 +1,12 @@
+import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:unicons/unicons.dart';
 import 'detail_node.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/widgets.dart';
 
-class SystemSummary implements TreeNodeRepresentable {
+class SystemSummary implements TreeNodeRepresentable, WithIcon {
   final Kernel kernel;
   final Environment? environment;
 
@@ -33,6 +36,16 @@ class SystemSummary implements TreeNodeRepresentable {
             ? [environment!]
             : List<TreeNodeRepresentable>.empty()
       ].expand((element) => element);
+
+  @override
+  get iconData {
+    if (environment?.distro != null) {
+      return UniconsLine.linux;
+    } else if (kernel.kernelVersion.contains("Darwin")) {
+      return UniconsLine.apple;
+    }
+    return UniconsLine.browser;
+  }
 }
 
 class _InxiKeyKernel {
