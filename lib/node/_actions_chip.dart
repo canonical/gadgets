@@ -55,7 +55,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
                   _iconData(node: nodeScope.node),
                   size: 20,
                   color: theme.brightness == Brightness.dark
-                      ? lighten(theme.colorScheme.primary, 0.15)
+                      ? lighten(theme.colorScheme.primary, 0.03)
                       : darken(theme.colorScheme.primary, 0.02),
                 ))
             : null,
@@ -94,7 +94,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
 
 List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
   final isInternal = node.children.isNotEmpty;
-  final iconColor = Theme.of(context).accentColor;
+  final iconColor = Theme.of(context).colorScheme.inversePrimary;
 
   final List<PopupMenuEntry<int>> items = [
     PopupMenuItem(

@@ -265,6 +265,7 @@ class VulnerabilityInfo implements TreeNodeRepresentable {
         .cast<Map<String, dynamic>>()
         .where((element) => Vulnerability.isRepresentation(element))
         .map(Vulnerability.fromMap));
+    // .where((element) => element.status != "Not affected"));
   }
 
   @override
