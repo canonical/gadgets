@@ -3,6 +3,7 @@ import 'package:device_tree_lib/src/with_icon.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 
 import 'package:unicons/unicons.dart';
 
@@ -19,7 +20,7 @@ class _InxiKeyMachine {
   static const String system = 'System';
 }
 
-class OEMInfo implements TreeNodeRepresentable {
+class OEMInfo implements TreeNodeRepresentable, WithIcon {
   final String serial;
   final int typeIdentifier;
   final String typeName;
@@ -63,9 +64,12 @@ class OEMInfo implements TreeNodeRepresentable {
       // Detail(parent: this, key: "Type identifier", value: typeIdentifier),
     ];
   }
+
+  @override
+  get iconData => Icons.precision_manufacturing;
 }
 
-class UEFI implements TreeNodeRepresentable {
+class UEFI implements TreeNodeRepresentable, WithIcon {
   final String uefi;
   final String version;
   final String date;
@@ -113,6 +117,9 @@ class UEFI implements TreeNodeRepresentable {
           : List<TreeNodeRepresentable>.empty(),
     ].cast<List<TreeNodeRepresentable>>().expand((e) => e);
   }
+
+  @override
+  get iconData => Icons.handyman;
 }
 
 class MachineSummary implements TreeNodeRepresentable, WithIcon {

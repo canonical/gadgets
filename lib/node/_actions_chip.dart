@@ -37,12 +37,10 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         }
       },
       child: RawChip(
-        labelPadding: const EdgeInsets.only(left: 2, right: 8),
+        labelPadding: const EdgeInsets.only(left: 6, right: 6),
         onPressed: () => _menu?.showButtonMenu(),
         shape: shape,
-        backgroundColor: nodeScope.node.children.isEmpty
-            ? theme.backgroundColor
-            : theme.backgroundColor, //  const Color(0x331565c0),
+        backgroundColor: theme.backgroundColor,
         label: Text(
           nodeScope.node.id,
           style: TextStyle(
@@ -50,13 +48,17 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        avatar: Icon(
-          _iconData(node: nodeScope.node),
-          size: 20,
-          color: theme.brightness == Brightness.dark
-              ? lighten(theme.colorScheme.primary, 0.15)
-              : darken(theme.colorScheme.primary, 0.02),
-        ),
+        avatar: nodeScope.node.children.isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.only(left: 3),
+                child: Icon(
+                  _iconData(node: nodeScope.node),
+                  size: 20,
+                  color: theme.brightness == Brightness.dark
+                      ? lighten(theme.colorScheme.primary, 0.15)
+                      : darken(theme.colorScheme.primary, 0.02),
+                ))
+            : null,
       ),
     );
   }
