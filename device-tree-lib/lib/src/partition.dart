@@ -50,31 +50,31 @@ class Partition implements TreeNodeRepresentable {
   final String? mapped;
 
   Partition(
-      this.majorMinor,
-      this.blockSize,
-      this.device,
-      this.rawSize,
-      this.uuid,
-      this.size,
-      this.used,
-      this.label,
-      this.id,
-      this.fs,
-      this.mapped);
+      {required this.majorMinor,
+      required this.blockSize,
+      required this.device,
+      required this.rawSize,
+      required this.uuid,
+      required this.size,
+      required this.used,
+      required this.label,
+      required this.id,
+      required this.fs,
+      required this.mapped});
 
   factory Partition.fromMap(Map<String, dynamic> map) {
     return Partition(
-        map[_InxiKeyPartition.majorMinor],
-        map[_InxiKeyPartition.blockSize],
-        map[_InxiKeyPartition.device],
-        map[_InxiKeyPartition.rawSize],
-        map[_InxiKeyPartition.uuid],
-        map[_InxiKeyPartition.size],
-        map[_InxiKeyPartition.used],
-        map[_InxiKeyPartition.label],
-        map[_InxiKeyPartition.id],
-        map[_InxiKeyPartition.fs],
-        map[_InxiKeyPartition.mapped]);
+        majorMinor: map[_InxiKeyPartition.majorMinor],
+        blockSize: map[_InxiKeyPartition.blockSize],
+        device: map[_InxiKeyPartition.device],
+        rawSize: map[_InxiKeyPartition.rawSize],
+        uuid: map[_InxiKeyPartition.uuid],
+        size: map[_InxiKeyPartition.size],
+        used: map[_InxiKeyPartition.used],
+        label: map[_InxiKeyPartition.label],
+        id: map[_InxiKeyPartition.id],
+        fs: map[_InxiKeyPartition.fs],
+        mapped: map[_InxiKeyPartition.mapped]);
   }
 
   static Iterable<Partition> fromReport(Map<String, dynamic> reportMap) {

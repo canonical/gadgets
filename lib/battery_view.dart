@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:unicons/unicons.dart';
 
+import './rounded_rectangle_background.dart';
+import './color_modifications.dart';
+
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
 class BatteryView extends StatelessWidget {
@@ -29,21 +32,6 @@ class BatteryView extends StatelessWidget {
                     footer(context)
                   ],
                 ))));
-  }
-
-  Widget roundedRectangleBackground(
-      {required BuildContext context,
-      required Widget child,
-      required double height}) {
-    return IntrinsicHeight(
-        child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).highlightColor,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(12.0),
-              ),
-            ),
-            child: child));
   }
 
   Widget header(BuildContext context) {
@@ -118,16 +106,6 @@ class BatteryView extends StatelessWidget {
       return null;
     }
   }
-
-  Color barColor({required double charge}) => Color.lerp(
-      const Color.fromARGB(255, 255, 0, 8),
-      const Color.fromARGB(255, 107, 212, 95),
-      charge)!;
-
-  Color barTitleColor({required double charge}) => Color.lerp(
-      const Color.fromARGB(255, 127, 0, 4),
-      const Color.fromARGB(255, 53, 106, 47),
-      charge)!;
 
   Widget batteryChargeBar() {
     final charge = parsedCharge(battery.charge);

@@ -3,6 +3,7 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:inspector_gadget/battery_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
+import 'package:inspector_gadget/partition_view.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import 'package:device_tree_lib/all.dart';
@@ -30,7 +31,7 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
         return ref.watch(deviceReportController.treeControllerProvider).when(
             data: (treeController) {
               return Scrollbar(
-                isAlwaysShown: false,
+                thumbVisibility: false,
                 controller: deviceReportController.scrollController,
                 child: TreeView(
                     controller: treeController,
@@ -47,6 +48,12 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                           index: index,
                           child: BatteryView(battery: data),
                         );
+                      } else if (data is Partition) {
+                        return AutoScrollTag(
+                            key: ValueKey(index),
+                            controller: deviceReportController.scrollController,
+                            index: index,
+                            child: PartitionView(partition: data));
                       } else {
                         return AutoScrollTag(
                             key: ValueKey(index),
