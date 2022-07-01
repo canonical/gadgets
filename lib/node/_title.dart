@@ -1,21 +1,20 @@
 part of 'tree_node_tile.dart';
 
 class _NodeTitle extends ConsumerWidget {
-  final bool? overriddenIsSelected;
-  const _NodeTitle({Key? key, this.overriddenIsSelected}) : super(key: key);
+  final bool presentedSelectionState;
+  const _NodeTitle({Key? key, required this.presentedSelectionState})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceReportController = ref.read(deviceReportControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
-    final selectionOverride = overriddenIsSelected;
 
     return AnimatedBuilder(
       animation: deviceReportController,
       builder: (_, __) {
         final TextStyle? textStyle;
-        if ((selectionOverride ??
-            deviceReportController.isSelected(nodeScope.node.id))) {
+        if (presentedSelectionState) {
           textStyle = Theme.of(context)
               .textTheme //
               .subtitle1

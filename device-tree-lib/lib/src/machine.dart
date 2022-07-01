@@ -5,6 +5,7 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
+import 'system.dart';
 import 'package:unicons/unicons.dart';
 
 import 'device_tree.dart';
@@ -23,8 +24,6 @@ class _InxiKeyMachine {
 }
 
 class OEMInfo implements TreeNodeRepresentable, WithIcon {
-  final DeviceTree? deviceTree;
-
   final String serial;
   final int typeIdentifier;
   final String typeName;
@@ -33,8 +32,7 @@ class OEMInfo implements TreeNodeRepresentable, WithIcon {
   final String system;
 
   OEMInfo(
-      {this.deviceTree,
-      required this.serial,
+      {required this.serial,
       required this.typeIdentifier,
       required this.typeName,
       required this.version,
@@ -57,7 +55,7 @@ class OEMInfo implements TreeNodeRepresentable, WithIcon {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "OEM Information", data: this, label: version);
+    return TreeNode(id: "OEM Info", data: this, label: version);
   }
 
   @override
@@ -72,7 +70,7 @@ class OEMInfo implements TreeNodeRepresentable, WithIcon {
       // Detail(parent: this, key: "Type", value: typeName),
       // Detail(parent: this, key: "Product", value: product),
       // Detail(parent: this, key: "Type identifier", value: typeIdentifier),
-    ];
+    ].toList();
   }
 
   @override
@@ -108,8 +106,7 @@ class UEFI implements TreeNodeRepresentable, WithIcon {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(
-        id: "UEFI Information", data: this, label: motherboardModel);
+    return TreeNode(id: "UEFI Info", data: this, label: motherboardModel);
   }
 
   @override
@@ -133,12 +130,14 @@ class UEFI implements TreeNodeRepresentable, WithIcon {
 }
 
 class MachineSummary implements TreeNodeRepresentable, WithIcon {
+  final DeviceTree? deviceTree;
   final UEFI uefi;
   final OEMInfo? oemInfo;
 
-  MachineSummary(this.uefi, this.oemInfo);
+  MachineSummary({this.deviceTree, required this.uefi, required this.oemInfo});
 
-  factory MachineSummary.fromReport(Map<String, dynamic> reportMap) {
+  factory MachineSummary.fromReport(
+      {required Map<String, dynamic> reportMap, DeviceTree? deviceTree}) {
     final machineEntries =
         (reportMap['Machine']! as List).cast<Map<String, dynamic>>();
 
@@ -148,9 +147,15 @@ class MachineSummary implements TreeNodeRepresentable, WithIcon {
     final uefi = UEFI.fromMap(
         machineEntries.firstWhere((element) => UEFI.representsUEFI(element)));
 
-    return MachineSummary(uefi,
-        oemInfoMapMaybe != null ? OEMInfo.fromMap(oemInfoMapMaybe) : null);
+    return MachineSummary(
+        deviceTree: deviceTree,
+        uefi: uefi,
+        oemInfo:
+            oemInfoMapMaybe != null ? OEMInfo.fromMap(oemInfoMapMaybe) : null);
   }
+
+  MachineSummary copyWith({DeviceTree? overriddenDeviceTree}) => MachineSummary(
+      uefi: uefi, oemInfo: oemInfo, deviceTree: overriddenDeviceTree);
 
   static bool isDetectedIn({required Map<String, dynamic> report}) {
     final entries = report["Machine"];
@@ -164,7 +169,7 @@ class MachineSummary implements TreeNodeRepresentable, WithIcon {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "Computer", data: this);
+    return TreeNode(id: "System Info", data: this);
   }
 
   @override
@@ -174,6 +179,12 @@ class MachineSummary implements TreeNodeRepresentable, WithIcon {
       c.add(oemInfo!);
     }
     c.add(uefi);
+
+    final tree = deviceTree;
+    if (tree != null) {
+      c.add(tree.systemSummary);
+    }
+
     return c;
   }
 

@@ -37,8 +37,10 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
     final isExpanded = treeController.isExpanded(nodeScope.node.id);
-    final isAncestorSelected = nodeScope.node.ancestors
-        .any((element) => deviceReportController.isSelected(element.id));
+    final isSelected = nodeScope.node.ancestors
+        .toList()
+        .followedBy([nodeScope.node]).any(
+            (element) => deviceReportController.isSelected(element.id));
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
@@ -62,13 +64,11 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
                             child: Icon(Icons.unfold_less_outlined))
                         : Container(),
               ),
-              const _NodeActionsChip(),
+              _NodeActionsChip(presentedSelectionState: isSelected),
               const SizedBox(width: 12),
               isInternalNode && !isExpanded || !isInternalNode
                   ? Expanded(
-                      child: _NodeTitle(
-                          overriddenIsSelected:
-                              isAncestorSelected ? true : null))
+                      child: _NodeTitle(presentedSelectionState: isSelected))
                   : Container()
             ],
           )),

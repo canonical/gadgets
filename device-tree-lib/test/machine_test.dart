@@ -40,7 +40,7 @@ const athenaReportMap = {
 void main() {
   group('Test parsing machine info out from Inxi JSON output', () {
     test('Test parsing Iris inxi report', () {
-      final machine = MachineSummary.fromReport(irisReportMap);
+      final machine = MachineSummary.fromReport(reportMap: irisReportMap);
       expect(machine.oemInfo?.product, "82MS");
       expect(machine.oemInfo?.serial, "PF2RW27Y");
       expect(machine.oemInfo?.system, "LENOVO");

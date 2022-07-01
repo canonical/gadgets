@@ -54,7 +54,7 @@ class DeviceTree implements TreeNodeRepresentable {
       required this.systemSummary});
 
   factory DeviceTree.fromReport(Map<String, dynamic> map) {
-    return DeviceTree(
+    final tree = DeviceTree(
         info: DeviceInfo.fromReport(map),
         usbSummary: USBSummary.isDetectedIn(report: map)
             ? USBSummary.fromReport(map)
@@ -68,7 +68,7 @@ class DeviceTree implements TreeNodeRepresentable {
         cpuSummary: CPUSummary.fromReport(map),
         graphicsSummary: GraphicsSummary.fromReport(map),
         machineSummary: MachineSummary.isDetectedIn(report: map)
-            ? MachineSummary.fromReport(map)
+            ? MachineSummary.fromReport(reportMap: map)
             : null,
         memorySummary: MemorySummary.isDetectedIn(report: map)
             ? MemorySummary.fromReport(map)
@@ -76,6 +76,28 @@ class DeviceTree implements TreeNodeRepresentable {
         partitionSummary: PartitionSummary.fromReport(map),
         raidSummary: RAIDSummary.fromReport(map),
         systemSummary: SystemSummary.fromReport(map));
+
+    // FIXME: This is pretty horrid.
+    final machineSummary =
+        tree.machineSummary?.copyWith(overriddenDeviceTree: tree);
+    return tree.copyWith(overriddenMachineSummary: machineSummary);
+  }
+
+  DeviceTree copyWith({MachineSummary? overriddenMachineSummary}) {
+    return DeviceTree(
+        info: info,
+        usbSummary: usbSummary,
+        audioSummary: audioSummary,
+        bluetoothSummary: bluetoothSummary,
+        batterySummary: batterySummary,
+        cpuSummary: cpuSummary,
+        driveSummary: driveSummary,
+        graphicsSummary: graphicsSummary,
+        machineSummary: overriddenMachineSummary, // is overridden
+        memorySummary: memorySummary,
+        partitionSummary: partitionSummary,
+        raidSummary: raidSummary,
+        systemSummary: systemSummary);
   }
 
   static Future<DeviceTree> from({required File file}) async {
@@ -109,7 +131,7 @@ class DeviceTree implements TreeNodeRepresentable {
       machineSummary != null
           ? [machineSummary!]
           : List<TreeNodeRepresentable>.empty(),
-      [systemSummary],
+      // [systemSummary], // presented under machine summary
       // [info], // doesn't carry anything very useful beyond sys summary above.
       [batterySummary],
       memorySummary != null

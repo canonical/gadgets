@@ -1,7 +1,9 @@
 part of 'tree_node_tile.dart';
 
 class _NodeActionsChip extends ConsumerStatefulWidget {
-  const _NodeActionsChip({Key? key}) : super(key: key);
+  final bool presentedSelectionState;
+  const _NodeActionsChip({Key? key, required this.presentedSelectionState})
+      : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
@@ -21,6 +23,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         side: BorderSide(color: Theme.of(context).focusColor),
         borderRadius: const BorderRadius.all(Radius.circular(10)));
     final theme = Theme.of(context);
+    final actionsChip = context.widget as _NodeActionsChip;
 
     return PopupMenuButton<int>(
       key: _popupMenuKey,
@@ -44,7 +47,9 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         label: Text(
           nodeScope.node.id,
           style: TextStyle(
-            color: theme.textTheme.headline1?.color,
+            color: actionsChip.presentedSelectionState
+                ? Colors.green.shade300
+                : theme.textTheme.headline1?.color,
             fontWeight: FontWeight.w400,
           ),
         ),
