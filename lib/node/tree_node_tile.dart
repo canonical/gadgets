@@ -49,7 +49,7 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
               const SizedBox(width: 4),
               isInternalNode ? const _NodeSelector() : Container(),
               const _NodeActionsChip(),
-              const SizedBox(width: 4),
+              const SizedBox(width: 8),
               const Expanded(child: _NodeTitle()),
             ],
           )),

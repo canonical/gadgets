@@ -19,56 +19,50 @@ class BatteryView extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(
             top: 0, bottom: 0, right: 10, left: nodeScope.indentation),
-        child: fixedHeightRoundedRectangle(
-            context: context,
-            height: 51,
-            color: Colors.transparent,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: batteryChargeBar(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: batteryChargeBar(),
+              ),
+              Column(children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      batteryModel(context),
+                      batteryHealth(context),
+                    ],
                   ),
-                  Column(children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          batteryModel(context),
-                          batteryHealth(context),
-                        ],
-                      ),
-                    )
-                  ])
-                ])
-              ],
-            )));
+                )
+              ])
+            ])
+          ],
+        ));
   }
 
   Widget batteryModel(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 0),
-        child: Align(
-            alignment: Alignment.centerLeft,
-            child: Row(children: [
-              const Icon(UniconsLine.battery_bolt),
-              const SizedBox(width: 2),
-              Text(
-                battery is PeripheralBattery
-                    ? battery.model
-                    : "Laptop Battery (${battery.model})",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.titleSmall!.color,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold),
-              ),
-            ])));
+    return Align(
+        alignment: Alignment.centerLeft,
+        child: Row(children: [
+          const Icon(UniconsLine.battery_bolt),
+          const SizedBox(width: 2),
+          Text(
+            battery is PeripheralBattery
+                ? battery.model
+                : "Laptop Battery (${battery.model})",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                color: Theme.of(context).textTheme.titleSmall!.color,
+                fontSize: 13,
+                fontWeight: FontWeight.w500),
+          ),
+        ]));
   }
 
   Widget batteryHealth(BuildContext context) {

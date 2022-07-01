@@ -45,7 +45,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
           nodeScope.node.id,
           style: TextStyle(
             color: theme.textTheme.headline1?.color,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w400,
           ),
         ),
         avatar: nodeScope.node.children.isNotEmpty
