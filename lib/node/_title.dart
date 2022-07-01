@@ -16,10 +16,13 @@ class _NodeTitle extends ConsumerWidget {
                 .textTheme //
                 .subtitle1
                 ?.copyWith(
-                  color: Colors.green.shade500,
-                  fontWeight: FontWeight.w500,
+                  color: Colors.green.shade300,
+                  fontWeight: FontWeight.w100,
                 )
-            : Theme.of(context).textTheme.subtitle1;
+            : Theme.of(context)
+                .textTheme
+                .subtitle1
+                ?.copyWith(fontWeight: FontWeight.w100);
         return Text(
           nodeScope.node.label,
           style: textStyle,
