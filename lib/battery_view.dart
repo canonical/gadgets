@@ -21,57 +21,54 @@ class BatteryView extends StatelessWidget {
             top: 0, bottom: 0, right: 10, left: nodeScope.indentation),
         child: fixedHeightRoundedRectangle(
             context: context,
-            height: 88,
+            height: 51,
             color: Colors.transparent,
-            child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, top: 2, bottom: 6),
-                child: Column(
-                  children: [
-                    header(context),
-                    batteryChargeBar(),
-                    footer(context)
-                  ],
-                ))));
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: batteryChargeBar(),
+                  ),
+                  Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          batteryModel(context),
+                          batteryHealth(context),
+                        ],
+                      ),
+                    )
+                  ])
+                ])
+              ],
+            )));
   }
 
-  Widget header(BuildContext context) {
+  Widget batteryModel(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 0, top: 0, bottom: 2, right: 0),
+        padding: const EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 0),
         child: Align(
             alignment: Alignment.centerLeft,
             child: Row(children: [
               const Icon(UniconsLine.battery_bolt),
               const SizedBox(width: 2),
-              Padding(
-                  padding: const EdgeInsets.only(
-                      left: 0, top: 0, bottom: 3, right: 0),
-                  child: Text(
-                    battery is PeripheralBattery
-                        ? battery.model
-                        : "Laptop Battery (${battery.model})",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Theme.of(context).textTheme.titleSmall!.color,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  )),
+              Text(
+                battery is PeripheralBattery
+                    ? battery.model
+                    : "Laptop Battery (${battery.model})",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.titleSmall!.color,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold),
+              ),
             ])));
-  }
-
-  Widget footer(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(left: 0, top: 3, bottom: 0, right: 0),
-        child: Row(children: [
-          batteryHealth(context),
-          const Spacer(),
-          Text(battery.status,
-              style: TextStyle(
-                  color: Theme.of(context).textTheme.bodySmall!.color,
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal)),
-          const SizedBox(width: 0)
-        ]));
   }
 
   Widget batteryHealth(BuildContext context) {
@@ -79,19 +76,22 @@ class BatteryView extends StatelessWidget {
     final battery = this.battery;
 
     if (battery is MachineBattery) {
-      return Row(children: [
-        const Icon(
-          Icons.favorite,
-          color: Colors.blue,
-          size: 18,
-        ),
-        const SizedBox(width: 2),
-        Text(battery.condition,
-            style: TextStyle(
-                color: textTheme.bodySmall!.color,
-                fontSize: 13,
-                fontWeight: FontWeight.normal))
-      ]);
+      return Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(
+              Icons.favorite,
+              color: Colors.blue,
+              size: 18,
+            ),
+            const SizedBox(width: 2),
+            Text(battery.condition,
+                style: TextStyle(
+                    color: textTheme.bodySmall!.color,
+                    fontSize: 13,
+                    fontWeight: FontWeight.normal))
+          ]);
     } else {
       return Container();
     }
@@ -114,38 +114,35 @@ class BatteryView extends StatelessWidget {
       return Container();
     }
 
-    return Stack(children: [
-      SizedBox(
-          height: 30,
-          child: Container(
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.all(
-                Radius.circular(6.0),
-              ),
-            ),
-          )),
-      SizedBox(
-          height: 30,
-          child: FractionallySizedBox(
-              widthFactor: charge,
+    return SizedBox(
+        width: 150,
+        height: 40,
+        child: Stack(children: [
+          SizedBox(
+              height: 40,
               child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: barColor(value: charge),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(6.0),
-                    ),
-                  )))),
-      Center(
-          child: Padding(
-              padding: const EdgeInsets.only(top: 1, bottom: 0),
-              child: Text(battery.charge,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: barTitleColor(value: charge)))))
-    ]);
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(6.0),
+                  ),
+                ),
+              )),
+          SizedBox(
+              height: 40,
+              child: FractionallySizedBox(
+                  widthFactor: charge,
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: barColor(value: charge),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(6.0),
+                        ),
+                      )))),
+          Center(
+              child: Text(battery.charge, style: const TextStyle(fontSize: 15)))
+        ]));
   }
 }
