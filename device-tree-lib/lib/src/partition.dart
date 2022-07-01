@@ -78,9 +78,23 @@ class Partition implements TreeNodeRepresentable {
   }
 
   static Iterable<Partition> fromReport(Map<String, dynamic> reportMap) {
-    return (reportMap["Partition"]! as List)
+    final partitions = (reportMap["Partition"]! as List)
         .cast<Map<String, dynamic>>()
-        .map((p) => Partition.fromMap(p));
+        .map((p) => Partition.fromMap(p))
+        .toList();
+
+    partitions.sort((a, b) {
+      final aDeviceExists = a.device != null ? 1 : 0;
+      final bDeviceExists = b.device != null ? 1 : 0;
+      final deviceExistenceComparison = bDeviceExists.compareTo(aDeviceExists);
+
+      if (deviceExistenceComparison != 0) {
+        return deviceExistenceComparison;
+      }
+      return a.id.compareTo(b.id);
+    });
+
+    return partitions;
   }
 
   @override

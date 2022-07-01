@@ -17,7 +17,7 @@ class PartitionView extends StatelessWidget {
 
     return InkWell(
         child: SizedBox(
-            height: 25,
+            height: 45,
             child: Padding(
                 padding: EdgeInsets.only(left: nodeScope.indentation),
                 child: Column(
@@ -56,24 +56,46 @@ class PartitionView extends StatelessWidget {
                 context: context,
                 child: Container(),
                 color: Theme.of(context).highlightColor,
-                height: 20,
-                width: 100),
+                height: 34,
+                width: 150),
             fixedHeightRoundedRectangle(
                 context: context,
                 child: Container(),
-                color: Theme.of(context).primaryColor,
-                height: 20,
-                width: 5 + usage * 95),
+                color: usage > 0.9
+                    ? const Color.fromARGB(255, 126, 0, 0)
+                    : Theme.of(context).primaryColor,
+                height: 34,
+                width: 5 + usage * 145),
+            SizedBox(
+                height: 34,
+                width: 150,
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      partition.used ?? "",
+                      textAlign: TextAlign.center,
+                    )))
           ])),
-      SizedBox(
-          width: 200,
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              partition.id,
-              overflow: TextOverflow.ellipsis,
-            ),
-          )),
+      Align(
+        alignment: Alignment.topLeft,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            partition.id,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+          Row(
+            children: [
+              Text(partition.fs),
+              Text(
+                partition.device != null ? "(${partition.device})" : "",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodySmall?.color),
+              )
+            ],
+          )
+        ]),
+      ),
     ]);
   }
 }

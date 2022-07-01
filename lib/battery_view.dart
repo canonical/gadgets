@@ -18,14 +18,14 @@ class BatteryView extends StatelessWidget {
 
     return Padding(
         padding: EdgeInsets.only(
-            top: 10, bottom: 10, right: 10, left: nodeScope.indentation),
+            top: 0, bottom: 0, right: 10, left: nodeScope.indentation),
         child: fixedHeightRoundedRectangle(
             context: context,
             height: 88,
-            color: Theme.of(context).highlightColor,
+            color: Colors.transparent,
             child: Padding(
                 padding: const EdgeInsets.only(
-                    left: 16.0, right: 16.0, top: 4, bottom: 6),
+                    left: 10.0, right: 10.0, top: 2, bottom: 6),
                 child: Column(
                   children: [
                     header(context),
@@ -37,7 +37,7 @@ class BatteryView extends StatelessWidget {
 
   Widget header(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 6, top: 0, bottom: 2, right: 0),
+        padding: const EdgeInsets.only(left: 0, top: 0, bottom: 2, right: 0),
         child: Align(
             alignment: Alignment.centerLeft,
             child: Row(children: [
@@ -61,7 +61,7 @@ class BatteryView extends StatelessWidget {
 
   Widget footer(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 6, top: 3, bottom: 0, right: 0),
+        padding: const EdgeInsets.only(left: 0, top: 3, bottom: 0, right: 0),
         child: Row(children: [
           batteryHealth(context),
           const Spacer(),
@@ -70,7 +70,7 @@ class BatteryView extends StatelessWidget {
                   color: Theme.of(context).textTheme.bodySmall!.color,
                   fontSize: 13,
                   fontWeight: FontWeight.normal)),
-          const SizedBox(width: 6)
+          const SizedBox(width: 0)
         ]));
   }
 
