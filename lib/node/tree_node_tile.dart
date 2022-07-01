@@ -36,6 +36,9 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
         ref.read(deviceReportController.treeControllerProvider).value!;
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
+    final isExpanded = treeController.isExpanded(nodeScope.node.id);
+    final isAncestorSelected = nodeScope.node.ancestors
+        .any((element) => deviceReportController.isSelected(element.id));
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
@@ -46,24 +49,27 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
           child: Row(
             children: [
               const LinesWidget(),
-              const SizedBox(width: 4),
+              const SizedBox(width: 6),
               isInternalNode ? const _NodeSelector() : Container(),
+              Padding(
+                padding: const EdgeInsets.only(right: 6.0),
+                child: !isExpanded && isInternalNode
+                    ? const Opacity(
+                        opacity: 0.15, child: Icon(Icons.unfold_more_outlined))
+                    : isInternalNode
+                        ? const Opacity(
+                            opacity: 0.15,
+                            child: Icon(Icons.unfold_less_outlined))
+                        : Container(),
+              ),
               const _NodeActionsChip(),
-              const SizedBox(width: 5),
-              Expanded(
-                  child: Row(
-                children: [
-                  ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 320),
-                      child: const _NodeTitle()),
-                  !treeController.isExpanded(nodeScope.node.id) &&
-                          isInternalNode
-                      ? const Opacity(
-                          opacity: 0.15,
-                          child: Icon(Icons.unfold_more_outlined))
-                      : Container()
-                ],
-              ))
+              const SizedBox(width: 12),
+              isInternalNode && !isExpanded || !isInternalNode
+                  ? Expanded(
+                      child: _NodeTitle(
+                          overriddenIsSelected:
+                              isAncestorSelected ? true : null))
+                  : Container()
             ],
           )),
     );

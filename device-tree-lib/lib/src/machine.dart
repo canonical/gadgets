@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:unicons/unicons.dart';
 
+import 'device_tree.dart';
+
 class _InxiKeyMachine {
   static const String uefi = 'UEFI';
   static const String version = 'v';
@@ -21,6 +23,8 @@ class _InxiKeyMachine {
 }
 
 class OEMInfo implements TreeNodeRepresentable, WithIcon {
+  final DeviceTree? deviceTree;
+
   final String serial;
   final int typeIdentifier;
   final String typeName;
@@ -28,17 +32,23 @@ class OEMInfo implements TreeNodeRepresentable, WithIcon {
   final String product;
   final String system;
 
-  OEMInfo(this.serial, this.typeIdentifier, this.typeName, this.version,
-      this.product, this.system);
+  OEMInfo(
+      {this.deviceTree,
+      required this.serial,
+      required this.typeIdentifier,
+      required this.typeName,
+      required this.version,
+      required this.product,
+      required this.system});
 
   factory OEMInfo.fromMap(Map<String, dynamic> map) {
     return OEMInfo(
-        map[_InxiKeyMachine.serial]!,
-        map[_InxiKeyMachine.typeIdentifier]!,
-        map[_InxiKeyMachine.typeName]!,
-        map[_InxiKeyMachine.version]!,
-        map[_InxiKeyMachine.product]!,
-        map[_InxiKeyMachine.system]!);
+        serial: map[_InxiKeyMachine.serial]!,
+        typeIdentifier: map[_InxiKeyMachine.typeIdentifier]!,
+        typeName: map[_InxiKeyMachine.typeName]!,
+        version: map[_InxiKeyMachine.version]!,
+        product: map[_InxiKeyMachine.product]!,
+        system: map[_InxiKeyMachine.system]!);
   }
 
   static bool isRepresentation(Map<String, dynamic> map) {

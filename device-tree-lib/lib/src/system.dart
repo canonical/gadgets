@@ -7,10 +7,12 @@ import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 
 class SystemSummary implements TreeNodeRepresentable, WithIcon {
+  final DeviceTree? deviceTree;
   final Kernel kernel;
   final Environment? environment;
 
-  SystemSummary(this.kernel, this.environment);
+  SystemSummary(
+      {required this.kernel, required this.environment, this.deviceTree});
 
   factory SystemSummary.fromReport(Map<String, dynamic> report) {
     final rawSystemEntries = report['System'] as List;
@@ -20,8 +22,11 @@ class SystemSummary implements TreeNodeRepresentable, WithIcon {
     final environmentMap = rawSystemEntries
         .firstWhereOrNull((element) => Environment.isRepresentation(element));
 
-    return SystemSummary(Kernel.fromMap(kernelMap),
-        environmentMap != null ? Environment.fromMap(environmentMap) : null);
+    return SystemSummary(
+        kernel: Kernel.fromMap(kernelMap),
+        environment: environmentMap != null
+            ? Environment.fromMap(environmentMap)
+            : null);
   }
 
   @override
