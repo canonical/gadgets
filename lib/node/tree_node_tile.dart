@@ -41,23 +41,18 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
       onTap: () => treeController.toggleExpanded(nodeScope.node),
       onLongPress: () =>
           deviceReportController.toggleSelection(nodeScope.node.id),
-      child: ValueListenableBuilder<ExpansionButtonType>(
-        valueListenable: deviceReportController.expansionButtonType,
-        builder: (context, ExpansionButtonType buttonType, __) {
-          return SizedBox(
-              height: 40,
-              child: Row(
-                children: [
-                  const LinesWidget(),
-                  const SizedBox(width: 4),
-                  isInternalNode ? const _NodeSelector() : Container(),
-                  const _NodeActionsChip(),
-                  const SizedBox(width: 4),
-                  const Expanded(child: _NodeTitle()),
-                ],
-              ));
-        },
-      ),
+      child: SizedBox(
+          height: 40,
+          child: Row(
+            children: [
+              const LinesWidget(),
+              const SizedBox(width: 4),
+              isInternalNode ? const _NodeSelector() : Container(),
+              const _NodeActionsChip(),
+              const SizedBox(width: 4),
+              const Expanded(child: _NodeTitle()),
+            ],
+          )),
     );
   }
 }

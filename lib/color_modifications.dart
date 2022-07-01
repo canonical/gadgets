@@ -19,12 +19,12 @@ Color lighten(Color color, [double amount = .1]) {
   return hslLight.toColor();
 }
 
-Color barColor({required double charge}) => Color.lerp(
+Color barColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 255, 0, 8),
     const Color.fromARGB(255, 107, 212, 95),
-    charge)!;
+    value)!;
 
-Color barTitleColor({required double charge}) => Color.lerp(
+Color barTitleColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 127, 0, 4),
     const Color.fromARGB(255, 53, 106, 47),
-    charge)!;
+    value)!;

@@ -43,14 +43,14 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                       final index = treeController.indexOf(node);
                       if (data is Battery) {
                         return AutoScrollTag(
-                          key: ValueKey(index),
+                          key: ValueKey("${data.serial}-battery-tag"),
                           controller: deviceReportController.scrollController,
                           index: index,
                           child: BatteryView(battery: data),
                         );
                       } else if (data is Partition) {
                         return AutoScrollTag(
-                            key: ValueKey(index),
+                            key: ValueKey("${data.id}-partition-tag"),
                             controller: deviceReportController.scrollController,
                             index: index,
                             child: PartitionView(partition: data));

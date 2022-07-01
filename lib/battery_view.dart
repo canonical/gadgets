@@ -19,9 +19,10 @@ class BatteryView extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(
             top: 10, bottom: 10, right: 10, left: nodeScope.indentation),
-        child: roundedRectangleBackground(
+        child: fixedHeightRoundedRectangle(
             context: context,
-            height: 76,
+            height: 88,
+            color: Theme.of(context).highlightColor,
             child: Padding(
                 padding: const EdgeInsets.only(
                     left: 16.0, right: 16.0, top: 4, bottom: 6),
@@ -121,7 +122,7 @@ class BatteryView extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
+                Radius.circular(6.0),
               ),
             ),
           )),
@@ -132,9 +133,9 @@ class BatteryView extends StatelessWidget {
               child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: barColor(charge: charge),
+                    color: barColor(value: charge),
                     borderRadius: const BorderRadius.all(
-                      Radius.circular(12.0),
+                      Radius.circular(6.0),
                     ),
                   )))),
       Center(
@@ -144,7 +145,7 @@ class BatteryView extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: barTitleColor(charge: charge)))))
+                      color: barTitleColor(value: charge)))))
     ]);
   }
 }

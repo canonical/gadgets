@@ -15,26 +15,21 @@ class PartitionView extends StatelessWidget {
   Widget build(BuildContext context) {
     final nodeScope = TreeNodeScope.of(context);
 
-    return Padding(
-        padding: EdgeInsets.only(
-            top: 0, bottom: 0, right: 0, left: nodeScope.indentation),
+    return InkWell(
         child: SizedBox(
-            width: 200,
-            height: 30,
-            child: // Row(children: [
-                // const Text("Foo"),
-                Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0, right: 16.0, top: 4, bottom: 6),
-                    child: Column(
-                      children: [_partitionUsageBar(partition)],
-                    ))));
+            height: 25,
+            child: Padding(
+                padding: EdgeInsets.only(left: nodeScope.indentation),
+                child: Column(
+                  children: [_partitionUsageBar(context, partition)],
+                ))));
   }
 
-  static final _chargePattern = RegExp(r'(\d+\.\d+)%');
+  static final _parenthesizedPercentagePattern = RegExp(r'(\d+\.\d+)%');
 
   double? _parsedUsage(String charge) {
-    final foundMatch = _chargePattern.firstMatch(charge)?.group(1);
+    final foundMatch =
+        _parenthesizedPercentagePattern.firstMatch(charge)?.group(1);
     if (foundMatch != null) {
       return double.parse(foundMatch) / 100.0;
     } else {
@@ -42,7 +37,7 @@ class PartitionView extends StatelessWidget {
     }
   }
 
-  Widget _partitionUsageBar(Partition partition) {
+  Widget _partitionUsageBar(BuildContext context, Partition partition) {
     final rawUsage = partition.used;
     if (rawUsage == null) {
       return Container();
@@ -53,38 +48,32 @@ class PartitionView extends StatelessWidget {
       return Container();
     }
 
-    return Stack(children: [
+    return Row(children: [
+      Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Stack(children: [
+            fixedHeightRoundedRectangle(
+                context: context,
+                child: Container(),
+                color: Theme.of(context).highlightColor,
+                height: 20,
+                width: 100),
+            fixedHeightRoundedRectangle(
+                context: context,
+                child: Container(),
+                color: Theme.of(context).primaryColor,
+                height: 20,
+                width: 5 + usage * 95),
+          ])),
       SizedBox(
-          height: 30,
-          child: Container(
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
-              ),
+          width: 200,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              partition.id,
+              overflow: TextOverflow.ellipsis,
             ),
           )),
-      SizedBox(
-          height: 30,
-          child: FractionallySizedBox(
-              widthFactor: usage,
-              child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: barColor(charge: 1.0 - usage),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(12.0),
-                    ),
-                  )))),
-      Center(
-          child: Padding(
-              padding: const EdgeInsets.only(top: 1, bottom: 0),
-              child: Text("$rawUsage (${partition.fs} @ ${partition.id})",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: barTitleColor(charge: 1.0 - usage)))))
     ]);
   }
 }
