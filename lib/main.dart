@@ -9,6 +9,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'device_report_controller_provider.dart';
 
+import 'package:window_size/window_size.dart';
+
 void main(List<String> args) {
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
@@ -16,6 +18,11 @@ void main(List<String> args) {
       exit(1);
     }
   };
+
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowMinSize(const Size(600, 500));
+  }
   runApp(const ProviderScope(child: MyApp()));
 }
 

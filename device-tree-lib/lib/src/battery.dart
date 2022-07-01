@@ -33,7 +33,7 @@ class BatterySummary implements TreeNodeRepresentable, WithIcon {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "Batteries", data: this);
+    return TreeNode(id: "Power Management", data: this);
   }
 
   @override

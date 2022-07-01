@@ -64,8 +64,8 @@ class DeviceTree implements TreeNodeRepresentable {
             ? BluetoothSummary.fromReport(map)
             : null,
         batterySummary: BatterySummary.fromReport(map),
-        cpuSummary: CPUSummary.fromReport(map),
         driveSummary: DriveSummary.fromReport(map),
+        cpuSummary: CPUSummary.fromReport(map),
         graphicsSummary: GraphicsSummary.fromReport(map),
         machineSummary: MachineSummary.isDetectedIn(report: map)
             ? MachineSummary.fromReport(map)
@@ -115,8 +115,8 @@ class DeviceTree implements TreeNodeRepresentable {
       memorySummary != null
           ? [memorySummary!]
           : List<TreeNodeRepresentable>.empty(),
-      [cpuSummary],
       [partitionSummary],
+      [cpuSummary],
       raidSummary.volumes.isNotEmpty
           ? [raidSummary]
           : List<TreeNodeRepresentable>.empty(),
