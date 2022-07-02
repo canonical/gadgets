@@ -39,6 +39,9 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                     scrollController: deviceReportController.scrollController,
                     nodeHeight: deviceReportController.nodeHeight,
                     nodeBuilder: (BuildContext context, TreeNode node) {
+                      final selectionState = ref.watch(deviceReportController
+                          .selectionStateProvider(node.id));
+
                       final data = node.data;
                       final index = treeController.indexOf(node);
                       if (data is Battery) {
@@ -46,20 +49,24 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                           key: ValueKey("${data.serial}-battery-tag"),
                           controller: deviceReportController.scrollController,
                           index: index,
-                          child: BatteryView(battery: data),
+                          child: BatteryView(
+                              battery: data, isSelected: selectionState),
                         );
                       } else if (data is Partition) {
                         return AutoScrollTag(
                             key: ValueKey("${data.id}-partition-tag"),
                             controller: deviceReportController.scrollController,
                             index: index,
-                            child: PartitionView(partition: data));
+                            child: PartitionView(
+                              partition: data,
+                              isSelected: selectionState,
+                            ));
                       } else {
                         return AutoScrollTag(
                             key: ValueKey(index),
                             controller: deviceReportController.scrollController,
                             index: index,
-                            child: const TreeNodeTile());
+                            child: TreeNodeTile(isSelected: selectionState));
                       }
                     }),
               );

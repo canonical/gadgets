@@ -11,13 +11,21 @@ import 'dart:core';
 import 'dart:io';
 import 'package:device_tree_lib/all.dart';
 
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+
 enum ExpansionButtonType { folderFile, chevron }
 
 class DeviceReportController with ChangeNotifier {
   final String? inputPath;
 
+  final _selectedNodesProvider =
+      StateProvider<IMap<String, bool>>((ref) => IMap());
+
+  late final selectionStateProvider = StateProvider.family<bool, String>(
+      (ref, id) => ref.watch(_selectedNodesProvider)[id] ?? false);
+
   late final treeControllerProvider =
-      FutureProvider.autoDispose<TreeViewController>((ref) async {
+      FutureProvider<TreeViewController>((ref) async {
     final path = inputPath;
     if (path != null) {
       final deviceTree = await DeviceTree.from(file: File(path));
@@ -35,45 +43,55 @@ class DeviceReportController with ChangeNotifier {
 
   //* == == == == == TreeView == == == == ==
 
-  late final Map<String, bool> _selectedNodes = {};
+  // late final Map<String, bool> _selectedNodes = {};
 
-  bool isSelected(String id) => _selectedNodes[id] ?? false;
+  bool isSelected(WidgetRef ref, String id) =>
+      ref.read(_selectedNodesProvider)[id] ?? false;
 
-  void toggleSelectionForSubtree(TreeViewController treeController,
+  void toggleSelectionForSubtree(
+      WidgetRef ref, TreeViewController treeController,
       {required String id}) {
     final node = treeController.find(id);
     if (node == null) {
       return;
     }
 
-    final shouldSelect = !isSelected(id);
+    final shouldSelect = !isSelected(ref, id);
     for (final node in [node].followedBy(node.descendants)) {
-      toggleSelection(id: node.id, shouldSelect: shouldSelect);
+      toggleSelection(ref: ref, id: node.id, shouldSelect: shouldSelect);
     }
-
-    treeController.refreshNode(node.parent ?? node, keepExpandedNodes: true);
   }
 
-  void toggleSelection({required String id, bool? shouldSelect}) {
-    shouldSelect ??= !isSelected(id);
-    shouldSelect ? _select(id) : _deselect(id);
+  void toggleSelection(
+      {required WidgetRef ref, required String id, bool? shouldSelect}) {
+    shouldSelect ??= !isSelected(ref, id);
+    shouldSelect ? _select(ref, id) : _deselect(ref, id);
 
     notifyListeners();
   }
 
-  void _select(String id) => _selectedNodes[id] = true;
+  void _select(WidgetRef ref, String id) {
+    final selectedNodes = ref.read(_selectedNodesProvider);
+    ref.read(_selectedNodesProvider.notifier).state =
+        selectedNodes.add(id, true);
+  }
 
-  void _deselect(String id) => _selectedNodes.remove(id);
+  void _deselect(WidgetRef ref, String id) {
+    final selectedNodes = ref.read(_selectedNodesProvider);
+    ref.read(_selectedNodesProvider.notifier).state = selectedNodes.remove(id);
+  }
 
   void selectAll(WidgetRef ref, [bool select = true]) {
     ref.watch(treeControllerProvider).whenData((treeController) {
       if (select) {
         for (var descendant in treeController.rootNode.descendants) {
-          _selectedNodes[descendant.id] = true;
+          ref.read(_selectedNodesProvider.notifier).state =
+              ref.read(_selectedNodesProvider).add(descendant.id, true);
         }
       } else {
         for (var descendant in treeController.rootNode.descendants) {
-          _selectedNodes.remove(descendant.id);
+          ref.read(_selectedNodesProvider.notifier).state =
+              ref.read(_selectedNodesProvider).remove(descendant.id);
         }
       }
       notifyListeners();
@@ -91,10 +109,7 @@ class DeviceReportController with ChangeNotifier {
       final nodeToScroll =
           node.parent == treeController.rootNode ? node : node.parent ?? node;
 
-      final nodeHeight = this.nodeHeight;
-      ;
       final nodeIndex = treeController.indexOf(nodeToScroll);
-      final double offset = nodeIndex * (nodeHeight ?? 40.0);
 
       scrollController.scrollToIndex(nodeIndex,
           preferPosition: AutoScrollPosition.begin,

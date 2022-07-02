@@ -13,13 +13,14 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
 class BatteryView extends ConsumerWidget {
   final Battery battery;
+  final bool isSelected;
 
-  const BatteryView({Key? key, required this.battery}) : super(key: key);
+  const BatteryView({Key? key, required this.battery, required this.isSelected})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     return Padding(
         padding: EdgeInsets.only(
@@ -40,10 +41,8 @@ class BatteryView extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _batteryModel(
-                          context, deviceReportController, nodeScope.node),
-                      _batteryHealth(
-                          context, deviceReportController, nodeScope.node),
+                      _batteryModel(context, nodeScope.node),
+                      _batteryHealth(context, nodeScope.node),
                     ],
                   ),
                 )
@@ -53,8 +52,7 @@ class BatteryView extends ConsumerWidget {
         ));
   }
 
-  Widget _batteryModel(BuildContext context,
-      DeviceReportController reportController, TreeNode node) {
+  Widget _batteryModel(BuildContext context, TreeNode node) {
     return Align(
         alignment: Alignment.centerLeft,
         child: Row(children: [
@@ -66,7 +64,7 @@ class BatteryView extends ConsumerWidget {
                 : "Laptop Battery (${battery.model})",
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: reportController.isSelected(node.id)
+                color: isSelected
                     ? kSelectionColor
                     : Theme.of(context).textTheme.titleSmall?.color,
                 fontSize: 13,
@@ -75,8 +73,7 @@ class BatteryView extends ConsumerWidget {
         ]));
   }
 
-  Widget _batteryHealth(BuildContext context,
-      DeviceReportController reportController, TreeNode node) {
+  Widget _batteryHealth(BuildContext context, TreeNode node) {
     final textTheme = Theme.of(context).textTheme;
     final battery = this.battery;
 
@@ -93,9 +90,9 @@ class BatteryView extends ConsumerWidget {
             const SizedBox(width: 6),
             Text(battery.condition,
                 style: TextStyle(
-                    color: reportController.isSelected(node.id)
+                    color: isSelected
                         ? darken(kSelectionColor)
-                        : Theme.of(context).textTheme.bodySmall?.color,
+                        : textTheme.bodySmall?.color,
                     fontSize: 13,
                     fontWeight: FontWeight.normal))
           ]);

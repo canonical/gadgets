@@ -11,13 +11,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PartitionView extends ConsumerWidget {
   final Partition partition;
+  final bool isSelected;
 
-  const PartitionView({Key? key, required this.partition}) : super(key: key);
+  const PartitionView(
+      {Key? key, required this.partition, required this.isSelected})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
-    final reportController = ref.watch(deviceReportControllerProvider);
+    // final reportController = ref.watch(deviceReportControllerProvider);
 
     return InkWell(
         child: SizedBox(
@@ -26,8 +29,7 @@ class PartitionView extends ConsumerWidget {
                 padding: EdgeInsets.only(left: nodeScope.indentation),
                 child: Column(
                   children: [
-                    _partitionUsageBar(
-                        context, reportController, partition, nodeScope.node)
+                    _partitionUsageBar(context, partition, nodeScope.node)
                   ],
                 ))));
   }
@@ -45,10 +47,7 @@ class PartitionView extends ConsumerWidget {
   }
 
   Widget _partitionUsageBar(
-      BuildContext context,
-      DeviceReportController reportController,
-      Partition partition,
-      TreeNode node) {
+      BuildContext context, Partition partition, TreeNode node) {
     final rawUsage = partition.used;
     if (rawUsage == null) {
       return Container();
@@ -59,7 +58,6 @@ class PartitionView extends ConsumerWidget {
       return Container();
     }
 
-    final isSelected = reportController.isSelected(node.id);
     final textStyle = TextStyle(color: isSelected ? kSelectionColor : null);
 
     return Row(children: [

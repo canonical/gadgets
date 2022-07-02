@@ -24,7 +24,8 @@ const RoundedRectangleBorder kRoundedRectangleBorder = RoundedRectangleBorder(
 );
 
 class TreeNodeTile extends ConsumerStatefulWidget {
-  const TreeNodeTile({Key? key}) : super(key: key);
+  final bool isSelected;
+  const TreeNodeTile({Key? key, required this.isSelected}) : super(key: key);
 
   @override
   TreeNodeTileState createState() => TreeNodeTileState();
@@ -39,12 +40,13 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
     final isExpanded = treeController.isExpanded(nodeScope.node.id);
-    final isSelected = deviceReportController.isSelected(nodeScope.node.id);
+    final isSelected =
+        deviceReportController.isSelected(ref, nodeScope.node.id);
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
       onLongPress: () {
-        deviceReportController.toggleSelectionForSubtree(treeController,
+        deviceReportController.toggleSelectionForSubtree(ref, treeController,
             id: nodeScope.node.id);
       },
       child: SizedBox(
