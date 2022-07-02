@@ -25,7 +25,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     return TextField(
       controller: controller,
       cursorColor: Colors.blueGrey,
@@ -62,7 +62,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
   void _submitted(DeviceReportController deviceReportController) {
     final deviceReportController = ref.read(deviceReportControllerProvider);
     final treeController =
-        ref.watch(deviceReportController.treeControllerProvider);
+        ref.read(deviceReportController.treeControllerProvider);
 
     treeController.whenData((treeController) {
       final id = controller.text.trim();

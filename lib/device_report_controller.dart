@@ -39,7 +39,22 @@ class DeviceReportController with ChangeNotifier {
 
   bool isSelected(String id) => _selectedNodes[id] ?? false;
 
-  void toggleSelection(String id, [bool? shouldSelect]) {
+  void toggleSelectionForSubtree(TreeViewController treeController,
+      {required String id}) {
+    final node = treeController.find(id);
+    if (node == null) {
+      return;
+    }
+
+    final shouldSelect = !isSelected(id);
+    for (final node in [node].followedBy(node.descendants)) {
+      toggleSelection(id: node.id, shouldSelect: shouldSelect);
+    }
+
+    treeController.refreshNode(node.parent ?? node, keepExpandedNodes: true);
+  }
+
+  void toggleSelection({required String id, bool? shouldSelect}) {
     shouldSelect ??= !isSelected(id);
     shouldSelect ? _select(id) : _deselect(id);
 
@@ -47,10 +62,11 @@ class DeviceReportController with ChangeNotifier {
   }
 
   void _select(String id) => _selectedNodes[id] = true;
+
   void _deselect(String id) => _selectedNodes.remove(id);
 
   void selectAll(WidgetRef ref, [bool select = true]) {
-    ref.read(treeControllerProvider).whenData((treeController) {
+    ref.watch(treeControllerProvider).whenData((treeController) {
       if (select) {
         for (var descendant in treeController.rootNode.descendants) {
           _selectedNodes[descendant.id] = true;

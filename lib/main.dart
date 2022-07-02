@@ -96,7 +96,7 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     return DeviceReportControllerScope(
       controller: deviceReportController,

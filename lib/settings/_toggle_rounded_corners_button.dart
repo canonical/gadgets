@@ -5,7 +5,7 @@ class _ToggleRoundedCornersButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: deviceReportController.treeViewTheme,
       builder: (_, theme, child) {

@@ -48,7 +48,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
           nodeScope.node.id,
           style: TextStyle(
             color: actionsChip.presentedSelectionState
-                ? Colors.green.shade300
+                ? kSelectionColor
                 : theme.textTheme.headline1?.color,
             fontWeight: FontWeight.w400,
           ),
@@ -56,13 +56,8 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         avatar: nodeScope.node.children.isNotEmpty
             ? Padding(
                 padding: const EdgeInsets.only(left: 3),
-                child: Icon(
-                  _iconData(node: nodeScope.node),
-                  size: 20,
-                  color: theme.brightness == Brightness.dark
-                      ? lighten(theme.colorScheme.primary, 0.03)
-                      : darken(theme.colorScheme.primary, 0.02),
-                ))
+                child: Icon(_iconData(node: nodeScope.node),
+                    size: 20, color: theme.colorScheme.primary))
             : null,
       ),
     );
@@ -83,7 +78,7 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
     BuildContext context, {
     required bool deleteSubtree,
   }) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     ref
         .watch(deviceReportController.treeControllerProvider)

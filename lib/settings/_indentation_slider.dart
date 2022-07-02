@@ -14,7 +14,7 @@ class __IndentationSliderState extends ConsumerState<_IndentationSlider> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     return _SettingsButtonBar(
       label: 'Node indent increment: $value',
       singleChildPadding: EdgeInsets.zero,

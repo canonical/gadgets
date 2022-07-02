@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
+import 'package:inspector_gadget/device_report_controller.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
 import './color_modifications.dart';
 import './rounded_rectangle_background.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PartitionView extends StatelessWidget {
+class PartitionView extends ConsumerWidget {
   final Partition partition;
 
   const PartitionView({Key? key, required this.partition}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
+    final reportController = ref.watch(deviceReportControllerProvider);
 
     return InkWell(
         child: SizedBox(
@@ -21,7 +25,10 @@ class PartitionView extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsets.only(left: nodeScope.indentation),
                 child: Column(
-                  children: [_partitionUsageBar(context, partition)],
+                  children: [
+                    _partitionUsageBar(
+                        context, reportController, partition, nodeScope.node)
+                  ],
                 ))));
   }
 
@@ -37,7 +44,11 @@ class PartitionView extends StatelessWidget {
     }
   }
 
-  Widget _partitionUsageBar(BuildContext context, Partition partition) {
+  Widget _partitionUsageBar(
+      BuildContext context,
+      DeviceReportController reportController,
+      Partition partition,
+      TreeNode node) {
     final rawUsage = partition.used;
     if (rawUsage == null) {
       return Container();
@@ -47,6 +58,9 @@ class PartitionView extends StatelessWidget {
     if (usage == null) {
       return Container();
     }
+
+    final isSelected = reportController.isSelected(node.id);
+    final textStyle = TextStyle(color: isSelected ? kSelectionColor : null);
 
     return Row(children: [
       Padding(
@@ -74,6 +88,7 @@ class PartitionView extends StatelessWidget {
                     child: Text(
                       partition.used ?? "",
                       textAlign: TextAlign.center,
+                      style: textStyle,
                     )))
           ])),
       Align(
@@ -82,15 +97,22 @@ class PartitionView extends StatelessWidget {
           Text(
             partition.id,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: isSelected ? kSelectionColor : null),
           ),
           Row(
             children: [
-              Text(partition.fs),
+              Text(partition.fs, style: textStyle),
+              const SizedBox(
+                width: 4,
+              ),
               Text(
                 partition.device != null ? "(${partition.device})" : "",
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodySmall?.color),
+                    color: isSelected
+                        ? darken(kSelectionColor)
+                        : Theme.of(context).textTheme.bodySmall?.color),
               )
             ],
           )

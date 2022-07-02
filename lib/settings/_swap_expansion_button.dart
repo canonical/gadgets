@@ -5,7 +5,7 @@ class _SwapExpansionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     return ValueListenableBuilder<ExpansionButtonType>(
       valueListenable: deviceReportController.expansionButtonType,

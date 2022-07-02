@@ -7,7 +7,7 @@ class _NodeTitle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
 
     return AnimatedBuilder(
@@ -19,7 +19,7 @@ class _NodeTitle extends ConsumerWidget {
               .textTheme //
               .subtitle1
               ?.copyWith(
-                  color: Colors.green.shade300,
+                  color: kSelectionColor,
                   fontWeight: FontWeight.w100,
                   overflow: TextOverflow.ellipsis);
         } else {

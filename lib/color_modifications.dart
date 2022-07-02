@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 // via https://gist.github.com/NearHuscarl/29c5577b94571d00926723c85a370e43
 Color darken(Color color, [double amount = .1]) {
@@ -19,6 +20,13 @@ Color lighten(Color color, [double amount = .1]) {
   return hslLight.toColor();
 }
 
+Color intensified(ThemeData theme, Color color, [double amount = .1]) {
+  if (theme.brightness == Brightness.light) {
+    return darken(color);
+  }
+  return lighten(color);
+}
+
 Color barColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 255, 0, 8),
     const Color.fromARGB(255, 107, 212, 95),
@@ -28,3 +36,5 @@ Color barTitleColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 127, 0, 4),
     const Color.fromARGB(255, 53, 106, 47),
     value)!;
+
+final kSelectionColor = Colors.green.shade300;

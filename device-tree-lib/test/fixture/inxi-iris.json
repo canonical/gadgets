@@ -352,7 +352,7 @@
       "type": "Li-poly",
       "status": "Charging",
       "ID": "BAT0",
-      "charge": "13.3 Wh (22.7%)",
+      "charge": "13.3 Wh (82.7%)",
       "cycles": "46",
       "condition": "58.6/61.0 Wh (96.0%)",
       "serial": "13167",

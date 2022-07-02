@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
@@ -94,7 +96,7 @@ class Partition implements TreeNodeRepresentable {
       return a.id.compareTo(b.id);
     });
 
-    return partitions;
+    return partitions; // .sublist(0, min(partitions.length, 5));
   }
 
   @override

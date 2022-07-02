@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
+import 'package:inspector_gadget/device_report_controller.dart';
+import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:unicons/unicons.dart';
 
 import './rounded_rectangle_background.dart';
 import './color_modifications.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
-class BatteryView extends StatelessWidget {
+class BatteryView extends ConsumerWidget {
   final Battery battery;
 
   const BatteryView({Key? key, required this.battery}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     return Padding(
         padding: EdgeInsets.only(
@@ -35,8 +40,10 @@ class BatteryView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      batteryModel(context),
-                      batteryHealth(context),
+                      _batteryModel(
+                          context, deviceReportController, nodeScope.node),
+                      _batteryHealth(
+                          context, deviceReportController, nodeScope.node),
                     ],
                   ),
                 )
@@ -46,7 +53,8 @@ class BatteryView extends StatelessWidget {
         ));
   }
 
-  Widget batteryModel(BuildContext context) {
+  Widget _batteryModel(BuildContext context,
+      DeviceReportController reportController, TreeNode node) {
     return Align(
         alignment: Alignment.centerLeft,
         child: Row(children: [
@@ -58,14 +66,17 @@ class BatteryView extends StatelessWidget {
                 : "Laptop Battery (${battery.model})",
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Theme.of(context).textTheme.titleSmall!.color,
+                color: reportController.isSelected(node.id)
+                    ? kSelectionColor
+                    : Theme.of(context).textTheme.titleSmall?.color,
                 fontSize: 13,
                 fontWeight: FontWeight.w500),
           ),
         ]));
   }
 
-  Widget batteryHealth(BuildContext context) {
+  Widget _batteryHealth(BuildContext context,
+      DeviceReportController reportController, TreeNode node) {
     final textTheme = Theme.of(context).textTheme;
     final battery = this.battery;
 
@@ -74,15 +85,17 @@ class BatteryView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(width: 1),
             const Icon(
-              Icons.favorite,
-              color: Colors.blue,
+              Icons.favorite_outline,
               size: 18,
             ),
-            const SizedBox(width: 2),
+            const SizedBox(width: 6),
             Text(battery.condition,
                 style: TextStyle(
-                    color: textTheme.bodySmall!.color,
+                    color: reportController.isSelected(node.id)
+                        ? darken(kSelectionColor)
+                        : Theme.of(context).textTheme.bodySmall?.color,
                     fontSize: 13,
                     fontWeight: FontWeight.normal))
           ]);

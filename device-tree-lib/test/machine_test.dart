@@ -56,7 +56,7 @@ void main() {
     });
 
     test('Test parsing Athena inxi report', () {
-      final machine = MachineSummary.fromReport(athenaReportMap);
+      final machine = MachineSummary.fromReport(reportMap: athenaReportMap);
       expect(machine.oemInfo, null);
       expect(machine.uefi.date, "12/04/2019");
       expect(machine.uefi.machineType, "Desktop");

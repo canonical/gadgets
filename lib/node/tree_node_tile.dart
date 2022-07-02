@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:device_tree_lib/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
@@ -31,21 +33,20 @@ class TreeNodeTile extends ConsumerStatefulWidget {
 class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     final treeController =
-        ref.read(deviceReportController.treeControllerProvider).value!;
+        ref.watch(deviceReportController.treeControllerProvider).value!;
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
     final isExpanded = treeController.isExpanded(nodeScope.node.id);
-    final isSelected = nodeScope.node.ancestors
-        .toList()
-        .followedBy([nodeScope.node]).any(
-            (element) => deviceReportController.isSelected(element.id));
+    final isSelected = deviceReportController.isSelected(nodeScope.node.id);
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
-      onLongPress: () =>
-          deviceReportController.toggleSelection(nodeScope.node.id),
+      onLongPress: () {
+        deviceReportController.toggleSelectionForSubtree(treeController,
+            id: nodeScope.node.id);
+      },
       child: SizedBox(
           height: 40,
           child: Row(

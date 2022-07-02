@@ -6,7 +6,9 @@ class _NodeSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final id = TreeNodeScope.of(context).node.id;
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
+    final treeController =
+        ref.watch(deviceReportController.treeControllerProvider).value!;
 
     return AnimatedBuilder(
       animation: deviceReportController,
@@ -15,9 +17,10 @@ class _NodeSelector extends ConsumerWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(3)),
           ),
-          activeColor: Colors.green.shade600,
+          activeColor: kSelectionColor,
           value: deviceReportController.isSelected(id),
-          onChanged: (_) => deviceReportController.toggleSelection(id),
+          onChanged: (_) => deviceReportController
+              .toggleSelectionForSubtree(treeController, id: id),
         );
       },
     );

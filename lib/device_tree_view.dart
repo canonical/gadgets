@@ -23,7 +23,7 @@ final defaultTreeViewTheme = ValueNotifier(const TreeViewTheme());
 class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
 
     return ValueListenableBuilder<TreeViewTheme>(
       valueListenable: deviceReportController.treeViewTheme,

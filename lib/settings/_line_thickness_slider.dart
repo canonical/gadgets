@@ -14,7 +14,7 @@ class __LineThicknessSliderState extends ConsumerState<_LineThicknessSlider> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
+    final deviceReportController = ref.watch(deviceReportControllerProvider);
     return _SettingsButtonBar(
       label: 'Line Thickness: $value',
       singleChildPadding: EdgeInsets.zero,
