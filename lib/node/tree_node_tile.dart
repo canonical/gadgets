@@ -4,10 +4,11 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
+import 'package:inspector_gadget/node/node_selection.dart';
 
 import '../common/common.dart';
 import '../device_report_controller.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../color_modifications.dart';
 import 'package:unicons/unicons.dart';
@@ -40,14 +41,12 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
     final isExpanded = treeController.isExpanded(nodeScope.node.id);
-    final isSelected =
-        deviceReportController.isSelected(ref, nodeScope.node.id);
+    final selected = isSelected(ref, nodeScope.node.id);
 
     return InkWell(
       onTap: () => treeController.toggleExpanded(nodeScope.node),
       onLongPress: () {
-        deviceReportController.toggleSelectionForSubtree(ref, treeController,
-            id: nodeScope.node.id);
+        toggleSelectionForSubtree(ref, treeController, id: nodeScope.node.id);
       },
       child: SizedBox(
           height: 40,
@@ -67,11 +66,11 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
                             child: Icon(Icons.unfold_less_outlined))
                         : Container(),
               ),
-              _NodeActionsChip(presentedSelectionState: isSelected),
+              _NodeActionsChip(presentedSelectionState: selected),
               const SizedBox(width: 12),
               isInternalNode && !isExpanded || !isInternalNode
                   ? Expanded(
-                      child: _NodeTitle(presentedSelectionState: isSelected))
+                      child: _NodeTitle(presentedSelectionState: selected))
                   : Container()
             ],
           )),

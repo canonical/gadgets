@@ -75,8 +75,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
           duration: const Duration(seconds: 3),
         );
       } else {
-        deviceReportController.toggleSelection(
-            ref: ref, id: id, shouldSelect: true);
+        toggleSelection(ref: ref, id: id, shouldSelect: true);
         if (!treeController.isExpanded(id)) {
           treeController.expandUntil(node);
         }

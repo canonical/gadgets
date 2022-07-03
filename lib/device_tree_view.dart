@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inspector_gadget/battery_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
+import 'package:inspector_gadget/node/node_selection.dart';
 import 'package:inspector_gadget/partition_view.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
@@ -10,6 +11,7 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/foundation.dart';
 
 import 'node/tree_node_tile.dart';
+import 'node/selection.dart';
 
 class DeviceTreeView extends ConsumerStatefulWidget {
   const DeviceTreeView({Key? key}) : super(key: key);
@@ -39,8 +41,8 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                     scrollController: deviceReportController.scrollController,
                     nodeHeight: deviceReportController.nodeHeight,
                     nodeBuilder: (BuildContext context, TreeNode node) {
-                      final selectionState = ref.watch(deviceReportController
-                          .selectionStateProvider(node.id));
+                      final selectionState =
+                          ref.watch(nodeSelectionStateProvider(node.id));
 
                       final data = node.data;
                       final index = treeController.indexOf(node);

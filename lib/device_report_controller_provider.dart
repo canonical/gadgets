@@ -1,4 +1,4 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'device_report_controller.dart';
 import 'package:meta/meta.dart';
 
@@ -18,12 +18,3 @@ class NodeSelectionState {
       NodeSelectionState(
           id: id ?? this.id, isSelected: isSelected ?? this.isSelected);
 }
-
-final _selectionProvider = StateProvider<Map<String, bool>>((ref) => {});
-
-final selectionStateProvider = StateProvider.family<bool?, String>(
-    (ref, id) => ref.read(_selectionProvider)[id]);
-
-// class NodeSelectionProvider
-//    extends StateNotifierProviderFamily<NodeSelectionState, String, > {
-// }

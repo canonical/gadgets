@@ -57,11 +57,11 @@ class _Actions extends ConsumerWidget {
               ),
               _Action(
                 label: const Text('Select All'),
-                onPressed: () => deviceReportController.selectAll(ref, true),
+                onPressed: () => selectAll(ref, treeController, true),
               ),
               _Action(
                 label: const Text('Deselect All'),
-                onPressed: () => deviceReportController.selectAll(ref, false),
+                onPressed: () => selectAll(ref, treeController, false),
               ),
             ],
           );

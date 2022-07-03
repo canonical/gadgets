@@ -1,15 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:inspector_gadget/device_tree_view.dart';
-import 'device_report_controller.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import 'dart:io';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
-import 'device_report_controller_provider.dart';
-
 import 'package:window_size/window_size.dart';
+
+import 'device_report_controller_provider.dart';
+import 'device_report_controller.dart';
 
 void main(List<String> args) {
   FlutterError.onError = (FlutterErrorDetails details) {

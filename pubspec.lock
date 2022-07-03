@@ -225,13 +225,6 @@ packages:
       url: "git@github.com:mz2/flutter_tree_view.git"
     source: git
     version: "0.5.1+1"
-  flutter_hooks:
-    dependency: "direct main"
-    description:
-      name: flutter_hooks
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.18.5"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -245,7 +238,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_riverpod:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
@@ -296,13 +289,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.5"
-  hooks_riverpod:
-    dependency: "direct main"
-    description:
-      name: hooks_riverpod
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0-dev.9"
   http_multi_server:
     dependency: transitive
     description:

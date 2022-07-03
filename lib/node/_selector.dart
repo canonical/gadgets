@@ -18,9 +18,9 @@ class _NodeSelector extends ConsumerWidget {
             borderRadius: BorderRadius.all(Radius.circular(3)),
           ),
           activeColor: kSelectionColor,
-          value: deviceReportController.isSelected(ref, id),
-          onChanged: (_) => deviceReportController
-              .toggleSelectionForSubtree(ref, treeController, id: id),
+          value: isSelected(ref, id),
+          onChanged: (_) =>
+              toggleSelectionForSubtree(ref, treeController, id: id),
         );
       },
     );
