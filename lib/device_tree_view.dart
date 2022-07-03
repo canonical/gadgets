@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inspector_gadget/battery_view.dart';
+import 'package:inspector_gadget/color_modifications.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:inspector_gadget/node/node_selection.dart';
 import 'package:inspector_gadget/partition_view.dart';
@@ -27,61 +28,61 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   Widget build(BuildContext context) {
     final deviceReportController = ref.watch(deviceReportControllerProvider);
 
-    return ValueListenableBuilder<TreeViewTheme>(
-      valueListenable: deviceReportController.treeViewTheme,
-      builder: (_, treeViewTheme, __) {
-        return ref.watch(deviceReportController.treeControllerProvider).when(
-            data: (treeController) {
-              return Scrollbar(
-                thumbVisibility: false,
-                controller: deviceReportController.scrollController,
-                child: TreeView(
-                    controller: treeController,
-                    theme: treeViewTheme,
-                    scrollController: deviceReportController.scrollController,
-                    nodeHeight: deviceReportController.nodeHeight,
-                    nodeBuilder: (BuildContext context, TreeNode node) {
-                      final selectionState =
-                          ref.watch(nodeSelectionStateProvider(node.id));
+    return ref.watch(deviceReportController.treeControllerProvider).when(
+        data: (treeController) {
+          return Scrollbar(
+            thumbVisibility: false,
+            controller: deviceReportController.scrollController,
+            child: TreeView(
+                controller: treeController,
+                theme: TreeViewTheme(
+                    lineStyle: LineStyle.connected,
+                    lineColor: Theme.of(context).highlightColor,
+                    roundLineCorners: true,
+                    lineThickness: 1,
+                    indent: 38),
+                scrollController: deviceReportController.scrollController,
+                nodeHeight: deviceReportController.nodeHeight,
+                nodeBuilder: (BuildContext context, TreeNode node) {
+                  final selectionState =
+                      ref.watch(nodeSelectionStateProvider(node.id));
 
-                      final data = node.data;
-                      final index = treeController.indexOf(node);
-                      if (data is Battery) {
-                        return AutoScrollTag(
-                          key: ValueKey("${data.serial}-battery-tag"),
-                          controller: deviceReportController.scrollController,
-                          index: index,
-                          child: BatteryView(
-                              battery: data, isSelected: selectionState),
-                        );
-                      } else if (data is Partition) {
-                        return AutoScrollTag(
-                            key: ValueKey("${data.id}-partition-tag"),
-                            controller: deviceReportController.scrollController,
-                            index: index,
-                            child: PartitionView(
-                              partition: data,
-                              isSelected: selectionState,
-                            ));
-                      } else {
-                        return AutoScrollTag(
-                            key: ValueKey(index),
-                            controller: deviceReportController.scrollController,
-                            index: index,
-                            child: TreeNodeTile(isSelected: selectionState));
-                      }
-                    }),
-              );
-            },
-            error: (error, trace) {
-              if (kDebugMode) {
-                print(error);
-                print(trace);
-              }
-              return Center(child: Text('Error in value listenable: $error'));
-            },
-            loading: () => const Center(child: CircularProgressIndicator()));
-      },
-    );
+                  final data = node.data;
+                  final index = treeController.indexOf(node);
+                  if (data is Battery) {
+                    return AutoScrollTag(
+                      key: ValueKey("${data.serial}-battery-tag"),
+                      controller: deviceReportController.scrollController,
+                      index: index,
+                      child: BatteryView(
+                          battery: data, isSelected: selectionState),
+                    );
+                  } else if (data is Partition) {
+                    return AutoScrollTag(
+                        key: ValueKey("${data.id}-partition-tag"),
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: PartitionView(
+                          partition: data,
+                          isSelected: selectionState,
+                        ));
+                  } else {
+                    return AutoScrollTag(
+                        key: ValueKey(index),
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: TreeNodeTile(isSelected: selectionState));
+                  }
+                }),
+          );
+        },
+        error: (error, trace) {
+          if (kDebugMode) {
+            print(error);
+            print(trace);
+          }
+          return Center(child: Text('Error in value listenable: $error'));
+        },
+        loading: () => const Center(child: CircularProgressIndicator()));
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,12 @@ Color lighten(Color color, [double amount = .1]) {
   final hslLight = hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
 
   return hslLight.toColor();
+}
+
+Color adjustedAlpha(Color color, double multiplier) {
+  final a = color.alpha.toDouble();
+  final adjustedA = (a + a * multiplier).toInt();
+  return color.withAlpha(max(0, min(255, adjustedA)));
 }
 
 Color intensified(ThemeData theme, Color color, [double amount = .1]) {

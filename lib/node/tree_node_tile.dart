@@ -53,7 +53,7 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
           child: Row(
             children: [
               const LinesWidget(),
-              const SizedBox(width: 6),
+              const SizedBox(width: 4),
               isInternalNode ? const _NodeSelector() : Container(),
               Padding(
                 padding: const EdgeInsets.only(right: 6.0),

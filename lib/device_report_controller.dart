@@ -58,13 +58,7 @@ class DeviceReportController with ChangeNotifier {
 
   //* == == == == == General == == == == ==
 
-  final treeViewTheme = ValueNotifier(const TreeViewTheme(
-      lineStyle: LineStyle.connected, roundLineCorners: true));
   final expansionButtonType = ValueNotifier(ExpansionButtonType.folderFile);
-
-  void updateTheme(TreeViewTheme theme) {
-    treeViewTheme.value = theme;
-  }
 
   void updateExpansionButton(ExpansionButtonType type) {
     expansionButtonType.value = type;
@@ -73,8 +67,6 @@ class DeviceReportController with ChangeNotifier {
   @override
   void dispose() {
     scrollController.dispose();
-
-    treeViewTheme.dispose();
     expansionButtonType.dispose();
     super.dispose();
   }
