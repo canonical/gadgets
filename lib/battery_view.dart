@@ -32,7 +32,7 @@ class BatteryView extends ConsumerWidget {
             Row(children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: batteryChargeBar(),
+                child: _batteryChargeBar(context),
               ),
               Column(children: [
                 Padding(
@@ -103,7 +103,7 @@ class BatteryView extends ConsumerWidget {
 
   static final _chargePattern = RegExp(r'(\d+\.\d+)%');
 
-  double? parsedCharge(String charge) {
+  double? _parsedCharge(String charge) {
     final foundMatch = _chargePattern.firstMatch(charge)?.group(1);
     if (foundMatch != null) {
       return double.parse(foundMatch) / 100.0;
@@ -112,8 +112,8 @@ class BatteryView extends ConsumerWidget {
     }
   }
 
-  Widget batteryChargeBar() {
-    final charge = parsedCharge(battery.charge);
+  Widget _batteryChargeBar(BuildContext context) {
+    final charge = _parsedCharge(battery.charge);
     if (charge == null) {
       return Container();
     }
@@ -126,9 +126,9 @@ class BatteryView extends ConsumerWidget {
               height: 40,
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.all(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).highlightColor,
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(6.0),
                   ),
                 ),

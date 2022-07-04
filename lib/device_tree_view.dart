@@ -27,6 +27,7 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
   @override
   Widget build(BuildContext context) {
     final deviceReportController = ref.watch(deviceReportControllerProvider);
+    final theme = Theme.of(context);
 
     return ref.watch(deviceReportController.treeControllerProvider).when(
         data: (treeController) {
@@ -37,8 +38,11 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                 controller: treeController,
                 theme: TreeViewTheme(
                     lineStyle: LineStyle.connected,
-                    lineColor: Theme.of(context).highlightColor,
-                    roundLineCorners: false,
+                    lineColor: theme.brightness == Brightness.light
+                        ? Colors.grey.shade200
+                        : Colors.grey
+                            .shade800, // TODO: Find a theme color that behaves like this
+                    roundLineCorners: true,
                     lineThickness: 2.5,
                     indent: 38),
                 scrollController: deviceReportController.scrollController,
