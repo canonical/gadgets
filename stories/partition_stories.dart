@@ -16,4 +16,4 @@ final partition = Partition(
     fs: "ext4",
     mapped: "nvme1n1p3_crypt");
 
-Widget nearlyFullPartition() => PartitionView(partition: partition);
+Widget nearlyFullPartition() => PartitionView(partition: partition, isSelected: false);

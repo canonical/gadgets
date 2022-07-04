@@ -11,8 +11,6 @@ import 'dart:core';
 import 'dart:io';
 import 'package:device_tree_lib/all.dart';
 
-enum ExpansionButtonType { folderFile, chevron }
-
 class DeviceReportController with ChangeNotifier {
   final String? inputPath;
 
@@ -58,16 +56,9 @@ class DeviceReportController with ChangeNotifier {
 
   //* == == == == == General == == == == ==
 
-  final expansionButtonType = ValueNotifier(ExpansionButtonType.folderFile);
-
-  void updateExpansionButton(ExpansionButtonType type) {
-    expansionButtonType.value = type;
-  }
-
   @override
   void dispose() {
     scrollController.dispose();
-    expansionButtonType.dispose();
     super.dispose();
   }
 }

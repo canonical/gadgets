@@ -12,7 +12,6 @@ part '_actions.dart';
 part '_buttonBar.dart';
 part '_find_node_field.dart';
 part '_header.dart';
-part '_swap_expansion_button.dart';
 
 const Duration kAnimationDuration = Duration(milliseconds: 300);
 
@@ -44,8 +43,7 @@ class SettingsView extends StatelessWidget {
           SizedBox(height: 10),
           _SettingsHeader(text: 'Theme'),
           SizedBox(height: 10),
-          _SettingsHeader(text: 'Other'),
-          _SwapExpansionButton(),
+          _SettingsHeader(text: 'Other')
         ],
       ),
     );

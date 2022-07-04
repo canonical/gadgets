@@ -38,8 +38,8 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                 theme: TreeViewTheme(
                     lineStyle: LineStyle.connected,
                     lineColor: Theme.of(context).highlightColor,
-                    roundLineCorners: true,
-                    lineThickness: 1,
+                    roundLineCorners: false,
+                    lineThickness: 2.5,
                     indent: 38),
                 scrollController: deviceReportController.scrollController,
                 nodeHeight: deviceReportController.nodeHeight,

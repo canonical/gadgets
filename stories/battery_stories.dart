@@ -23,8 +23,12 @@ final nearlyFullMachineBattery = MachineBattery(
     id: "BAT0",
     volts: 15.8);
 
-Widget nearlyFullPeripheralBatteryStory() =>
-    BatteryView(battery: nearlyFullPeripheralBattery);
+Widget nearlyFullPeripheralBatteryStory() => BatteryView(
+      battery: nearlyFullPeripheralBattery,
+      isSelected: false,
+    );
 
-Widget nearlyFullMachineBatteryStory() =>
-    BatteryView(battery: nearlyFullMachineBattery);
+Widget nearlyFullMachineBatteryStory() => BatteryView(
+      battery: nearlyFullMachineBattery,
+      isSelected: false,
+    );
