@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inspector_gadget/battery_view.dart';
-import 'package:inspector_gadget/color_modifications.dart';
+import 'package:inspector_gadget/cpu_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:inspector_gadget/node/node_selection.dart';
 import 'package:inspector_gadget/partition_view.dart';
@@ -12,7 +12,6 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/foundation.dart';
 
 import 'node/tree_node_tile.dart';
-import 'node/selection.dart';
 
 class DeviceTreeView extends ConsumerStatefulWidget {
   const DeviceTreeView({Key? key}) : super(key: key);
@@ -68,6 +67,17 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                         index: index,
                         child: PartitionView(
                           partition: data,
+                          isSelected: selectionState,
+                        ));
+                  } else if (data is CPU) {
+                    return AutoScrollTag(
+                        key: const ValueKey(
+                            "cpu-summary-tag"), // FIXME: There's an assumption of just one item here
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: CPUView(
+                          cpu: data,
+                          cpuSummary: node.parent?.data as CPUSummary,
                           isSelected: selectionState,
                         ));
                   } else {

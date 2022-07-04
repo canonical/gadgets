@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
-import 'package:inspector_gadget/device_report_controller.dart';
-import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 

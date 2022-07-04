@@ -1,10 +1,10 @@
 import 'package:device_tree_lib/all.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:collection/collection.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tuple/tuple.dart';
 
 class CPUSummary implements TreeNodeRepresentable, WithIcon {
   final CPU cpu;
@@ -201,7 +201,7 @@ class CPUCoreFrequencyInfo implements TreeNodeRepresentable {
       i++;
     }
     return CPUCoreFrequencyInfo(
-        map['min/max'],
+        map['min/max'], // FIXME: validate that this splits into two int parseable values
         map['driver'],
         map['avg'],
         map['boost'],
@@ -212,6 +212,15 @@ class CPUCoreFrequencyInfo implements TreeNodeRepresentable {
         map['base/boost'],
         freqs);
   }
+
+  Tuple2<int, int> get minMaxFreqs {
+    final items = minMax.split("/").map((e) => int.parse(e));
+    assert(items.length == 2);
+    return Tuple2(items.first, items.last);
+  }
+
+  int get minFreq => this.minMaxFreqs.item1;
+  int get maxFreq => this.minMaxFreqs.item2;
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['driver'] != null;
