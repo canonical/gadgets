@@ -37,8 +37,21 @@ class USBDeviceView extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(device.info),
-                        Text("Driver: ${device.driver ?? " None"}",
-                            style: secondaryTextStyle)
+                        Row(
+                          children: [
+                            Text(
+                              "Speed: ${device.speed}",
+                              style: secondaryTextStyle,
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            device.driver != null
+                                ? Text("(Driver: ${device.driver ?? " None"})",
+                                    style: secondaryTextStyle)
+                                : Container(),
+                          ],
+                        )
                       ],
                     ),
                   ],

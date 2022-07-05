@@ -137,6 +137,12 @@ class USBDevice implements TreeNodeRepresentable, WithIcon {
       return UniconsLine.webcam;
     } else if ((driver ?? "").contains("btusb")) {
       return UniconsLine.bluetooth_b;
+    } else if ((driver ?? "").contains("snd_hda_intel")) {
+      return UniconsLine.record_audio;
+    } else if ((type ?? "").contains("Keyboard")) {
+      return UniconsLine.keyboard;
+    } else if ((driver ?? "").contains("snd-usb-audio")) {
+      return UniconsLine.microphone;
     }
 
     return Icons.usb;

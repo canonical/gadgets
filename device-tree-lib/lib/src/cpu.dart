@@ -163,7 +163,7 @@ class CPUCoreInfo implements TreeNodeRepresentable {
         cpus: int.parse(map['cpus']!),
         l3: map['L3']!,
         description: map['desc']!,
-        dies: rawDies != null ? int.parse(rawDies) : null);
+        dies: rawDies);
   }
 
   static bool isRepresentation(Map<String, dynamic> map) {

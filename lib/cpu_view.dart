@@ -26,7 +26,7 @@ class CPUView extends ConsumerWidget {
 
     return InkWell(
         child: SizedBox(
-            height: 90,
+            height: 108,
             child: Padding(
                 padding: EdgeInsets.only(left: nodeScope.indentation),
                 child: Row(
