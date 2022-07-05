@@ -50,13 +50,17 @@ class USBSummary implements TreeNodeRepresentable, WithIcon {
   TreeNode treeNodeRepresentation() => TreeNode(id: "USB", data: this);
 
   @override
-  Iterable<TreeNodeRepresentable> children() => devices;
+  Iterable<TreeNodeRepresentable> children() {
+    List<USBDevice> devices = this.devices.toList();
+    devices.sort(((a, b) => a.info.compareTo(b.info)));
+    return devices;
+  }
 
   @override
   get iconData => Icons.usb;
 }
 
-class USBDevice implements TreeNodeRepresentable {
+class USBDevice implements TreeNodeRepresentable, WithIcon {
   final String revision;
   final String speed;
   final String chipID;
@@ -123,5 +127,18 @@ class USBDevice implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [];
+  }
+
+  @override
+  get iconData {
+    if (hub != null && hub != "") {
+      return Icons.hub;
+    } else if ((driver ?? "").contains("uvcvideo")) {
+      return UniconsLine.webcam;
+    } else if ((driver ?? "").contains("btusb")) {
+      return UniconsLine.bluetooth_b;
+    }
+
+    return Icons.usb;
   }
 }

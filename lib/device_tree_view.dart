@@ -7,6 +7,7 @@ import 'package:inspector_gadget/cpu_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:inspector_gadget/node/node_selection.dart';
 import 'package:inspector_gadget/partition_view.dart';
+import 'package:inspector_gadget/usb_device_view.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import 'package:device_tree_lib/all.dart';
@@ -88,6 +89,16 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                         index: index,
                         child: CompilerFlagsView(
                             flags: data, isSelected: selectionState));
+                  } else if (data is USBDevice) {
+                    return AutoScrollTag(
+                        key: ValueKey(data.info),
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: USBDeviceView(
+                          device: data,
+                          usbSummary: node.parent?.data as USBSummary,
+                          isSelected: selectionState,
+                        ));
                   } else {
                     return AutoScrollTag(
                         key: ValueKey(index),
