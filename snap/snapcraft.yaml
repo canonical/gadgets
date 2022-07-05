@@ -1,0 +1,28 @@
+name: gadgets
+version: 0.1.0
+summary: Inspect your gadgets
+description: Find out about your gadgets.
+
+confinement: strict
+base: core20
+grade: stable
+
+slots:
+  dbus-gadgets: # adjust accordingly to your app name
+    interface: dbus
+    bus: session
+    name: com.canonical.gadgets
+
+apps:
+  gadgets:
+    command: gadgets
+    extensions: [flutter-master]
+    plugs:
+      - network
+    slots:
+      - dbus-gadgets
+parts:
+  gadgets:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart # The main entry-point file of the application

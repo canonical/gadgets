@@ -1,0 +1,8 @@
+[Desktop Entry]
+  Name=Gadgets
+  Comment=Inspect your gadgets
+  Exec=gadgets
+  Icon=${SNAP}/meta/gui/super-cool-app.png
+  Terminal=false
+  Type=Application
+  Categories=Utilities;
