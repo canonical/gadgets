@@ -107,7 +107,9 @@ class Kernel implements TreeNodeRepresentable {
         Detail(
             parent: this, key: "Compiler", value: "$compiler $compilerVersion"),
         Detail(
-            parent: this, key: "Kernel", value: "$kernelVersion ($bits bits)"),
+            parent: this,
+            key: "Kernel version",
+            value: "$kernelVersion ($bits bits)"),
         Detail(parent: this, key: "Boot parameters", value: parameters)
       ];
 }

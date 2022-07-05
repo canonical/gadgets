@@ -33,6 +33,8 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
         ref.watch(deviceReportController.treeControllerProvider).value!;
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
+    final isRoot =
+        nodeScope.node.parent != null && nodeScope.node.parent?.parent == null;
     final isExpanded = treeController.isExpanded(nodeScope.node.id);
     final selected = isSelected(ref, nodeScope.node.id);
 
@@ -46,7 +48,7 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
           child: Row(
             children: [
               const LinesWidget(),
-              const SizedBox(width: 4),
+              isRoot ? const SizedBox(width: 4) : Container(),
               isInternalNode ? const _NodeSelector() : Container(),
               Padding(
                 padding: const EdgeInsets.only(right: 6.0),

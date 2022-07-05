@@ -6,6 +6,8 @@ import 'package:unicons/unicons.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tuple/tuple.dart';
 
+import './detail_node.dart';
+
 class CPUSummary implements TreeNodeRepresentable, WithIcon {
   final CPU cpu;
   final CPUCoreInfo? coreInfo;
@@ -58,11 +60,19 @@ class CPUSummary implements TreeNodeRepresentable, WithIcon {
   Iterable<TreeNodeRepresentable> children() {
     return [
       [cpu],
-      coreInfo != null ? [coreInfo!] : [],
-      flags != null ? [flags!] : [],
-      coreFrequencyInfo != null ? [coreFrequencyInfo!] : [],
+      // coreInfo != null ? [coreInfo!] : [],
+      flags != null
+          ? [
+              Detail(
+                  parent: this,
+                  value: "",
+                  key: "Feature flags",
+                  childNodes: [flags!])
+            ]
+          : [],
+      // coreFrequencyInfo != null ? [coreFrequencyInfo!] : [],
       [vulnerabilityInfo]
-    ].expand((e) => e).cast<TreeNodeRepresentable>();
+    ].expand((item) => item).cast<TreeNodeRepresentable>();
   }
 
   @override
@@ -125,22 +135,35 @@ class CPUCoreInfo implements TreeNodeRepresentable {
   final int cpus;
   final String l3;
   final String description;
+  final int? dies;
 
-  CPUCoreInfo(this.tpc, this.l2, this.threads, this.l1, this.smt, this.cores,
-      this.cache, this.cpus, this.l3, this.description);
+  CPUCoreInfo(
+      {required this.tpc,
+      required this.l2,
+      required this.threads,
+      required this.l1,
+      required this.smt,
+      required this.cores,
+      required this.cache,
+      required this.cpus,
+      required this.l3,
+      required this.description,
+      required this.dies});
 
   factory CPUCoreInfo.fromMap(Map<String, dynamic> map) {
+    final rawDies = map['dies'];
     return CPUCoreInfo(
-        map['tpc']!,
-        map['L2']!,
-        map['threads']!,
-        map['L1']!,
-        map['smt']!,
-        map['cores']!,
-        map['cache']!,
-        int.parse(map['cpus']!),
-        map['L3']!,
-        map['desc']!);
+        tpc: map['tpc']!,
+        l2: map['L2']!,
+        threads: map['threads']!,
+        l1: map['L1']!,
+        smt: map['smt']!,
+        cores: map['cores']!,
+        cache: map['cache']!,
+        cpus: int.parse(map['cpus']!),
+        l3: map['L3']!,
+        description: map['desc']!,
+        dies: rawDies != null ? int.parse(rawDies) : null);
   }
 
   static bool isRepresentation(Map<String, dynamic> map) {
@@ -214,13 +237,22 @@ class CPUCoreFrequencyInfo implements TreeNodeRepresentable {
   }
 
   Tuple2<int, int> get minMaxFreqs {
-    final items = minMax.split("/").map((e) => int.parse(e));
+    final items = minMax.split("/").map((f) => int.parse(f));
     assert(items.length == 2);
     return Tuple2(items.first, items.last);
   }
 
-  int get minFreq => this.minMaxFreqs.item1;
-  int get maxFreq => this.minMaxFreqs.item2;
+  Tuple2<int, int> get baseBoostFreqs {
+    final items = baseBoost.split("/").map((f) => int.parse(f));
+    assert(items.length == 2);
+    return Tuple2(items.first, items.last);
+  }
+
+  int get minFreq => minMaxFreqs.item1;
+  int get maxFreq => minMaxFreqs.item2;
+
+  int get baseFreq => baseBoostFreqs.item1;
+  int get boostFreq => baseBoostFreqs.item2;
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['driver'] != null;
@@ -279,7 +311,7 @@ class VulnerabilityInfo implements TreeNodeRepresentable {
 
   @override
   TreeNode treeNodeRepresentation() {
-    return TreeNode(id: "CPU vulnerabilities", data: this);
+    return TreeNode(id: "Vulnerabilities", data: this);
   }
 
   @override

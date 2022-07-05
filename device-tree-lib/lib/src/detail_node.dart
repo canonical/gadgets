@@ -5,8 +5,13 @@ class Detail implements TreeNodeRepresentable {
   final TreeNodeRepresentable parent;
   final String key;
   final dynamic value;
+  final Iterable<TreeNodeRepresentable> childNodes;
 
-  Detail({required this.parent, required this.key, required this.value});
+  Detail(
+      {required this.parent,
+      required this.key,
+      required this.value,
+      this.childNodes = const []});
 
   @override
   TreeNode treeNodeRepresentation() {
@@ -15,5 +20,5 @@ class Detail implements TreeNodeRepresentable {
   }
 
   @override
-  Iterable<TreeNodeRepresentable> children() => [];
+  Iterable<TreeNodeRepresentable> children() => childNodes;
 }

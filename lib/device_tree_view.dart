@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inspector_gadget/battery_view.dart';
+import 'package:inspector_gadget/cpu_flags_view.dart';
 import 'package:inspector_gadget/cpu_view.dart';
 import 'package:inspector_gadget/device_report_controller_provider.dart';
 import 'package:inspector_gadget/node/node_selection.dart';
@@ -36,14 +37,14 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
             child: TreeView(
                 controller: treeController,
                 theme: TreeViewTheme(
-                    lineStyle: LineStyle.connected,
+                    lineStyle: LineStyle.disabled,
                     lineColor: theme.brightness == Brightness.light
                         ? Colors.grey.shade200
                         : Colors.grey
                             .shade800, // TODO: Find a theme color that behaves like this
                     roundLineCorners: true,
                     lineThickness: 2.5,
-                    indent: 38),
+                    indent: 68),
                 scrollController: deviceReportController.scrollController,
                 nodeHeight: deviceReportController.nodeHeight,
                 nodeBuilder: (BuildContext context, TreeNode node) {
@@ -80,6 +81,13 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                           cpuSummary: node.parent?.data as CPUSummary,
                           isSelected: selectionState,
                         ));
+                  } else if (data is CompilerFlags) {
+                    return AutoScrollTag(
+                        key: const ValueKey("cpu-compiler-flags"),
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: CompilerFlagsView(
+                            flags: data, isSelected: selectionState));
                   } else {
                     return AutoScrollTag(
                         key: ValueKey(index),
