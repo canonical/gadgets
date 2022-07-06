@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:inspector_gadget/partition_view.dart';
+import 'package:gadgets/partition_view.dart';
 import 'package:device_tree_lib/all.dart';
 
 final partition = Partition(
@@ -16,4 +16,5 @@ final partition = Partition(
     fs: "ext4",
     mapped: "nvme1n1p3_crypt");
 
-Widget nearlyFullPartition() => PartitionView(partition: partition, isSelected: false);
+Widget nearlyFullPartition() =>
+    PartitionView(partition: partition, isSelected: false);

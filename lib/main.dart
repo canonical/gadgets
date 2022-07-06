@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:inspector_gadget/device_tree_view.dart';
+import 'package:gadgets/device_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 import 'package:window_size/window_size.dart';

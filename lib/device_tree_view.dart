@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:inspector_gadget/battery_view.dart';
-import 'package:inspector_gadget/cpu_flags_view.dart';
-import 'package:inspector_gadget/cpu_view.dart';
-import 'package:inspector_gadget/device_report_controller_provider.dart';
-import 'package:inspector_gadget/node/node_selection.dart';
-import 'package:inspector_gadget/partition_view.dart';
-import 'package:inspector_gadget/usb_device_view.dart';
+import 'package:gadgets/battery_view.dart';
+import 'package:gadgets/cpu_flags_view.dart';
+import 'package:gadgets/cpu_view.dart';
+import 'package:gadgets/device_report_controller_provider.dart';
+import 'package:gadgets/node/node_selection.dart';
+import 'package:gadgets/partition_view.dart';
+import 'package:gadgets/usb_device_view.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import 'package:device_tree_lib/all.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:inspector_gadget/device_report_controller_provider.dart';
+import 'package:gadgets/device_report_controller_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:inspector_gadget/node/node_selection.dart';
+import 'package:gadgets/node/node_selection.dart';
 
 import '../common/common.dart';
 import '../device_report_controller.dart';
