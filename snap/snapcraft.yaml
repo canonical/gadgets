@@ -1,14 +1,14 @@
 name: gadgets
 version: 0.1.0
 summary: Inspect your gadgets
-description: Find out about your gadgets.
+description: A tool for inspecting hardware and OS components available on your system.
 
 confinement: strict
 base: core18
 grade: stable
 
 slots:
-  dbus-gadgets: # adjust accordingly to your app name
+  dbus-gadgets:
     interface: dbus
     bus: session
     name: com.canonical.gadgets
@@ -25,6 +25,6 @@ parts:
   gadgets:
     source: .
     plugin: flutter
-    flutter-target: lib/main.dart # The main entry-point file of the application
+    flutter-target: lib/main.dart
     stage-packages:
       - inxi
