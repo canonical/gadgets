@@ -17,3 +17,4 @@ export 'src/battery.dart';
 export 'src/machine.dart';
 export 'src/with_icon.dart';
 export 'src/partition.dart';
+export 'src/certification_summary.dart';

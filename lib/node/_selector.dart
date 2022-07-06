@@ -21,24 +21,25 @@ class _NodeSelector extends ConsumerWidget {
       return Container();
     }
 
+    final col =
+        color(certificationStatus: certStatus, themeData: Theme.of(context));
+
     switch (certStatus) {
       case CertificationStatus.passed:
         return IconButton(
             onPressed: null,
             icon: Icon(UniconsLine.check_circle, color: Colors.green.shade400),
-            color: Colors.green.shade300);
+            color: col);
 
       case CertificationStatus.unknown:
         return IconButton(
             onPressed: null,
-            icon:
-                Icon(UniconsLine.question_circle, color: Colors.grey.shade800));
+            icon: Icon(UniconsLine.question_circle, color: col));
 
       case CertificationStatus.failed:
         return IconButton(
             onPressed: null,
-            icon: Icon(UniconsLine.exclamation_circle,
-                color: Colors.red.shade400));
+            icon: Icon(UniconsLine.exclamation_circle, color: col));
     }
     /*
     return AnimatedBuilder(

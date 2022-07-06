@@ -20,9 +20,10 @@ class USBDeviceView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     final nodeScope = TreeNodeScope.of(context);
     final secondaryTextStyle =
-        TextStyle(color: Theme.of(context).textTheme.bodySmall?.color);
+        TextStyle(color: theme.textTheme.bodySmall?.color);
 
     final certStatusMap = ref.watch(certificationStatusProvider);
     final certStatus =
@@ -39,7 +40,8 @@ class USBDeviceView extends ConsumerWidget {
                       padding: const EdgeInsets.only(left: 4.0, right: 8.0),
                       child: Icon(
                         device.iconData,
-                        color: color(certStatus),
+                        color: color(
+                            certificationStatus: certStatus, themeData: theme),
                       ),
                     ),
                     Column(

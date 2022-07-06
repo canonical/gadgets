@@ -128,6 +128,7 @@ class DeviceTree implements TreeNodeRepresentable {
   @override
   Iterable<TreeNodeRepresentable> children() {
     return [
+      [CertificationSummary()],
       machineSummary != null
           ? [machineSummary!]
           : List<TreeNodeRepresentable>.empty(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/battery_view.dart';
+import 'package:gadgets/certification_summary_view.dart';
 import 'package:gadgets/cpu_flags_view.dart';
 import 'package:gadgets/cpu_view.dart';
 import 'package:gadgets/device_report_controller_provider.dart';
@@ -14,8 +15,6 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/foundation.dart';
 
 import 'node/tree_node_tile.dart';
-
-import 'certification_status.dart';
 
 double indentation(TreeNodeScope nodeScope) {
   return nodeScope.node.depth < 2
@@ -107,6 +106,12 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                           usbSummary: node.parent?.data as USBSummary,
                           isSelected: selectionState,
                         ));
+                  } else if (data is CertificationSummary) {
+                    return AutoScrollTag(
+                        key: ValueKey(node.id),
+                        controller: deviceReportController.scrollController,
+                        index: index,
+                        child: CertificationSummaryView());
                   } else {
                     return AutoScrollTag(
                         key: ValueKey(index),
