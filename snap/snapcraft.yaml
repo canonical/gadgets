@@ -4,7 +4,7 @@ summary: Inspect your gadgets
 description: Find out about your gadgets.
 
 confinement: strict
-base: core20
+base: core18
 grade: stable
 
 slots:
@@ -26,3 +26,5 @@ parts:
     source: .
     plugin: flutter
     flutter-target: lib/main.dart # The main entry-point file of the application
+    stage-packages:
+      - inxi

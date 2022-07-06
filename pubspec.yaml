@@ -36,7 +36,7 @@ dependencies:
   yaru: ^0.3.3
   flutter_fancy_tree_view:
     git:
-      url: git@github.com:mz2/flutter_tree_view.git
+      url: https://github.com/mz2/flutter_tree_view.git
       ref: dynamic-item-height
   window_size:
     git:
