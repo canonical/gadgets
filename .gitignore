@@ -51,3 +51,5 @@ app.*.map.json
 
 # Monarch related
 .monarch/
+
+*.snap
