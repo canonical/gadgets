@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:gadgets/device_report_controller_provider.dart';
 import 'package:gadgets/node/node_selection.dart';
+import 'package:unicons/unicons.dart';
 
 import '../common/common.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:unicons/unicons.dart';
+import 'package:flutter/material.dart';
 import '../color_modifications.dart';
+import 'package:gadgets/certification_status.dart';
 
 part '_actions_chip.dart';
 part '_selector.dart';
@@ -49,7 +52,12 @@ class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
             children: [
               const LinesWidget(),
               isRoot ? const SizedBox(width: 4) : Container(),
-              isInternalNode ? const _NodeSelector() : Container(),
+              isInternalNode
+                  ? const Padding(
+                      padding: EdgeInsets.only(left: 4.0),
+                      child: _NodeSelector(),
+                    )
+                  : Container(),
               Padding(
                 padding: const EdgeInsets.only(right: 6.0),
                 child: !isExpanded && isInternalNode

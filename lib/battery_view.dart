@@ -7,6 +7,8 @@ import 'package:unicons/unicons.dart';
 import './rounded_rectangle_background.dart';
 import './color_modifications.dart';
 
+import './device_tree_view.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
@@ -24,7 +26,7 @@ class BatteryView extends ConsumerWidget {
 
     return Padding(
         padding: EdgeInsets.only(
-            top: 0, bottom: 0, right: 10, left: nodeScope.indentation),
+            top: 0, bottom: 0, right: 10, left: indentation(nodeScope)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

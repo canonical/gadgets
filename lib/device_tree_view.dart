@@ -15,6 +15,14 @@ import 'package:flutter/foundation.dart';
 
 import 'node/tree_node_tile.dart';
 
+import 'certification_status.dart';
+
+double indentation(TreeNodeScope nodeScope) {
+  return nodeScope.node.depth < 2
+      ? nodeScope.indentation
+      : nodeScope.indentation * 0.5;
+}
+
 class DeviceTreeView extends ConsumerStatefulWidget {
   const DeviceTreeView({Key? key}) : super(key: key);
 
@@ -45,7 +53,7 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                             .shade800, // TODO: Find a theme color that behaves like this
                     roundLineCorners: true,
                     lineThickness: 2.5,
-                    indent: 68),
+                    indent: 78),
                 scrollController: deviceReportController.scrollController,
                 nodeHeight: deviceReportController.nodeHeight,
                 nodeBuilder: (BuildContext context, TreeNode node) {

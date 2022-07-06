@@ -3,6 +3,7 @@ import 'package:device_tree_lib/all.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
+import 'package:gadgets/device_tree_view.dart';
 import './color_modifications.dart';
 import './rounded_rectangle_background.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class PartitionView extends ConsumerWidget {
         child: SizedBox(
             height: 45,
             child: Padding(
-                padding: EdgeInsets.only(left: nodeScope.indentation),
+                padding: EdgeInsets.only(left: indentation(nodeScope)),
                 child: Column(
                   children: [
                     _partitionUsageBar(context, partition, nodeScope.node)

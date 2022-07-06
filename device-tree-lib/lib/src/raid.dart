@@ -52,7 +52,7 @@ class RAID implements TreeNodeRepresentable {
   TreeNode treeNodeRepresentation() => TreeNode(
       id: "$device ($type)",
       data: this,
-      label: "$free out of allocated $allocated, total size: $size ($status)");
+      label: "$allocated out of allocated $free, total size: $size ($status)");
 
   @override
   Iterable<TreeNodeRepresentable> children() => [];

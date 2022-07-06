@@ -2,6 +2,8 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gadgets/certification_status.dart';
+import 'package:gadgets/device_tree_view.dart';
 import 'package:unicons/unicons.dart';
 
 class USBDeviceView extends ConsumerWidget {
@@ -22,16 +24,23 @@ class USBDeviceView extends ConsumerWidget {
     final secondaryTextStyle =
         TextStyle(color: Theme.of(context).textTheme.bodySmall?.color);
 
+    final certStatusMap = ref.watch(certificationStatusProvider);
+    final certStatus =
+        certStatusMap[nodeScope.node.id] ?? CertificationStatus.unknown;
+
     return InkWell(
         child: SizedBox(
             height: 45,
             child: Padding(
-                padding: EdgeInsets.only(left: nodeScope.indentation),
+                padding: EdgeInsets.only(left: indentation(nodeScope)),
                 child: Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 8.0),
-                      child: Icon(device.iconData),
+                      child: Icon(
+                        device.iconData,
+                        color: color(certStatus),
+                      ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -3,6 +3,7 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/rounded_rectangle_background.dart';
+import 'package:gadgets/device_tree_view.dart';
 import 'package:unicons/unicons.dart';
 
 class CompilerFlagsView extends ConsumerWidget {
@@ -19,7 +20,7 @@ class CompilerFlagsView extends ConsumerWidget {
 
     return InkWell(
         child: Padding(
-      padding: EdgeInsets.only(left: nodeScope.indentation + 4),
+      padding: EdgeInsets.only(left: indentation(nodeScope) + 4),
       child: Wrap(
           spacing: 4,
           runSpacing: 4,

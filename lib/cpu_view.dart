@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gadgets/device_tree_view.dart';
 import 'package:unicons/unicons.dart';
 
 class CPUView extends ConsumerWidget {
@@ -26,9 +27,9 @@ class CPUView extends ConsumerWidget {
 
     return InkWell(
         child: SizedBox(
-            height: 108,
+            height: 90,
             child: Padding(
-                padding: EdgeInsets.only(left: nodeScope.indentation),
+                padding: EdgeInsets.only(left: indentation(nodeScope)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
