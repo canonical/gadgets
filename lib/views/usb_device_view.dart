@@ -40,8 +40,7 @@ class USBDeviceView extends ConsumerWidget {
                       padding: const EdgeInsets.only(left: 4.0, right: 8.0),
                       child: Icon(
                         device.iconData,
-                        color: color(
-                            certificationStatus: certStatus, themeData: theme),
+                        color: certStatus.color(theme: theme),
                       ),
                     ),
                     Column(

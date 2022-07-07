@@ -14,28 +14,18 @@ class _NodeSelector extends ConsumerWidget {
       return Container();
     }
 
-    final col =
-        color(certificationStatus: certStatus, themeData: Theme.of(context));
+    final theme = Theme.of(context);
 
-    switch (certStatus) {
-      case CertificationStatus.passed:
-        return IconButton(
-            onPressed: () {
-              showSnackBar(context, "Foo");
-            },
-            icon: Icon(UniconsLine.check_circle, color: Colors.green.shade400),
-            color: col);
+    return IconButton(
+        onPressed: () {
+          showSnackBar(context,
+              message: certStatus.testDescription,
+              detail: certStatus.testDetail,
+              icon: certStatus.icon(theme: theme));
+        },
+        icon: certStatus.icon(theme: theme),
+        color: certStatus.color(theme: theme));
 
-      case CertificationStatus.unknown:
-        return IconButton(
-            onPressed: null,
-            icon: Icon(UniconsLine.question_circle, color: col));
-
-      case CertificationStatus.failed:
-        return IconButton(
-            onPressed: null,
-            icon: Icon(UniconsLine.exclamation_circle, color: col));
-    }
     /*
     return AnimatedBuilder(
       animation: deviceReportController,

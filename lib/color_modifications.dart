@@ -47,21 +47,4 @@ Color barTitleColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 53, 106, 47),
     value)!;
 
-Color color(
-    {required CertificationStatus certificationStatus,
-    required ThemeData themeData}) {
-  switch (certificationStatus) {
-    case CertificationStatus.passed:
-      return Colors.green.shade300;
-
-    case CertificationStatus.unknown:
-      return themeData.brightness == Brightness.light
-          ? Colors.grey.shade300
-          : Colors.grey.shade800;
-
-    case CertificationStatus.failed:
-      return Colors.red.shade400;
-  }
-}
-
 final kSelectionColor = Colors.green.shade300;

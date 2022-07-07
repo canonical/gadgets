@@ -71,7 +71,7 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
       if (node == null) {
         showSnackBar(
           context,
-          'No node was found with ID:  $id',
+          message: 'No node was found with ID:  $id',
           duration: const Duration(seconds: 3),
         );
       } else {

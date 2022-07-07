@@ -2,7 +2,67 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
-enum CertificationStatus { passed, unknown, failed }
+import 'package:unicons/unicons.dart';
+
+enum CertificationStatus {
+  passed,
+  unknown,
+  failed;
+
+  String get testDescription {
+    switch (this) {
+      case passed:
+        return "Compatibility confirmed";
+
+      case unknown:
+        return "Compatibility unknown";
+
+      case failed:
+        return "Confirmed not compatible";
+    }
+  }
+
+  String get testDetail {
+    switch (this) {
+      case passed:
+        return "All tests passed.";
+
+      case unknown:
+        return "Compatibility not tested.";
+
+      case failed:
+        return "At least one required test failed.";
+    }
+  }
+
+  Color color({required ThemeData theme}) {
+    switch (this) {
+      case CertificationStatus.passed:
+        return Colors.green.shade300;
+
+      case CertificationStatus.unknown:
+        return theme.brightness == Brightness.light
+            ? Colors.grey.shade300
+            : Colors.grey.shade800;
+
+      case CertificationStatus.failed:
+        return Colors.red.shade400;
+    }
+  }
+
+  Icon icon({required ThemeData theme}) {
+    switch (this) {
+      case CertificationStatus.passed:
+        return Icon(UniconsLine.check_circle, color: color(theme: theme));
+
+      case CertificationStatus.unknown:
+        return Icon(UniconsLine.question_circle, color: color(theme: theme));
+
+      case CertificationStatus.failed:
+        return Icon(UniconsLine.exclamation_circle, color: color(theme: theme));
+    }
+  }
+}
 
 StateProvider<IMap<String, CertificationStatus>> certificationStatusProvider =
     StateProvider((_) => IMap()
