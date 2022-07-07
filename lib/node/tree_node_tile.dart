@@ -5,12 +5,14 @@ import 'package:gadgets/device_report_controller_provider.dart';
 import 'package:gadgets/node/node_selection.dart';
 import 'package:unicons/unicons.dart';
 
-import '../common/common.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter/material.dart';
 import '../color_modifications.dart';
-import 'package:gadgets/certification_status.dart';
+import 'package:gadgets/certification_status_provider.dart';
+import 'package:gadgets/common/add_node_dialog.dart';
+
+import '../views/snackbar.dart';
 
 part '_actions_chip.dart';
 part '_selector.dart';

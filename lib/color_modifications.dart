@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
+import 'certification_status_provider.dart';
+
 // via https://gist.github.com/NearHuscarl/29c5577b94571d00926723c85a370e43
 Color darken(Color color, [double amount = .1]) {
   assert(amount >= 0 && amount <= 1);
@@ -44,5 +46,22 @@ Color barTitleColor({required double value}) => Color.lerp(
     const Color.fromARGB(255, 127, 0, 4),
     const Color.fromARGB(255, 53, 106, 47),
     value)!;
+
+Color color(
+    {required CertificationStatus certificationStatus,
+    required ThemeData themeData}) {
+  switch (certificationStatus) {
+    case CertificationStatus.passed:
+      return Colors.green.shade300;
+
+    case CertificationStatus.unknown:
+      return themeData.brightness == Brightness.light
+          ? Colors.grey.shade300
+          : Colors.grey.shade800;
+
+    case CertificationStatus.failed:
+      return Colors.red.shade400;
+  }
+}
 
 final kSelectionColor = Colors.green.shade300;

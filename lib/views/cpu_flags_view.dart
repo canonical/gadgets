@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gadgets/rounded_rectangle_background.dart';
-import 'package:gadgets/device_tree_view.dart';
+import 'package:gadgets/views/rounded_rectangle_background.dart';
+import 'package:gadgets/views/device_tree_view.dart';
 import 'package:unicons/unicons.dart';
 
 class CompilerFlagsView extends ConsumerWidget {

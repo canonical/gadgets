@@ -25,20 +25,3 @@ final nodeCertificationStatusProvider =
     StateProvider.family<CertificationStatus, String>((ref, id) =>
         ref.watch(certificationStatusProvider)[id] ??
         CertificationStatus.unknown);
-
-Color color(
-    {required CertificationStatus certificationStatus,
-    required ThemeData themeData}) {
-  switch (certificationStatus) {
-    case CertificationStatus.passed:
-      return Colors.green.shade300;
-
-    case CertificationStatus.unknown:
-      return themeData.brightness == Brightness.light
-          ? Colors.grey.shade300
-          : Colors.grey.shade800;
-
-    case CertificationStatus.failed:
-      return Colors.red.shade400;
-  }
-}

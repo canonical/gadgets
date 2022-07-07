@@ -4,10 +4,10 @@ import 'package:gadgets/device_report_controller.dart';
 import 'package:gadgets/device_report_controller_provider.dart';
 import 'package:unicons/unicons.dart';
 
-import './rounded_rectangle_background.dart';
-import './color_modifications.dart';
+import 'rounded_rectangle_background.dart';
+import '../color_modifications.dart';
 
-import './device_tree_view.dart';
+import 'device_tree_view.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

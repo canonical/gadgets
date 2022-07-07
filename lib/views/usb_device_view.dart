@@ -2,9 +2,10 @@ import 'package:device_tree_lib/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gadgets/certification_status.dart';
-import 'package:gadgets/device_tree_view.dart';
-import 'package:unicons/unicons.dart';
+import 'package:gadgets/certification_status_provider.dart';
+import 'package:gadgets/views/device_tree_view.dart';
+
+import '../color_modifications.dart';
 
 class USBDeviceView extends ConsumerWidget {
   final USBDevice device;
@@ -25,9 +26,8 @@ class USBDeviceView extends ConsumerWidget {
     final secondaryTextStyle =
         TextStyle(color: theme.textTheme.bodySmall?.color);
 
-    final certStatusMap = ref.watch(certificationStatusProvider);
     final certStatus =
-        certStatusMap[nodeScope.node.id] ?? CertificationStatus.unknown;
+        ref.watch(nodeCertificationStatusProvider(nodeScope.node.id));
 
     return InkWell(
         child: SizedBox(

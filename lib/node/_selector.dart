@@ -7,15 +7,8 @@ class _NodeSelector extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final node = TreeNodeScope.of(context).node;
     final id = node.id;
-    final certStatusMap = ref.watch(certificationStatusProvider);
-    final CertificationStatus certStatus = certStatusMap[id] != null
-        ? certStatusMap[id]!
-        : CertificationStatus.unknown;
+    final certStatus = ref.watch(nodeCertificationStatusProvider(id));
     final isRootLevel = node.parent == null || node.parent?.parent == null;
-
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
-    final treeController =
-        ref.watch(deviceReportController.treeControllerProvider).value!;
 
     if (!isRootLevel) {
       return Container();
@@ -27,7 +20,9 @@ class _NodeSelector extends ConsumerWidget {
     switch (certStatus) {
       case CertificationStatus.passed:
         return IconButton(
-            onPressed: null,
+            onPressed: () {
+              showSnackBar(context, "Foo");
+            },
             icon: Icon(UniconsLine.check_circle, color: Colors.green.shade400),
             color: col);
 

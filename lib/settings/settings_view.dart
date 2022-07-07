@@ -5,7 +5,8 @@ import 'package:gadgets/device_report_controller_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/node/node_selection.dart';
 
-import '../common/common.dart';
+import '../common/add_node_dialog.dart';
+import '../views/snackbar.dart';
 import '../device_report_controller.dart';
 
 part '_actions.dart';
