@@ -113,9 +113,8 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                         key: ValueKey(node.id),
                         controller: deviceReportController.scrollController,
                         index: index,
-                        child: const CertificationSummaryView(
-                          certificationStatus: CertificationStatus.passed,
-                        ));
+                        child: CertificationSummaryView(
+                            certificationSummary: data));
                   } else {
                     return AutoScrollTag(
                         key: ValueKey(index),
