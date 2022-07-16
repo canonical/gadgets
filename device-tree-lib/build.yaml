@@ -3,7 +3,6 @@ targets:
     sources:
       - $package$
       - lib/**
-      - stories/**
     builders:
       json_serializable:
         options:

@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/src/battery.dart';
+import 'package:device_tree_lib/battery.dart';
 import 'package:test/test.dart';
 
 final irisReport = {

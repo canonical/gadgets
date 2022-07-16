@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:test/test.dart';
 import 'dart:convert';
 import 'dart:io';

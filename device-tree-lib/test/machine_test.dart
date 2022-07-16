@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/src/machine.dart';
+import 'package:device_tree_lib/machine.dart';
 import 'package:test/test.dart';
 
 const irisReportMap = {

@@ -1,8 +1,7 @@
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:unicons/unicons.dart';
-import 'package:flutter/widgets.dart';
 
 class RAIDSummary implements TreeNodeRepresentable, WithIcon {
   Iterable<RAID> volumes;

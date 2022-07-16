@@ -3,7 +3,7 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 File report = File('./test/fixture/inxi-athena.json');
 late final Map<String, dynamic> parsedReport;

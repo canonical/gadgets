@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gadgets/views/partition_view.dart';
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 final partition = Partition(
     majorMinor: "253:0",

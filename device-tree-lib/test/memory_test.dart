@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/src/memory.dart';
+import 'package:device_tree_lib/memory.dart';
 import 'package:test/test.dart';
 import 'dart:convert';
 import 'dart:io';

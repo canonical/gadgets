@@ -11,7 +11,7 @@ import 'package:gadgets/views/partition_view.dart';
 import 'package:gadgets/views/usb_device_view.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:gadgets/providers/certification_status_provider.dart';

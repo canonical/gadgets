@@ -9,7 +9,7 @@ import 'sample_tree.dart';
 
 import 'dart:core';
 import 'dart:io';
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 class DeviceReportController with ChangeNotifier {
   final String? inputPath;

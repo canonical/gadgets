@@ -3,7 +3,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
 import 'package:unicons/unicons.dart';
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 extension Presentation on CertificationStatus {
   Color color({required ThemeData theme}) {

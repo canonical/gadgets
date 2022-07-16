@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:core';
 import 'package:test/test.dart';
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 void main() {
   group('Test reading the whole device tree from Inxi report', () {

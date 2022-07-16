@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:device_tree_lib/src/device_tree.dart';
+import 'package:device_tree_lib/device_tree.dart';
 
 class DeviceTreeParser {
   File report;

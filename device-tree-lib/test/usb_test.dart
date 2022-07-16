@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:device_tree_lib/src/usb.dart';
+import 'package:device_tree_lib/usb.dart';
 
 main() {
   test('USB device info', () {

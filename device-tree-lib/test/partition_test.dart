@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:device_tree_lib/all.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 
 const Map<String, List<Map<String, dynamic>>> reportMap = {
   "Partition": [
