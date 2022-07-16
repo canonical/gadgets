@@ -9,6 +9,32 @@ enum CertificationStatus {
   unknown,
   failed;
 
+  String get description {
+    switch (this) {
+      case passed:
+        return "Ubuntu Certified for 22.04 LTS (Jammy Jellyfish)";
+
+      case unknown:
+        return "This device is not certified";
+
+      case failed:
+        return "Device is not fully Ubuntu compatible";
+    }
+  }
+
+  String get detail {
+    switch (this) {
+      case passed:
+        return "Device passes all required certification tests.";
+
+      case unknown:
+        return "Device is not a part of the certification program.";
+
+      case failed:
+        return "Your device has components with known compatibility issues.";
+    }
+  }
+
   String get testDescription {
     switch (this) {
       case passed:
@@ -50,6 +76,27 @@ enum CertificationStatus {
     }
   }
 
+  Widget headlineIcon({required ThemeData theme}) {
+    switch (this) {
+      case CertificationStatus.passed:
+        return const Image(
+          image: AssetImage('images/ubuntu_certified_hardware.png'),
+          width: 54,
+          color: null,
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.center,
+          isAntiAlias: true,
+        );
+
+      case CertificationStatus.unknown:
+        return Icon(UniconsLine.question, color: color(theme: theme));
+
+      case CertificationStatus.failed:
+        return Icon(UniconsLine.exclamation_octagon,
+            color: color(theme: theme));
+    }
+  }
+
   Icon icon({required ThemeData theme}) {
     switch (this) {
       case CertificationStatus.passed:
@@ -73,9 +120,9 @@ StateProvider<IMap<String, CertificationStatus>> certificationStatusProvider =
         .add("Graphics", CertificationStatus.passed)
         .add("Power Management", CertificationStatus.passed)
         .add("Audio", CertificationStatus.passed)
-        .add("USB", CertificationStatus.failed)
+        .add("USB", CertificationStatus.passed)
         .add("Bluetooth", CertificationStatus.passed)
-        .add("Chicony Integrated Camera", CertificationStatus.failed)
+        .add("Chicony Integrated Camera", CertificationStatus.passed)
         .add("Foxconn / Hon Hai Wireless_Device", CertificationStatus.passed)
         .add("Hi-speed hub with single TT", CertificationStatus.passed)
         .add("Super-speed hub", CertificationStatus.unknown)

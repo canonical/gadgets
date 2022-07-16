@@ -14,6 +14,8 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:flutter/foundation.dart';
 
+import 'package:gadgets/certification_status_provider.dart';
+
 import '../node/tree_node_tile.dart';
 
 double indentation(TreeNodeScope nodeScope) {
@@ -111,7 +113,9 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                         key: ValueKey(node.id),
                         controller: deviceReportController.scrollController,
                         index: index,
-                        child: CertificationSummaryView());
+                        child: const CertificationSummaryView(
+                          certificationStatus: CertificationStatus.passed,
+                        ));
                   } else {
                     return AutoScrollTag(
                         key: ValueKey(index),
