@@ -30,7 +30,7 @@ mixin _$SnapPackage {
   String get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
-  String get channel => throw _privateConstructorUsedError;
+  String? get channel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $SnapPackageCopyWith<$Res> {
       String status,
       String type,
       String version,
-      String channel});
+      String? channel});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class _$SnapPackageCopyWithImpl<$Res> implements $SnapPackageCopyWith<$Res> {
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -139,7 +139,7 @@ abstract class _$$_SnapPackageCopyWith<$Res>
       String status,
       String type,
       String version,
-      String channel});
+      String? channel});
 }
 
 /// @nodoc
@@ -205,7 +205,7 @@ class __$$_SnapPackageCopyWithImpl<$Res> extends _$SnapPackageCopyWithImpl<$Res>
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -223,7 +223,7 @@ class _$_SnapPackage implements _SnapPackage {
       required this.status,
       required this.type,
       required this.version,
-      required this.channel});
+      this.channel});
 
   factory _$_SnapPackage.fromJson(Map<String, dynamic> json) =>
       _$$_SnapPackageFromJson(json);
@@ -248,7 +248,7 @@ class _$_SnapPackage implements _SnapPackage {
   @override
   final String version;
   @override
-  final String channel;
+  final String? channel;
 
   @override
   String toString() {
@@ -313,7 +313,7 @@ abstract class _SnapPackage implements SnapPackage {
       required final String status,
       required final String type,
       required final String version,
-      required final String channel}) = _$_SnapPackage;
+      final String? channel}) = _$_SnapPackage;
 
   factory _SnapPackage.fromJson(Map<String, dynamic> json) =
       _$_SnapPackage.fromJson;
@@ -338,7 +338,7 @@ abstract class _SnapPackage implements SnapPackage {
   @override
   String get version;
   @override
-  String get channel;
+  String? get channel;
   @override
   @JsonKey(ignore: true)
   _$$_SnapPackageCopyWith<_$_SnapPackage> get copyWith =>

@@ -14,7 +14,7 @@ class ResourceResult with _$ResourceResult {
     @JsonKey(name: 'category_id') required String categoryId,
     required String status,
     required String outcome,
-    required String comments,
+    String? comments,
     @JsonKey(name: 'io_log') required String ioLog,
     required String type,
     required String project,

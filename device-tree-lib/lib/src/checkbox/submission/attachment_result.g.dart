@@ -16,7 +16,7 @@ _$_AttachmentResult _$$_AttachmentResultFromJson(Map<String, dynamic> json) =>
       categoryId: json['category_id'] as String?,
       status: json['status'] as String,
       outcome: json['outcome'] as String,
-      comments: json['comments'] as String,
+      comments: json['comments'] as String?,
       ioLog: json['io_log'] as String,
       duration: (json['duration'] as num).toDouble(),
     );

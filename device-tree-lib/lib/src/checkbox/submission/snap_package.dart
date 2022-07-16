@@ -15,7 +15,7 @@ class SnapPackage with _$SnapPackage {
     required String status,
     required String type,
     required String version,
-    required String channel,
+    String? channel,
   }) = _SnapPackage;
 
   factory SnapPackage.fromJson(Map<String, dynamic> json) =>

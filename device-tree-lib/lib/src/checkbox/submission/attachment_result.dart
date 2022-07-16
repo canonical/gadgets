@@ -14,7 +14,7 @@ class AttachmentResult with _$AttachmentResult {
     @JsonKey(name: 'category_id') String? categoryId,
     required String status,
     required String outcome,
-    required String comments,
+    String? comments,
     @JsonKey(name: 'io_log') required String ioLog,
     required double duration,
   }) = _AttachmentResult;

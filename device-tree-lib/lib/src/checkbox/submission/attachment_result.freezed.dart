@@ -31,7 +31,7 @@ mixin _$AttachmentResult {
   String? get categoryId => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get outcome => throw _privateConstructorUsedError;
-  String get comments => throw _privateConstructorUsedError;
+  String? get comments => throw _privateConstructorUsedError;
   @JsonKey(name: 'io_log')
   String get ioLog => throw _privateConstructorUsedError;
   double get duration => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ abstract class $AttachmentResultCopyWith<$Res> {
       @JsonKey(name: 'category_id') String? categoryId,
       String status,
       String outcome,
-      String comments,
+      String? comments,
       @JsonKey(name: 'io_log') String ioLog,
       double duration});
 }
@@ -120,7 +120,7 @@ class _$AttachmentResultCopyWithImpl<$Res>
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ abstract class _$$_AttachmentResultCopyWith<$Res>
       @JsonKey(name: 'category_id') String? categoryId,
       String status,
       String outcome,
-      String comments,
+      String? comments,
       @JsonKey(name: 'io_log') String ioLog,
       double duration});
 }
@@ -215,7 +215,7 @@ class __$$_AttachmentResultCopyWithImpl<$Res>
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
@@ -240,7 +240,7 @@ class _$_AttachmentResult implements _AttachmentResult {
       @JsonKey(name: 'category_id') this.categoryId,
       required this.status,
       required this.outcome,
-      required this.comments,
+      this.comments,
       @JsonKey(name: 'io_log') required this.ioLog,
       required this.duration});
 
@@ -267,7 +267,7 @@ class _$_AttachmentResult implements _AttachmentResult {
   @override
   final String outcome;
   @override
-  final String comments;
+  final String? comments;
   @override
   @JsonKey(name: 'io_log')
   final String ioLog;
@@ -341,7 +341,7 @@ abstract class _AttachmentResult implements AttachmentResult {
           final String? categoryId,
       required final String status,
       required final String outcome,
-      required final String comments,
+      final String? comments,
       @JsonKey(name: 'io_log')
           required final String ioLog,
       required final double duration}) = _$_AttachmentResult;
@@ -369,7 +369,7 @@ abstract class _AttachmentResult implements AttachmentResult {
   @override
   String get outcome;
   @override
-  String get comments;
+  String? get comments;
   @override
   @JsonKey(name: 'io_log')
   String get ioLog;

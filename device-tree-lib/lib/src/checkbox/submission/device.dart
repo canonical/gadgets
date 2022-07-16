@@ -8,17 +8,17 @@ class Device with _$Device {
   factory Device({
     required String bus,
     required String driver,
-    required String name,
+    String? name,
     required String path,
-    required String product,
-    @JsonKey(name: 'product_slug') required String productSlug,
-    required String category,
-    required String vendor,
-    @JsonKey(name: 'vendor_slug') required String vendorSlug,
-    @JsonKey(name: 'product_id') required int productId,
-    @JsonKey(name: 'vendor_id') required int vendorId,
-    required String interface,
-    required String mac,
+    String? product,
+    @JsonKey(name: 'product_slug') String? productSlug,
+    String? category,
+    String? vendor,
+    @JsonKey(name: 'vendor_slug') String? vendorSlug,
+    @JsonKey(name: 'product_id') int? productId,
+    @JsonKey(name: 'vendor_id') int? vendorId,
+    String? interface,
+    String? mac,
   }) = _Device;
 
   factory Device.fromJson(Map<String, dynamic> json) => _$DeviceFromJson(json);

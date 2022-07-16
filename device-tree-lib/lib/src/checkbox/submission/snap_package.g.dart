@@ -17,7 +17,7 @@ _$_SnapPackage _$$_SnapPackageFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String,
       type: json['type'] as String,
       version: json['version'] as String,
-      channel: json['channel'] as String,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_SnapPackageToJson(_$_SnapPackage instance) =>
