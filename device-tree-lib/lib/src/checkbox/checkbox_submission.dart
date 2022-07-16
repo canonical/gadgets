@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'snap_package.dart';
+import 'deb_package.dart';
 
 part 'checkbox_submission.freezed.dart';
 // part 'main.g.dart';
@@ -13,7 +14,7 @@ class CheckboxSubmission with _$CheckboxSubmission {
       @JsonKey(name: "custom_joblist")
           required bool customJoblist,
       required String description,
-      required Iterable<String> packages,
+      required Iterable<DebPackage> packages,
       @JsonKey(name: "snap-packages")
           required Iterable<SnapPackage> snapPackages}) = _CheckboxSubmission;
 

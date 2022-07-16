@@ -26,7 +26,7 @@ mixin _$CheckboxSubmission {
   @JsonKey(name: "custom_joblist")
   bool get customJoblist => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  Iterable<String> get packages => throw _privateConstructorUsedError;
+  Iterable<DebPackage> get packages => throw _privateConstructorUsedError;
   @JsonKey(name: "snap-packages")
   Iterable<SnapPackage> get snapPackages => throw _privateConstructorUsedError;
 
@@ -46,7 +46,7 @@ abstract class $CheckboxSubmissionCopyWith<$Res> {
       @JsonKey(name: "testplan_id") String testplanId,
       @JsonKey(name: "custom_joblist") bool customJoblist,
       String description,
-      Iterable<String> packages,
+      Iterable<DebPackage> packages,
       @JsonKey(name: "snap-packages") Iterable<SnapPackage> snapPackages});
 }
 
@@ -88,7 +88,7 @@ class _$CheckboxSubmissionCopyWithImpl<$Res>
       packages: packages == freezed
           ? _value.packages
           : packages // ignore: cast_nullable_to_non_nullable
-              as Iterable<String>,
+              as Iterable<DebPackage>,
       snapPackages: snapPackages == freezed
           ? _value.snapPackages
           : snapPackages // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_CheckboxSubmissionCopyWith<$Res>
       @JsonKey(name: "testplan_id") String testplanId,
       @JsonKey(name: "custom_joblist") bool customJoblist,
       String description,
-      Iterable<String> packages,
+      Iterable<DebPackage> packages,
       @JsonKey(name: "snap-packages") Iterable<SnapPackage> snapPackages});
 }
 
@@ -153,7 +153,7 @@ class __$$_CheckboxSubmissionCopyWithImpl<$Res>
       packages: packages == freezed
           ? _value.packages
           : packages // ignore: cast_nullable_to_non_nullable
-              as Iterable<String>,
+              as Iterable<DebPackage>,
       snapPackages: snapPackages == freezed
           ? _value.snapPackages
           : snapPackages // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$_CheckboxSubmission implements _CheckboxSubmission {
   @override
   final String description;
   @override
-  final Iterable<String> packages;
+  final Iterable<DebPackage> packages;
   @override
   @JsonKey(name: "snap-packages")
   final Iterable<SnapPackage> snapPackages;
@@ -247,7 +247,7 @@ abstract class _CheckboxSubmission implements CheckboxSubmission {
           @JsonKey(name: "custom_joblist")
               required final bool customJoblist,
           required final String description,
-          required final Iterable<String> packages,
+          required final Iterable<DebPackage> packages,
           @JsonKey(name: "snap-packages")
               required final Iterable<SnapPackage> snapPackages}) =
       _$_CheckboxSubmission;
@@ -266,7 +266,7 @@ abstract class _CheckboxSubmission implements CheckboxSubmission {
   @override
   String get description;
   @override
-  Iterable<String> get packages;
+  Iterable<DebPackage> get packages;
   @override
   @JsonKey(name: "snap-packages")
   Iterable<SnapPackage> get snapPackages;
