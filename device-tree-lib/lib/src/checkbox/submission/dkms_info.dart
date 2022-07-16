@@ -1,13 +1,11 @@
-class DkmsInfo {
-  DkmsInfo();
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  factory DkmsInfo.fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError('DkmsInfo.fromJson($json) is not implemented');
-  }
+part 'dkms_info.freezed.dart';
+part 'dkms_info.g.dart';
 
-  Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
+@freezed
+class DkmsInfo with _$DkmsInfo {
+  const factory DkmsInfo() = _DkmsInfo;
+  factory DkmsInfo.fromJson(Map<String, Object?> json) =>
+      _$DkmsInfoFromJson(json);
 }

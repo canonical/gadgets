@@ -101,6 +101,7 @@ abstract class $SubmissionCopyWith<$Res> {
           String kernelCmdline});
 
   $DistributionCopyWith<$Res> get distribution;
+  $DkmsInfoCopyWith<$Res>? get dkmsInfo;
   $MemoryCopyWith<$Res> get memory;
   $ProcessorCopyWith<$Res> get processor;
 }
@@ -233,6 +234,17 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
   }
 
   @override
+  $DkmsInfoCopyWith<$Res>? get dkmsInfo {
+    if (_value.dkmsInfo == null) {
+      return null;
+    }
+
+    return $DkmsInfoCopyWith<$Res>(_value.dkmsInfo!, (value) {
+      return _then(_value.copyWith(dkmsInfo: value));
+    });
+  }
+
+  @override
   $MemoryCopyWith<$Res> get memory {
     return $MemoryCopyWith<$Res>(_value.memory, (value) {
       return _then(_value.copyWith(memory: value));
@@ -290,6 +302,8 @@ abstract class _$$_SubmissionCopyWith<$Res>
 
   @override
   $DistributionCopyWith<$Res> get distribution;
+  @override
+  $DkmsInfoCopyWith<$Res>? get dkmsInfo;
   @override
   $MemoryCopyWith<$Res> get memory;
   @override
