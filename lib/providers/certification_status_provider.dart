@@ -11,6 +11,11 @@ extension Presentation on CertificationStatus {
       case CertificationStatus.passed:
         return Colors.green.shade300;
 
+      case CertificationStatus.passedWithWarnings:
+        return theme.brightness == Brightness.light
+            ? Colors.yellow.shade800
+            : Colors.yellow.shade300;
+
       case CertificationStatus.unknown:
         return theme.brightness == Brightness.light
             ? Colors.grey.shade300
@@ -23,6 +28,7 @@ extension Presentation on CertificationStatus {
 
   Widget headlineIcon({required ThemeData theme}) {
     switch (this) {
+      case CertificationStatus.passedWithWarnings:
       case CertificationStatus.passed:
         return const Image(
           image: AssetImage('images/ubuntu_certified_hardware.png'),
@@ -47,6 +53,10 @@ extension Presentation on CertificationStatus {
       case CertificationStatus.passed:
         return Icon(UniconsLine.check_circle, color: color(theme: theme));
 
+      case CertificationStatus.passedWithWarnings:
+        return Icon(UniconsLine.exclamation_triangle,
+            color: color(theme: theme));
+
       case CertificationStatus.unknown:
         return Icon(UniconsLine.question_circle, color: color(theme: theme));
 
@@ -65,12 +75,14 @@ StateProvider<IMap<String, CertificationStatus>> certificationStatusProvider =
         .add("Graphics", CertificationStatus.passed)
         .add("Power Management", CertificationStatus.passed)
         .add("Audio", CertificationStatus.passed)
-        .add("USB", CertificationStatus.passed)
+        .add("USB", CertificationStatus.passedWithWarnings)
         .add("Bluetooth", CertificationStatus.passed)
         .add("Chicony Integrated Camera", CertificationStatus.passed)
         .add("Foxconn / Hon Hai Wireless_Device", CertificationStatus.passed)
         .add("Hi-speed hub with single TT", CertificationStatus.passed)
         .add("Super-speed hub", CertificationStatus.unknown)
+        .add("PARALLELS FaceTime HD Camera",
+            CertificationStatus.passedWithWarnings)
         .cast());
 
 final nodeCertificationStatusProvider =

@@ -130,7 +130,7 @@ class DeviceTree implements TreeNodeRepresentable {
     return [
       [
         CertificationSummary(
-            deviceTree: this, status: CertificationStatus.passed)
+            deviceTree: this, status: CertificationStatus.passedWithWarnings)
       ],
       machineSummary != null
           ? [machineSummary!]

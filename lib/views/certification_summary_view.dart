@@ -59,8 +59,14 @@ class CertificationSummaryView extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 3),
-            Text(certificationSummary.status.detail,
-                style: Theme.of(context).textTheme.bodyMedium),
+            Row(
+              children: [
+                Text(certificationSummary.status.detail,
+                    style: Theme.of(context).textTheme.bodyMedium),
+                const SizedBox(width: 6),
+                certificationSummary.status.icon(theme: Theme.of(context)),
+              ],
+            ),
             const SizedBox(height: 3),
             Text("Device last tested at Canonical labs on 6th July, 2022.",
                 style: Theme.of(context).textTheme.bodyMedium)
