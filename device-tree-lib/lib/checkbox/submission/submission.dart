@@ -14,6 +14,35 @@ import 'deb_package.dart';
 part 'submission.freezed.dart';
 part 'submission.g.dart';
 
+enum KnownTestCategory {
+  docker("com.canonical.certification::docker"),
+  audio("com.canonical.plainbox::audio"),
+  i2c("com.canonical.certification::i2c"),
+  location("com.canonical.certification::location"),
+  snapd("com.canonical.certification::snapd"),
+  socketcan("com.canonical.certification::socketcan"),
+  tpm2("com.canonical.certification::tpm2"),
+  wwan("com.canonical.certification::wwan"),
+  bluetooth("com.canonical.plainbox::bluetooth"),
+  camera("com.canonical.plainbox::camera"),
+  cpu("com.canonical.plainbox::cpu"),
+  disk("com.canonical.plainbox::disk"),
+  ethernet("com.canonical.plainbox::ethernet"),
+  firmware("com.canonical.plainbox::firmware"),
+  info("com.canonical.plainbox::info"),
+  memory("com.canonical.plainbox::memory"),
+  miscellanea("com.canonical.plainbox::miscellanea"),
+  networking("com.canonical.plainbox::networking"),
+  powerManagement("com.canonical.plainbox::power-management"),
+  suspend("com.canonical.plainbox::suspend"),
+  uncategorized("com.canonical.plainbox::uncategorised"),
+  usb("com.canonical.plainbox::usb"),
+  wireless("com.canonical.plainbox::wireless");
+
+  final String id;
+  const KnownTestCategory(this.id);
+}
+
 @freezed
 class Submission with _$Submission {
   factory Submission({
@@ -43,4 +72,9 @@ class Submission with _$Submission {
 
   factory Submission.fromJson(Map<String, dynamic> json) =>
       _$SubmissionFromJson(json);
+}
+
+Iterable<Result> results(
+    {required Submission submission, required KnownTestCategory category}) {
+  return submission.results.where((result) => result.categoryId == category.id);
 }
