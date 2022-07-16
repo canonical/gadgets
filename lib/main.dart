@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:gadgets/views/device_tree_view.dart';
@@ -12,6 +13,12 @@ import 'providers/device_report_controller_provider.dart';
 import 'device_report_controller.dart';
 
 void main(List<String> args) {
+  Logger.root.level = Level.INFO;
+  Logger.root.onRecord.listen((record) {
+    // ignore: avoid_print
+    print('${record.level.name}: ${record.time}: ${record.message}');
+  });
+
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
     if (kReleaseMode) {

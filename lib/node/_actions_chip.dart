@@ -24,6 +24,9 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
         borderRadius: const BorderRadius.all(Radius.circular(10)));
     final theme = Theme.of(context);
     final actionsChip = context.widget as _NodeActionsChip;
+    final isInternal = nodeScope.node.children.isNotEmpty;
+
+    final useCase = ref.watch(useCaseProvider);
 
     return PopupMenuButton<int>(
       key: _popupMenuKey,
@@ -31,12 +34,25 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
       offset: const Offset(0, 32),
       shape: shape,
       elevation: 12,
-      itemBuilder: (_) => _popupMenuItems(context, nodeScope.node),
+      itemBuilder: (_) => _popupMenuItems(context, useCase, isInternal),
       onSelected: (int selected) {
         if (selected == 0) {
           showAddNodeDialog(context, ref, nodeScope.node);
-        } else {
-          _delete(ref, context, deleteSubtree: selected == 2);
+        } else if (selected == 1) {
+          showDialog(
+              context: context,
+              builder: (context) => FeedbackDialog(node: nodeScope.node));
+        }
+        switch (useCase) {
+          case UseCase.viewer:
+            break;
+
+          case UseCase.qa:
+            {
+              if (selected == 2) {
+                _delete(ref, context, deleteSubtree: isInternal);
+              }
+            }
         }
       },
       child: RawChip(
@@ -92,8 +108,8 @@ class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
   }
 }
 
-List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
-  final isInternal = node.children.isNotEmpty;
+List<PopupMenuEntry<int>> _popupMenuItems(
+    BuildContext context, UseCase useCase, bool isInternal) {
   final iconColor = Theme.of(context).colorScheme.inversePrimary;
 
   final List<PopupMenuEntry<int>> items = [
@@ -102,51 +118,56 @@ List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
       height: 28,
       child: ListTile(
         dense: true,
-        title: const Text('Add Note'),
+        title: const Text('Add Comment'),
         contentPadding: const EdgeInsets.symmetric(horizontal: 4),
         leading: Transform.scale(
             scaleX: -1,
-            child: Icon(Icons.add_comment_outlined, color: iconColor)),
+            child: Icon(UniconsLine.comment_alt_message, color: iconColor)),
       ),
     ),
     const PopupMenuDivider(height: 1),
     PopupMenuItem(
-      value: 0,
+      value: 1,
       height: 28,
       child: ListTile(
         dense: true,
         title: const Text('Report Problem'),
         contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.report_problem_outlined, color: iconColor),
+        leading: Icon(UniconsLine.exclamation_triangle, color: iconColor),
       ),
     ),
-    const PopupMenuDivider(height: 1),
   ];
 
-  if (!isInternal) {
-    items.add(PopupMenuItem(
-      value: 1,
-      height: 28,
-      child: ListTile(
-        dense: true,
-        title: const Text('Delete'),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.delete_rounded, color: iconColor),
-      ),
-    ));
-  }
+  if (useCase == UseCase.qa) {
+    items.add(
+      const PopupMenuDivider(height: 1),
+    );
 
-  if (isInternal) {
-    items.add(PopupMenuItem(
-      value: 2,
-      height: 28,
-      child: ListTile(
-        dense: true,
-        title: const Text('Delete subtree'),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.delete_forever_rounded, color: iconColor),
-      ),
-    ));
+    if (!isInternal) {
+      items.add(PopupMenuItem(
+        value: 1,
+        height: 28,
+        child: ListTile(
+          dense: true,
+          title: const Text('Delete'),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+          leading: Icon(Icons.delete_rounded, color: iconColor),
+        ),
+      ));
+    }
+
+    if (isInternal) {
+      items.add(PopupMenuItem(
+        value: 2,
+        height: 28,
+        child: ListTile(
+          dense: true,
+          title: const Text('Delete subtree'),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+          leading: Icon(Icons.delete_forever_rounded, color: iconColor),
+        ),
+      ));
+    }
   }
 
   return items;
