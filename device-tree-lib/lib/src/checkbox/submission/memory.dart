@@ -6,8 +6,8 @@ part 'memory.g.dart';
 @freezed
 class Memory with _$Memory {
   factory Memory({
-    int? swap,
-    int? total,
+    required int swap,
+    required int total,
   }) = _Memory;
 
   factory Memory.fromJson(Map<String, dynamic> json) => _$MemoryFromJson(json);

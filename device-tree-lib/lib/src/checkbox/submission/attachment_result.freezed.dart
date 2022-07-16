@@ -20,21 +20,21 @@ AttachmentResult _$AttachmentResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AttachmentResult {
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'full_id')
-  String? get fullId => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get fullId => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'certification_status')
-  String? get certificationStatus => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  String get certificationStatus => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
   @JsonKey(name: 'category_id')
   String? get categoryId => throw _privateConstructorUsedError;
-  String? get status => throw _privateConstructorUsedError;
-  String? get outcome => throw _privateConstructorUsedError;
-  String? get comments => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  String get outcome => throw _privateConstructorUsedError;
+  String get comments => throw _privateConstructorUsedError;
   @JsonKey(name: 'io_log')
-  String? get ioLog => throw _privateConstructorUsedError;
-  double? get duration => throw _privateConstructorUsedError;
+  String get ioLog => throw _privateConstructorUsedError;
+  double get duration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,17 +48,17 @@ abstract class $AttachmentResultCopyWith<$Res> {
           AttachmentResult value, $Res Function(AttachmentResult) then) =
       _$AttachmentResultCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      @JsonKey(name: 'full_id') String? fullId,
-      String? name,
-      @JsonKey(name: 'certification_status') String? certificationStatus,
-      String? category,
+      {String id,
+      @JsonKey(name: 'full_id') String fullId,
+      String name,
+      @JsonKey(name: 'certification_status') String certificationStatus,
+      String category,
       @JsonKey(name: 'category_id') String? categoryId,
-      String? status,
-      String? outcome,
-      String? comments,
-      @JsonKey(name: 'io_log') String? ioLog,
-      double? duration});
+      String status,
+      String outcome,
+      String comments,
+      @JsonKey(name: 'io_log') String ioLog,
+      double duration});
 }
 
 /// @nodoc
@@ -88,23 +88,23 @@ class _$AttachmentResultCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       fullId: fullId == freezed
           ? _value.fullId
           : fullId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       certificationStatus: certificationStatus == freezed
           ? _value.certificationStatus
           : certificationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categoryId: categoryId == freezed
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -112,23 +112,23 @@ class _$AttachmentResultCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       outcome: outcome == freezed
           ? _value.outcome
           : outcome // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -141,17 +141,17 @@ abstract class _$$_AttachmentResultCopyWith<$Res>
       __$$_AttachmentResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      @JsonKey(name: 'full_id') String? fullId,
-      String? name,
-      @JsonKey(name: 'certification_status') String? certificationStatus,
-      String? category,
+      {String id,
+      @JsonKey(name: 'full_id') String fullId,
+      String name,
+      @JsonKey(name: 'certification_status') String certificationStatus,
+      String category,
       @JsonKey(name: 'category_id') String? categoryId,
-      String? status,
-      String? outcome,
-      String? comments,
-      @JsonKey(name: 'io_log') String? ioLog,
-      double? duration});
+      String status,
+      String outcome,
+      String comments,
+      @JsonKey(name: 'io_log') String ioLog,
+      double duration});
 }
 
 /// @nodoc
@@ -183,23 +183,23 @@ class __$$_AttachmentResultCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       fullId: fullId == freezed
           ? _value.fullId
           : fullId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       certificationStatus: certificationStatus == freezed
           ? _value.certificationStatus
           : certificationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categoryId: categoryId == freezed
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -207,23 +207,23 @@ class __$$_AttachmentResultCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       outcome: outcome == freezed
           ? _value.outcome
           : outcome // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -232,47 +232,47 @@ class __$$_AttachmentResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AttachmentResult implements _AttachmentResult {
   _$_AttachmentResult(
-      {this.id,
-      @JsonKey(name: 'full_id') this.fullId,
-      this.name,
-      @JsonKey(name: 'certification_status') this.certificationStatus,
-      this.category,
+      {required this.id,
+      @JsonKey(name: 'full_id') required this.fullId,
+      required this.name,
+      @JsonKey(name: 'certification_status') required this.certificationStatus,
+      required this.category,
       @JsonKey(name: 'category_id') this.categoryId,
-      this.status,
-      this.outcome,
-      this.comments,
-      @JsonKey(name: 'io_log') this.ioLog,
-      this.duration});
+      required this.status,
+      required this.outcome,
+      required this.comments,
+      @JsonKey(name: 'io_log') required this.ioLog,
+      required this.duration});
 
   factory _$_AttachmentResult.fromJson(Map<String, dynamic> json) =>
       _$$_AttachmentResultFromJson(json);
 
   @override
-  final String? id;
+  final String id;
   @override
   @JsonKey(name: 'full_id')
-  final String? fullId;
+  final String fullId;
   @override
-  final String? name;
+  final String name;
   @override
   @JsonKey(name: 'certification_status')
-  final String? certificationStatus;
+  final String certificationStatus;
   @override
-  final String? category;
+  final String category;
   @override
   @JsonKey(name: 'category_id')
   final String? categoryId;
   @override
-  final String? status;
+  final String status;
   @override
-  final String? outcome;
+  final String outcome;
   @override
-  final String? comments;
+  final String comments;
   @override
   @JsonKey(name: 'io_log')
-  final String? ioLog;
+  final String ioLog;
   @override
-  final double? duration;
+  final double duration;
 
   @override
   String toString() {
@@ -330,47 +330,51 @@ class _$_AttachmentResult implements _AttachmentResult {
 
 abstract class _AttachmentResult implements AttachmentResult {
   factory _AttachmentResult(
-      {final String? id,
-      @JsonKey(name: 'full_id') final String? fullId,
-      final String? name,
-      @JsonKey(name: 'certification_status') final String? certificationStatus,
-      final String? category,
-      @JsonKey(name: 'category_id') final String? categoryId,
-      final String? status,
-      final String? outcome,
-      final String? comments,
-      @JsonKey(name: 'io_log') final String? ioLog,
-      final double? duration}) = _$_AttachmentResult;
+      {required final String id,
+      @JsonKey(name: 'full_id')
+          required final String fullId,
+      required final String name,
+      @JsonKey(name: 'certification_status')
+          required final String certificationStatus,
+      required final String category,
+      @JsonKey(name: 'category_id')
+          final String? categoryId,
+      required final String status,
+      required final String outcome,
+      required final String comments,
+      @JsonKey(name: 'io_log')
+          required final String ioLog,
+      required final double duration}) = _$_AttachmentResult;
 
   factory _AttachmentResult.fromJson(Map<String, dynamic> json) =
       _$_AttachmentResult.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
   @JsonKey(name: 'full_id')
-  String? get fullId;
+  String get fullId;
   @override
-  String? get name;
+  String get name;
   @override
   @JsonKey(name: 'certification_status')
-  String? get certificationStatus;
+  String get certificationStatus;
   @override
-  String? get category;
+  String get category;
   @override
   @JsonKey(name: 'category_id')
   String? get categoryId;
   @override
-  String? get status;
+  String get status;
   @override
-  String? get outcome;
+  String get outcome;
   @override
-  String? get comments;
+  String get comments;
   @override
   @JsonKey(name: 'io_log')
-  String? get ioLog;
+  String get ioLog;
   @override
-  double? get duration;
+  double get duration;
   @override
   @JsonKey(ignore: true)
   _$$_AttachmentResultCopyWith<_$_AttachmentResult> get copyWith =>

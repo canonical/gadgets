@@ -6,16 +6,16 @@ part 'snap_package.g.dart';
 @freezed
 class SnapPackage with _$SnapPackage {
   factory SnapPackage({
-    String? name,
-    String? confinement,
-    String? developer,
-    String? devmode,
-    @JsonKey(name: 'install-date') DateTime? installDate,
-    String? revision,
-    String? status,
-    String? type,
-    String? version,
-    String? channel,
+    required String name,
+    required String confinement,
+    required String developer,
+    required String devmode,
+    @JsonKey(name: 'install-date') required DateTime installDate,
+    required String revision,
+    required String status,
+    required String type,
+    required String version,
+    required String channel,
   }) = _SnapPackage;
 
   factory SnapPackage.fromJson(Map<String, dynamic> json) =>

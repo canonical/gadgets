@@ -8,17 +8,17 @@ part of 'attachment_result.dart';
 
 _$_AttachmentResult _$$_AttachmentResultFromJson(Map<String, dynamic> json) =>
     _$_AttachmentResult(
-      id: json['id'] as String?,
-      fullId: json['full_id'] as String?,
-      name: json['name'] as String?,
-      certificationStatus: json['certification_status'] as String?,
-      category: json['category'] as String?,
+      id: json['id'] as String,
+      fullId: json['full_id'] as String,
+      name: json['name'] as String,
+      certificationStatus: json['certification_status'] as String,
+      category: json['category'] as String,
       categoryId: json['category_id'] as String?,
-      status: json['status'] as String?,
-      outcome: json['outcome'] as String?,
-      comments: json['comments'] as String?,
-      ioLog: json['io_log'] as String?,
-      duration: (json['duration'] as num?)?.toDouble(),
+      status: json['status'] as String,
+      outcome: json['outcome'] as String,
+      comments: json['comments'] as String,
+      ioLog: json['io_log'] as String,
+      duration: (json['duration'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_AttachmentResultToJson(_$_AttachmentResult instance) =>

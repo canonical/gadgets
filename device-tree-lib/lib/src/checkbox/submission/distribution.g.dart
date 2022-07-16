@@ -8,10 +8,10 @@ part of 'distribution.dart';
 
 _$_Distribution _$$_DistributionFromJson(Map<String, dynamic> json) =>
     _$_Distribution(
-      codename: json['codename'] as String?,
-      description: json['description'] as String?,
-      distributorId: json['distributor_id'] as String?,
-      release: json['release'] as String?,
+      codename: json['codename'] as String,
+      description: json['description'] as String,
+      distributorId: json['distributor_id'] as String,
+      release: json['release'] as String,
     );
 
 Map<String, dynamic> _$$_DistributionToJson(_$_Distribution instance) =>

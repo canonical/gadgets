@@ -6,20 +6,20 @@ part 'result.g.dart';
 @freezed
 class Result with _$Result {
   factory Result({
-    String? id,
-    @JsonKey(name: 'full_id') String? fullId,
-    String? name,
+    required String id,
+    @JsonKey(name: 'full_id') required String fullId,
+    required String name,
     @JsonKey(name: 'certification_status') String? certificationStatus,
-    String? category,
+    required String category,
     @JsonKey(name: 'category_id') String? categoryId,
-    String? status,
-    String? outcome,
-    String? comments,
-    @JsonKey(name: 'io_log') String? ioLog,
-    String? type,
-    String? project,
-    double? duration,
-    String? plugin,
+    required String status,
+    required String outcome,
+    required String comments,
+    @JsonKey(name: 'io_log') required String ioLog,
+    required String type,
+    required String project,
+    required double duration,
+    required String plugin,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);

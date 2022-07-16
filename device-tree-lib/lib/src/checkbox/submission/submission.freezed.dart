@@ -20,17 +20,17 @@ Submission _$SubmissionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Submission {
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'testplan_id')
   String get testplanId => throw _privateConstructorUsedError;
   @JsonKey(name: 'custom_joblist')
   bool get customJoblist => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   List<DebPackage> get packages => throw _privateConstructorUsedError;
   @JsonKey(name: 'snap-packages')
   List<SnapPackage> get snapPackages => throw _privateConstructorUsedError;
-  Distribution? get distribution => throw _privateConstructorUsedError;
-  List<Result>? get results => throw _privateConstructorUsedError;
+  Distribution get distribution => throw _privateConstructorUsedError;
+  List<Result> get results => throw _privateConstructorUsedError;
   @JsonKey(name: 'resource-results')
   List<ResourceResult>? get resourceResults =>
       throw _privateConstructorUsedError;
@@ -38,22 +38,22 @@ mixin _$Submission {
   List<AttachmentResult>? get attachmentResults =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'rejected-jobs')
-  List<dynamic>? get rejectedJobs => throw _privateConstructorUsedError;
+  List<dynamic> get rejectedJobs => throw _privateConstructorUsedError;
   @JsonKey(name: 'category_map')
   Map<String, String> get categoryMap => throw _privateConstructorUsedError;
   @JsonKey(name: 'dkms_info')
   DkmsInfo? get dkmsInfo => throw _privateConstructorUsedError;
-  List<Device>? get devices => throw _privateConstructorUsedError;
+  List<Device> get devices => throw _privateConstructorUsedError;
   @JsonKey(name: 'modprobe-info')
-  List<dynamic>? get modprobeInfo => throw _privateConstructorUsedError;
+  List<dynamic> get modprobeInfo => throw _privateConstructorUsedError;
   @JsonKey(name: 'pci_subsystem_id')
   dynamic get pciSubsystemId => throw _privateConstructorUsedError;
-  String? get kernel => throw _privateConstructorUsedError;
-  String? get architecture => throw _privateConstructorUsedError;
-  Memory? get memory => throw _privateConstructorUsedError;
-  Processor? get processor => throw _privateConstructorUsedError;
+  String get kernel => throw _privateConstructorUsedError;
+  String get architecture => throw _privateConstructorUsedError;
+  Memory get memory => throw _privateConstructorUsedError;
+  Processor get processor => throw _privateConstructorUsedError;
   @JsonKey(name: 'kernel-cmdline')
-  String? get kernelCmdline => throw _privateConstructorUsedError;
+  String get kernelCmdline => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,42 +67,42 @@ abstract class $SubmissionCopyWith<$Res> {
           Submission value, $Res Function(Submission) then) =
       _$SubmissionCopyWithImpl<$Res>;
   $Res call(
-      {String? title,
+      {String title,
       @JsonKey(name: 'testplan_id')
           String testplanId,
       @JsonKey(name: 'custom_joblist')
           bool customJoblist,
-      String? description,
+      String description,
       List<DebPackage> packages,
       @JsonKey(name: 'snap-packages')
           List<SnapPackage> snapPackages,
-      Distribution? distribution,
-      List<Result>? results,
+      Distribution distribution,
+      List<Result> results,
       @JsonKey(name: 'resource-results')
           List<ResourceResult>? resourceResults,
       @JsonKey(name: 'attachment-results')
           List<AttachmentResult>? attachmentResults,
       @JsonKey(name: 'rejected-jobs')
-          List<dynamic>? rejectedJobs,
+          List<dynamic> rejectedJobs,
       @JsonKey(name: 'category_map')
           Map<String, String> categoryMap,
       @JsonKey(name: 'dkms_info')
           DkmsInfo? dkmsInfo,
-      List<Device>? devices,
+      List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          List<dynamic>? modprobeInfo,
+          List<dynamic> modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           dynamic pciSubsystemId,
-      String? kernel,
-      String? architecture,
-      Memory? memory,
-      Processor? processor,
+      String kernel,
+      String architecture,
+      Memory memory,
+      Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          String? kernelCmdline});
+          String kernelCmdline});
 
-  $DistributionCopyWith<$Res>? get distribution;
-  $MemoryCopyWith<$Res>? get memory;
-  $ProcessorCopyWith<$Res>? get processor;
+  $DistributionCopyWith<$Res> get distribution;
+  $MemoryCopyWith<$Res> get memory;
+  $ProcessorCopyWith<$Res> get processor;
 }
 
 /// @nodoc
@@ -141,7 +141,7 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       testplanId: testplanId == freezed
           ? _value.testplanId
           : testplanId // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       packages: packages == freezed
           ? _value.packages
           : packages // ignore: cast_nullable_to_non_nullable
@@ -165,11 +165,11 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       distribution: distribution == freezed
           ? _value.distribution
           : distribution // ignore: cast_nullable_to_non_nullable
-              as Distribution?,
+              as Distribution,
       results: results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<Result>?,
+              as List<Result>,
       resourceResults: resourceResults == freezed
           ? _value.resourceResults
           : resourceResults // ignore: cast_nullable_to_non_nullable
@@ -181,7 +181,7 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       rejectedJobs: rejectedJobs == freezed
           ? _value.rejectedJobs
           : rejectedJobs // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<dynamic>,
       categoryMap: categoryMap == freezed
           ? _value.categoryMap
           : categoryMap // ignore: cast_nullable_to_non_nullable
@@ -193,11 +193,11 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       devices: devices == freezed
           ? _value.devices
           : devices // ignore: cast_nullable_to_non_nullable
-              as List<Device>?,
+              as List<Device>,
       modprobeInfo: modprobeInfo == freezed
           ? _value.modprobeInfo
           : modprobeInfo // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<dynamic>,
       pciSubsystemId: pciSubsystemId == freezed
           ? _value.pciSubsystemId
           : pciSubsystemId // ignore: cast_nullable_to_non_nullable
@@ -205,55 +205,43 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       kernel: kernel == freezed
           ? _value.kernel
           : kernel // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       architecture: architecture == freezed
           ? _value.architecture
           : architecture // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       memory: memory == freezed
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
-              as Memory?,
+              as Memory,
       processor: processor == freezed
           ? _value.processor
           : processor // ignore: cast_nullable_to_non_nullable
-              as Processor?,
+              as Processor,
       kernelCmdline: kernelCmdline == freezed
           ? _value.kernelCmdline
           : kernelCmdline // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 
   @override
-  $DistributionCopyWith<$Res>? get distribution {
-    if (_value.distribution == null) {
-      return null;
-    }
-
-    return $DistributionCopyWith<$Res>(_value.distribution!, (value) {
+  $DistributionCopyWith<$Res> get distribution {
+    return $DistributionCopyWith<$Res>(_value.distribution, (value) {
       return _then(_value.copyWith(distribution: value));
     });
   }
 
   @override
-  $MemoryCopyWith<$Res>? get memory {
-    if (_value.memory == null) {
-      return null;
-    }
-
-    return $MemoryCopyWith<$Res>(_value.memory!, (value) {
+  $MemoryCopyWith<$Res> get memory {
+    return $MemoryCopyWith<$Res>(_value.memory, (value) {
       return _then(_value.copyWith(memory: value));
     });
   }
 
   @override
-  $ProcessorCopyWith<$Res>? get processor {
-    if (_value.processor == null) {
-      return null;
-    }
-
-    return $ProcessorCopyWith<$Res>(_value.processor!, (value) {
+  $ProcessorCopyWith<$Res> get processor {
+    return $ProcessorCopyWith<$Res>(_value.processor, (value) {
       return _then(_value.copyWith(processor: value));
     });
   }
@@ -267,45 +255,45 @@ abstract class _$$_SubmissionCopyWith<$Res>
       __$$_SubmissionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? title,
+      {String title,
       @JsonKey(name: 'testplan_id')
           String testplanId,
       @JsonKey(name: 'custom_joblist')
           bool customJoblist,
-      String? description,
+      String description,
       List<DebPackage> packages,
       @JsonKey(name: 'snap-packages')
           List<SnapPackage> snapPackages,
-      Distribution? distribution,
-      List<Result>? results,
+      Distribution distribution,
+      List<Result> results,
       @JsonKey(name: 'resource-results')
           List<ResourceResult>? resourceResults,
       @JsonKey(name: 'attachment-results')
           List<AttachmentResult>? attachmentResults,
       @JsonKey(name: 'rejected-jobs')
-          List<dynamic>? rejectedJobs,
+          List<dynamic> rejectedJobs,
       @JsonKey(name: 'category_map')
           Map<String, String> categoryMap,
       @JsonKey(name: 'dkms_info')
           DkmsInfo? dkmsInfo,
-      List<Device>? devices,
+      List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          List<dynamic>? modprobeInfo,
+          List<dynamic> modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           dynamic pciSubsystemId,
-      String? kernel,
-      String? architecture,
-      Memory? memory,
-      Processor? processor,
+      String kernel,
+      String architecture,
+      Memory memory,
+      Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          String? kernelCmdline});
+          String kernelCmdline});
 
   @override
-  $DistributionCopyWith<$Res>? get distribution;
+  $DistributionCopyWith<$Res> get distribution;
   @override
-  $MemoryCopyWith<$Res>? get memory;
+  $MemoryCopyWith<$Res> get memory;
   @override
-  $ProcessorCopyWith<$Res>? get processor;
+  $ProcessorCopyWith<$Res> get processor;
 }
 
 /// @nodoc
@@ -346,7 +334,7 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       testplanId: testplanId == freezed
           ? _value.testplanId
           : testplanId // ignore: cast_nullable_to_non_nullable
@@ -358,7 +346,7 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       packages: packages == freezed
           ? _value._packages
           : packages // ignore: cast_nullable_to_non_nullable
@@ -370,11 +358,11 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       distribution: distribution == freezed
           ? _value.distribution
           : distribution // ignore: cast_nullable_to_non_nullable
-              as Distribution?,
+              as Distribution,
       results: results == freezed
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<Result>?,
+              as List<Result>,
       resourceResults: resourceResults == freezed
           ? _value._resourceResults
           : resourceResults // ignore: cast_nullable_to_non_nullable
@@ -386,7 +374,7 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       rejectedJobs: rejectedJobs == freezed
           ? _value._rejectedJobs
           : rejectedJobs // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<dynamic>,
       categoryMap: categoryMap == freezed
           ? _value._categoryMap
           : categoryMap // ignore: cast_nullable_to_non_nullable
@@ -398,11 +386,11 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       devices: devices == freezed
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
-              as List<Device>?,
+              as List<Device>,
       modprobeInfo: modprobeInfo == freezed
           ? _value._modprobeInfo
           : modprobeInfo // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<dynamic>,
       pciSubsystemId: pciSubsystemId == freezed
           ? _value.pciSubsystemId
           : pciSubsystemId // ignore: cast_nullable_to_non_nullable
@@ -410,23 +398,23 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       kernel: kernel == freezed
           ? _value.kernel
           : kernel // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       architecture: architecture == freezed
           ? _value.architecture
           : architecture // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       memory: memory == freezed
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
-              as Memory?,
+              as Memory,
       processor: processor == freezed
           ? _value.processor
           : processor // ignore: cast_nullable_to_non_nullable
-              as Processor?,
+              as Processor,
       kernelCmdline: kernelCmdline == freezed
           ? _value.kernelCmdline
           : kernelCmdline // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -435,38 +423,38 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Submission implements _Submission {
   _$_Submission(
-      {this.title,
+      {required this.title,
       @JsonKey(name: 'testplan_id')
           required this.testplanId,
       @JsonKey(name: 'custom_joblist')
           required this.customJoblist,
-      this.description,
+      required this.description,
       required final List<DebPackage> packages,
       @JsonKey(name: 'snap-packages')
           required final List<SnapPackage> snapPackages,
-      this.distribution,
-      final List<Result>? results,
+      required this.distribution,
+      required final List<Result> results,
       @JsonKey(name: 'resource-results')
           final List<ResourceResult>? resourceResults,
       @JsonKey(name: 'attachment-results')
           final List<AttachmentResult>? attachmentResults,
       @JsonKey(name: 'rejected-jobs')
-          final List<dynamic>? rejectedJobs,
+          required final List<dynamic> rejectedJobs,
       @JsonKey(name: 'category_map')
           required final Map<String, String> categoryMap,
       @JsonKey(name: 'dkms_info')
           this.dkmsInfo,
-      final List<Device>? devices,
+      required final List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          final List<dynamic>? modprobeInfo,
+          required final List<dynamic> modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           this.pciSubsystemId,
-      this.kernel,
-      this.architecture,
-      this.memory,
-      this.processor,
+      required this.kernel,
+      required this.architecture,
+      required this.memory,
+      required this.processor,
       @JsonKey(name: 'kernel-cmdline')
-          this.kernelCmdline})
+          required this.kernelCmdline})
       : _packages = packages,
         _snapPackages = snapPackages,
         _results = results,
@@ -481,7 +469,7 @@ class _$_Submission implements _Submission {
       _$$_SubmissionFromJson(json);
 
   @override
-  final String? title;
+  final String title;
   @override
   @JsonKey(name: 'testplan_id')
   final String testplanId;
@@ -489,7 +477,7 @@ class _$_Submission implements _Submission {
   @JsonKey(name: 'custom_joblist')
   final bool customJoblist;
   @override
-  final String? description;
+  final String description;
   final List<DebPackage> _packages;
   @override
   List<DebPackage> get packages {
@@ -506,14 +494,12 @@ class _$_Submission implements _Submission {
   }
 
   @override
-  final Distribution? distribution;
-  final List<Result>? _results;
+  final Distribution distribution;
+  final List<Result> _results;
   @override
-  List<Result>? get results {
-    final value = _results;
-    if (value == null) return null;
+  List<Result> get results {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_results);
   }
 
   final List<ResourceResult>? _resourceResults;
@@ -536,14 +522,12 @@ class _$_Submission implements _Submission {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<dynamic>? _rejectedJobs;
+  final List<dynamic> _rejectedJobs;
   @override
   @JsonKey(name: 'rejected-jobs')
-  List<dynamic>? get rejectedJobs {
-    final value = _rejectedJobs;
-    if (value == null) return null;
+  List<dynamic> get rejectedJobs {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_rejectedJobs);
   }
 
   final Map<String, String> _categoryMap;
@@ -557,39 +541,35 @@ class _$_Submission implements _Submission {
   @override
   @JsonKey(name: 'dkms_info')
   final DkmsInfo? dkmsInfo;
-  final List<Device>? _devices;
+  final List<Device> _devices;
   @override
-  List<Device>? get devices {
-    final value = _devices;
-    if (value == null) return null;
+  List<Device> get devices {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_devices);
   }
 
-  final List<dynamic>? _modprobeInfo;
+  final List<dynamic> _modprobeInfo;
   @override
   @JsonKey(name: 'modprobe-info')
-  List<dynamic>? get modprobeInfo {
-    final value = _modprobeInfo;
-    if (value == null) return null;
+  List<dynamic> get modprobeInfo {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_modprobeInfo);
   }
 
   @override
   @JsonKey(name: 'pci_subsystem_id')
   final dynamic pciSubsystemId;
   @override
-  final String? kernel;
+  final String kernel;
   @override
-  final String? architecture;
+  final String architecture;
   @override
-  final Memory? memory;
+  final Memory memory;
   @override
-  final Processor? processor;
+  final Processor processor;
   @override
   @JsonKey(name: 'kernel-cmdline')
-  final String? kernelCmdline;
+  final String kernelCmdline;
 
   @override
   String toString() {
@@ -679,44 +659,44 @@ class _$_Submission implements _Submission {
 
 abstract class _Submission implements Submission {
   factory _Submission(
-      {final String? title,
+      {required final String title,
       @JsonKey(name: 'testplan_id')
           required final String testplanId,
       @JsonKey(name: 'custom_joblist')
           required final bool customJoblist,
-      final String? description,
+      required final String description,
       required final List<DebPackage> packages,
       @JsonKey(name: 'snap-packages')
           required final List<SnapPackage> snapPackages,
-      final Distribution? distribution,
-      final List<Result>? results,
+      required final Distribution distribution,
+      required final List<Result> results,
       @JsonKey(name: 'resource-results')
           final List<ResourceResult>? resourceResults,
       @JsonKey(name: 'attachment-results')
           final List<AttachmentResult>? attachmentResults,
       @JsonKey(name: 'rejected-jobs')
-          final List<dynamic>? rejectedJobs,
+          required final List<dynamic> rejectedJobs,
       @JsonKey(name: 'category_map')
           required final Map<String, String> categoryMap,
       @JsonKey(name: 'dkms_info')
           final DkmsInfo? dkmsInfo,
-      final List<Device>? devices,
+      required final List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          final List<dynamic>? modprobeInfo,
+          required final List<dynamic> modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           final dynamic pciSubsystemId,
-      final String? kernel,
-      final String? architecture,
-      final Memory? memory,
-      final Processor? processor,
+      required final String kernel,
+      required final String architecture,
+      required final Memory memory,
+      required final Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          final String? kernelCmdline}) = _$_Submission;
+          required final String kernelCmdline}) = _$_Submission;
 
   factory _Submission.fromJson(Map<String, dynamic> json) =
       _$_Submission.fromJson;
 
   @override
-  String? get title;
+  String get title;
   @override
   @JsonKey(name: 'testplan_id')
   String get testplanId;
@@ -724,16 +704,16 @@ abstract class _Submission implements Submission {
   @JsonKey(name: 'custom_joblist')
   bool get customJoblist;
   @override
-  String? get description;
+  String get description;
   @override
   List<DebPackage> get packages;
   @override
   @JsonKey(name: 'snap-packages')
   List<SnapPackage> get snapPackages;
   @override
-  Distribution? get distribution;
+  Distribution get distribution;
   @override
-  List<Result>? get results;
+  List<Result> get results;
   @override
   @JsonKey(name: 'resource-results')
   List<ResourceResult>? get resourceResults;
@@ -742,7 +722,7 @@ abstract class _Submission implements Submission {
   List<AttachmentResult>? get attachmentResults;
   @override
   @JsonKey(name: 'rejected-jobs')
-  List<dynamic>? get rejectedJobs;
+  List<dynamic> get rejectedJobs;
   @override
   @JsonKey(name: 'category_map')
   Map<String, String> get categoryMap;
@@ -750,24 +730,24 @@ abstract class _Submission implements Submission {
   @JsonKey(name: 'dkms_info')
   DkmsInfo? get dkmsInfo;
   @override
-  List<Device>? get devices;
+  List<Device> get devices;
   @override
   @JsonKey(name: 'modprobe-info')
-  List<dynamic>? get modprobeInfo;
+  List<dynamic> get modprobeInfo;
   @override
   @JsonKey(name: 'pci_subsystem_id')
   dynamic get pciSubsystemId;
   @override
-  String? get kernel;
+  String get kernel;
   @override
-  String? get architecture;
+  String get architecture;
   @override
-  Memory? get memory;
+  Memory get memory;
   @override
-  Processor? get processor;
+  Processor get processor;
   @override
   @JsonKey(name: 'kernel-cmdline')
-  String? get kernelCmdline;
+  String get kernelCmdline;
   @override
   @JsonKey(ignore: true)
   _$$_SubmissionCopyWith<_$_Submission> get copyWith =>

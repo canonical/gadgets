@@ -6,19 +6,19 @@ part 'device.g.dart';
 @freezed
 class Device with _$Device {
   factory Device({
-    String? bus,
-    String? driver,
-    String? name,
-    String? path,
-    String? product,
-    @JsonKey(name: 'product_slug') String? productSlug,
-    String? category,
-    String? vendor,
-    @JsonKey(name: 'vendor_slug') String? vendorSlug,
-    @JsonKey(name: 'product_id') int? productId,
-    @JsonKey(name: 'vendor_id') int? vendorId,
-    String? interface,
-    String? mac,
+    required String bus,
+    required String driver,
+    required String name,
+    required String path,
+    required String product,
+    @JsonKey(name: 'product_slug') required String productSlug,
+    required String category,
+    required String vendor,
+    @JsonKey(name: 'vendor_slug') required String vendorSlug,
+    @JsonKey(name: 'product_id') required int productId,
+    @JsonKey(name: 'vendor_id') required int vendorId,
+    required String interface,
+    required String mac,
   }) = _Device;
 
   factory Device.fromJson(Map<String, dynamic> json) => _$DeviceFromJson(json);

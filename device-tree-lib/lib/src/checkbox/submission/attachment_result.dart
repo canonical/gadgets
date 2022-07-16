@@ -6,17 +6,17 @@ part 'attachment_result.g.dart';
 @freezed
 class AttachmentResult with _$AttachmentResult {
   factory AttachmentResult({
-    String? id,
-    @JsonKey(name: 'full_id') String? fullId,
-    String? name,
-    @JsonKey(name: 'certification_status') String? certificationStatus,
-    String? category,
+    required String id,
+    @JsonKey(name: 'full_id') required String fullId,
+    required String name,
+    @JsonKey(name: 'certification_status') required String certificationStatus,
+    required String category,
     @JsonKey(name: 'category_id') String? categoryId,
-    String? status,
-    String? outcome,
-    String? comments,
-    @JsonKey(name: 'io_log') String? ioLog,
-    double? duration,
+    required String status,
+    required String outcome,
+    required String comments,
+    @JsonKey(name: 'io_log') required String ioLog,
+    required double duration,
   }) = _AttachmentResult;
 
   factory AttachmentResult.fromJson(Map<String, dynamic> json) =>

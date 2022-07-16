@@ -20,23 +20,23 @@ Device _$DeviceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Device {
-  String? get bus => throw _privateConstructorUsedError;
-  String? get driver => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get path => throw _privateConstructorUsedError;
-  String? get product => throw _privateConstructorUsedError;
+  String get bus => throw _privateConstructorUsedError;
+  String get driver => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get path => throw _privateConstructorUsedError;
+  String get product => throw _privateConstructorUsedError;
   @JsonKey(name: 'product_slug')
-  String? get productSlug => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
-  String? get vendor => throw _privateConstructorUsedError;
+  String get productSlug => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
+  String get vendor => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_slug')
-  String? get vendorSlug => throw _privateConstructorUsedError;
+  String get vendorSlug => throw _privateConstructorUsedError;
   @JsonKey(name: 'product_id')
-  int? get productId => throw _privateConstructorUsedError;
+  int get productId => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_id')
-  int? get vendorId => throw _privateConstructorUsedError;
-  String? get interface => throw _privateConstructorUsedError;
-  String? get mac => throw _privateConstructorUsedError;
+  int get vendorId => throw _privateConstructorUsedError;
+  String get interface => throw _privateConstructorUsedError;
+  String get mac => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,19 +48,19 @@ abstract class $DeviceCopyWith<$Res> {
   factory $DeviceCopyWith(Device value, $Res Function(Device) then) =
       _$DeviceCopyWithImpl<$Res>;
   $Res call(
-      {String? bus,
-      String? driver,
-      String? name,
-      String? path,
-      String? product,
-      @JsonKey(name: 'product_slug') String? productSlug,
-      String? category,
-      String? vendor,
-      @JsonKey(name: 'vendor_slug') String? vendorSlug,
-      @JsonKey(name: 'product_id') int? productId,
-      @JsonKey(name: 'vendor_id') int? vendorId,
-      String? interface,
-      String? mac});
+      {String bus,
+      String driver,
+      String name,
+      String path,
+      String product,
+      @JsonKey(name: 'product_slug') String productSlug,
+      String category,
+      String vendor,
+      @JsonKey(name: 'vendor_slug') String vendorSlug,
+      @JsonKey(name: 'product_id') int productId,
+      @JsonKey(name: 'vendor_id') int vendorId,
+      String interface,
+      String mac});
 }
 
 /// @nodoc
@@ -91,55 +91,55 @@ class _$DeviceCopyWithImpl<$Res> implements $DeviceCopyWith<$Res> {
       bus: bus == freezed
           ? _value.bus
           : bus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       productSlug: productSlug == freezed
           ? _value.productSlug
           : productSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       vendor: vendor == freezed
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       vendorSlug: vendorSlug == freezed
           ? _value.vendorSlug
           : vendorSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       vendorId: vendorId == freezed
           ? _value.vendorId
           : vendorId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       interface: interface == freezed
           ? _value.interface
           : interface // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       mac: mac == freezed
           ? _value.mac
           : mac // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -150,19 +150,19 @@ abstract class _$$_DeviceCopyWith<$Res> implements $DeviceCopyWith<$Res> {
       __$$_DeviceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? bus,
-      String? driver,
-      String? name,
-      String? path,
-      String? product,
-      @JsonKey(name: 'product_slug') String? productSlug,
-      String? category,
-      String? vendor,
-      @JsonKey(name: 'vendor_slug') String? vendorSlug,
-      @JsonKey(name: 'product_id') int? productId,
-      @JsonKey(name: 'vendor_id') int? vendorId,
-      String? interface,
-      String? mac});
+      {String bus,
+      String driver,
+      String name,
+      String path,
+      String product,
+      @JsonKey(name: 'product_slug') String productSlug,
+      String category,
+      String vendor,
+      @JsonKey(name: 'vendor_slug') String vendorSlug,
+      @JsonKey(name: 'product_id') int productId,
+      @JsonKey(name: 'vendor_id') int vendorId,
+      String interface,
+      String mac});
 }
 
 /// @nodoc
@@ -194,55 +194,55 @@ class __$$_DeviceCopyWithImpl<$Res> extends _$DeviceCopyWithImpl<$Res>
       bus: bus == freezed
           ? _value.bus
           : bus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       productSlug: productSlug == freezed
           ? _value.productSlug
           : productSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       vendor: vendor == freezed
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       vendorSlug: vendorSlug == freezed
           ? _value.vendorSlug
           : vendorSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       vendorId: vendorId == freezed
           ? _value.vendorId
           : vendorId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       interface: interface == freezed
           ? _value.interface
           : interface // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       mac: mac == freezed
           ? _value.mac
           : mac // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -251,53 +251,53 @@ class __$$_DeviceCopyWithImpl<$Res> extends _$DeviceCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Device implements _Device {
   _$_Device(
-      {this.bus,
-      this.driver,
-      this.name,
-      this.path,
-      this.product,
-      @JsonKey(name: 'product_slug') this.productSlug,
-      this.category,
-      this.vendor,
-      @JsonKey(name: 'vendor_slug') this.vendorSlug,
-      @JsonKey(name: 'product_id') this.productId,
-      @JsonKey(name: 'vendor_id') this.vendorId,
-      this.interface,
-      this.mac});
+      {required this.bus,
+      required this.driver,
+      required this.name,
+      required this.path,
+      required this.product,
+      @JsonKey(name: 'product_slug') required this.productSlug,
+      required this.category,
+      required this.vendor,
+      @JsonKey(name: 'vendor_slug') required this.vendorSlug,
+      @JsonKey(name: 'product_id') required this.productId,
+      @JsonKey(name: 'vendor_id') required this.vendorId,
+      required this.interface,
+      required this.mac});
 
   factory _$_Device.fromJson(Map<String, dynamic> json) =>
       _$$_DeviceFromJson(json);
 
   @override
-  final String? bus;
+  final String bus;
   @override
-  final String? driver;
+  final String driver;
   @override
-  final String? name;
+  final String name;
   @override
-  final String? path;
+  final String path;
   @override
-  final String? product;
+  final String product;
   @override
   @JsonKey(name: 'product_slug')
-  final String? productSlug;
+  final String productSlug;
   @override
-  final String? category;
+  final String category;
   @override
-  final String? vendor;
+  final String vendor;
   @override
   @JsonKey(name: 'vendor_slug')
-  final String? vendorSlug;
+  final String vendorSlug;
   @override
   @JsonKey(name: 'product_id')
-  final int? productId;
+  final int productId;
   @override
   @JsonKey(name: 'vendor_id')
-  final int? vendorId;
+  final int vendorId;
   @override
-  final String? interface;
+  final String interface;
   @override
-  final String? mac;
+  final String mac;
 
   @override
   String toString() {
@@ -359,52 +359,52 @@ class _$_Device implements _Device {
 
 abstract class _Device implements Device {
   factory _Device(
-      {final String? bus,
-      final String? driver,
-      final String? name,
-      final String? path,
-      final String? product,
-      @JsonKey(name: 'product_slug') final String? productSlug,
-      final String? category,
-      final String? vendor,
-      @JsonKey(name: 'vendor_slug') final String? vendorSlug,
-      @JsonKey(name: 'product_id') final int? productId,
-      @JsonKey(name: 'vendor_id') final int? vendorId,
-      final String? interface,
-      final String? mac}) = _$_Device;
+      {required final String bus,
+      required final String driver,
+      required final String name,
+      required final String path,
+      required final String product,
+      @JsonKey(name: 'product_slug') required final String productSlug,
+      required final String category,
+      required final String vendor,
+      @JsonKey(name: 'vendor_slug') required final String vendorSlug,
+      @JsonKey(name: 'product_id') required final int productId,
+      @JsonKey(name: 'vendor_id') required final int vendorId,
+      required final String interface,
+      required final String mac}) = _$_Device;
 
   factory _Device.fromJson(Map<String, dynamic> json) = _$_Device.fromJson;
 
   @override
-  String? get bus;
+  String get bus;
   @override
-  String? get driver;
+  String get driver;
   @override
-  String? get name;
+  String get name;
   @override
-  String? get path;
+  String get path;
   @override
-  String? get product;
+  String get product;
   @override
   @JsonKey(name: 'product_slug')
-  String? get productSlug;
+  String get productSlug;
   @override
-  String? get category;
+  String get category;
   @override
-  String? get vendor;
+  String get vendor;
   @override
   @JsonKey(name: 'vendor_slug')
-  String? get vendorSlug;
+  String get vendorSlug;
   @override
   @JsonKey(name: 'product_id')
-  int? get productId;
+  int get productId;
   @override
   @JsonKey(name: 'vendor_id')
-  int? get vendorId;
+  int get vendorId;
   @override
-  String? get interface;
+  String get interface;
   @override
-  String? get mac;
+  String get mac;
   @override
   @JsonKey(ignore: true)
   _$$_DeviceCopyWith<_$_Device> get copyWith =>

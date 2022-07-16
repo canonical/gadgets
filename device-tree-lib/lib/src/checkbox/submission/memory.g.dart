@@ -7,8 +7,8 @@ part of 'memory.dart';
 // **************************************************************************
 
 _$_Memory _$$_MemoryFromJson(Map<String, dynamic> json) => _$_Memory(
-      swap: json['swap'] as int?,
-      total: json['total'] as int?,
+      swap: json['swap'] as int,
+      total: json['total'] as int,
     );
 
 Map<String, dynamic> _$$_MemoryToJson(_$_Memory instance) => <String, dynamic>{

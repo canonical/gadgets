@@ -20,11 +20,11 @@ Distribution _$DistributionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Distribution {
-  String? get codename => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String get codename => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'distributor_id')
-  String? get distributorId => throw _privateConstructorUsedError;
-  String? get release => throw _privateConstructorUsedError;
+  String get distributorId => throw _privateConstructorUsedError;
+  String get release => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,10 +38,10 @@ abstract class $DistributionCopyWith<$Res> {
           Distribution value, $Res Function(Distribution) then) =
       _$DistributionCopyWithImpl<$Res>;
   $Res call(
-      {String? codename,
-      String? description,
-      @JsonKey(name: 'distributor_id') String? distributorId,
-      String? release});
+      {String codename,
+      String description,
+      @JsonKey(name: 'distributor_id') String distributorId,
+      String release});
 }
 
 /// @nodoc
@@ -63,19 +63,19 @@ class _$DistributionCopyWithImpl<$Res> implements $DistributionCopyWith<$Res> {
       codename: codename == freezed
           ? _value.codename
           : codename // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       distributorId: distributorId == freezed
           ? _value.distributorId
           : distributorId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       release: release == freezed
           ? _value.release
           : release // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -88,10 +88,10 @@ abstract class _$$_DistributionCopyWith<$Res>
       __$$_DistributionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? codename,
-      String? description,
-      @JsonKey(name: 'distributor_id') String? distributorId,
-      String? release});
+      {String codename,
+      String description,
+      @JsonKey(name: 'distributor_id') String distributorId,
+      String release});
 }
 
 /// @nodoc
@@ -116,19 +116,19 @@ class __$$_DistributionCopyWithImpl<$Res>
       codename: codename == freezed
           ? _value.codename
           : codename // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       distributorId: distributorId == freezed
           ? _value.distributorId
           : distributorId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       release: release == freezed
           ? _value.release
           : release // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -137,23 +137,23 @@ class __$$_DistributionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Distribution implements _Distribution {
   _$_Distribution(
-      {this.codename,
-      this.description,
-      @JsonKey(name: 'distributor_id') this.distributorId,
-      this.release});
+      {required this.codename,
+      required this.description,
+      @JsonKey(name: 'distributor_id') required this.distributorId,
+      required this.release});
 
   factory _$_Distribution.fromJson(Map<String, dynamic> json) =>
       _$$_DistributionFromJson(json);
 
   @override
-  final String? codename;
+  final String codename;
   @override
-  final String? description;
+  final String description;
   @override
   @JsonKey(name: 'distributor_id')
-  final String? distributorId;
+  final String distributorId;
   @override
-  final String? release;
+  final String release;
 
   @override
   String toString() {
@@ -197,23 +197,23 @@ class _$_Distribution implements _Distribution {
 
 abstract class _Distribution implements Distribution {
   factory _Distribution(
-      {final String? codename,
-      final String? description,
-      @JsonKey(name: 'distributor_id') final String? distributorId,
-      final String? release}) = _$_Distribution;
+      {required final String codename,
+      required final String description,
+      @JsonKey(name: 'distributor_id') required final String distributorId,
+      required final String release}) = _$_Distribution;
 
   factory _Distribution.fromJson(Map<String, dynamic> json) =
       _$_Distribution.fromJson;
 
   @override
-  String? get codename;
+  String get codename;
   @override
-  String? get description;
+  String get description;
   @override
   @JsonKey(name: 'distributor_id')
-  String? get distributorId;
+  String get distributorId;
   @override
-  String? get release;
+  String get release;
   @override
   @JsonKey(ignore: true)
   _$$_DistributionCopyWith<_$_Distribution> get copyWith =>

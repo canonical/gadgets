@@ -6,19 +6,19 @@ part 'processor.g.dart';
 @freezed
 class Processor with _$Processor {
   factory Processor({
-    String? bogomips,
-    String? cache,
-    String? count,
-    String? governors,
-    String? model,
-    @JsonKey(name: 'model_number') String? modelNumber,
-    @JsonKey(name: 'model_revision') String? modelRevision,
-    @JsonKey(name: 'model_version') String? modelVersion,
-    String? other,
-    String? platform,
-    String? scaling,
-    String? speed,
-    String? type,
+    required String bogomips,
+    required String cache,
+    required String count,
+    required String governors,
+    required String model,
+    @JsonKey(name: 'model_number') required String modelNumber,
+    @JsonKey(name: 'model_revision') required String modelRevision,
+    @JsonKey(name: 'model_version') required String modelVersion,
+    required String other,
+    required String platform,
+    required String scaling,
+    required String speed,
+    required String type,
   }) = _Processor;
 
   factory Processor.fromJson(Map<String, dynamic> json) =>

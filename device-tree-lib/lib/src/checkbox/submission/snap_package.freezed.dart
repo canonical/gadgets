@@ -20,17 +20,17 @@ SnapPackage _$SnapPackageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SnapPackage {
-  String? get name => throw _privateConstructorUsedError;
-  String? get confinement => throw _privateConstructorUsedError;
-  String? get developer => throw _privateConstructorUsedError;
-  String? get devmode => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get confinement => throw _privateConstructorUsedError;
+  String get developer => throw _privateConstructorUsedError;
+  String get devmode => throw _privateConstructorUsedError;
   @JsonKey(name: 'install-date')
-  DateTime? get installDate => throw _privateConstructorUsedError;
-  String? get revision => throw _privateConstructorUsedError;
-  String? get status => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
-  String? get version => throw _privateConstructorUsedError;
-  String? get channel => throw _privateConstructorUsedError;
+  DateTime get installDate => throw _privateConstructorUsedError;
+  String get revision => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  String get version => throw _privateConstructorUsedError;
+  String get channel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,16 +44,16 @@ abstract class $SnapPackageCopyWith<$Res> {
           SnapPackage value, $Res Function(SnapPackage) then) =
       _$SnapPackageCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? confinement,
-      String? developer,
-      String? devmode,
-      @JsonKey(name: 'install-date') DateTime? installDate,
-      String? revision,
-      String? status,
-      String? type,
-      String? version,
-      String? channel});
+      {String name,
+      String confinement,
+      String developer,
+      String devmode,
+      @JsonKey(name: 'install-date') DateTime installDate,
+      String revision,
+      String status,
+      String type,
+      String version,
+      String channel});
 }
 
 /// @nodoc
@@ -81,43 +81,43 @@ class _$SnapPackageCopyWithImpl<$Res> implements $SnapPackageCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       confinement: confinement == freezed
           ? _value.confinement
           : confinement // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       developer: developer == freezed
           ? _value.developer
           : developer // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       devmode: devmode == freezed
           ? _value.devmode
           : devmode // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       installDate: installDate == freezed
           ? _value.installDate
           : installDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       revision: revision == freezed
           ? _value.revision
           : revision // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -130,16 +130,16 @@ abstract class _$$_SnapPackageCopyWith<$Res>
       __$$_SnapPackageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? confinement,
-      String? developer,
-      String? devmode,
-      @JsonKey(name: 'install-date') DateTime? installDate,
-      String? revision,
-      String? status,
-      String? type,
-      String? version,
-      String? channel});
+      {String name,
+      String confinement,
+      String developer,
+      String devmode,
+      @JsonKey(name: 'install-date') DateTime installDate,
+      String revision,
+      String status,
+      String type,
+      String version,
+      String channel});
 }
 
 /// @nodoc
@@ -169,43 +169,43 @@ class __$$_SnapPackageCopyWithImpl<$Res> extends _$SnapPackageCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       confinement: confinement == freezed
           ? _value.confinement
           : confinement // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       developer: developer == freezed
           ? _value.developer
           : developer // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       devmode: devmode == freezed
           ? _value.devmode
           : devmode // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       installDate: installDate == freezed
           ? _value.installDate
           : installDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       revision: revision == freezed
           ? _value.revision
           : revision // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -214,41 +214,41 @@ class __$$_SnapPackageCopyWithImpl<$Res> extends _$SnapPackageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SnapPackage implements _SnapPackage {
   _$_SnapPackage(
-      {this.name,
-      this.confinement,
-      this.developer,
-      this.devmode,
-      @JsonKey(name: 'install-date') this.installDate,
-      this.revision,
-      this.status,
-      this.type,
-      this.version,
-      this.channel});
+      {required this.name,
+      required this.confinement,
+      required this.developer,
+      required this.devmode,
+      @JsonKey(name: 'install-date') required this.installDate,
+      required this.revision,
+      required this.status,
+      required this.type,
+      required this.version,
+      required this.channel});
 
   factory _$_SnapPackage.fromJson(Map<String, dynamic> json) =>
       _$$_SnapPackageFromJson(json);
 
   @override
-  final String? name;
+  final String name;
   @override
-  final String? confinement;
+  final String confinement;
   @override
-  final String? developer;
+  final String developer;
   @override
-  final String? devmode;
+  final String devmode;
   @override
   @JsonKey(name: 'install-date')
-  final DateTime? installDate;
+  final DateTime installDate;
   @override
-  final String? revision;
+  final String revision;
   @override
-  final String? status;
+  final String status;
   @override
-  final String? type;
+  final String type;
   @override
-  final String? version;
+  final String version;
   @override
-  final String? channel;
+  final String channel;
 
   @override
   String toString() {
@@ -304,41 +304,41 @@ class _$_SnapPackage implements _SnapPackage {
 
 abstract class _SnapPackage implements SnapPackage {
   factory _SnapPackage(
-      {final String? name,
-      final String? confinement,
-      final String? developer,
-      final String? devmode,
-      @JsonKey(name: 'install-date') final DateTime? installDate,
-      final String? revision,
-      final String? status,
-      final String? type,
-      final String? version,
-      final String? channel}) = _$_SnapPackage;
+      {required final String name,
+      required final String confinement,
+      required final String developer,
+      required final String devmode,
+      @JsonKey(name: 'install-date') required final DateTime installDate,
+      required final String revision,
+      required final String status,
+      required final String type,
+      required final String version,
+      required final String channel}) = _$_SnapPackage;
 
   factory _SnapPackage.fromJson(Map<String, dynamic> json) =
       _$_SnapPackage.fromJson;
 
   @override
-  String? get name;
+  String get name;
   @override
-  String? get confinement;
+  String get confinement;
   @override
-  String? get developer;
+  String get developer;
   @override
-  String? get devmode;
+  String get devmode;
   @override
   @JsonKey(name: 'install-date')
-  DateTime? get installDate;
+  DateTime get installDate;
   @override
-  String? get revision;
+  String get revision;
   @override
-  String? get status;
+  String get status;
   @override
-  String? get type;
+  String get type;
   @override
-  String? get version;
+  String get version;
   @override
-  String? get channel;
+  String get channel;
   @override
   @JsonKey(ignore: true)
   _$$_SnapPackageCopyWith<_$_SnapPackage> get copyWith =>

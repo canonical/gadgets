@@ -20,22 +20,22 @@ Processor _$ProcessorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Processor {
-  String? get bogomips => throw _privateConstructorUsedError;
-  String? get cache => throw _privateConstructorUsedError;
-  String? get count => throw _privateConstructorUsedError;
-  String? get governors => throw _privateConstructorUsedError;
-  String? get model => throw _privateConstructorUsedError;
+  String get bogomips => throw _privateConstructorUsedError;
+  String get cache => throw _privateConstructorUsedError;
+  String get count => throw _privateConstructorUsedError;
+  String get governors => throw _privateConstructorUsedError;
+  String get model => throw _privateConstructorUsedError;
   @JsonKey(name: 'model_number')
-  String? get modelNumber => throw _privateConstructorUsedError;
+  String get modelNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'model_revision')
-  String? get modelRevision => throw _privateConstructorUsedError;
+  String get modelRevision => throw _privateConstructorUsedError;
   @JsonKey(name: 'model_version')
-  String? get modelVersion => throw _privateConstructorUsedError;
-  String? get other => throw _privateConstructorUsedError;
-  String? get platform => throw _privateConstructorUsedError;
-  String? get scaling => throw _privateConstructorUsedError;
-  String? get speed => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get modelVersion => throw _privateConstructorUsedError;
+  String get other => throw _privateConstructorUsedError;
+  String get platform => throw _privateConstructorUsedError;
+  String get scaling => throw _privateConstructorUsedError;
+  String get speed => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,19 +48,19 @@ abstract class $ProcessorCopyWith<$Res> {
   factory $ProcessorCopyWith(Processor value, $Res Function(Processor) then) =
       _$ProcessorCopyWithImpl<$Res>;
   $Res call(
-      {String? bogomips,
-      String? cache,
-      String? count,
-      String? governors,
-      String? model,
-      @JsonKey(name: 'model_number') String? modelNumber,
-      @JsonKey(name: 'model_revision') String? modelRevision,
-      @JsonKey(name: 'model_version') String? modelVersion,
-      String? other,
-      String? platform,
-      String? scaling,
-      String? speed,
-      String? type});
+      {String bogomips,
+      String cache,
+      String count,
+      String governors,
+      String model,
+      @JsonKey(name: 'model_number') String modelNumber,
+      @JsonKey(name: 'model_revision') String modelRevision,
+      @JsonKey(name: 'model_version') String modelVersion,
+      String other,
+      String platform,
+      String scaling,
+      String speed,
+      String type});
 }
 
 /// @nodoc
@@ -91,55 +91,55 @@ class _$ProcessorCopyWithImpl<$Res> implements $ProcessorCopyWith<$Res> {
       bogomips: bogomips == freezed
           ? _value.bogomips
           : bogomips // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       cache: cache == freezed
           ? _value.cache
           : cache // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       governors: governors == freezed
           ? _value.governors
           : governors // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelNumber: modelNumber == freezed
           ? _value.modelNumber
           : modelNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelRevision: modelRevision == freezed
           ? _value.modelRevision
           : modelRevision // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelVersion: modelVersion == freezed
           ? _value.modelVersion
           : modelVersion // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       other: other == freezed
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       platform: platform == freezed
           ? _value.platform
           : platform // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       scaling: scaling == freezed
           ? _value.scaling
           : scaling // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       speed: speed == freezed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -151,19 +151,19 @@ abstract class _$$_ProcessorCopyWith<$Res> implements $ProcessorCopyWith<$Res> {
       __$$_ProcessorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? bogomips,
-      String? cache,
-      String? count,
-      String? governors,
-      String? model,
-      @JsonKey(name: 'model_number') String? modelNumber,
-      @JsonKey(name: 'model_revision') String? modelRevision,
-      @JsonKey(name: 'model_version') String? modelVersion,
-      String? other,
-      String? platform,
-      String? scaling,
-      String? speed,
-      String? type});
+      {String bogomips,
+      String cache,
+      String count,
+      String governors,
+      String model,
+      @JsonKey(name: 'model_number') String modelNumber,
+      @JsonKey(name: 'model_revision') String modelRevision,
+      @JsonKey(name: 'model_version') String modelVersion,
+      String other,
+      String platform,
+      String scaling,
+      String speed,
+      String type});
 }
 
 /// @nodoc
@@ -196,55 +196,55 @@ class __$$_ProcessorCopyWithImpl<$Res> extends _$ProcessorCopyWithImpl<$Res>
       bogomips: bogomips == freezed
           ? _value.bogomips
           : bogomips // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       cache: cache == freezed
           ? _value.cache
           : cache // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       governors: governors == freezed
           ? _value.governors
           : governors // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelNumber: modelNumber == freezed
           ? _value.modelNumber
           : modelNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelRevision: modelRevision == freezed
           ? _value.modelRevision
           : modelRevision // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       modelVersion: modelVersion == freezed
           ? _value.modelVersion
           : modelVersion // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       other: other == freezed
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       platform: platform == freezed
           ? _value.platform
           : platform // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       scaling: scaling == freezed
           ? _value.scaling
           : scaling // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       speed: speed == freezed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -253,52 +253,52 @@ class __$$_ProcessorCopyWithImpl<$Res> extends _$ProcessorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Processor implements _Processor {
   _$_Processor(
-      {this.bogomips,
-      this.cache,
-      this.count,
-      this.governors,
-      this.model,
-      @JsonKey(name: 'model_number') this.modelNumber,
-      @JsonKey(name: 'model_revision') this.modelRevision,
-      @JsonKey(name: 'model_version') this.modelVersion,
-      this.other,
-      this.platform,
-      this.scaling,
-      this.speed,
-      this.type});
+      {required this.bogomips,
+      required this.cache,
+      required this.count,
+      required this.governors,
+      required this.model,
+      @JsonKey(name: 'model_number') required this.modelNumber,
+      @JsonKey(name: 'model_revision') required this.modelRevision,
+      @JsonKey(name: 'model_version') required this.modelVersion,
+      required this.other,
+      required this.platform,
+      required this.scaling,
+      required this.speed,
+      required this.type});
 
   factory _$_Processor.fromJson(Map<String, dynamic> json) =>
       _$$_ProcessorFromJson(json);
 
   @override
-  final String? bogomips;
+  final String bogomips;
   @override
-  final String? cache;
+  final String cache;
   @override
-  final String? count;
+  final String count;
   @override
-  final String? governors;
+  final String governors;
   @override
-  final String? model;
+  final String model;
   @override
   @JsonKey(name: 'model_number')
-  final String? modelNumber;
+  final String modelNumber;
   @override
   @JsonKey(name: 'model_revision')
-  final String? modelRevision;
+  final String modelRevision;
   @override
   @JsonKey(name: 'model_version')
-  final String? modelVersion;
+  final String modelVersion;
   @override
-  final String? other;
+  final String other;
   @override
-  final String? platform;
+  final String platform;
   @override
-  final String? scaling;
+  final String scaling;
   @override
-  final String? speed;
+  final String speed;
   @override
-  final String? type;
+  final String type;
 
   @override
   String toString() {
@@ -361,52 +361,52 @@ class _$_Processor implements _Processor {
 
 abstract class _Processor implements Processor {
   factory _Processor(
-      {final String? bogomips,
-      final String? cache,
-      final String? count,
-      final String? governors,
-      final String? model,
-      @JsonKey(name: 'model_number') final String? modelNumber,
-      @JsonKey(name: 'model_revision') final String? modelRevision,
-      @JsonKey(name: 'model_version') final String? modelVersion,
-      final String? other,
-      final String? platform,
-      final String? scaling,
-      final String? speed,
-      final String? type}) = _$_Processor;
+      {required final String bogomips,
+      required final String cache,
+      required final String count,
+      required final String governors,
+      required final String model,
+      @JsonKey(name: 'model_number') required final String modelNumber,
+      @JsonKey(name: 'model_revision') required final String modelRevision,
+      @JsonKey(name: 'model_version') required final String modelVersion,
+      required final String other,
+      required final String platform,
+      required final String scaling,
+      required final String speed,
+      required final String type}) = _$_Processor;
 
   factory _Processor.fromJson(Map<String, dynamic> json) =
       _$_Processor.fromJson;
 
   @override
-  String? get bogomips;
+  String get bogomips;
   @override
-  String? get cache;
+  String get cache;
   @override
-  String? get count;
+  String get count;
   @override
-  String? get governors;
+  String get governors;
   @override
-  String? get model;
+  String get model;
   @override
   @JsonKey(name: 'model_number')
-  String? get modelNumber;
+  String get modelNumber;
   @override
   @JsonKey(name: 'model_revision')
-  String? get modelRevision;
+  String get modelRevision;
   @override
   @JsonKey(name: 'model_version')
-  String? get modelVersion;
+  String get modelVersion;
   @override
-  String? get other;
+  String get other;
   @override
-  String? get platform;
+  String get platform;
   @override
-  String? get scaling;
+  String get scaling;
   @override
-  String? get speed;
+  String get speed;
   @override
-  String? get type;
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$_ProcessorCopyWith<_$_Processor> get copyWith =>

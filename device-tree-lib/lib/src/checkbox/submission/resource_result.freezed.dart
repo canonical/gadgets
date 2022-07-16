@@ -20,23 +20,23 @@ ResourceResult _$ResourceResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResourceResult {
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'full_id')
-  String? get fullId => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get fullId => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'certification_status')
-  String? get certificationStatus => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  String get certificationStatus => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
   @JsonKey(name: 'category_id')
-  String? get categoryId => throw _privateConstructorUsedError;
-  String? get status => throw _privateConstructorUsedError;
-  String? get outcome => throw _privateConstructorUsedError;
-  String? get comments => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  String get outcome => throw _privateConstructorUsedError;
+  String get comments => throw _privateConstructorUsedError;
   @JsonKey(name: 'io_log')
-  String? get ioLog => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
-  String? get project => throw _privateConstructorUsedError;
-  double? get duration => throw _privateConstructorUsedError;
+  String get ioLog => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  String get project => throw _privateConstructorUsedError;
+  double get duration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,19 +50,19 @@ abstract class $ResourceResultCopyWith<$Res> {
           ResourceResult value, $Res Function(ResourceResult) then) =
       _$ResourceResultCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      @JsonKey(name: 'full_id') String? fullId,
-      String? name,
-      @JsonKey(name: 'certification_status') String? certificationStatus,
-      String? category,
-      @JsonKey(name: 'category_id') String? categoryId,
-      String? status,
-      String? outcome,
-      String? comments,
-      @JsonKey(name: 'io_log') String? ioLog,
-      String? type,
-      String? project,
-      double? duration});
+      {String id,
+      @JsonKey(name: 'full_id') String fullId,
+      String name,
+      @JsonKey(name: 'certification_status') String certificationStatus,
+      String category,
+      @JsonKey(name: 'category_id') String categoryId,
+      String status,
+      String outcome,
+      String comments,
+      @JsonKey(name: 'io_log') String ioLog,
+      String type,
+      String project,
+      double duration});
 }
 
 /// @nodoc
@@ -94,55 +94,55 @@ class _$ResourceResultCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       fullId: fullId == freezed
           ? _value.fullId
           : fullId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       certificationStatus: certificationStatus == freezed
           ? _value.certificationStatus
           : certificationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categoryId: categoryId == freezed
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       outcome: outcome == freezed
           ? _value.outcome
           : outcome // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -155,19 +155,19 @@ abstract class _$$_ResourceResultCopyWith<$Res>
       __$$_ResourceResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      @JsonKey(name: 'full_id') String? fullId,
-      String? name,
-      @JsonKey(name: 'certification_status') String? certificationStatus,
-      String? category,
-      @JsonKey(name: 'category_id') String? categoryId,
-      String? status,
-      String? outcome,
-      String? comments,
-      @JsonKey(name: 'io_log') String? ioLog,
-      String? type,
-      String? project,
-      double? duration});
+      {String id,
+      @JsonKey(name: 'full_id') String fullId,
+      String name,
+      @JsonKey(name: 'certification_status') String certificationStatus,
+      String category,
+      @JsonKey(name: 'category_id') String categoryId,
+      String status,
+      String outcome,
+      String comments,
+      @JsonKey(name: 'io_log') String ioLog,
+      String type,
+      String project,
+      double duration});
 }
 
 /// @nodoc
@@ -201,55 +201,55 @@ class __$$_ResourceResultCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       fullId: fullId == freezed
           ? _value.fullId
           : fullId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       certificationStatus: certificationStatus == freezed
           ? _value.certificationStatus
           : certificationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categoryId: categoryId == freezed
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       outcome: outcome == freezed
           ? _value.outcome
           : outcome // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       ioLog: ioLog == freezed
           ? _value.ioLog
           : ioLog // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -258,53 +258,53 @@ class __$$_ResourceResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ResourceResult implements _ResourceResult {
   _$_ResourceResult(
-      {this.id,
-      @JsonKey(name: 'full_id') this.fullId,
-      this.name,
-      @JsonKey(name: 'certification_status') this.certificationStatus,
-      this.category,
-      @JsonKey(name: 'category_id') this.categoryId,
-      this.status,
-      this.outcome,
-      this.comments,
-      @JsonKey(name: 'io_log') this.ioLog,
-      this.type,
-      this.project,
-      this.duration});
+      {required this.id,
+      @JsonKey(name: 'full_id') required this.fullId,
+      required this.name,
+      @JsonKey(name: 'certification_status') required this.certificationStatus,
+      required this.category,
+      @JsonKey(name: 'category_id') required this.categoryId,
+      required this.status,
+      required this.outcome,
+      required this.comments,
+      @JsonKey(name: 'io_log') required this.ioLog,
+      required this.type,
+      required this.project,
+      required this.duration});
 
   factory _$_ResourceResult.fromJson(Map<String, dynamic> json) =>
       _$$_ResourceResultFromJson(json);
 
   @override
-  final String? id;
+  final String id;
   @override
   @JsonKey(name: 'full_id')
-  final String? fullId;
+  final String fullId;
   @override
-  final String? name;
+  final String name;
   @override
   @JsonKey(name: 'certification_status')
-  final String? certificationStatus;
+  final String certificationStatus;
   @override
-  final String? category;
+  final String category;
   @override
   @JsonKey(name: 'category_id')
-  final String? categoryId;
+  final String categoryId;
   @override
-  final String? status;
+  final String status;
   @override
-  final String? outcome;
+  final String outcome;
   @override
-  final String? comments;
+  final String comments;
   @override
   @JsonKey(name: 'io_log')
-  final String? ioLog;
+  final String ioLog;
   @override
-  final String? type;
+  final String type;
   @override
-  final String? project;
+  final String project;
   @override
-  final double? duration;
+  final double duration;
 
   @override
   String toString() {
@@ -366,53 +366,57 @@ class _$_ResourceResult implements _ResourceResult {
 
 abstract class _ResourceResult implements ResourceResult {
   factory _ResourceResult(
-      {final String? id,
-      @JsonKey(name: 'full_id') final String? fullId,
-      final String? name,
-      @JsonKey(name: 'certification_status') final String? certificationStatus,
-      final String? category,
-      @JsonKey(name: 'category_id') final String? categoryId,
-      final String? status,
-      final String? outcome,
-      final String? comments,
-      @JsonKey(name: 'io_log') final String? ioLog,
-      final String? type,
-      final String? project,
-      final double? duration}) = _$_ResourceResult;
+      {required final String id,
+      @JsonKey(name: 'full_id')
+          required final String fullId,
+      required final String name,
+      @JsonKey(name: 'certification_status')
+          required final String certificationStatus,
+      required final String category,
+      @JsonKey(name: 'category_id')
+          required final String categoryId,
+      required final String status,
+      required final String outcome,
+      required final String comments,
+      @JsonKey(name: 'io_log')
+          required final String ioLog,
+      required final String type,
+      required final String project,
+      required final double duration}) = _$_ResourceResult;
 
   factory _ResourceResult.fromJson(Map<String, dynamic> json) =
       _$_ResourceResult.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
   @JsonKey(name: 'full_id')
-  String? get fullId;
+  String get fullId;
   @override
-  String? get name;
+  String get name;
   @override
   @JsonKey(name: 'certification_status')
-  String? get certificationStatus;
+  String get certificationStatus;
   @override
-  String? get category;
+  String get category;
   @override
   @JsonKey(name: 'category_id')
-  String? get categoryId;
+  String get categoryId;
   @override
-  String? get status;
+  String get status;
   @override
-  String? get outcome;
+  String get outcome;
   @override
-  String? get comments;
+  String get comments;
   @override
   @JsonKey(name: 'io_log')
-  String? get ioLog;
+  String get ioLog;
   @override
-  String? get type;
+  String get type;
   @override
-  String? get project;
+  String get project;
   @override
-  double? get duration;
+  double get duration;
   @override
   @JsonKey(ignore: true)
   _$$_ResourceResultCopyWith<_$_ResourceResult> get copyWith =>
