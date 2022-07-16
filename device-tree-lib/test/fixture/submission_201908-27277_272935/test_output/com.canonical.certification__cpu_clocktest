@@ -1,0 +1,10 @@
+Testing for clock jitter on 4 cpus
+PASSED: largest jitter seen was 0.008161
+
+Testing clock direction for 5 minutes...
+PASSED: Iteration 0 delta: 0.000099
+PASSED: Iteration 1 delta: 0.000103
+PASSED: Iteration 2 delta: 0.000100
+PASSED: Iteration 3 delta: 0.000110
+PASSED: Iteration 4 delta: 0.000099
+clock direction test: sleeptime 60 sec per iteration, failed iterations: 0

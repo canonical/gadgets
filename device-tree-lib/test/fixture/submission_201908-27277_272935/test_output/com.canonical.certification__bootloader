@@ -1,0 +1,4 @@
+name: uboot
+booted_kernel_path: unknown
+booted_kernel_partition_type: unknown
+

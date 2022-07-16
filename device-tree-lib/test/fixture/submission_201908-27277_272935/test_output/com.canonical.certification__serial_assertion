@@ -1,0 +1,7 @@
+type: serial
+authority-id: canonical
+brand-id: canonical
+model: ubuntu-core-20-pi-armhf-dangerous
+serial: 3823b8f7-293c-49a7-bfa1-aba2edda4204
+sign-key-sha3-384: BWDEoaqyr25nF5SNCvEv2v7QnM9QsfCc0PBMYD_i2NGSQ32EF2d4D0hqUel3m8ul
+

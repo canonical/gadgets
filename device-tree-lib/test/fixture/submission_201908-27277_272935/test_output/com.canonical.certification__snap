@@ -1,0 +1,62 @@
+name: pi-kernel
+type: kernel
+version: 5.4.0-1066.76
+revision: 497
+developer: canonical
+install-date: 2022-07-16T12:19:53.303180985Z
+confinement: strict
+devmode: False
+status: active
+
+name: snapd
+type: snapd
+version: 2.56.3
+revision: 16549
+developer: canonical
+install-date: 2022-07-16T12:19:39.339827599Z
+confinement: strict
+devmode: False
+status: active
+
+name: checkbox
+type: app
+channel: uc20/stable
+version: 2.1
+revision: 1849
+developer: ce-certification-qa
+install-date: 2022-07-16T12:25:28.940662904Z
+confinement: strict
+devmode: True
+status: active
+
+name: checkbox20
+type: app
+channel: stable
+version: 1.28
+revision: 975
+developer: ce-certification-qa
+install-date: 2022-07-16T12:21:52.406446912Z
+confinement: strict
+devmode: False
+status: active
+
+name: core20
+type: base
+version: 20220706
+revision: 1584
+developer: canonical
+install-date: 2022-07-16T12:19:59.919027271Z
+confinement: strict
+devmode: False
+status: active
+
+name: pi
+type: gadget
+version: 20-1
+revision: 106
+developer: canonical
+install-date: 2022-07-16T12:20:05.510939974Z
+confinement: strict
+devmode: False
+status: active
+

@@ -1,0 +1,4 @@
+device: enx00e04c68e179
+managed_by: networkd
+master_mode_managed_by: not-applicable
+

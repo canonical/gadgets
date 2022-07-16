@@ -1,0 +1,13 @@
+bogomips: 77
+cache: -1
+count: 4
+model: armv7l
+model_number: 0x0
+model_revision: 4
+model_version: 7
+other: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+platform: armv7l
+speed: 1200
+type: BCM2835
+governors: conservative ondemand userspace powersave performance schedutil
+scaling: supported

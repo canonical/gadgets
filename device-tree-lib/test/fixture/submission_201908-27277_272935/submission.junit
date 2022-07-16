@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuites failures="0" name="" tests="157" skipped="115" errors="0">
+    <testcase classname="com.canonical.certification::after-suspend-audio/alsa-loopback-automated" name="com.canonical.certification::after-suspend-audio/alsa-loopback-automated" time="7.350265026092529"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-audio/detect-capture-devices" name="com.canonical.certification::after-suspend-audio/detect-capture-devices" time="6.803483724594116"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-audio/detect-playback-devices" name="com.canonical.certification::after-suspend-audio/detect-playback-devices" time="6.253963947296143"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-ethernet/detect" name="com.canonical.certification::after-suspend-ethernet/detect" time="7.891481876373291"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-ethernet/ping_enx00e04c68e179" name="com.canonical.certification::after-suspend-ethernet/ping_enx00e04c68e179" time="8.435304403305054"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-location/status" name="com.canonical.certification::after-suspend-location/status" time="9.03483271598816"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-usb/storage-detect" name="com.canonical.certification::after-suspend-usb/storage-detect" time="9.625474691390991"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::after-suspend-wwan/detect" name="com.canonical.certification::after-suspend-wwan/detect" time="10.165294408798218"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::audio/alsa-loopback-automated" name="com.canonical.certification::audio/alsa-loopback-automated" time="49.31524634361267"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::audio/detect-capture-devices" name="com.canonical.certification::audio/detect-capture-devices" time="43.75587582588196"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::audio/detect-playback-devices" name="com.canonical.certification::audio/detect-playback-devices" time="1.1073801517486572">
+    </testcase>
+    <testcase classname="com.canonical.certification::bluetooth/bluez-controller-detect" name="com.canonical.certification::bluetooth/bluez-controller-detect" time="1.7609686851501465"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::bluetooth/detect" name="com.canonical.certification::bluetooth/detect" time="44.299480676651"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::camera/detect-rpi" name="com.canonical.certification::camera/detect-rpi" time="44.830856800079346"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::camera/multiple-resolution-images-rpi_vchiq" name="com.canonical.certification::camera/multiple-resolution-images-rpi_vchiq" time="2.350639820098877"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::camera/roundtrip-qrcode_vchiq" name="com.canonical.certification::camera/roundtrip-qrcode_vchiq" time="2.899580955505371"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::clevis-encrypt-tpm2/detect-ecc-capabilities" name="com.canonical.certification::clevis-encrypt-tpm2/detect-ecc-capabilities" time="47.64565992355347"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::clevis-encrypt-tpm2/detect-rsa-capabilities" name="com.canonical.certification::clevis-encrypt-tpm2/detect-rsa-capabilities" time="47.09695887565613"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::clevis-encrypt-tpm2/ecc" name="com.canonical.certification::clevis-encrypt-tpm2/ecc" time="5.082326650619507"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::clevis-encrypt-tpm2/precheck" name="com.canonical.certification::clevis-encrypt-tpm2/precheck" time="46.55800795555115"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::clevis-encrypt-tpm2/rsa" name="com.canonical.certification::clevis-encrypt-tpm2/rsa" time="4.536316156387329"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/arm_vfp_support_armv7l" name="com.canonical.certification::cpu/arm_vfp_support_armv7l" time="0.6012072563171387">
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/clocktest" name="com.canonical.certification::cpu/clocktest" time="303.17760586738586">
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/cstates" name="com.canonical.certification::cpu/cstates" time="1.2634799480438232"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/maxfreq_test" name="com.canonical.certification::cpu/maxfreq_test" time="45.422550439834595"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/offlining_test" name="com.canonical.certification::cpu/offlining_test" time="303.9330430030823"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/scaling_test" name="com.canonical.certification::cpu/scaling_test" time="2.080430507659912">
+    </testcase>
+    <testcase classname="com.canonical.certification::cpu/topology" name="com.canonical.certification::cpu/topology" time="304.59369683265686"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::disk/detect" name="com.canonical.certification::disk/detect" time="3.1337814331054688">
+    </testcase>
+    <testcase classname="com.canonical.certification::disk/read_performance_mmcblk0" name="com.canonical.certification::disk/read_performance_mmcblk0" time="62.28164744377136">
+    </testcase>
+    <testcase classname="com.canonical.certification::disk/stats_mmcblk0" name="com.canonical.certification::disk/stats_mmcblk0" time="11.724225997924805">
+    </testcase>
+    <testcase classname="com.canonical.certification::disk/storage_device_mmcblk0" name="com.canonical.certification::disk/storage_device_mmcblk0" time="474.4878487586975">
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/build-single_armhf" name="com.canonical.certification::docker/build-single_armhf" time="480.63376474380493"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/commit_armhf" name="com.canonical.certification::docker/commit_armhf" time="484.12266969680786"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/compose-and-basic_armhf" name="com.canonical.certification::docker/compose-and-basic_armhf" time="487.7473819255829"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/compose-restart_armhf" name="com.canonical.certification::docker/compose-restart_armhf" time="488.40919613838196"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/compose-single_armhf" name="com.canonical.certification::docker/compose-single_armhf" time="487.0667064189911"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/copy_armhf" name="com.canonical.certification::docker/copy_armhf" time="478.60565423965454"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/deploy-registry_armhf" name="com.canonical.certification::docker/deploy-registry_armhf" time="482.0847945213318"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/diff_armhf" name="com.canonical.certification::docker/diff_armhf" time="477.9030878543854"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/export-and-import_armhf" name="com.canonical.certification::docker/export-and-import_armhf" time="482.7930374145508"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/info" name="com.canonical.certification::docker/info" time="475.17342162132263"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/inspect_armhf" name="com.canonical.certification::docker/inspect_armhf" time="479.2725615501404"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/interative_armhf" name="com.canonical.certification::docker/interative_armhf" time="477.2423825263977"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/kill_armhf" name="com.canonical.certification::docker/kill_armhf" time="479.93435168266296"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/restart-always_armhf" name="com.canonical.certification::docker/restart-always_armhf" time="486.16201615333557"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/restart-on-failure_armhf" name="com.canonical.certification::docker/restart-on-failure_armhf" time="485.49762320518494"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/run_armhf" name="com.canonical.certification::docker/run_armhf" time="476.57856726646423"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/save-and-load_armhf" name="com.canonical.certification::docker/save-and-load_armhf" time="483.4560751914978"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/start-stop_armhf" name="com.canonical.certification::docker/start-stop_armhf" time="481.3397436141968"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/update_armhf" name="com.canonical.certification::docker/update_armhf" time="484.78697991371155"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::docker/version" name="com.canonical.certification::docker/version" time="475.8352711200714"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::ethernet/detect" name="com.canonical.certification::ethernet/detect" time="7.133761405944824">
+    </testcase>
+    <testcase classname="com.canonical.certification::ethernet/ping_enx00e04c68e179" name="com.canonical.certification::ethernet/ping_enx00e04c68e179" time="4.150223255157471">
+    </testcase>
+    <testcase classname="com.canonical.certification::firmware/fwts_desktop_diagnosis" name="com.canonical.certification::firmware/fwts_desktop_diagnosis" time="2.117790699005127">
+    </testcase>
+    <testcase classname="com.canonical.certification::i2c/i2c-bus-detect" name="com.canonical.certification::i2c/i2c-bus-detect" time="45.968995094299316"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::i2c/i2c-device-detect" name="com.canonical.certification::i2c/i2c-device-detect" time="3.983509063720703"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::info/systemd-analyze" name="com.canonical.certification::info/systemd-analyze" time="1.0588157176971436">
+    </testcase>
+    <testcase classname="com.canonical.certification::ipv6_detect" name="com.canonical.certification::ipv6_detect" time="0.6060307025909424">
+    </testcase>
+    <testcase classname="com.canonical.certification::ipv6_link_local_address_enx00e04c68e179" name="com.canonical.certification::ipv6_link_local_address_enx00e04c68e179" time="0.654761552810669">
+    </testcase>
+    <testcase classname="com.canonical.certification::location/status" name="com.canonical.certification::location/status" time="49.86438059806824"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::memory/info" name="com.canonical.certification::memory/info" time="3.6650326251983643">
+    </testcase>
+    <testcase classname="com.canonical.certification::miscellanea/submission-resources" name="com.canonical.certification::miscellanea/submission-resources" time="1.1316924095153809"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::networking/predictable_names" name="com.canonical.certification::networking/predictable_names" time="1.2928426265716553"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::power-management/cold-reboot" name="com.canonical.certification::power-management/cold-reboot" time="1.5829823017120361"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::power-management/post-cold-reboot" name="com.canonical.certification::power-management/post-cold-reboot" time="0.5491106510162354">
+    </testcase>
+    <testcase classname="com.canonical.certification::power-management/post-warm-reboot" name="com.canonical.certification::power-management/post-warm-reboot" time="1.053375482559204">
+    </testcase>
+    <testcase classname="com.canonical.certification::power-management/warm-reboot" name="com.canonical.certification::power-management/warm-reboot" time="-1474198.7092690468">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-checkbox-runtime" name="com.canonical.certification::self/content-plug-connected-checkbox-runtime" time="3.5831809043884277">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-certification-client" name="com.canonical.certification::self/content-plug-connected-provider-certification-client" time="3.629627227783203">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-certification-server" name="com.canonical.certification::self/content-plug-connected-provider-certification-server" time="3.6283702850341797">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-checkbox" name="com.canonical.certification::self/content-plug-connected-provider-checkbox" time="3.5843210220336914">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-docker" name="com.canonical.certification::self/content-plug-connected-provider-docker" time="3.6287546157836914">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-gpgpu" name="com.canonical.certification::self/content-plug-connected-provider-gpgpu" time="3.580854892730713">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-ipdt" name="com.canonical.certification::self/content-plug-connected-provider-ipdt" time="3.6321983337402344">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-resource" name="com.canonical.certification::self/content-plug-connected-provider-resource" time="3.5904738903045654">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-sru" name="com.canonical.certification::self/content-plug-connected-provider-sru" time="3.5892512798309326">
+    </testcase>
+    <testcase classname="com.canonical.certification::self/content-plug-connected-provider-tpm2" name="com.canonical.certification::self/content-plug-connected-provider-tpm2" time="3.629406690597534">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-install" name="com.canonical.certification::snappy/snap-install" time="16.700846910476685">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-list" name="com.canonical.certification::snappy/snap-list" time="3.581700325012207">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-refresh-automated" name="com.canonical.certification::snappy/snap-refresh-automated" time="34.91438889503479">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-remove" name="com.canonical.certification::snappy/snap-remove" time="13.692948579788208">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-reupdate-automated" name="com.canonical.certification::snappy/snap-reupdate-automated" time="66.77663779258728">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-revert-automated" name="com.canonical.certification::snappy/snap-revert-automated" time="44.0385365486145">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/snap-search" name="com.canonical.certification::snappy/snap-search" time="4.593968152999878">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/test-snap-confinement-mode" name="com.canonical.certification::snappy/test-snap-confinement-mode" time="3.5837881565093994">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/test-store-install-beta" name="com.canonical.certification::snappy/test-store-install-beta" time="24.820899963378906">
+    </testcase>
+    <testcase classname="com.canonical.certification::snappy/test-store-install-edge" name="com.canonical.certification::snappy/test-store-install-edge" time="27.86000943183899">
+    </testcase>
+    <testcase classname="com.canonical.certification::socketcan/modprobe_vcan" name="com.canonical.certification::socketcan/modprobe_vcan" time="1.0772712230682373">
+    </testcase>
+    <testcase classname="com.canonical.certification::socketcan/send_packet_local_eff_virtual" name="com.canonical.certification::socketcan/send_packet_local_eff_virtual" time="2.5728321075439453">
+    </testcase>
+    <testcase classname="com.canonical.certification::socketcan/send_packet_local_fd_virtual" name="com.canonical.certification::socketcan/send_packet_local_fd_virtual" time="2.575744867324829">
+    </testcase>
+    <testcase classname="com.canonical.certification::socketcan/send_packet_local_sff_virtual" name="com.canonical.certification::socketcan/send_packet_local_sff_virtual" time="2.5713753700256348">
+    </testcase>
+    <testcase classname="com.canonical.certification::suspend/suspend_advanced_auto" name="com.canonical.certification::suspend/suspend_advanced_auto" time="48.77841639518738"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/context_gap_max_check" name="com.canonical.certification::tpm2.0_4.1.1/context_gap_max_check" time="34.657684326171875"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/pcr0_mismatch_check" name="com.canonical.certification::tpm2.0_4.1.1/pcr0_mismatch_check" time="34.12417459487915"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_activecredential" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_activecredential" time="3.6462647914886475"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_attestation" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_attestation" time="4.177743434906006"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_certify" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_certify" time="5.309681415557861"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_certifycreation" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_certifycreation" time="4.702266216278076"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_changeauth" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_changeauth" time="5.913699150085449"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_checkquote" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_checkquote" time="6.5264551639556885"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_clear" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_clear" time="7.08449912071228"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_clockrateadjust" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_clockrateadjust" time="7.707836151123047"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_create" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_create" time="10.354252815246582"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_createak" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_createak" time="8.237401247024536"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_createek" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_createek" time="8.766515731811523"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_createpolicy" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_createpolicy" time="9.294095039367676"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_createprimary" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_createprimary" time="9.826818227767944"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_dictionarylockout" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_dictionarylockout" time="10.87566614151001"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_duplicate" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_duplicate" time="11.49679446220398"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_evictcontrol" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_evictcontrol" time="12.075895547866821"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_flushcontext" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_flushcontext" time="12.611995220184326"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_getcap" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_getcap" time="13.1547269821167"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_getekcertificate" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_getekcertificate" time="13.73184323310852"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_getrandom" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_getrandom" time="14.267322778701782"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_gettestresult" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_gettestresult" time="14.89316177368164"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_gettime" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_gettime" time="15.479018688201904"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_hash" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_hash" time="16.066187620162964"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_hmac" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_hmac" time="16.603617191314697"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_import" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_import" time="17.14153480529785"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_import_tpm" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_import_tpm" time="17.67160153388977"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_incrementalselftest" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_incrementalselftest" time="18.207460165023804"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_load" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_load" time="19.28504228591919"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_loadexternal" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_loadexternal" time="18.745550394058228"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_makecredential" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_makecredential" time="19.869688987731934"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_nv" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_nv" time="21.521835565567017"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_nvcertify" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_nvcertify" time="20.443190336227417"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_nvinc" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_nvinc" time="20.98426127433777"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_output_formats" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_output_formats" time="22.067535400390625"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrevent" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrevent" time="22.61106777191162"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrextend" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrextend" time="23.14687418937683"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrlist" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrlist" time="23.675426959991455"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrreset" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_pcrreset" time="24.258888006210327"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_print" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_print" time="24.8005211353302"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_quote" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_quote" time="25.344043493270874"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_rc_decode" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_rc_decode" time="25.920788288116455"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_readclock" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_readclock" time="26.453141689300537"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_readpublic" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_readpublic" time="27.037631034851074"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_rsadecrypt" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_rsadecrypt" time="27.570690870285034"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_rsaencrypt" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_rsaencrypt" time="28.104950189590454"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_selftest" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_selftest" time="28.669799327850342"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_send" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_send" time="29.202674388885498"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_setclock" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_setclock" time="29.726783752441406"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_setprimarypolicy" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_setprimarypolicy" time="30.25922703742981"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_sign" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_sign" time="30.841726303100586"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_startup" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_startup" time="31.422136545181274"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_stirrandom" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_stirrandom" time="31.95170497894287"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_testparms" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_testparms" time="32.48217153549194"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_unseal" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_unseal" time="33.0225875377655"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::tpm2.0_4.1.1/tpm2_verifysignature" name="com.canonical.certification::tpm2.0_4.1.1/tpm2_verifysignature" time="33.561367988586426"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::usb/storage-detect" name="com.canonical.certification::usb/storage-detect" time="50.46025276184082"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::watchdog/detect" name="com.canonical.certification::watchdog/detect" time="38.635453939437866"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::watchdog/post-trigger-system-reset-auto" name="com.canonical.certification::watchdog/post-trigger-system-reset-auto" time="40.33522343635559"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::watchdog/systemd-config" name="com.canonical.certification::watchdog/systemd-config" time="48.19213628768921"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::watchdog/trigger-system-reset-auto" name="com.canonical.certification::watchdog/trigger-system-reset-auto" time="5.670628547668457"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::wireless/detect" name="com.canonical.certification::wireless/detect" time="40.862290143966675"><skipped />
+    </testcase>
+    <testcase classname="com.canonical.certification::wwan/detect" name="com.canonical.certification::wwan/detect" time="51.047348737716675"><skipped />
+    </testcase>
+  </testsuites>

@@ -1,0 +1,18 @@
+Testing disk mmcblk0
+identified as a disk...
+test will be run on partition /dev/mmcblk0p4
+/dev/mmcblk0p4 already mounted at /var/lib/snapd/hostfs/etc/writable
+4672.5625MB of free space avaialble
+Forcing memory setting to 920.0078125MB
++ bonnie++ -d /var/lib/snapd/hostfs/etc/writable -u root -r 920.0078125
+Version  1.98       ------Sequential Output------ --Sequential Input- --Random-
+                    -Per Chr- --Block-- -Rewrite- -Per Chr- --Block-- --Seeks--
+Name:Size etc        /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP
+ubuntu           2G   67k  99 20.7m  17 10.3m  10  265k  99 20.8m  11  2469 128
+Latency               135ms     958ms     401ms   42494us   23476us    8338us
+Version  1.98       ------Sequential Create------ --------Random Create--------
+ubuntu              -Create-- --Read--- -Delete-- -Create-- --Read--- -Delete--
+              files  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP
+                 16 -1227330264  83 +++++ +++ -1227330264  82 -1227330264  83 +++++ +++ -1227330264  83
+Latency               754us    3299us    3652us     586us      59us    1308us
+1.98,1.98,ubuntu,1,1657971558,2G,,8192,5,67,99,21196,17,10540,10,265,99,21297,11,2469,128,16,,,,,5859,83,+++++,+++,6596,82,5927,83,+++++,+++,6565,83,135ms,958ms,401ms,42494us,23476us,8338us,754us,3299us,3652us,586us,59us,1308us

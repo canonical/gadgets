@@ -1,0 +1,1 @@
+dpkg-query: error: failed to open package info file '/var/lib/dpkg/status' for reading: No such file or directory

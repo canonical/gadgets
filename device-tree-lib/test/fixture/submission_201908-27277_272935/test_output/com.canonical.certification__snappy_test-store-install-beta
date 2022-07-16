@@ -1,0 +1,11 @@
+Install test-snapd-tools-core20...
+(info) Fetch and check assertions for snap "test-snapd-tools-core20" (1)
+(info) Mount snap "test-snapd-tools-core20" (1)
+(info) Mount snap "test-snapd-tools-core20" (1)
+(info) Mount snap "test-snapd-tools-core20" (1)
+(info) Setup snap "test-snapd-tools-core20" (1) security profiles
+(info) Setup snap "test-snapd-tools-core20" (1) security profiles
+(info) Setup snap "test-snapd-tools-core20" (1) security profiles
+Confirm in snap list...
+Remove test-snapd-tools-core20...
+Check not in snap list

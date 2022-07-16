@@ -1,0 +1,14 @@
+Install test-snapd-tools-core20...
+(info) Download snap "test-snapd-tools-core20" (3) from channel "edge"
+(info) Download snap "test-snapd-tools-core20" (3) from channel "edge"
+(info) Download snap "test-snapd-tools-core20" (3) from channel "edge"
+(info) Fetch and check assertions for snap "test-snapd-tools-core20" (3)
+(info) Mount snap "test-snapd-tools-core20" (3)
+(info) Mount snap "test-snapd-tools-core20" (3)
+(info) Mount snap "test-snapd-tools-core20" (3)
+(info) Copy snap "test-snapd-tools-core20" data
+(info) Setup snap "test-snapd-tools-core20" (3) security profiles
+(info) Setup snap "test-snapd-tools-core20" (3) security profiles
+Confirm in snap list...
+Remove test-snapd-tools-core20...
+Check not in snap list

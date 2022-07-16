@@ -1,0 +1,22 @@
+Beginning /tmp/nest-2z14pnos.c6d79141fd113c4a8591a395e1292987f5a157f966f4d803fd3ce91a5ef7bdd4/disk_read_performance_test.sh test for mmcblk0
+---------------------------------------------------
+INFO: mmcblk0 type is mmc
+INFO: mmc: Using 15 MB/sec as the minimum throughput speed
+
+Beginning hdparm timing runs
+---------------------------------------------------
+INFO: Iteration 1: Detected speed is 21.17 MB/sec
+INFO: Iteration 2: Detected speed is 21.17 MB/sec
+INFO: Iteration 3: Detected speed is 21.16 MB/sec
+INFO: Iteration 4: Detected speed is 21.16 MB/sec
+INFO: Iteration 5: Detected speed is 21.17 MB/sec
+INFO: Iteration 6: Detected speed is 21.17 MB/sec
+INFO: Iteration 7: Detected speed is 21.16 MB/sec
+INFO: Iteration 8: Detected speed is 21.17 MB/sec
+INFO: Iteration 9: Detected speed is 21.16 MB/sec
+INFO: Iteration 10: Detected speed is 21.16 MB/sec
+INFO: Maximum detected speed is 21 MB/sec
+---------------------------------------------------
+
+PASS: mmcblk0 Max Speed of 21 MB/sec is faster than Minimum Buffer Read Speed of 15 MB/sec
+All devices passed testing!

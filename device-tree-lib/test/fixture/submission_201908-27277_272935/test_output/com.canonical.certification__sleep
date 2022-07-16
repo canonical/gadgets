@@ -1,0 +1,4 @@
+freeze: supported
+mem: supported
+disk: supported
+mem_sleep: s2idle

@@ -1,0 +1,52 @@
+ns: com.canonical.certification
+name: checkbox-provider-gpgpu
+
+ns: com.canonical.certification
+name: certification-client
+
+ns: com.canonical.certification
+name: certification-server
+
+ns: com.canonical.certification
+name: plainbox-provider-checkbox
+has_audio_playback: True
+has_audio_capture: 
+has_audio_loopback_connector: 
+has_bt_adapter: 
+has_bt_smart: 
+has_rpi_camera: 
+has_camera: 
+has_ethernet_adapter: True
+has_fingerprint_reader: 
+gpio_loopback: False
+has_i2c: 
+has_special_keys: 
+has_card_reader: 
+has_muxpi_hdmi: 
+socket_can_echo_server_running: 
+has_thunderbolt: 
+has_thunderbolt3: 
+has_touchscreen: 
+has_tpm_chip: 
+has_usb_type_c: 
+has_usb_storage: 
+has_hardware_watchdog: 
+has_wlan_adapter: False
+has_wwan_module: 
+
+ns: com.canonical.certification
+name: plainbox-provider-docker
+
+ns: com.intel.ipdt
+name: plainbox-provider-ipdt
+
+ns: com.canonical.certification
+name: plainbox-provider-resource-generic
+
+ns: com.canonical.certification
+name: plainbox-provider-sru
+
+ns: com.canonical.certification
+name: plainbox-provider-tpm2
+has_tpm2_chip: 
+

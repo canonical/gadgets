@@ -1,0 +1,36 @@
+slot: snapd:bluetooth-control
+plug: checkbox:bluetooth-control
+
+slot: checkbox20:checkbox-runtime
+plug: checkbox:checkbox-runtime
+
+slot: snapd:network-bind
+plug: checkbox:network-bind
+
+slot: checkbox20:provider-certification-client
+plug: checkbox:provider-certification-client
+
+slot: checkbox20:provider-certification-server
+plug: checkbox:provider-certification-server
+
+slot: checkbox20:provider-checkbox
+plug: checkbox:provider-checkbox
+
+slot: checkbox20:provider-docker
+plug: checkbox:provider-docker
+
+slot: checkbox20:provider-gpgpu
+plug: checkbox:provider-gpgpu
+
+slot: checkbox20:provider-ipdt
+plug: checkbox:provider-ipdt
+
+slot: checkbox20:provider-resource
+plug: checkbox:provider-resource
+
+slot: checkbox20:provider-sru
+plug: checkbox:provider-sru
+
+slot: checkbox20:provider-tpm2
+plug: checkbox:provider-tpm2
+

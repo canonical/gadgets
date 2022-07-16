@@ -1,0 +1,18 @@
+---------------------------[ Devices found by udev ]----------------------------
+Category: NETWORK
+Interface: enx00e04c68e179
+Product: RTL8153 Gigabit Ethernet Adapter
+Vendor: Realtek Semiconductor Corp.
+Driver: r8152
+Driver Version: v1.10.11
+Path: /devices/platform/soc/3f980000.usb/usb1/1-1/1-1:1.0
+Id: [0bda:8153]
+Mac: 00:e0:4c:68:e1:79
+Carrier Status: Connected
+Ipv4: 10.102.156.129
+Ipv6: fe80::2e0:4cff:fe68:e179/64
+Speed: 1000
+Supported Modes: ethtool not installed
+Advertised Modes: ethtool not installed
+Partner Modes: ethtool not installed
+

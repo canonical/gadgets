@@ -1,0 +1,960 @@
+snap: checkbox
+interface: bluetooth-control
+type: plug
+name: bluetooth-control
+
+snap: checkbox
+interface: bluez
+type: plug
+name: bluez
+
+snap: checkbox
+interface: content
+type: plug
+name: checkbox-runtime
+attr_content: checkbox-runtime
+attr_default_provider: checkbox20
+attr_target: $SNAP/checkbox-runtime
+
+snap: checkbox
+interface: gpio
+type: plug
+name: gpio
+
+snap: checkbox
+interface: hardware-observe
+type: plug
+name: hardware-observe
+
+snap: checkbox
+interface: home
+type: plug
+name: home
+
+snap: checkbox
+interface: modem-manager
+type: plug
+name: modem-manager
+
+snap: checkbox
+interface: mount-observe
+type: plug
+name: mount-observe
+
+snap: checkbox
+interface: network-bind
+type: plug
+name: network-bind
+
+snap: checkbox
+interface: network-manager
+type: plug
+name: network-manager
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-certification-client
+attr_content: provider-certification-client
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-certification-client
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-certification-server
+attr_content: provider-certification-server
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-certification-server
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-checkbox
+attr_content: provider-checkbox
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-checkbox
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-docker
+attr_content: provider-docker
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-docker
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-gpgpu
+attr_content: provider-gpgpu
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/checkbox-provider-gpgpu
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-ipdt
+attr_content: provider-ipdt
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-ipdt
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-resource
+attr_content: provider-resource
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-resource
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-sru
+attr_content: provider-sru
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-sru
+
+snap: checkbox
+interface: content
+type: plug
+name: provider-tpm2
+attr_content: provider-tpm2
+attr_default_provider: checkbox20
+attr_target: $SNAP/providers/plainbox-provider-tpm2
+
+snap: checkbox
+interface: pulseaudio
+type: plug
+name: pulseaudio
+
+snap: checkbox
+interface: serial-port
+type: plug
+name: serial-port
+
+snap: checkbox
+interface: system-observe
+type: plug
+name: system-observe
+
+snap: checkbox
+interface: tpm
+type: plug
+name: tpm
+
+snap: checkbox
+interface: udisks2
+type: plug
+name: udisks2
+
+snap: checkbox20
+interface: content
+type: slot
+name: checkbox-runtime
+attr_content: checkbox-runtime
+attr_read: ['/']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-certification-client
+attr_content: provider-certification-client
+attr_read: ['$SNAP/providers/plainbox-provider-certification-client']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-certification-server
+attr_content: provider-certification-server
+attr_read: ['$SNAP/providers/plainbox-provider-certification-server']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-checkbox
+attr_content: provider-checkbox
+attr_read: ['$SNAP/providers/plainbox-provider-checkbox']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-docker
+attr_content: provider-docker
+attr_read: ['$SNAP/providers/plainbox-provider-docker']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-edgex
+attr_content: provider-edgex
+attr_read: ['$SNAP/providers/checkbox-provider-edgex']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-engineering-tests
+attr_content: provider-engineering-tests
+attr_read: ['$SNAP/providers/plainbox-provider-engineering-tests']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-gpgpu
+attr_content: provider-gpgpu
+attr_read: ['$SNAP/providers/checkbox-provider-gpgpu']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-iiotg
+attr_content: provider-iiotg
+attr_read: ['$SNAP/providers/checkbox-provider-iiotg']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-ipdt
+attr_content: provider-ipdt
+attr_read: ['$SNAP/providers/plainbox-provider-ipdt']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-resource
+attr_content: provider-resource
+attr_read: ['$SNAP/providers/plainbox-provider-resource']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-sru
+attr_content: provider-sru
+attr_read: ['$SNAP/providers/plainbox-provider-sru']
+
+snap: checkbox20
+interface: content
+type: slot
+name: provider-tpm2
+attr_content: provider-tpm2
+attr_read: ['$SNAP/providers/plainbox-provider-tpm2']
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-0
+attr_number: 0
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-1
+attr_number: 1
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-10
+attr_number: 10
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-11
+attr_number: 11
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-12
+attr_number: 12
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-13
+attr_number: 13
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-14
+attr_number: 14
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-15
+attr_number: 15
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-16
+attr_number: 16
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-17
+attr_number: 17
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-18
+attr_number: 18
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-19
+attr_number: 19
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-2
+attr_number: 2
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-20
+attr_number: 20
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-21
+attr_number: 21
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-22
+attr_number: 22
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-23
+attr_number: 23
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-24
+attr_number: 24
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-25
+attr_number: 25
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-26
+attr_number: 26
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-27
+attr_number: 27
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-3
+attr_number: 3
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-4
+attr_number: 4
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-5
+attr_number: 5
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-6
+attr_number: 6
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-7
+attr_number: 7
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-8
+attr_number: 8
+
+snap: pi
+interface: gpio
+type: slot
+name: bcm-gpio-9
+attr_number: 9
+
+snap: pi
+interface: serial-port
+type: slot
+name: bt-serial
+attr_path: /dev/ttyAMA0
+
+snap: pi
+interface: i2c
+type: slot
+name: i2c-0
+attr_path: /dev/i2c-0
+
+snap: pi
+interface: i2c
+type: slot
+name: i2c-1
+attr_path: /dev/i2c-1
+
+snap: pi
+interface: i2c
+type: slot
+name: i2c-2
+attr_path: /dev/i2c-2
+
+snap: pi
+interface: spi
+type: slot
+name: spidev0
+attr_path: /dev/spidev0.0
+
+snap: pi
+interface: spi
+type: slot
+name: spidev1
+attr_path: /dev/spidev0.1
+
+snap: snapd
+interface: account-control
+type: slot
+name: account-control
+
+snap: snapd
+interface: acrn-support
+type: slot
+name: acrn-support
+
+snap: snapd
+interface: adb-support
+type: slot
+name: adb-support
+
+snap: snapd
+interface: allegro-vcu
+type: slot
+name: allegro-vcu
+
+snap: snapd
+interface: alsa
+type: slot
+name: alsa
+
+snap: snapd
+interface: autopilot-introspection
+type: slot
+name: autopilot-introspection
+
+snap: snapd
+interface: block-devices
+type: slot
+name: block-devices
+
+snap: snapd
+interface: bluetooth-control
+type: slot
+name: bluetooth-control
+
+snap: snapd
+interface: broadcom-asic-control
+type: slot
+name: broadcom-asic-control
+
+snap: snapd
+interface: browser-support
+type: slot
+name: browser-support
+
+snap: snapd
+interface: camera
+type: slot
+name: camera
+
+snap: snapd
+interface: can-bus
+type: slot
+name: can-bus
+
+snap: snapd
+interface: cifs-mount
+type: slot
+name: cifs-mount
+
+snap: snapd
+interface: classic-support
+type: slot
+name: classic-support
+
+snap: snapd
+interface: core-support
+type: slot
+name: core-support
+
+snap: snapd
+interface: cpu-control
+type: slot
+name: cpu-control
+
+snap: snapd
+interface: daemon-notify
+type: slot
+name: daemon-notify
+
+snap: snapd
+interface: dcdbas-control
+type: slot
+name: dcdbas-control
+
+snap: snapd
+interface: device-buttons
+type: slot
+name: device-buttons
+
+snap: snapd
+interface: display-control
+type: slot
+name: display-control
+
+snap: snapd
+interface: dm-crypt
+type: slot
+name: dm-crypt
+
+snap: snapd
+interface: docker-support
+type: slot
+name: docker-support
+
+snap: snapd
+interface: dvb
+type: slot
+name: dvb
+
+snap: snapd
+interface: firewall-control
+type: slot
+name: firewall-control
+
+snap: snapd
+interface: fpga
+type: slot
+name: fpga
+
+snap: snapd
+interface: framebuffer
+type: slot
+name: framebuffer
+
+snap: snapd
+interface: fuse-support
+type: slot
+name: fuse-support
+
+snap: snapd
+interface: gpg-keys
+type: slot
+name: gpg-keys
+
+snap: snapd
+interface: gpg-public-keys
+type: slot
+name: gpg-public-keys
+
+snap: snapd
+interface: gpio-control
+type: slot
+name: gpio-control
+
+snap: snapd
+interface: gpio-memory-control
+type: slot
+name: gpio-memory-control
+
+snap: snapd
+interface: greengrass-support
+type: slot
+name: greengrass-support
+
+snap: snapd
+interface: hardware-observe
+type: slot
+name: hardware-observe
+
+snap: snapd
+interface: hardware-random-control
+type: slot
+name: hardware-random-control
+
+snap: snapd
+interface: hardware-random-observe
+type: slot
+name: hardware-random-observe
+
+snap: snapd
+interface: home
+type: slot
+name: home
+
+snap: snapd
+interface: hostname-control
+type: slot
+name: hostname-control
+
+snap: snapd
+interface: hugepages-control
+type: slot
+name: hugepages-control
+
+snap: snapd
+interface: intel-mei
+type: slot
+name: intel-mei
+
+snap: snapd
+interface: io-ports-control
+type: slot
+name: io-ports-control
+
+snap: snapd
+interface: ion-memory-control
+type: slot
+name: ion-memory-control
+
+snap: snapd
+interface: joystick
+type: slot
+name: joystick
+
+snap: snapd
+interface: kernel-crypto-api
+type: slot
+name: kernel-crypto-api
+
+snap: snapd
+interface: kernel-module-control
+type: slot
+name: kernel-module-control
+
+snap: snapd
+interface: kernel-module-load
+type: slot
+name: kernel-module-load
+
+snap: snapd
+interface: kernel-module-observe
+type: slot
+name: kernel-module-observe
+
+snap: snapd
+interface: kubernetes-support
+type: slot
+name: kubernetes-support
+
+snap: snapd
+interface: kvm
+type: slot
+name: kvm
+
+snap: snapd
+interface: log-observe
+type: slot
+name: log-observe
+
+snap: snapd
+interface: login-session-control
+type: slot
+name: login-session-control
+
+snap: snapd
+interface: login-session-observe
+type: slot
+name: login-session-observe
+
+snap: snapd
+interface: lxd-support
+type: slot
+name: lxd-support
+
+snap: snapd
+interface: media-control
+type: slot
+name: media-control
+
+snap: snapd
+interface: microstack-support
+type: slot
+name: microstack-support
+
+snap: snapd
+interface: mount-control
+type: slot
+name: mount-control
+
+snap: snapd
+interface: mount-observe
+type: slot
+name: mount-observe
+
+snap: snapd
+interface: multipass-support
+type: slot
+name: multipass-support
+
+snap: snapd
+interface: netlink-audit
+type: slot
+name: netlink-audit
+
+snap: snapd
+interface: netlink-connector
+type: slot
+name: netlink-connector
+
+snap: snapd
+interface: network
+type: slot
+name: network
+
+snap: snapd
+interface: network-bind
+type: slot
+name: network-bind
+
+snap: snapd
+interface: network-control
+type: slot
+name: network-control
+
+snap: snapd
+interface: network-observe
+type: slot
+name: network-observe
+
+snap: snapd
+interface: network-setup-control
+type: slot
+name: network-setup-control
+
+snap: snapd
+interface: network-setup-observe
+type: slot
+name: network-setup-observe
+
+snap: snapd
+interface: opengl
+type: slot
+name: opengl
+
+snap: snapd
+interface: openvswitch-support
+type: slot
+name: openvswitch-support
+
+snap: snapd
+interface: personal-files
+type: slot
+name: personal-files
+
+snap: snapd
+interface: physical-memory-control
+type: slot
+name: physical-memory-control
+
+snap: snapd
+interface: physical-memory-observe
+type: slot
+name: physical-memory-observe
+
+snap: snapd
+interface: power-control
+type: slot
+name: power-control
+
+snap: snapd
+interface: ppp
+type: slot
+name: ppp
+
+snap: snapd
+interface: process-control
+type: slot
+name: process-control
+
+snap: snapd
+interface: ptp
+type: slot
+name: ptp
+
+snap: snapd
+interface: pwm
+type: slot
+name: pwm
+
+snap: snapd
+interface: qualcomm-ipc-router
+type: slot
+name: qualcomm-ipc-router
+
+snap: snapd
+interface: raw-input
+type: slot
+name: raw-input
+
+snap: snapd
+interface: raw-usb
+type: slot
+name: raw-usb
+
+snap: snapd
+interface: removable-media
+type: slot
+name: removable-media
+
+snap: snapd
+interface: scsi-generic
+type: slot
+name: scsi-generic
+
+snap: snapd
+interface: sd-control
+type: slot
+name: sd-control
+
+snap: snapd
+interface: shared-memory
+type: slot
+name: shared-memory
+
+snap: snapd
+interface: shutdown
+type: slot
+name: shutdown
+
+snap: snapd
+interface: snap-refresh-control
+type: slot
+name: snap-refresh-control
+
+snap: snapd
+interface: snap-themes-control
+type: slot
+name: snap-themes-control
+
+snap: snapd
+interface: snapd-control
+type: slot
+name: snapd-control
+
+snap: snapd
+interface: ssh-keys
+type: slot
+name: ssh-keys
+
+snap: snapd
+interface: ssh-public-keys
+type: slot
+name: ssh-public-keys
+
+snap: snapd
+interface: system-backup
+type: slot
+name: system-backup
+
+snap: snapd
+interface: system-files
+type: slot
+name: system-files
+
+snap: snapd
+interface: system-observe
+type: slot
+name: system-observe
+
+snap: snapd
+interface: system-source-code
+type: slot
+name: system-source-code
+
+snap: snapd
+interface: system-trace
+type: slot
+name: system-trace
+
+snap: snapd
+interface: tee
+type: slot
+name: tee
+
+snap: snapd
+interface: time-control
+type: slot
+name: time-control
+
+snap: snapd
+interface: timeserver-control
+type: slot
+name: timeserver-control
+
+snap: snapd
+interface: timezone-control
+type: slot
+name: timezone-control
+
+snap: snapd
+interface: tpm
+type: slot
+name: tpm
+
+snap: snapd
+interface: u2f-devices
+type: slot
+name: u2f-devices
+
+snap: snapd
+interface: uhid
+type: slot
+name: uhid
+
+snap: snapd
+interface: uinput
+type: slot
+name: uinput
+
+snap: snapd
+interface: vcio
+type: slot
+name: vcio
+
+snap: snapd
+interface: xilinx-dma
+type: slot
+name: xilinx-dma
+

@@ -1,0 +1,81 @@
+SHELL: /bin/bash
+SNAP_REVISION: 1849
+SUDO_GID: 0
+ROUTERS: multiple
+WPA_AC_PSK: insecure
+SNAP_REAL_HOME: /root
+SNAP_USER_COMMON: /root/snap/checkbox/common
+TRANSFER_SERVER: cdimage.ubuntu.com
+OPEN_N_SSID: ubuntu-cert-n-open-tpelab
+STRESS_BOOT_WAIT_DELAY: 120
+WWAN_CONTROL_IF: ttyACM3
+SNAP_INSTANCE_KEY: 
+SUDO_COMMAND: /usr/bin/env ALSADEVICE
+for e in $(env | sed 's/: /
+    echo "$e" | awk -F': ' '{print $1 "
+done: 
+TEST_TARGET_IPERF: 10.101.48.243
+SUDO_USER: ubuntu
+PWD: /var/snap/checkbox/1849
+LOGNAME: ubuntu
+WPA_N_PSK: insecure
+SNAP_CONTEXT: hLZ8vmM5Td6H-Uso6tsgaSLLe-sE2R8RsblCU6fljDzCDmoXKacP
+STRESS_S4_WAIT_DELAY: 120
+GI_TYPELIB_PATH: /snap/checkbox/1849/usr/lib/girepository-1.0
+HOME: /home/ubuntu
+LANG: C.UTF-8
+OBEX_TARGET: 00
+STRESS_S3_SLEEP_DELAY: 60
+SNAP_ARCH: armhf
+OPEN_BG_SSID: ubuntu-cert-bg-open-tpelab
+SNAP_INSTANCE_NAME: checkbox
+WWAN_SETUPTIME: 30
+SNAP_USER_DATA: /root/snap/checkbox/1849
+STRESS_S3_WAIT_DELAY: 120
+PERL5LIB: 
+STRESS_S3_ITERATIONS: 100
+SNAP_REEXEC: 
+OPEN_AC_SSID: ubuntu-cert-ac-open-tpelab
+WPA_AX_PSK: insecure
+PLAINBOX_PROVIDER_DATA: /snap/checkbox/1849/providers/plainbox-provider-resource/data
+WWAN_NET_IF: ppp0
+WIFI_AP_SETUPTIME: 30
+PYTHONPATH: /snap/checkbox/1849/usr/lib/python3/dist-packages
+TERM: unknown
+WWAN_APN: internet
+WPA_N_SSID: ubuntu-cert-n-wpa-tpelab
+PYTHONHOME: /snap/checkbox/1849/checkbox-runtime/usr
+USER: ubuntu
+ALSADEVICE: hw
+OPEN_AX_SSID: ubuntu-cert-ax-open
+SNAP: /snap/checkbox/1849
+SNAP_COMMON: /var/snap/checkbox/common
+STRESS_BOOT_WAKEUP_DELAY: 60
+SNAP_VERSION: 2.1
+PLAINBOX_PROVIDER_GETTEXT_DOMAIN: plainbox-provider-resource-generic
+SHLVL: 0
+SNAP_LIBRARY_PATH: /var/lib/snapd/lib/gl
+SNAP_COOKIE: hLZ8vmM5Td6H-Uso6tsgaSLLe-sE2R8RsblCU6fljDzCDmoXKacP
+WIFI_INTERFACE: 
+WPA_BG_PSK: insecure
+STRESS_S4_ITERATIONS: 100
+SNAP_DATA: /var/snap/checkbox/1849
+NET_DRIVER_INFO: 
+WPA_AC_SSID: ubuntu-cert-ac-wpa-tpelab
+LD_LIBRARY_PATH: /var/lib/snapd/lib/gl
+WATCHDOG_KERNEL_MOD: iTCO_wdt
+PLAINBOX_SESSION_SHARE: /var/tmp/checkbox-ng/sessions/session_title-2022-07-16T12.25.57.session/session-share
+LC_ALL: C.UTF-8
+WPA_AX_SSID: ubuntu-cert-ax-wpa
+SNAP_NAME: checkbox
+PATH: /tmp/nest-hcro0xg5.cb601afcc18297018d364d7aa82ae4ae4a221de25d410f2e01093e3ba6097228
+STRESS_BOOT_ITERATIONS: 10
+PYTHONUSERBASE: /snap/checkbox/1849/checkbox-runtime
+STRESS_S4_SLEEP_DELAY: 60
+SUDO_UID: 0
+MAIL: /var/mail/ubuntu
+CHECKBOX_SHARE: /snap/checkbox/1849/providers/plainbox-provider-resource
+WPA_BG_SSID: ubuntu-cert-bg-wpa-tpelab
+NET_DEVICE_INFO: ven_rsi_sdio ven_rsi_91x
+TEXTDOMAIN: plainbox-provider-resource-generic
+_: /usr/bin/env

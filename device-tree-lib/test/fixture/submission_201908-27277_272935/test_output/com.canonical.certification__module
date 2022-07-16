@@ -1,0 +1,357 @@
+name: cfg80211
+size: 729088
+instances: 0
+state: Live
+offset: 3208392704
+
+name: cdc_ether
+size: 20480
+instances: 0
+state: Live
+offset: 3208044544
+
+name: r8152
+size: 69632
+instances: 0
+state: Live
+offset: 3207868416
+
+name: bcm2835_v4l2
+size: 49152
+instances: 0
+state: Live
+offset: 3207991296
+
+name: bcm2835_isp
+size: 32768
+instances: 0
+state: Live
+offset: 3207655424
+
+name: bcm2835_codec
+size: 36864
+instances: 0
+state: Live
+offset: 3207950336
+
+name: bcm2835_mmal_vchiq
+size: 40960
+instances: 3
+dependencies: bcm2835_v4l2 bcm2835_isp bcm2835_codec
+state: Live
+offset: 3207725056
+
+name: v4l2_mem2mem
+size: 32768
+instances: 1
+dependencies: bcm2835_codec
+state: Live
+offset: 3207831552
+
+name: videobuf2_vmalloc
+size: 20480
+instances: 1
+dependencies: bcm2835_v4l2
+state: Live
+offset: 3207806976
+
+name: videobuf2_dma_contig
+size: 24576
+instances: 2
+dependencies: bcm2835_isp bcm2835_codec
+state: Live
+offset: 3207696384
+
+name: videobuf2_memops
+size: 20480
+instances: 2
+dependencies: videobuf2_vmalloc videobuf2_dma_contig
+state: Live
+offset: 3207630848
+
+name: crc32_arm_ce
+size: 16384
+instances: 0
+state: Live
+offset: 3207610368
+
+name: videobuf2_v4l2
+size: 28672
+instances: 4
+dependencies: bcm2835_v4l2 bcm2835_isp bcm2835_codec v4l2_mem2mem
+state: Live
+offset: 3207577600
+
+name: videobuf2_common
+size: 57344
+instances: 5
+dependencies: bcm2835_v4l2 bcm2835_isp bcm2835_codec v4l2_mem2mem videobuf2_v4l2
+state: Live
+offset: 3207147520
+
+name: videodev
+size: 237568
+instances: 6
+dependencies: bcm2835_v4l2 bcm2835_isp bcm2835_codec v4l2_mem2mem videobuf2_v4l2 videobuf2_common
+state: Live
+offset: 3207335936
+
+name: raspberrypi_hwmon
+size: 16384
+instances: 0
+state: Live
+offset: 3207315456
+
+name: spidev
+size: 24576
+instances: 0
+state: Live
+offset: 3206799360
+
+name: snd_bcm2835
+size: 32768
+instances: 0
+state: Live
+offset: 3207278592
+
+name: mc
+size: 57344
+instances: 6
+dependencies: bcm2835_isp bcm2835_codec v4l2_mem2mem videobuf2_v4l2 videobuf2_common videodev
+state: Live
+offset: 3207086080
+
+name: vc_sm_cma
+size: 45056
+instances: 2
+dependencies: bcm2835_isp bcm2835_mmal_vchiq
+state: Live
+offset: 3206750208
+
+name: uio_pdrv_genirq
+size: 16384
+instances: 0
+state: Live
+offset: 3207249920
+
+name: uio
+size: 20480
+instances: 1
+dependencies: uio_pdrv_genirq
+state: Live
+offset: 3206234112
+
+name: sch_fq_codel
+size: 20480
+instances: 2
+state: Live
+offset: 3204550656
+
+name: ip_tables
+size: 28672
+instances: 0
+state: Live
+offset: 3206074368
+
+name: x_tables
+size: 36864
+instances: 1
+dependencies: ip_tables
+state: Live
+offset: 3204726784
+
+name: vc4
+size: 237568
+instances: 0
+state: Live
+offset: 3206844416
+
+name: snd_soc_core
+size: 225280
+instances: 1
+dependencies: vc4
+state: Live
+offset: 3206520832
+
+name: snd_compress
+size: 28672
+instances: 1
+dependencies: snd_soc_core
+state: Live
+offset: 3206041600
+
+name: ac97_bus
+size: 16384
+instances: 1
+dependencies: snd_soc_core
+state: Live
+offset: 3206500352
+
+name: snd_pcm_dmaengine
+size: 16384
+instances: 1
+dependencies: snd_soc_core
+state: Live
+offset: 3206479872
+
+name: snd_pcm
+size: 110592
+instances: 4
+dependencies: snd_bcm2835 vc4 snd_soc_core snd_pcm_dmaengine
+state: Live
+offset: 3206320128
+
+name: snd_timer
+size: 36864
+instances: 1
+dependencies: snd_pcm
+state: Live
+offset: 3206258688
+
+name: snd
+size: 77824
+instances: 5
+dependencies: snd_bcm2835 snd_soc_core snd_compress snd_pcm snd_timer
+state: Live
+offset: 3206135808
+
+name: drm_kms_helper
+size: 192512
+instances: 3
+dependencies: vc4
+state: Live
+offset: 3205844992
+
+name: syscopyarea
+size: 16384
+instances: 1
+dependencies: drm_kms_helper
+state: Live
+offset: 3205816320
+
+name: sysfillrect
+size: 16384
+instances: 1
+dependencies: drm_kms_helper
+state: Live
+offset: 3205795840
+
+name: sysimgblt
+size: 16384
+instances: 1
+dependencies: drm_kms_helper
+state: Live
+offset: 3205013504
+
+name: fb_sys_fops
+size: 16384
+instances: 1
+dependencies: drm_kms_helper
+state: Live
+offset: 3204907008
+
+name: drm
+size: 466944
+instances: 3
+dependencies: vc4 drm_kms_helper
+state: Live
+offset: 3205324800
+
+name: phy_generic
+size: 20480
+instances: 0
+state: Live
+offset: 3205300224
+
+name: sha256_arm
+size: 24576
+instances: 0
+state: Live
+offset: 3205271552
+
+name: echainiv
+size: 16384
+instances: 0
+state: Live
+offset: 3205251072
+
+name: aes_arm
+size: 16384
+instances: 0
+state: Live
+offset: 3205136384
+
+name: dm_crypt
+size: 40960
+instances: 0
+state: Live
+offset: 3205206016
+
+name: algif_skcipher
+size: 16384
+instances: 0
+state: Live
+offset: 3205115904
+
+name: af_alg
+size: 24576
+instances: 1
+dependencies: algif_skcipher
+state: Live
+offset: 3205160960
+
+name: nls_iso8859_1
+size: 16384
+instances: 0
+state: Live
+offset: 3204816896
+
+name: usb_storage
+size: 69632
+instances: 0
+state: Live
+offset: 3205042176
+
+name: libahci
+size: 36864
+instances: 0
+state: Live
+offset: 3204972544
+
+name: hid_generic
+size: 16384
+instances: 0
+state: Live
+offset: 3204931584
+
+name: usbhid
+size: 61440
+instances: 0
+state: Live
+offset: 3204841472
+
+name: nvme
+size: 45056
+instances: 0
+state: Live
+offset: 3204767744
+
+name: nvme_core
+size: 81920
+instances: 1
+dependencies: nvme
+state: Live
+offset: 3204640768
+
+name: i2c_bcm2708
+size: 16384
+instances: 0
+state: Live
+offset: 3204608000
+
+name: autofs4
+size: 49152
+instances: 2
+state: Live
+offset: 3204460544
+

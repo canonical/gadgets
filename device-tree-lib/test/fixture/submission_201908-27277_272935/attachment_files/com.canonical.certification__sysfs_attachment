@@ -1,0 +1,2274 @@
+P: /devices/armv7_cortex_a7
+A: perf_event_mux_interval_ms=4
+A: type=8
+A: cpus=0-3
+
+P: /devices/breakpoint
+A: perf_event_mux_interval_ms=0
+A: type=5
+
+P: /devices/gpiochip1
+
+P: /devices/gpiochip1/gpio/gpiochip100
+A: label=brcmvirt-gpio
+A: ngpio=2
+A: base=100
+
+P: /devices/kprobe
+A: perf_event_mux_interval_ms=0
+A: type=6
+
+P: /devices/platform/3eaf0000.framebuffer
+A: driver_override=(null)
+
+P: /devices/platform/Fixed
+
+P: MDIO
+
+P: bus.0
+
+P: /devices/platform/Fixed
+
+P: MDIO
+
+P: bus.0/mdio_bus/fixed-0
+
+P: /devices/platform/Fixed
+
+P: MDIO
+
+P: bus.0/mdio_bus/fixed-0/fixed-0:1f
+
+P: /devices/platform/arm-pmu
+A: driver_override=(null)
+
+P: /devices/platform/chosen
+A: driver_override=(null)
+
+P: /devices/platform/cpufreq-dt
+A: driver_override=(null)
+
+P: /devices/platform/fixedregulator_3v3
+A: driver_override=(null)
+
+P: /devices/platform/fixedregulator_3v3/regulator/regulator.1
+A: name=3v3
+A: suspend_mem_state=disabled
+A: requested_microamps=0
+A: suspend_disk_state=disabled
+A: type=voltage
+A: suspend_standby_state=disabled
+A: microvolts=3300000
+A: num_users=1
+
+P: /devices/platform/fixedregulator_5v0
+A: driver_override=(null)
+
+P: /devices/platform/fixedregulator_5v0/regulator/regulator.2
+A: type=voltage
+A: suspend_disk_state=disabled
+A: suspend_standby_state=disabled
+A: requested_microamps=0
+A: microvolts=5000000
+A: num_users=1
+A: name=5v0
+A: suspend_mem_state=disabled
+
+P: /devices/platform/kgdboc
+A: driver_override=(null)
+
+P: /devices/platform/leds
+A: driver_override=(null)
+
+P: /devices/platform/leds/leds/led0
+A: brightness=255
+A: max_brightness=255
+A: trigger=none usb-gadget usb-host rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 default-on input panic actpwr [mmc0] 
+
+P: /devices/platform/phy
+A: driver_override=(null)
+
+P: /devices/platform/reg-dummy
+A: driver_override=(null)
+
+P: /devices/platform/reg-dummy/regulator/regulator.0
+A: suspend_disk_state=disabled
+A: requested_microamps=0
+A: name=regulator-dummy
+A: type=voltage
+A: num_users=1
+A: suspend_mem_state=disabled
+A: suspend_standby_state=disabled
+
+P: /devices/platform/regulatory.0
+A: driver_override=(null)
+
+P: /devices/platform/snd-soc-dummy
+A: driver_override=(null)
+
+P: /devices/platform/soc
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f007000.dma
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan0
+A: bytes_transferred=0
+A: memcpy_count=0
+A: in_use=1
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan1
+A: memcpy_count=0
+A: in_use=1
+A: bytes_transferred=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan2
+A: in_use=1
+A: bytes_transferred=0
+A: memcpy_count=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan3
+A: in_use=0
+A: bytes_transferred=0
+A: memcpy_count=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan4
+A: in_use=0
+A: bytes_transferred=0
+A: memcpy_count=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan5
+A: memcpy_count=0
+A: in_use=0
+A: bytes_transferred=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan6
+A: bytes_transferred=0
+A: in_use=0
+A: memcpy_count=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan7
+A: memcpy_count=0
+A: bytes_transferred=0
+A: in_use=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan8
+A: memcpy_count=0
+A: in_use=0
+A: bytes_transferred=0
+
+P: /devices/platform/soc/3f007000.dma/dma/dma0chan9
+A: bytes_transferred=0
+A: in_use=0
+A: memcpy_count=0
+
+P: /devices/platform/soc/3f00b840.mailbox
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-camera
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-codec
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-codec/media0
+A: model=bcm2835-codec
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video10
+A: name=bcm2835-codec-decode
+A: index=0
+A: dev_debug=0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video11
+A: dev_debug=0
+A: name=bcm2835-codec-encode
+A: index=0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video12
+A: name=bcm2835-codec-isp
+A: index=0
+A: dev_debug=0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp/media1
+A: model=bcm2835-isp
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video13
+A: dev_debug=0
+A: name=bcm2835-isp-output0
+A: index=0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video14
+A: index=1
+A: dev_debug=0
+A: name=bcm2835-isp-capture0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video15
+A: dev_debug=0
+A: name=bcm2835-isp-capture1
+A: index=2
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video16
+A: index=3
+A: dev_debug=0
+A: name=bcm2835-isp-stats2
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835_audio
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835_audio/sound/card0
+A: id=Headphones
+A: number=0
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835_audio/sound/card0/pcmC0D0p
+A: pcm_class=generic
+
+P: /devices/platform/soc/3f00b840.mailbox/bcm2835_audio/sound/card0/controlC0
+
+P: /devices/platform/soc/3f00b840.mailbox/vchiq/vchiq
+
+P: /devices/platform/soc/3f00b840.mailbox/vcsm-cma
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f00b880.mailbox
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f100000.watchdog
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f100000.watchdog/bcm2835-power
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f100000.watchdog/bcm2835-wdt
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f100000.watchdog/bcm2835-wdt/misc/watchdog
+
+P: /devices/platform/soc/3f100000.watchdog/bcm2835-wdt/watchdog/watchdog0
+A: identity=Broadcom BCM2835 Watchdog timer
+A: timeout=15
+A: nowayout=0
+A: status=0x0
+A: timeleft=0
+A: bootstatus=0
+A: state=inactive
+
+P: /devices/platform/soc/3f101000.cprman
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f104000.rng
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f200000.gpio
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f200000.gpio/gpio/gpiochip0
+A: base=0
+A: label=pinctrl-bcm2835
+A: ngpio=54
+
+P: /devices/platform/soc/3f200000.gpio/gpiochip0
+
+P: /devices/platform/soc/3f200000.gpiomem
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f201000.serial
+A: id=00241011
+A: irq0=81
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f201000.serial/tty/ttyAMA0
+
+P: /devices/platform/soc/3f202000.mmc
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001
+A: life_time=0x0b 0x0b
+A: raw_rpmb_size_mult=0x4
+A: preferred_erase_size=4194304
+A: fwrev=0x0600000000000000
+A: enhanced_area_offset=18446744073709551594
+A: enhanced_area_size=4294967274
+A: oemid=0x0100
+A: dsr=0x404
+A: pre_eol_info=0x01
+A: rca=0x0001
+A: ffu_capable=1
+A: type=MMC
+A: cmdq_en=0
+A: csd=d02701320f5903fff6dbffef8e40400d
+A: ocr=0x00200000
+A: rel_sectors=0x1
+A: cid=150100384754463452067d085f744667
+A: date=04/2019
+A: serial=0x7d085f74
+A: name=8GTF4R
+A: prv=0x6
+A: rev=0x8
+A: manfid=0x000015
+A: erase_size=524288
+A: hwrev=0x0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0
+A: alignment_offset=0
+A: events=
+A: range=32
+A: inflight=       0        0
+A: stat=    6371      124   777527    32502     3870     8400   725707   226928        0    43220   246304        0        0        0        0
+A: capability=50
+A: events_poll_msecs=-1
+A: discard_alignment=0
+A: removable=0
+A: events_async=
+A: ro=0
+A: ext_range=256
+A: size=15269888
+A: hidden=0
+A: force_ro=0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot0
+A: events=
+A: size=8192
+A: inflight=       0        0
+A: removable=0
+A: events_poll_msecs=-1
+A: force_ro=1
+A: hidden=0
+A: ext_range=256
+A: ro=1
+A: discard_alignment=0
+A: stat=      87        0      696      210        0        0        0        0        0      272      148        0        0        0        0
+A: events_async=
+A: range=32
+A: ro_lock_until_next_power_on=0
+A: capability=270
+A: alignment_offset=0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot1
+A: events=
+A: ro_lock_until_next_power_on=0
+A: ext_range=256
+A: hidden=0
+A: events_async=
+A: inflight=       0        0
+A: capability=270
+A: removable=0
+A: force_ro=1
+A: discard_alignment=0
+A: alignment_offset=0
+A: range=32
+A: ro=1
+A: stat=      87        0      696      226        0        0        0        0        0      284      164        0        0        0        0
+A: size=8192
+A: events_poll_msecs=-1
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p1
+A: start=2048
+A: inflight=       0        0
+A: ro=0
+A: partition=1
+A: size=2457600
+A: alignment_offset=0
+A: discard_alignment=3145728
+A: stat=    3671       20   440111    17800       11        0       11       34        0    11888    15852        0        0        0        0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p2
+A: inflight=       0        0
+A: partition=2
+A: start=2459648
+A: size=1536000
+A: discard_alignment=3145728
+A: ro=0
+A: stat=     186       11    33304     1457        4        0        4       16        0      956     1296        0        0        0        0
+A: alignment_offset=0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p3
+A: alignment_offset=0
+A: stat=     128        1     2982      230       35       89      276       45        0      244      148        0        0        0        0
+A: partition=3
+A: ro=0
+A: discard_alignment=1048576
+A: start=3995648
+A: size=32768
+A: inflight=       0        0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p4
+A: size=11241472
+A: discard_alignment=1048576
+A: inflight=       0        0
+A: ro=0
+A: partition=4
+A: start=4028416
+A: alignment_offset=0
+A: stat=    2349       92   299042    12915     3810     8311   725416   226827        0    30968   228948        0        0        0        0
+
+P: /devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/mmcblk0rpmb
+
+P: /devices/platform/soc/3f204000.spi
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f204000.spi/spi_master/spi0
+
+P: /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.0
+A: driver_override=
+
+P: /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.0/spidev/spidev0.0
+
+P: /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1
+A: driver_override=
+
+P: /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/spidev/spidev0.1
+
+P: /devices/platform/soc/3f212000.thermal
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f215000.aux
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f600000.firmwarekms
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f804000.i2c
+A: driver_override=(null)
+
+P: /devices/platform/soc/3f804000.i2c/i2c-1
+A: name=bcm2835 (i2c@7e804000)
+
+P: /devices/platform/soc/3f804000.i2c/i2c-1/i2c-dev/i2c-1
+A: name=bcm2835 (i2c@7e804000)
+
+P: /devices/platform/soc/3f980000.usb
+A: hnp=HstNegScs = 0x0
+A: busconnected=Bus Connected = 0x1
+A: hsic_connect=HSIC Connect = 0x1
+A: gpvndctl=GPVNDCTL = 0x00000000
+A: regvalue=invalid offset
+A: wr_reg_test=Time to write GNPTXFSIZ reg 10000000 times: 344 msecs (86 jiffies)
+A: gnptxfsiz=GNPTXFSIZ = 0x01000214
+A: mode_ch_tim_en=Mode Change Ready Timer Enable = 0x0
+A: hptxfsiz=HPTXFSIZ = 0x02000314
+A: enumspeed=Device Enumeration Speed = 0x1
+A: ggpio=GGPIO = 0x00000000
+A: bussuspend=Bus Suspend = 0x0
+A: gsnpsid=GSNPSID = 0x4f54280a
+A: remote_wakeup=Remote Wakeup Sig = 0 Enabled = 0 LPM Remote Wakeup = 0
+A: spramdump=SPRAM Dump
+A: regdump=Register Dump
+A: devspeed=Device Speed = 0x0
+A: hcd_frrem=HCD Dump Frame Remaining
+A: hprt0=HPRT0 = 0x00001005
+A: buspower=Bus Power = 0x1
+A: rd_reg_test=Time to read GNPTXFSIZ reg 10000000 times: 928 msecs (232 jiffies)
+A: rem_wakeup_pwrdn=
+A: mode=Mode = 0x1
+A: regoffset=0xffffffff
+A: inv_sel_hsic=Invert Select HSIC = 0x0
+A: gusbcfg=GUSBCFG = 0x20001700
+A: hnpcapable=HNPCapable = 0x1
+A: fr_interval=Frame Interval = 0x1d4b
+A: srpcapable=SRPCapable = 0x1
+A: grxfsiz=GRXFSIZ = 0x00000214
+A: srp=SesReqScs = 0x1
+A: guid=GUID = 0x2708a000
+A: driver_override=(null)
+A: hcddump=HCD Dump
+A: gotgctl=GOTGCTL = 0x001c0001
+
+P: /devices/platform/soc/3f980000.usb/usb1
+A: product=DWC OTG Controller
+A: bConfigurationValue=1
+A: busnum=1
+A: bDeviceSubClass=00
+A: removable=unknown
+A: bmAttributes=e0
+A: bMaxPacketSize0=64
+A: authorized_default=1
+A: rx_lanes=1
+A: bNumInterfaces= 1
+A: idVendor=1d6b
+A: avoid_reset_quirk=0
+A: idProduct=0002
+A: configuration=
+A: manufacturer=Linux 5.4.0-1066-raspi dwc_otg_hcd
+A: speed=480
+A: devpath=0
+A: quirks=0x0
+A: bcdDevice=0504
+A: bDeviceProtocol=01
+A: urbnum=35
+A: interface_authorized_default=1
+A: ltm_capable=no
+A: devnum=1
+A: authorized=1
+A: serial=3f980000.usb
+A: bNumConfigurations=1
+A: maxchild=1
+A: version= 2.00
+A: bDeviceClass=09
+A: tx_lanes=1
+A: bMaxPower=0mA
+
+P: /devices/platform/soc/3f980000.usb/usb1/1-0:1.0
+A: bInterfaceNumber=00
+A: bNumEndpoints=01
+A: authorized=1
+A: bInterfaceClass=09
+A: bInterfaceSubClass=00
+A: bInterfaceProtocol=00
+A: supports_autosuspend=1
+A: bAlternateSetting= 0
+
+P: /devices/platform/soc/3f980000.usb/usb1/1-1
+A: bMaxPower=200mA
+A: authorized=1
+A: quirks=0x400
+A: bNumInterfaces= 1
+A: bDeviceClass=00
+A: bDeviceSubClass=00
+A: manufacturer=Realtek
+A: idVendor=0bda
+A: bcdDevice=3000
+A: idProduct=8153
+A: busnum=1
+A: configuration=
+A: bNumConfigurations=2
+A: removable=unknown
+A: urbnum=67894
+A: version= 2.10
+A: devnum=2
+A: rx_lanes=1
+A: tx_lanes=1
+A: speed=480
+A: bConfigurationValue=1
+A: serial=000001
+A: maxchild=0
+A: bMaxPacketSize0=64
+A: product=USB 10/100/1000 LAN
+A: avoid_reset_quirk=0
+A: bmAttributes=a0
+A: devspec=(null)
+A: ltm_capable=no
+A: bDeviceProtocol=00
+A: devpath=1
+
+P: /devices/platform/soc/3f980000.usb/usb1/1-1/1-1:1.0
+A: bInterfaceProtocol=00
+A: bInterfaceNumber=00
+A: bInterfaceSubClass=ff
+A: bAlternateSetting= 0
+A: supports_autosuspend=1
+A: bInterfaceClass=ff
+A: bNumEndpoints=03
+A: authorized=1
+
+P: /devices/platform/soc/3f980000.usb/usb1/1-1/1-1:1.0/net/enx00e04c68e179
+A: iflink=2
+A: link_mode=0
+A: speed=1000
+A: dev_port=0
+A: name_assign_type=4
+A: carrier=1
+A: carrier_changes=2
+A: dormant=0
+A: flags=0x1003
+A: type=1
+A: ifindex=2
+A: tx_queue_len=1000
+A: carrier_down_count=1
+A: mtu=1500
+A: broadcast=ff:ff:ff:ff:ff:ff
+A: addr_len=6
+A: gro_flush_timeout=0
+A: operstate=up
+A: netdev_group=0
+A: duplex=full
+A: carrier_up_count=1
+A: proto_down=0
+A: addr_assign_type=0
+A: address=00:e0:4c:68:e1:79
+A: ifalias=
+A: dev_id=0x0
+
+P: /devices/platform/soc/3fc00000.v3d
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:firmware
+A: driver_override=(null)
+A: get_throttled=0
+
+P: /devices/platform/soc/soc:firmware/raspberrypi-hwmon
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:firmware/raspberrypi-hwmon/hwmon/hwmon1
+A: name=rpi_volt
+A: in0_lcrit_alarm=0
+
+P: /devices/platform/soc/soc:firmware/soc:firmware:clocks
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:firmware/soc:firmware:expgpio
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:firmware/soc:firmware:expgpio/gpio/gpiochip504
+A: ngpio=8
+A: label=raspberrypi-exp-gpio
+A: base=504
+
+P: /devices/platform/soc/soc:firmware/soc:firmware:expgpio/gpiochip2
+
+P: /devices/platform/soc/soc:gpu
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:gpu/drm/card0
+
+P: /devices/platform/soc/soc:gpu/drm/card0/card0-Composite-1
+A: enabled=enabled
+A: edid=
+A: status=connected
+A: dpms=On
+A: modes=FIXED_MODE
+
+P: /devices/platform/soc/soc:gpu/drm/renderD128
+
+P: /devices/platform/soc/soc:gpu/graphics/fb0
+A: mode=
+A: pan=0,0
+A: modes=U:720x480p-0
+A: cursor=
+A: console=
+A: virtual_size=720,480
+A: bits_per_pixel=16
+A: rotate=0
+A: state=0
+A: blank=
+A: stride=1440
+A: name=vc4drmfb
+
+P: /devices/platform/soc/soc:power
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:vcsm
+A: driver_override=(null)
+
+P: /devices/platform/soc/soc:virtgpio
+A: driver_override=(null)
+
+P: /devices/platform/timer
+A: driver_override=(null)
+
+P: /devices/software
+A: perf_event_mux_interval_ms=0
+A: type=1
+
+P: /devices/system/clockevents/broadcast
+A: current_device=
+
+P: /devices/system/clockevents/clockevent0
+A: current_device=arch_sys_timer
+
+P: /devices/system/clockevents/clockevent1
+A: current_device=arch_sys_timer
+
+P: /devices/system/clockevents/clockevent2
+A: current_device=arch_sys_timer
+
+P: /devices/system/clockevents/clockevent3
+A: current_device=arch_sys_timer
+
+P: /devices/system/clocksource/clocksource0
+A: current_clocksource=arch_sys_counter
+A: available_clocksource=arch_sys_counter 
+
+P: /devices/system/cpu/cpu0
+A: cpu_capacity=1024
+
+P: /devices/system/cpu/cpu1
+A: cpu_capacity=1024
+
+P: /devices/system/cpu/cpu2
+A: cpu_capacity=1024
+
+P: /devices/system/cpu/cpu3
+A: cpu_capacity=1024
+
+P: /devices/system/edac/mc
+
+P: /devices/tracepoint
+A: perf_event_mux_interval_ms=0
+A: type=2
+
+P: /devices/uprobe
+A: perf_event_mux_interval_ms=0
+A: type=7
+
+P: /devices/virtual/bcm2708_vcio/vcio
+
+P: /devices/virtual/bcm2835-gpiomem/gpiomem
+
+P: /devices/virtual/bdi/179:0
+A: stable_pages_required=0
+A: max_ratio=100
+A: min_ratio=0
+A: read_ahead_kb=128
+
+P: /devices/virtual/bdi/179:32
+A: max_ratio=100
+A: min_ratio=0
+A: read_ahead_kb=128
+A: stable_pages_required=0
+
+P: /devices/virtual/bdi/179:64
+A: max_ratio=100
+A: read_ahead_kb=128
+A: min_ratio=0
+A: stable_pages_required=0
+
+P: /devices/virtual/bdi/7:0
+A: stable_pages_required=0
+A: read_ahead_kb=128
+A: max_ratio=100
+A: min_ratio=0
+
+P: /devices/virtual/bdi/7:1
+A: stable_pages_required=0
+A: min_ratio=0
+A: max_ratio=100
+A: read_ahead_kb=128
+
+P: /devices/virtual/bdi/7:2
+A: min_ratio=0
+A: read_ahead_kb=128
+A: stable_pages_required=0
+A: max_ratio=100
+
+P: /devices/virtual/bdi/7:3
+A: min_ratio=0
+A: max_ratio=100
+A: stable_pages_required=0
+A: read_ahead_kb=128
+
+P: /devices/virtual/bdi/7:4
+A: read_ahead_kb=128
+A: stable_pages_required=0
+A: max_ratio=100
+A: min_ratio=0
+
+P: /devices/virtual/bdi/7:5
+A: read_ahead_kb=128
+A: stable_pages_required=0
+A: max_ratio=100
+A: min_ratio=0
+
+P: /devices/virtual/bdi/7:6
+A: max_ratio=100
+A: min_ratio=0
+A: read_ahead_kb=128
+A: stable_pages_required=0
+
+P: /devices/virtual/bdi/7:7
+A: max_ratio=100
+A: read_ahead_kb=128
+A: stable_pages_required=0
+A: min_ratio=0
+
+P: /devices/virtual/block/loop0
+A: size=106416
+A: alignment_offset=0
+A: stat=   21365        0    43774    67961        0        0        0        0        0     5996    42464        0        0        0        0
+A: events=
+A: ro=1
+A: discard_alignment=0
+A: hidden=0
+A: removable=0
+A: events_async=
+A: range=1
+A: events_poll_msecs=-1
+A: inflight=       0        0
+A: capability=250
+A: ext_range=256
+
+P: /devices/virtual/block/loop1
+A: alignment_offset=0
+A: range=1
+A: stat=     899        0     5600     1154        0        0        0        0        0      416      448        0        0        0        0
+A: ext_range=256
+A: events_poll_msecs=-1
+A: capability=250
+A: inflight=       0        0
+A: events_async=
+A: discard_alignment=0
+A: ro=1
+A: removable=0
+A: size=178944
+A: events=
+A: hidden=0
+
+P: /devices/virtual/block/loop2
+A: inflight=       0        0
+A: stat=    6997        0    15184     3368        0        0        0        0        0      764        0        0        0        0        0
+A: size=78696
+A: events_poll_msecs=-1
+A: alignment_offset=0
+A: events=
+A: events_async=
+A: capability=250
+A: ext_range=256
+A: range=1
+A: ro=1
+A: removable=0
+A: discard_alignment=0
+A: hidden=0
+
+P: /devices/virtual/block/loop3
+A: ext_range=256
+A: events_async=
+A: events=
+A: size=78696
+A: stat=   18846        0    38278     6350        0        0        0        0        0     2076        0        0        0        0        0
+A: hidden=0
+A: events_poll_msecs=-1
+A: discard_alignment=0
+A: removable=0
+A: capability=250
+A: range=1
+A: ro=1
+A: alignment_offset=0
+A: inflight=       0        0
+
+P: /devices/virtual/block/loop4
+A: alignment_offset=0
+A: events=
+A: ext_range=256
+A: removable=0
+A: size=23256
+A: stat=      48        0      688       13        0        0        0        0        0       28        0        0        0        0        0
+A: events_async=
+A: hidden=0
+A: range=1
+A: capability=250
+A: inflight=       0        0
+A: discard_alignment=0
+A: ro=1
+A: events_poll_msecs=-1
+
+P: /devices/virtual/block/loop5
+A: events_poll_msecs=-1
+A: discard_alignment=0
+A: size=328328
+A: alignment_offset=0
+A: inflight=       0        0
+A: removable=0
+A: ext_range=256
+A: stat=    4533        0    11068     1188        0        0        0        0        0     3324        0        0        0        0        0
+A: events=
+A: range=1
+A: ro=1
+A: capability=250
+A: events_async=
+A: hidden=0
+
+P: /devices/virtual/block/loop6
+A: removable=0
+A: ext_range=256
+A: stat=       9        0       24        0        0        0        0        0        0        8        0        0        0        0        0
+A: events=
+A: events_async=
+A: discard_alignment=0
+A: hidden=0
+A: capability=250
+A: ro=1
+A: alignment_offset=0
+A: size=24
+A: range=1
+A: inflight=       0        0
+A: events_poll_msecs=-1
+
+P: /devices/virtual/block/loop7
+A: stat=       0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+A: capability=250
+A: ro=0
+A: events_poll_msecs=-1
+A: removable=0
+A: hidden=0
+A: range=1
+A: alignment_offset=0
+A: size=0
+A: events_async=
+A: discard_alignment=0
+A: ext_range=256
+A: events=
+A: inflight=       0        0
+
+P: /devices/virtual/dma_heap/linux,cma
+
+P: /devices/virtual/dma_heap/system
+
+P: /devices/virtual/graphics/fbcon
+A: rotate=0
+A: cursor_blink=1
+
+P: /devices/virtual/input/mice
+
+P: /devices/virtual/leds/default-on
+A: max_brightness=255
+A: brightness=255
+A: trigger=none usb-gadget usb-host rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 [default-on] input panic actpwr mmc0 
+
+P: /devices/virtual/leds/mmc0
+A: max_brightness=255
+A: trigger=none usb-gadget usb-host rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 default-on input panic actpwr [mmc0] 
+A: brightness=1
+
+P: /devices/virtual/mem/full
+
+P: /devices/virtual/mem/kmsg
+
+P: /devices/virtual/mem/mem
+
+P: /devices/virtual/mem/null
+
+P: /devices/virtual/mem/port
+
+P: /devices/virtual/mem/random
+
+P: /devices/virtual/mem/urandom
+
+P: /devices/virtual/mem/zero
+
+P: /devices/virtual/misc/autofs
+
+P: /devices/virtual/misc/cpu_dma_latency
+
+P: /devices/virtual/misc/device-mapper
+
+P: /devices/virtual/misc/ecryptfs
+
+P: /devices/virtual/misc/fuse
+
+P: /devices/virtual/misc/hw_random
+A: rng_selected=0
+A: rng_current=3f104000.rng
+A: rng_available=3f104000.rng 
+
+P: /devices/virtual/misc/loop-control
+
+P: /devices/virtual/misc/psaux
+
+P: /devices/virtual/misc/rfkill
+
+P: /devices/virtual/misc/snapshot
+
+P: /devices/virtual/misc/tun
+
+P: /devices/virtual/misc/udmabuf
+
+P: /devices/virtual/misc/uinput
+
+P: /devices/virtual/misc/vcsm-cma
+
+P: /devices/virtual/net/lo
+A: operstate=unknown
+A: flags=0x9
+A: addr_assign_type=0
+A: address=00:00:00:00:00:00
+A: ifalias=
+A: iflink=1
+A: carrier_changes=0
+A: ifindex=1
+A: carrier_down_count=0
+A: addr_len=6
+A: tx_queue_len=1000
+A: type=772
+A: dormant=0
+A: carrier=1
+A: gro_flush_timeout=0
+A: proto_down=0
+A: dev_id=0x0
+A: mtu=65536
+A: link_mode=0
+A: carrier_up_count=0
+A: netdev_group=0
+A: dev_port=0
+A: broadcast=00:00:00:00:00:00
+
+P: /devices/virtual/ppp/ppp
+
+P: /devices/virtual/sound/timer
+
+P: /devices/virtual/thermal/thermal_zone0
+A: slope=-538
+A: integral_cutoff=0
+A: k_i=0
+A: policy=step_wise
+A: mode=enabled
+A: type=cpu-thermal
+A: k_pu=0
+A: sustainable_power=0
+A: offset=412000
+A: available_policies=power_allocator user_space step_wise bang_bang fair_share 
+A: k_po=0
+A: temp=44008
+A: k_d=0
+A: passive=0
+
+P: /devices/virtual/thermal/thermal_zone0/hwmon0
+A: name=cpu_thermal
+A: temp1_input=43470
+
+P: /devices/virtual/tty/console
+A: active=ttyAMA0
+
+P: /devices/virtual/tty/ptmx
+
+P: /devices/virtual/tty/ptya0
+
+P: /devices/virtual/tty/ptya1
+
+P: /devices/virtual/tty/ptya2
+
+P: /devices/virtual/tty/ptya3
+
+P: /devices/virtual/tty/ptya4
+
+P: /devices/virtual/tty/ptya5
+
+P: /devices/virtual/tty/ptya6
+
+P: /devices/virtual/tty/ptya7
+
+P: /devices/virtual/tty/ptya8
+
+P: /devices/virtual/tty/ptya9
+
+P: /devices/virtual/tty/ptyaa
+
+P: /devices/virtual/tty/ptyab
+
+P: /devices/virtual/tty/ptyac
+
+P: /devices/virtual/tty/ptyad
+
+P: /devices/virtual/tty/ptyae
+
+P: /devices/virtual/tty/ptyaf
+
+P: /devices/virtual/tty/ptyb0
+
+P: /devices/virtual/tty/ptyb1
+
+P: /devices/virtual/tty/ptyb2
+
+P: /devices/virtual/tty/ptyb3
+
+P: /devices/virtual/tty/ptyb4
+
+P: /devices/virtual/tty/ptyb5
+
+P: /devices/virtual/tty/ptyb6
+
+P: /devices/virtual/tty/ptyb7
+
+P: /devices/virtual/tty/ptyb8
+
+P: /devices/virtual/tty/ptyb9
+
+P: /devices/virtual/tty/ptyba
+
+P: /devices/virtual/tty/ptybb
+
+P: /devices/virtual/tty/ptybc
+
+P: /devices/virtual/tty/ptybd
+
+P: /devices/virtual/tty/ptybe
+
+P: /devices/virtual/tty/ptybf
+
+P: /devices/virtual/tty/ptyc0
+
+P: /devices/virtual/tty/ptyc1
+
+P: /devices/virtual/tty/ptyc2
+
+P: /devices/virtual/tty/ptyc3
+
+P: /devices/virtual/tty/ptyc4
+
+P: /devices/virtual/tty/ptyc5
+
+P: /devices/virtual/tty/ptyc6
+
+P: /devices/virtual/tty/ptyc7
+
+P: /devices/virtual/tty/ptyc8
+
+P: /devices/virtual/tty/ptyc9
+
+P: /devices/virtual/tty/ptyca
+
+P: /devices/virtual/tty/ptycb
+
+P: /devices/virtual/tty/ptycc
+
+P: /devices/virtual/tty/ptycd
+
+P: /devices/virtual/tty/ptyce
+
+P: /devices/virtual/tty/ptycf
+
+P: /devices/virtual/tty/ptyd0
+
+P: /devices/virtual/tty/ptyd1
+
+P: /devices/virtual/tty/ptyd2
+
+P: /devices/virtual/tty/ptyd3
+
+P: /devices/virtual/tty/ptyd4
+
+P: /devices/virtual/tty/ptyd5
+
+P: /devices/virtual/tty/ptyd6
+
+P: /devices/virtual/tty/ptyd7
+
+P: /devices/virtual/tty/ptyd8
+
+P: /devices/virtual/tty/ptyd9
+
+P: /devices/virtual/tty/ptyda
+
+P: /devices/virtual/tty/ptydb
+
+P: /devices/virtual/tty/ptydc
+
+P: /devices/virtual/tty/ptydd
+
+P: /devices/virtual/tty/ptyde
+
+P: /devices/virtual/tty/ptydf
+
+P: /devices/virtual/tty/ptye0
+
+P: /devices/virtual/tty/ptye1
+
+P: /devices/virtual/tty/ptye2
+
+P: /devices/virtual/tty/ptye3
+
+P: /devices/virtual/tty/ptye4
+
+P: /devices/virtual/tty/ptye5
+
+P: /devices/virtual/tty/ptye6
+
+P: /devices/virtual/tty/ptye7
+
+P: /devices/virtual/tty/ptye8
+
+P: /devices/virtual/tty/ptye9
+
+P: /devices/virtual/tty/ptyea
+
+P: /devices/virtual/tty/ptyeb
+
+P: /devices/virtual/tty/ptyec
+
+P: /devices/virtual/tty/ptyed
+
+P: /devices/virtual/tty/ptyee
+
+P: /devices/virtual/tty/ptyef
+
+P: /devices/virtual/tty/ptyp0
+
+P: /devices/virtual/tty/ptyp1
+
+P: /devices/virtual/tty/ptyp2
+
+P: /devices/virtual/tty/ptyp3
+
+P: /devices/virtual/tty/ptyp4
+
+P: /devices/virtual/tty/ptyp5
+
+P: /devices/virtual/tty/ptyp6
+
+P: /devices/virtual/tty/ptyp7
+
+P: /devices/virtual/tty/ptyp8
+
+P: /devices/virtual/tty/ptyp9
+
+P: /devices/virtual/tty/ptypa
+
+P: /devices/virtual/tty/ptypb
+
+P: /devices/virtual/tty/ptypc
+
+P: /devices/virtual/tty/ptypd
+
+P: /devices/virtual/tty/ptype
+
+P: /devices/virtual/tty/ptypf
+
+P: /devices/virtual/tty/ptyq0
+
+P: /devices/virtual/tty/ptyq1
+
+P: /devices/virtual/tty/ptyq2
+
+P: /devices/virtual/tty/ptyq3
+
+P: /devices/virtual/tty/ptyq4
+
+P: /devices/virtual/tty/ptyq5
+
+P: /devices/virtual/tty/ptyq6
+
+P: /devices/virtual/tty/ptyq7
+
+P: /devices/virtual/tty/ptyq8
+
+P: /devices/virtual/tty/ptyq9
+
+P: /devices/virtual/tty/ptyqa
+
+P: /devices/virtual/tty/ptyqb
+
+P: /devices/virtual/tty/ptyqc
+
+P: /devices/virtual/tty/ptyqd
+
+P: /devices/virtual/tty/ptyqe
+
+P: /devices/virtual/tty/ptyqf
+
+P: /devices/virtual/tty/ptyr0
+
+P: /devices/virtual/tty/ptyr1
+
+P: /devices/virtual/tty/ptyr2
+
+P: /devices/virtual/tty/ptyr3
+
+P: /devices/virtual/tty/ptyr4
+
+P: /devices/virtual/tty/ptyr5
+
+P: /devices/virtual/tty/ptyr6
+
+P: /devices/virtual/tty/ptyr7
+
+P: /devices/virtual/tty/ptyr8
+
+P: /devices/virtual/tty/ptyr9
+
+P: /devices/virtual/tty/ptyra
+
+P: /devices/virtual/tty/ptyrb
+
+P: /devices/virtual/tty/ptyrc
+
+P: /devices/virtual/tty/ptyrd
+
+P: /devices/virtual/tty/ptyre
+
+P: /devices/virtual/tty/ptyrf
+
+P: /devices/virtual/tty/ptys0
+
+P: /devices/virtual/tty/ptys1
+
+P: /devices/virtual/tty/ptys2
+
+P: /devices/virtual/tty/ptys3
+
+P: /devices/virtual/tty/ptys4
+
+P: /devices/virtual/tty/ptys5
+
+P: /devices/virtual/tty/ptys6
+
+P: /devices/virtual/tty/ptys7
+
+P: /devices/virtual/tty/ptys8
+
+P: /devices/virtual/tty/ptys9
+
+P: /devices/virtual/tty/ptysa
+
+P: /devices/virtual/tty/ptysb
+
+P: /devices/virtual/tty/ptysc
+
+P: /devices/virtual/tty/ptysd
+
+P: /devices/virtual/tty/ptyse
+
+P: /devices/virtual/tty/ptysf
+
+P: /devices/virtual/tty/ptyt0
+
+P: /devices/virtual/tty/ptyt1
+
+P: /devices/virtual/tty/ptyt2
+
+P: /devices/virtual/tty/ptyt3
+
+P: /devices/virtual/tty/ptyt4
+
+P: /devices/virtual/tty/ptyt5
+
+P: /devices/virtual/tty/ptyt6
+
+P: /devices/virtual/tty/ptyt7
+
+P: /devices/virtual/tty/ptyt8
+
+P: /devices/virtual/tty/ptyt9
+
+P: /devices/virtual/tty/ptyta
+
+P: /devices/virtual/tty/ptytb
+
+P: /devices/virtual/tty/ptytc
+
+P: /devices/virtual/tty/ptytd
+
+P: /devices/virtual/tty/ptyte
+
+P: /devices/virtual/tty/ptytf
+
+P: /devices/virtual/tty/ptyu0
+
+P: /devices/virtual/tty/ptyu1
+
+P: /devices/virtual/tty/ptyu2
+
+P: /devices/virtual/tty/ptyu3
+
+P: /devices/virtual/tty/ptyu4
+
+P: /devices/virtual/tty/ptyu5
+
+P: /devices/virtual/tty/ptyu6
+
+P: /devices/virtual/tty/ptyu7
+
+P: /devices/virtual/tty/ptyu8
+
+P: /devices/virtual/tty/ptyu9
+
+P: /devices/virtual/tty/ptyua
+
+P: /devices/virtual/tty/ptyub
+
+P: /devices/virtual/tty/ptyuc
+
+P: /devices/virtual/tty/ptyud
+
+P: /devices/virtual/tty/ptyue
+
+P: /devices/virtual/tty/ptyuf
+
+P: /devices/virtual/tty/ptyv0
+
+P: /devices/virtual/tty/ptyv1
+
+P: /devices/virtual/tty/ptyv2
+
+P: /devices/virtual/tty/ptyv3
+
+P: /devices/virtual/tty/ptyv4
+
+P: /devices/virtual/tty/ptyv5
+
+P: /devices/virtual/tty/ptyv6
+
+P: /devices/virtual/tty/ptyv7
+
+P: /devices/virtual/tty/ptyv8
+
+P: /devices/virtual/tty/ptyv9
+
+P: /devices/virtual/tty/ptyva
+
+P: /devices/virtual/tty/ptyvb
+
+P: /devices/virtual/tty/ptyvc
+
+P: /devices/virtual/tty/ptyvd
+
+P: /devices/virtual/tty/ptyve
+
+P: /devices/virtual/tty/ptyvf
+
+P: /devices/virtual/tty/ptyw0
+
+P: /devices/virtual/tty/ptyw1
+
+P: /devices/virtual/tty/ptyw2
+
+P: /devices/virtual/tty/ptyw3
+
+P: /devices/virtual/tty/ptyw4
+
+P: /devices/virtual/tty/ptyw5
+
+P: /devices/virtual/tty/ptyw6
+
+P: /devices/virtual/tty/ptyw7
+
+P: /devices/virtual/tty/ptyw8
+
+P: /devices/virtual/tty/ptyw9
+
+P: /devices/virtual/tty/ptywa
+
+P: /devices/virtual/tty/ptywb
+
+P: /devices/virtual/tty/ptywc
+
+P: /devices/virtual/tty/ptywd
+
+P: /devices/virtual/tty/ptywe
+
+P: /devices/virtual/tty/ptywf
+
+P: /devices/virtual/tty/ptyx0
+
+P: /devices/virtual/tty/ptyx1
+
+P: /devices/virtual/tty/ptyx2
+
+P: /devices/virtual/tty/ptyx3
+
+P: /devices/virtual/tty/ptyx4
+
+P: /devices/virtual/tty/ptyx5
+
+P: /devices/virtual/tty/ptyx6
+
+P: /devices/virtual/tty/ptyx7
+
+P: /devices/virtual/tty/ptyx8
+
+P: /devices/virtual/tty/ptyx9
+
+P: /devices/virtual/tty/ptyxa
+
+P: /devices/virtual/tty/ptyxb
+
+P: /devices/virtual/tty/ptyxc
+
+P: /devices/virtual/tty/ptyxd
+
+P: /devices/virtual/tty/ptyxe
+
+P: /devices/virtual/tty/ptyxf
+
+P: /devices/virtual/tty/ptyy0
+
+P: /devices/virtual/tty/ptyy1
+
+P: /devices/virtual/tty/ptyy2
+
+P: /devices/virtual/tty/ptyy3
+
+P: /devices/virtual/tty/ptyy4
+
+P: /devices/virtual/tty/ptyy5
+
+P: /devices/virtual/tty/ptyy6
+
+P: /devices/virtual/tty/ptyy7
+
+P: /devices/virtual/tty/ptyy8
+
+P: /devices/virtual/tty/ptyy9
+
+P: /devices/virtual/tty/ptyya
+
+P: /devices/virtual/tty/ptyyb
+
+P: /devices/virtual/tty/ptyyc
+
+P: /devices/virtual/tty/ptyyd
+
+P: /devices/virtual/tty/ptyye
+
+P: /devices/virtual/tty/ptyyf
+
+P: /devices/virtual/tty/ptyz0
+
+P: /devices/virtual/tty/ptyz1
+
+P: /devices/virtual/tty/ptyz2
+
+P: /devices/virtual/tty/ptyz3
+
+P: /devices/virtual/tty/ptyz4
+
+P: /devices/virtual/tty/ptyz5
+
+P: /devices/virtual/tty/ptyz6
+
+P: /devices/virtual/tty/ptyz7
+
+P: /devices/virtual/tty/ptyz8
+
+P: /devices/virtual/tty/ptyz9
+
+P: /devices/virtual/tty/ptyza
+
+P: /devices/virtual/tty/ptyzb
+
+P: /devices/virtual/tty/ptyzc
+
+P: /devices/virtual/tty/ptyzd
+
+P: /devices/virtual/tty/ptyze
+
+P: /devices/virtual/tty/ptyzf
+
+P: /devices/virtual/tty/tty
+
+P: /devices/virtual/tty/tty0
+A: active=tty2
+
+P: /devices/virtual/tty/tty1
+
+P: /devices/virtual/tty/tty10
+
+P: /devices/virtual/tty/tty11
+
+P: /devices/virtual/tty/tty12
+
+P: /devices/virtual/tty/tty13
+
+P: /devices/virtual/tty/tty14
+
+P: /devices/virtual/tty/tty15
+
+P: /devices/virtual/tty/tty16
+
+P: /devices/virtual/tty/tty17
+
+P: /devices/virtual/tty/tty18
+
+P: /devices/virtual/tty/tty19
+
+P: /devices/virtual/tty/tty2
+
+P: /devices/virtual/tty/tty20
+
+P: /devices/virtual/tty/tty21
+
+P: /devices/virtual/tty/tty22
+
+P: /devices/virtual/tty/tty23
+
+P: /devices/virtual/tty/tty24
+
+P: /devices/virtual/tty/tty25
+
+P: /devices/virtual/tty/tty26
+
+P: /devices/virtual/tty/tty27
+
+P: /devices/virtual/tty/tty28
+
+P: /devices/virtual/tty/tty29
+
+P: /devices/virtual/tty/tty3
+
+P: /devices/virtual/tty/tty30
+
+P: /devices/virtual/tty/tty31
+
+P: /devices/virtual/tty/tty32
+
+P: /devices/virtual/tty/tty33
+
+P: /devices/virtual/tty/tty34
+
+P: /devices/virtual/tty/tty35
+
+P: /devices/virtual/tty/tty36
+
+P: /devices/virtual/tty/tty37
+
+P: /devices/virtual/tty/tty38
+
+P: /devices/virtual/tty/tty39
+
+P: /devices/virtual/tty/tty4
+
+P: /devices/virtual/tty/tty40
+
+P: /devices/virtual/tty/tty41
+
+P: /devices/virtual/tty/tty42
+
+P: /devices/virtual/tty/tty43
+
+P: /devices/virtual/tty/tty44
+
+P: /devices/virtual/tty/tty45
+
+P: /devices/virtual/tty/tty46
+
+P: /devices/virtual/tty/tty47
+
+P: /devices/virtual/tty/tty48
+
+P: /devices/virtual/tty/tty49
+
+P: /devices/virtual/tty/tty5
+
+P: /devices/virtual/tty/tty50
+
+P: /devices/virtual/tty/tty51
+
+P: /devices/virtual/tty/tty52
+
+P: /devices/virtual/tty/tty53
+
+P: /devices/virtual/tty/tty54
+
+P: /devices/virtual/tty/tty55
+
+P: /devices/virtual/tty/tty56
+
+P: /devices/virtual/tty/tty57
+
+P: /devices/virtual/tty/tty58
+
+P: /devices/virtual/tty/tty59
+
+P: /devices/virtual/tty/tty6
+
+P: /devices/virtual/tty/tty60
+
+P: /devices/virtual/tty/tty61
+
+P: /devices/virtual/tty/tty62
+
+P: /devices/virtual/tty/tty63
+
+P: /devices/virtual/tty/tty7
+
+P: /devices/virtual/tty/tty8
+
+P: /devices/virtual/tty/tty9
+
+P: /devices/virtual/tty/ttya0
+
+P: /devices/virtual/tty/ttya1
+
+P: /devices/virtual/tty/ttya2
+
+P: /devices/virtual/tty/ttya3
+
+P: /devices/virtual/tty/ttya4
+
+P: /devices/virtual/tty/ttya5
+
+P: /devices/virtual/tty/ttya6
+
+P: /devices/virtual/tty/ttya7
+
+P: /devices/virtual/tty/ttya8
+
+P: /devices/virtual/tty/ttya9
+
+P: /devices/virtual/tty/ttyaa
+
+P: /devices/virtual/tty/ttyab
+
+P: /devices/virtual/tty/ttyac
+
+P: /devices/virtual/tty/ttyad
+
+P: /devices/virtual/tty/ttyae
+
+P: /devices/virtual/tty/ttyaf
+
+P: /devices/virtual/tty/ttyb0
+
+P: /devices/virtual/tty/ttyb1
+
+P: /devices/virtual/tty/ttyb2
+
+P: /devices/virtual/tty/ttyb3
+
+P: /devices/virtual/tty/ttyb4
+
+P: /devices/virtual/tty/ttyb5
+
+P: /devices/virtual/tty/ttyb6
+
+P: /devices/virtual/tty/ttyb7
+
+P: /devices/virtual/tty/ttyb8
+
+P: /devices/virtual/tty/ttyb9
+
+P: /devices/virtual/tty/ttyba
+
+P: /devices/virtual/tty/ttybb
+
+P: /devices/virtual/tty/ttybc
+
+P: /devices/virtual/tty/ttybd
+
+P: /devices/virtual/tty/ttybe
+
+P: /devices/virtual/tty/ttybf
+
+P: /devices/virtual/tty/ttyc0
+
+P: /devices/virtual/tty/ttyc1
+
+P: /devices/virtual/tty/ttyc2
+
+P: /devices/virtual/tty/ttyc3
+
+P: /devices/virtual/tty/ttyc4
+
+P: /devices/virtual/tty/ttyc5
+
+P: /devices/virtual/tty/ttyc6
+
+P: /devices/virtual/tty/ttyc7
+
+P: /devices/virtual/tty/ttyc8
+
+P: /devices/virtual/tty/ttyc9
+
+P: /devices/virtual/tty/ttyca
+
+P: /devices/virtual/tty/ttycb
+
+P: /devices/virtual/tty/ttycc
+
+P: /devices/virtual/tty/ttycd
+
+P: /devices/virtual/tty/ttyce
+
+P: /devices/virtual/tty/ttycf
+
+P: /devices/virtual/tty/ttyd0
+
+P: /devices/virtual/tty/ttyd1
+
+P: /devices/virtual/tty/ttyd2
+
+P: /devices/virtual/tty/ttyd3
+
+P: /devices/virtual/tty/ttyd4
+
+P: /devices/virtual/tty/ttyd5
+
+P: /devices/virtual/tty/ttyd6
+
+P: /devices/virtual/tty/ttyd7
+
+P: /devices/virtual/tty/ttyd8
+
+P: /devices/virtual/tty/ttyd9
+
+P: /devices/virtual/tty/ttyda
+
+P: /devices/virtual/tty/ttydb
+
+P: /devices/virtual/tty/ttydc
+
+P: /devices/virtual/tty/ttydd
+
+P: /devices/virtual/tty/ttyde
+
+P: /devices/virtual/tty/ttydf
+
+P: /devices/virtual/tty/ttye0
+
+P: /devices/virtual/tty/ttye1
+
+P: /devices/virtual/tty/ttye2
+
+P: /devices/virtual/tty/ttye3
+
+P: /devices/virtual/tty/ttye4
+
+P: /devices/virtual/tty/ttye5
+
+P: /devices/virtual/tty/ttye6
+
+P: /devices/virtual/tty/ttye7
+
+P: /devices/virtual/tty/ttye8
+
+P: /devices/virtual/tty/ttye9
+
+P: /devices/virtual/tty/ttyea
+
+P: /devices/virtual/tty/ttyeb
+
+P: /devices/virtual/tty/ttyec
+
+P: /devices/virtual/tty/ttyed
+
+P: /devices/virtual/tty/ttyee
+
+P: /devices/virtual/tty/ttyef
+
+P: /devices/virtual/tty/ttyp0
+
+P: /devices/virtual/tty/ttyp1
+
+P: /devices/virtual/tty/ttyp2
+
+P: /devices/virtual/tty/ttyp3
+
+P: /devices/virtual/tty/ttyp4
+
+P: /devices/virtual/tty/ttyp5
+
+P: /devices/virtual/tty/ttyp6
+
+P: /devices/virtual/tty/ttyp7
+
+P: /devices/virtual/tty/ttyp8
+
+P: /devices/virtual/tty/ttyp9
+
+P: /devices/virtual/tty/ttypa
+
+P: /devices/virtual/tty/ttypb
+
+P: /devices/virtual/tty/ttypc
+
+P: /devices/virtual/tty/ttypd
+
+P: /devices/virtual/tty/ttype
+
+P: /devices/virtual/tty/ttypf
+
+P: /devices/virtual/tty/ttyprintk
+
+P: /devices/virtual/tty/ttyq0
+
+P: /devices/virtual/tty/ttyq1
+
+P: /devices/virtual/tty/ttyq2
+
+P: /devices/virtual/tty/ttyq3
+
+P: /devices/virtual/tty/ttyq4
+
+P: /devices/virtual/tty/ttyq5
+
+P: /devices/virtual/tty/ttyq6
+
+P: /devices/virtual/tty/ttyq7
+
+P: /devices/virtual/tty/ttyq8
+
+P: /devices/virtual/tty/ttyq9
+
+P: /devices/virtual/tty/ttyqa
+
+P: /devices/virtual/tty/ttyqb
+
+P: /devices/virtual/tty/ttyqc
+
+P: /devices/virtual/tty/ttyqd
+
+P: /devices/virtual/tty/ttyqe
+
+P: /devices/virtual/tty/ttyqf
+
+P: /devices/virtual/tty/ttyr0
+
+P: /devices/virtual/tty/ttyr1
+
+P: /devices/virtual/tty/ttyr2
+
+P: /devices/virtual/tty/ttyr3
+
+P: /devices/virtual/tty/ttyr4
+
+P: /devices/virtual/tty/ttyr5
+
+P: /devices/virtual/tty/ttyr6
+
+P: /devices/virtual/tty/ttyr7
+
+P: /devices/virtual/tty/ttyr8
+
+P: /devices/virtual/tty/ttyr9
+
+P: /devices/virtual/tty/ttyra
+
+P: /devices/virtual/tty/ttyrb
+
+P: /devices/virtual/tty/ttyrc
+
+P: /devices/virtual/tty/ttyrd
+
+P: /devices/virtual/tty/ttyre
+
+P: /devices/virtual/tty/ttyrf
+
+P: /devices/virtual/tty/ttys0
+
+P: /devices/virtual/tty/ttys1
+
+P: /devices/virtual/tty/ttys2
+
+P: /devices/virtual/tty/ttys3
+
+P: /devices/virtual/tty/ttys4
+
+P: /devices/virtual/tty/ttys5
+
+P: /devices/virtual/tty/ttys6
+
+P: /devices/virtual/tty/ttys7
+
+P: /devices/virtual/tty/ttys8
+
+P: /devices/virtual/tty/ttys9
+
+P: /devices/virtual/tty/ttysa
+
+P: /devices/virtual/tty/ttysb
+
+P: /devices/virtual/tty/ttysc
+
+P: /devices/virtual/tty/ttysd
+
+P: /devices/virtual/tty/ttyse
+
+P: /devices/virtual/tty/ttysf
+
+P: /devices/virtual/tty/ttyt0
+
+P: /devices/virtual/tty/ttyt1
+
+P: /devices/virtual/tty/ttyt2
+
+P: /devices/virtual/tty/ttyt3
+
+P: /devices/virtual/tty/ttyt4
+
+P: /devices/virtual/tty/ttyt5
+
+P: /devices/virtual/tty/ttyt6
+
+P: /devices/virtual/tty/ttyt7
+
+P: /devices/virtual/tty/ttyt8
+
+P: /devices/virtual/tty/ttyt9
+
+P: /devices/virtual/tty/ttyta
+
+P: /devices/virtual/tty/ttytb
+
+P: /devices/virtual/tty/ttytc
+
+P: /devices/virtual/tty/ttytd
+
+P: /devices/virtual/tty/ttyte
+
+P: /devices/virtual/tty/ttytf
+
+P: /devices/virtual/tty/ttyu0
+
+P: /devices/virtual/tty/ttyu1
+
+P: /devices/virtual/tty/ttyu2
+
+P: /devices/virtual/tty/ttyu3
+
+P: /devices/virtual/tty/ttyu4
+
+P: /devices/virtual/tty/ttyu5
+
+P: /devices/virtual/tty/ttyu6
+
+P: /devices/virtual/tty/ttyu7
+
+P: /devices/virtual/tty/ttyu8
+
+P: /devices/virtual/tty/ttyu9
+
+P: /devices/virtual/tty/ttyua
+
+P: /devices/virtual/tty/ttyub
+
+P: /devices/virtual/tty/ttyuc
+
+P: /devices/virtual/tty/ttyud
+
+P: /devices/virtual/tty/ttyue
+
+P: /devices/virtual/tty/ttyuf
+
+P: /devices/virtual/tty/ttyv0
+
+P: /devices/virtual/tty/ttyv1
+
+P: /devices/virtual/tty/ttyv2
+
+P: /devices/virtual/tty/ttyv3
+
+P: /devices/virtual/tty/ttyv4
+
+P: /devices/virtual/tty/ttyv5
+
+P: /devices/virtual/tty/ttyv6
+
+P: /devices/virtual/tty/ttyv7
+
+P: /devices/virtual/tty/ttyv8
+
+P: /devices/virtual/tty/ttyv9
+
+P: /devices/virtual/tty/ttyva
+
+P: /devices/virtual/tty/ttyvb
+
+P: /devices/virtual/tty/ttyvc
+
+P: /devices/virtual/tty/ttyvd
+
+P: /devices/virtual/tty/ttyve
+
+P: /devices/virtual/tty/ttyvf
+
+P: /devices/virtual/tty/ttyw0
+
+P: /devices/virtual/tty/ttyw1
+
+P: /devices/virtual/tty/ttyw2
+
+P: /devices/virtual/tty/ttyw3
+
+P: /devices/virtual/tty/ttyw4
+
+P: /devices/virtual/tty/ttyw5
+
+P: /devices/virtual/tty/ttyw6
+
+P: /devices/virtual/tty/ttyw7
+
+P: /devices/virtual/tty/ttyw8
+
+P: /devices/virtual/tty/ttyw9
+
+P: /devices/virtual/tty/ttywa
+
+P: /devices/virtual/tty/ttywb
+
+P: /devices/virtual/tty/ttywc
+
+P: /devices/virtual/tty/ttywd
+
+P: /devices/virtual/tty/ttywe
+
+P: /devices/virtual/tty/ttywf
+
+P: /devices/virtual/tty/ttyx0
+
+P: /devices/virtual/tty/ttyx1
+
+P: /devices/virtual/tty/ttyx2
+
+P: /devices/virtual/tty/ttyx3
+
+P: /devices/virtual/tty/ttyx4
+
+P: /devices/virtual/tty/ttyx5
+
+P: /devices/virtual/tty/ttyx6
+
+P: /devices/virtual/tty/ttyx7
+
+P: /devices/virtual/tty/ttyx8
+
+P: /devices/virtual/tty/ttyx9
+
+P: /devices/virtual/tty/ttyxa
+
+P: /devices/virtual/tty/ttyxb
+
+P: /devices/virtual/tty/ttyxc
+
+P: /devices/virtual/tty/ttyxd
+
+P: /devices/virtual/tty/ttyxe
+
+P: /devices/virtual/tty/ttyxf
+
+P: /devices/virtual/tty/ttyy0
+
+P: /devices/virtual/tty/ttyy1
+
+P: /devices/virtual/tty/ttyy2
+
+P: /devices/virtual/tty/ttyy3
+
+P: /devices/virtual/tty/ttyy4
+
+P: /devices/virtual/tty/ttyy5
+
+P: /devices/virtual/tty/ttyy6
+
+P: /devices/virtual/tty/ttyy7
+
+P: /devices/virtual/tty/ttyy8
+
+P: /devices/virtual/tty/ttyy9
+
+P: /devices/virtual/tty/ttyya
+
+P: /devices/virtual/tty/ttyyb
+
+P: /devices/virtual/tty/ttyyc
+
+P: /devices/virtual/tty/ttyyd
+
+P: /devices/virtual/tty/ttyye
+
+P: /devices/virtual/tty/ttyyf
+
+P: /devices/virtual/tty/ttyz0
+
+P: /devices/virtual/tty/ttyz1
+
+P: /devices/virtual/tty/ttyz2
+
+P: /devices/virtual/tty/ttyz3
+
+P: /devices/virtual/tty/ttyz4
+
+P: /devices/virtual/tty/ttyz5
+
+P: /devices/virtual/tty/ttyz6
+
+P: /devices/virtual/tty/ttyz7
+
+P: /devices/virtual/tty/ttyz8
+
+P: /devices/virtual/tty/ttyz9
+
+P: /devices/virtual/tty/ttyza
+
+P: /devices/virtual/tty/ttyzb
+
+P: /devices/virtual/tty/ttyzc
+
+P: /devices/virtual/tty/ttyzd
+
+P: /devices/virtual/tty/ttyze
+
+P: /devices/virtual/tty/ttyzf
+
+P: /devices/virtual/vc-mem/vc-mem
+
+P: /devices/virtual/vc-sm/vcsm
+
+P: /devices/virtual/vc/vcs
+
+P: /devices/virtual/vc/vcs1
+
+P: /devices/virtual/vc/vcs3
+
+P: /devices/virtual/vc/vcs4
+
+P: /devices/virtual/vc/vcs5
+
+P: /devices/virtual/vc/vcs6
+
+P: /devices/virtual/vc/vcsa
+
+P: /devices/virtual/vc/vcsa1
+
+P: /devices/virtual/vc/vcsa3
+
+P: /devices/virtual/vc/vcsa4
+
+P: /devices/virtual/vc/vcsa5
+
+P: /devices/virtual/vc/vcsa6
+
+P: /devices/virtual/vc/vcsu
+
+P: /devices/virtual/vc/vcsu1
+
+P: /devices/virtual/vc/vcsu3
+
+P: /devices/virtual/vc/vcsu4
+
+P: /devices/virtual/vc/vcsu5
+
+P: /devices/virtual/vc/vcsu6
+
+P: /devices/virtual/vtconsole/vtcon0
+A: name=(S) dummy device
+A: bind=0
+
+P: /devices/virtual/vtconsole/vtcon1
+A: bind=1
+A: name=(M) frame buffer device
+
+P: /devices/virtual/workqueue/blkcg_punt_bio
+A: pool_ids=0:8
+A: per_cpu=0
+A: nice=0
+A: max_active=256
+A: numa=1
+A: cpumask=f
+
+P: /devices/virtual/workqueue/nvme-delete-wq
+A: cpumask=f
+A: numa=1
+A: nice=0
+A: per_cpu=0
+A: max_active=256
+A: pool_ids=0:8
+
+P: /devices/virtual/workqueue/nvme-reset-wq
+A: numa=1
+A: per_cpu=0
+A: nice=0
+A: cpumask=f
+A: max_active=256
+A: pool_ids=0:8
+
+P: /devices/virtual/workqueue/nvme-wq
+A: nice=0
+A: per_cpu=0
+A: cpumask=f
+A: pool_ids=0:8
+A: numa=1
+A: max_active=256
+
+P: /devices/virtual/workqueue/writeback
+A: cpumask=f
+A: pool_ids=0:8
+A: per_cpu=0
+A: nice=0
+A: max_active=256
+A: numa=1
+

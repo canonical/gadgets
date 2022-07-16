@@ -1,0 +1,14 @@
++ ip link set vcan0 down
++ ip link set dev vcan0 mtu 72
++ ip link set vcan0 up
++ socketcan_test.py vcan0 1A --fdmode
+Using source ID: 1A
+Sending data: 6c3739ab67b8388fa2ebc4fa32ef2615ec874b965ec8f90521210106e60531c8e718c708fad1dff840d4d81befd9ecb78c3c09062a9dbf03b1cce0f788a9ed0b
+Opening read socket on vcan0
+Opening send socket on vcan0
+Sending data...
+Received packet
+  ID  : 1a
+  Data: 6c3739ab67b8388fa2ebc4fa32ef2615ec874b965ec8f90521210106e60531c8e718c708fad1dff840d4d81befd9ecb78c3c09062a9dbf03b1cce0f788a9ed0b
+
+PASSED

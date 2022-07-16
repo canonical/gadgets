@@ -1,0 +1,10 @@
+arch: armhf
+compose_command: docker-compose
+root_dir: /var/lib/docker
+path: {{.Path}}
+image: {{.Config.Image}}
+status: {{.State.Status}}
+exitcode: {{.State.ExitCode}}
+restartPolicy: {{.HostConfig.RestartPolicy.Name}}
+maximumRetryCount: {{.HostConfig.RestartPolicy.MaximumRetryCount}}
+restartCount: {{.RestartCount}}

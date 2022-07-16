@@ -1,0 +1,27 @@
+{
+    "System": [
+        "Kernel: 5.4.0-1066-raspi armv7l",
+        "Distro: Ubuntu Core 20"
+    ],
+    "Machine": [
+        "Type: ARM Device System: Raspberry Pi Compute Module 3 Plus Rev 1.0 details: BCM2835 rev: a02100 "
+    ],
+    "Memory": [
+        "920 MiB"
+    ],
+    "Audio": [
+        "bcm2835-audio",
+        "bcm2835-hdmi"
+    ],
+    "Graphics": [
+        "bcm2835-vc4",
+        "bcm2835-hdmi"
+    ],
+    "Network": [
+        "bcm2835-sdhci",
+        "Realtek USB 10/100/1000 LAN"
+    ],
+    "Drives": [
+        "8GTF4R 7.28 GiB "
+    ]
+}

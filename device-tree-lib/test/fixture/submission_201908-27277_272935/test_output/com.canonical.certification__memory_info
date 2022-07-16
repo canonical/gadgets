@@ -1,0 +1,5 @@
+Results:
+	/proc/meminfo reports:	920.01MiB
+	lshw reports:	920.01MiB
+
+PASS: Meminfo reports 0B less than lshw, a difference of 0.00%. This is less than the 25% variance allowed.

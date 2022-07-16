@@ -1,0 +1,15 @@
++ ip link set vcan0 down
++ ip link set dev vcan0 mtu 16
++ ip link set vcan0 up
++ socketcan_test.py vcan0 1F334455 --effid
+Using source ID: 1F334455
+Setting EFF CAN ID flag
+Sending data: 93788fdb35504546
+Opening read socket on vcan0
+Opening send socket on vcan0
+Sending data...
+Received packet
+  ID  : 1f334455
+  Data: 93788fdb35504546
+
+PASSED

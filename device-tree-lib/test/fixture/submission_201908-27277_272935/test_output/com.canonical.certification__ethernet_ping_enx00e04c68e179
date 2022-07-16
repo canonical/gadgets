@@ -1,0 +1,12 @@
+Adjusting deadline to 3 seconds to fit 2 pings
+Desired ip address 10.102.156.1 is reachable, using it
+Checking connectivity to 10.102.156.1
+PING 10.102.156.1 (10.102.156.1) from 10.102.156.129 enx00e04c68e179: 56(84) bytes of data.
+64 bytes from 10.102.156.1: icmp_seq=1 ttl=64 time=0.657 ms
+64 bytes from 10.102.156.1: icmp_seq=2 ttl=64 time=0.650 ms
+
+--- 10.102.156.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1029ms
+rtt min/avg/max/mdev = 0.650/0.653/0.657/0.003 ms
+
+Connection to test host fully established

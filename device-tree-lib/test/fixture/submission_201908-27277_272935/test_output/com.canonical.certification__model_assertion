@@ -1,0 +1,13 @@
+type: model
+authority-id: canonical
+brand-id: canonical
+model: ubuntu-core-20-pi-armhf-dangerous
+architecture: armhf
+base: core20
+grade: dangerous
+sign-key-sha3-384: 9tydnLa6MTJ-jaQTFUXEwHl1yRx7ZS4K5cyFDhYDcPzhS7uyEkDxdUjg9g08BtNn
+gadget: pi
+gadget_track: 20/edge
+kernel: pi-kernel
+kernel_track: 20/edge
+

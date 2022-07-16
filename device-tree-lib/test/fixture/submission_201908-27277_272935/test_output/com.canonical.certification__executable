@@ -1,0 +1,2586 @@
+
+
+name: 80211_resource
+
+name: [
+
+name: aa-enabled
+
+name: aa-exec
+
+name: aa-remove-unknown
+
+name: aa-status
+
+name: aa-teardown
+
+name: ab
+
+name: accelerometer_test.py
+
+name: acpibin
+
+name: acpidump
+
+name: acpiexamples
+
+name: acpiexec
+
+name: acpihelp
+
+name: acpisrc
+
+name: acpixtract
+
+name: add-shell
+
+name: addgroup
+
+name: addpart
+
+name: adduser
+
+name: agetty
+
+name: alsa_info
+
+name: alsa_pcm_info.py
+
+name: alsa_record_playback.sh
+
+name: alsa_test
+
+name: alsa_tests.py
+
+name: ansi_parser.py
+
+name: apparmor_parser
+
+name: apparmor_status
+
+name: arch
+
+name: arp
+
+name: arpd
+
+name: arptables
+
+name: arptables-nft
+
+name: arptables-nft-restore
+
+name: arptables-nft-save
+
+name: arptables-restore
+
+name: arptables-save
+
+name: assistant
+
+name: audio_bluetooth_loopback_test.sh
+
+name: audio_driver_info.py
+
+name: audio_settings.py
+
+name: audio_test.py
+
+name: awk
+
+name: b2sum
+
+name: badblocks
+
+name: base32
+
+name: base64
+
+name: basename
+
+name: bash
+
+name: bashbug
+
+name: battery_test.py
+
+name: bc
+
+name: blkdeactivate
+
+name: blkdiscard
+
+name: blkid
+
+name: blkzone
+
+name: block_device_resource.py
+
+name: blockdev
+
+name: bluetooth_test.py
+
+name: bluetooth_transfer_stress.sh
+
+name: bluez_list_adapters.py
+
+name: bmc-config
+
+name: bmc-device
+
+name: bmc-info
+
+name: bmc_info.py
+
+name: bnep-tester
+
+name: bon_csv2html
+
+name: bon_csv2txt
+
+name: bonnie
+
+name: bonnie++
+
+name: boot_mode_test.py
+
+name: boot_mode_test_snappy.py
+
+name: bootctl
+
+name: booted_dtb_tests.py
+
+name: booted_kernel_tests.py
+
+name: bootloader_resource.py
+
+name: bridge
+
+name: brightness_test.py
+
+name: broadband_info.sh
+
+name: bt_connect.py
+
+name: bt_list_adapters.py
+
+name: bunzip2
+
+name: busctl
+
+name: bzcat
+
+name: bzcmp
+
+name: bzdiff
+
+name: bzegrep
+
+name: bzexe
+
+name: bzfgrep
+
+name: bzgrep
+
+name: bzip2
+
+name: bzip2recover
+
+name: bzless
+
+name: bzmore
+
+name: c_rehash
+
+name: camera_test.py
+
+name: camera_test_rpi.py
+
+name: canonical-certification-cli
+
+name: canonical-certification-client
+
+name: capsh
+
+name: captoinfo
+
+name: cat
+
+name: catchsegv
+
+name: cautious-launcher
+
+name: cdimage_resource.py
+
+name: certify-18.04
+
+name: certify-20.04
+
+name: certify-22.04
+
+name: certify-soc-18.04
+
+name: certify-soc-20.04
+
+name: certify-soc-22.04
+
+name: certify-vm-18.04
+
+name: certify-vm-20.04
+
+name: certify-vm-22.04
+
+name: cfdisk
+
+name: chage
+
+name: chardet3
+
+name: chardetect3
+
+name: chattr
+
+name: chcon
+
+name: chcpu
+
+name: check-bios-nx
+
+name: check-iwlwifi-microcode-sw-error.sh
+
+name: check-ubuntu-desktop-recommends.sh
+
+name: check_forensic
+
+name: check_is_laptop.sh
+
+name: check_prerelease.py
+
+name: check_static.py
+
+name: checkbox-cli
+
+name: checkbox-cli-wrapper
+
+name: checkbox-provider-tools
+
+name: checkbox-support-eddystone_scanner
+
+name: checkbox-support-fwts_test
+
+name: checkbox-support-lsusb
+
+name: checkbox-support-nmea_test
+
+name: checkbox-support-parse
+
+name: checkbox-support-run_watcher
+
+name: checkbox-support-snap_connect
+
+name: checkbox-support-usb_read_write
+
+name: checkbox-support-zapper-proxy
+
+name: checkbox-touchpad
+
+name: checkbox.checkbox-cli
+
+name: checkbox.client-cert-iot-ubuntucore
+
+name: checkbox.configure
+
+name: checkbox.shell
+
+name: checkbox.sru
+
+name: checkbox.test-runner
+
+name: checkgid
+
+name: chfn
+
+name: chgpasswd
+
+name: chgrp
+
+name: chmem
+
+name: chmod
+
+name: choom
+
+name: chown
+
+name: chpasswd
+
+name: chroot
+
+name: chrt
+
+name: chsh
+
+name: cksum
+
+name: clear
+
+name: clear_console
+
+name: clevis
+
+name: clevis-decrypt
+
+name: clevis-decrypt-sss
+
+name: clevis-decrypt-tang
+
+name: clevis-decrypt-tpm2
+
+name: clevis-encrypt-sss
+
+name: clevis-encrypt-tang
+
+name: clevis-encrypt-tpm2
+
+name: client-cert-iot-ubuntucore
+
+name: clocktest
+
+name: cloud-id
+
+name: cloud-init
+
+name: cloud-init-per
+
+name: cmp
+
+name: color_depth_info.py
+
+name: comm
+
+name: compose
+
+name: configure
+
+name: connect_wireless.sh
+
+name: console-conf
+
+name: core-sshd-host-keygen
+
+name: corelist
+
+name: cp
+
+name: cpan
+
+name: cpan5.30-arm-linux-gnueabihf
+
+name: cpgr
+
+name: cppw
+
+name: cpu_offlining.py
+
+name: cpu_topology.py
+
+name: cpufreq_test.py
+
+name: cpuid.py
+
+name: cpuinfo_resource.py
+
+name: cracklib-check
+
+name: cracklib-format
+
+name: cracklib-packer
+
+name: cracklib-unpacker
+
+name: create-cracklib-dict
+
+name: create_connection.py
+
+name: cryptdisks_start
+
+name: cryptdisks_stop
+
+name: cryptsetup
+
+name: cryptsetup-reencrypt
+
+name: csplit
+
+name: ctrlaltdel
+
+name: ctstat
+
+name: curl
+
+name: cut
+
+name: cvtsudoers
+
+name: cycle_vts.sh
+
+name: dash
+
+name: date
+
+name: dbus-cleanup-sockets
+
+name: dbus-daemon
+
+name: dbus-monitor
+
+name: dbus-run-session
+
+name: dbus-send
+
+name: dbus-update-activation-environment
+
+name: dbus-uuidgen
+
+name: dd
+
+name: ddcmon
+
+name: deb-systemd-helper
+
+name: deb-systemd-invoke
+
+name: debsums
+
+name: debsums_init
+
+name: debugfs
+
+name: decode-dimms
+
+name: decode-edid
+
+name: decode-vaio
+
+name: delgroup
+
+name: delpart
+
+name: deluser
+
+name: depmod
+
+name: designer
+
+name: devlink
+
+name: df
+
+name: dh_bash-completion
+
+name: dhclient
+
+name: dhclient-script
+
+name: diff
+
+name: diff3
+
+name: dir
+
+name: dircolors
+
+name: dirname
+
+name: disk_cpu_load.sh
+
+name: disk_info.py
+
+name: disk_read_performance_test.sh
+
+name: disk_smart.py
+
+name: disk_stats_test.sh
+
+name: display_resource.py
+
+name: distro
+
+name: dkms_build_validation
+
+name: dkms_info.py
+
+name: dmesg
+
+name: dmi_resource.py
+
+name: dmi_sysfs_resource.py
+
+name: dmidecode
+
+name: dmitest.py
+
+name: dmsetup
+
+name: dmstats
+
+name: dnsdomainname
+
+name: domainname
+
+name: dosfsck
+
+name: dosfslabel
+
+name: dpkg
+
+name: dpkg-deb
+
+name: dpkg-divert
+
+name: dpkg-maintscript-helper
+
+name: dpkg-query
+
+name: dpkg-split
+
+name: dpkg-statoverride
+
+name: dpkg-trigger
+
+name: dpkg_resource.py
+
+name: du
+
+name: dumpe2fs
+
+name: e2freefrag
+
+name: e2fsck
+
+name: e2image
+
+name: e2label
+
+name: e2mmpstatus
+
+name: e2scrub
+
+name: e2scrub_all
+
+name: e2undo
+
+name: e4crypt
+
+name: e4defrag
+
+name: ebtables
+
+name: ebtables-nft
+
+name: ebtables-nft-restore
+
+name: ebtables-nft-save
+
+name: ebtables-restore
+
+name: ebtables-save
+
+name: ec2metadata
+
+name: echo
+
+name: edid_cycle.py
+
+name: edit
+
+name: editor
+
+name: efi-pxeboot.py
+
+name: efi_resource.py
+
+name: efibootdump
+
+name: efibootmgr
+
+name: egrep
+
+name: enc2xs
+
+name: encguess
+
+name: env
+
+name: eth_hotplugging.py
+
+name: ethtool
+
+name: evdev_touch_test.py
+
+name: ex
+
+name: expand
+
+name: expiry
+
+name: expr
+
+name: factor
+
+name: failed_service_check.sh
+
+name: faillock
+
+name: faillog
+
+name: fallocate
+
+name: false
+
+name: fan_reaction_test.py
+
+name: fatlabel
+
+name: fc-cache
+
+name: fc-cat
+
+name: fc-conflist
+
+name: fc-list
+
+name: fc-match
+
+name: fc-pattern
+
+name: fc-query
+
+name: fc-scan
+
+name: fc-validate
+
+name: fcgistarter
+
+name: fde_tests.py
+
+name: fdformat
+
+name: fdisk
+
+name: fgrep
+
+name: file
+
+name: filefrag
+
+name: finalrd
+
+name: fincore
+
+name: find
+
+name: findfs
+
+name: findmnt
+
+name: fixed_screen_orientation.sh
+
+name: flock
+
+name: fmt
+
+name: fold
+
+name: free
+
+name: frequency_governors_test.py
+
+name: fresh_rate_info.py
+
+name: fsck
+
+name: fsck.cramfs
+
+name: fsck.ext2
+
+name: fsck.ext3
+
+name: fsck.ext4
+
+name: fsck.fat
+
+name: fsck.minix
+
+name: fsck.msdos
+
+name: fsck.vfat
+
+name: fsfreeze
+
+name: fstab-decode
+
+name: fstrim
+
+name: fstrim_test.py
+
+name: fswebcam
+
+name: fwts
+
+name: gap-tester
+
+name: gateway_ping_test.py
+
+name: gatt-notify-test.py
+
+name: gcov_tarball.sh
+
+name: gdbserver
+
+name: generate_randfile
+
+name: genl
+
+name: get_make_and_model.py
+
+name: getc_putc
+
+name: getc_putc_helper
+
+name: getcap
+
+name: getconf
+
+name: getent
+
+name: getopt
+
+name: getpcaps
+
+name: getty
+
+name: glmark2-es2
+
+name: glxdemo
+
+name: glxgears
+
+name: glxheads
+
+name: glxinfo
+
+name: gnome-screenshot
+
+name: gnome_randr_cycle.py
+
+name: gpasswd
+
+name: gpgv
+
+name: gpio_gpiomem_loopback.py
+
+name: gpio_sysfs_loopback.py
+
+name: gpu_test.py
+
+name: gputest_benchmark.py
+
+name: graphic_memory_info.py
+
+name: graphics_card_resource.py
+
+name: graphics_driver.py
+
+name: graphics_env.sh
+
+name: graphics_modes_info.py
+
+name: graphics_stress_test.py
+
+name: grep
+
+name: groupadd
+
+name: groupdel
+
+name: groupmems
+
+name: groupmod
+
+name: groups
+
+name: growpart
+
+name: grpck
+
+name: grpconv
+
+name: grpunconv
+
+name: gst-inspect-1.0
+
+name: gst-launch-1.0
+
+name: gst-typefind-1.0
+
+name: gst_pipeline_test.py
+
+name: gtk-update-icon-cache
+
+name: gunzip
+
+name: gzexe
+
+name: gzip
+
+name: h2ph
+
+name: h2xs
+
+name: halt
+
+name: hci-tester
+
+name: hdd_parking.py
+
+name: hdparm
+
+name: head
+
+name: helpztags
+
+name: hostid
+
+name: hostname
+
+name: hostnamectl
+
+name: hotkey_tests.py
+
+name: htcacheclean
+
+name: htdbm
+
+name: htdigest
+
+name: htpasswd
+
+name: httxt2dbm
+
+name: hwclock
+
+name: i2c-stub-from-dump
+
+name: i2c_driver_test.py
+
+name: i2cdetect
+
+name: i2cdump
+
+name: i2cget
+
+name: i2cset
+
+name: i2ctransfer
+
+name: iasl
+
+name: iconv
+
+name: iconvconfig
+
+name: id
+
+name: ifconfig
+
+name: infocmp
+
+name: infotocap
+
+name: init
+
+name: insmod
+
+name: install
+
+name: install-method-check.sh
+
+name: installkernel
+
+name: instmodsh
+
+name: integritysetup
+
+name: invoke-rc.d
+
+name: inxi_snapshot
+
+name: ionice
+
+name: ip
+
+name: ip6tables
+
+name: ip6tables-apply
+
+name: ip6tables-legacy
+
+name: ip6tables-legacy-restore
+
+name: ip6tables-legacy-save
+
+name: ip6tables-nft
+
+name: ip6tables-nft-restore
+
+name: ip6tables-nft-save
+
+name: ip6tables-restore
+
+name: ip6tables-restore-translate
+
+name: ip6tables-save
+
+name: ip6tables-translate
+
+name: ipcmk
+
+name: ipcrm
+
+name: ipcs
+
+name: iperf
+
+name: iperf3
+
+name: ipmaddr
+
+name: ipmi-chassis
+
+name: ipmi-chassis-config
+
+name: ipmi-config
+
+name: ipmi-console
+
+name: ipmi-dcmi
+
+name: ipmi-fru
+
+name: ipmi-locate
+
+name: ipmi-oem
+
+name: ipmi-pef-config
+
+name: ipmi-pet
+
+name: ipmi-ping
+
+name: ipmi-power
+
+name: ipmi-raw
+
+name: ipmi-sel
+
+name: ipmi-sensors
+
+name: ipmi-sensors-config
+
+name: ipmi_test.py
+
+name: ipmiconsole
+
+name: ipmievd
+
+name: ipmimonitoring
+
+name: ipmiping
+
+name: ipmipower
+
+name: ipmitool
+
+name: iptables
+
+name: iptables-apply
+
+name: iptables-legacy
+
+name: iptables-legacy-restore
+
+name: iptables-legacy-save
+
+name: iptables-nft
+
+name: iptables-nft-restore
+
+name: iptables-nft-save
+
+name: iptables-restore
+
+name: iptables-restore-translate
+
+name: iptables-save
+
+name: iptables-translate
+
+name: iptables-xml
+
+name: iptunnel
+
+name: ischroot
+
+name: isosize
+
+name: iw
+
+name: join
+
+name: jose
+
+name: journalctl
+
+name: jq
+
+name: json_pp
+
+name: json_xs
+
+name: jsondiff
+
+name: jsonpatch
+
+name: jsonpatch-jsondiff
+
+name: jsonpointer
+
+name: jsonschema
+
+name: kernel-install
+
+name: kernel_taint_test.py
+
+name: kernelscan
+
+name: key_test.py
+
+name: keyboard_test.py
+
+name: kill
+
+name: killall5
+
+name: kmod
+
+name: kvm-ok
+
+name: l2cap-tester
+
+name: last
+
+name: lastb
+
+name: lastlog
+
+name: lcf
+
+name: lconvert
+
+name: ldattach
+
+name: ldconfig
+
+name: ldconfig.real
+
+name: ldd
+
+name: led_hdd_test.sh
+
+name: led_sysfs_brightness.py
+
+name: less
+
+name: lessecho
+
+name: lessfile
+
+name: lesskey
+
+name: lesspipe
+
+name: libnetcfg
+
+name: light_sensor_test.sh
+
+name: linguist
+
+name: link
+
+name: linux32
+
+name: linux64
+
+name: lk-boot-env
+
+name: ln
+
+name: lnstat
+
+name: locale
+
+name: locale-check
+
+name: localectl
+
+name: localedef
+
+name: lock_screen_watcher.py
+
+name: logger
+
+name: login
+
+name: loginctl
+
+name: logname
+
+name: logresolve
+
+name: logsave
+
+name: losetup
+
+name: lrelease
+
+name: ls
+
+name: lsattr
+
+name: lsb_release
+
+name: lsb_resource.py
+
+name: lsblk
+
+name: lscpu
+
+name: lshw
+
+name: lsipc
+
+name: lslocks
+
+name: lslogins
+
+name: lsmem
+
+name: lsmod
+
+name: lsmod_info.py
+
+name: lsns
+
+name: lspci
+
+name: lsusb
+
+name: luksformat
+
+name: luksmeta
+
+name: lupdate
+
+name: lzmainfo
+
+name: mac_passthrough.py
+
+name: man
+
+name: manage_compiz_plugin.py
+
+name: mawk
+
+name: mcookie
+
+name: md5sum
+
+name: md5sum.textutils
+
+name: meminfo_resource.py
+
+name: memory_compare.py
+
+name: memory_test.py
+
+name: mesg
+
+name: mgmt-tester
+
+name: mii-tool
+
+name: miniterm
+
+name: mkdir
+
+name: mkdosfs
+
+name: mke2fs
+
+name: mkfifo
+
+name: mkfs
+
+name: mkfs.bfs
+
+name: mkfs.cramfs
+
+name: mkfs.ext2
+
+name: mkfs.ext3
+
+name: mkfs.ext4
+
+name: mkfs.fat
+
+name: mkfs.minix
+
+name: mkfs.msdos
+
+name: mkfs.vfat
+
+name: mkhomedir_helper
+
+name: mklost+found
+
+name: mknod
+
+name: mksquashfs
+
+name: mkswap
+
+name: mkswapfile
+
+name: mktemp
+
+name: mobilebroadband_resource.sh
+
+name: moc
+
+name: modinfo
+
+name: modprobe
+
+name: module_loaded_test.py
+
+name: module_resource.py
+
+name: mokutil
+
+name: more
+
+name: mount
+
+name: mountpoint
+
+name: multitap_test.py
+
+name: mv
+
+name: namei
+
+name: nameif
+
+name: natsort
+
+name: nawk
+
+name: nc
+
+name: nc.openbsd
+
+name: net_driver_info.py
+
+name: net_if_management.py
+
+name: net_if_watcher.py
+
+name: netcat
+
+name: netplan
+
+name: netstat
+
+name: network.py
+
+name: network_check.py
+
+name: network_configs.sh
+
+name: network_device_info.py
+
+name: network_ntp_test.py
+
+name: network_predictable_names.sh
+
+name: network_printer_test.sh
+
+name: network_reconnect_resume_test.py
+
+name: network_restart.py
+
+name: network_wait.sh
+
+name: networkctl
+
+name: newgrp
+
+name: newusers
+
+name: nfnl_osf
+
+name: nice
+
+name: nisdomainname
+
+name: nl
+
+name: nmap
+
+name: nohup
+
+name: nologin
+
+name: nping
+
+name: nproc
+
+name: nsenter
+
+name: nstat
+
+name: numfmt
+
+name: nvidia_nvlink_check.sh
+
+name: nvme
+
+name: obex-check-device
+
+name: obexftp
+
+name: obexftpd
+
+name: obexget
+
+name: obexls
+
+name: obexput
+
+name: obexrm
+
+name: od
+
+name: openssl
+
+name: optical_read_test.py
+
+name: optical_resource.py
+
+name: optical_write_test.sh
+
+name: pa-info
+
+name: pacat
+
+name: pacmd
+
+name: pactl
+
+name: pactl_list.sh
+
+name: padsp
+
+name: pager
+
+name: pam-auth-update
+
+name: pam_extrausers_chkpwd
+
+name: pam_extrausers_update
+
+name: pam_getenv
+
+name: pam_tally
+
+name: pam_tally2
+
+name: pam_timestamp_check
+
+name: pamon
+
+name: paplay
+
+name: parec
+
+name: parecord
+
+name: parted
+
+name: partprobe
+
+name: partx
+
+name: passwd
+
+name: paste
+
+name: pasuspender
+
+name: pathchk
+
+name: pax11publish
+
+name: pdb3
+
+name: pdb3.8
+
+name: pef-config
+
+name: perl
+
+name: perl5.30-arm-linux-gnueabihf
+
+name: perl5.30.0
+
+name: perlbug
+
+name: perldoc
+
+name: perlivp
+
+name: perlthanks
+
+name: pgrep
+
+name: piconv
+
+name: pidof
+
+name: ping
+
+name: ping4
+
+name: ping6
+
+name: pinky
+
+name: pip
+
+name: pip3
+
+name: pivot_root
+
+name: pixeltool
+
+name: pkill
+
+name: pl2pm
+
+name: pldd
+
+name: plipconfig
+
+name: plug_connected_test.py
+
+name: pm_log_check.py
+
+name: pm_test.py
+
+name: pmap
+
+name: pod2html
+
+name: pod2man
+
+name: pod2text
+
+name: pod2usage
+
+name: podchecker
+
+name: podselect
+
+name: poweroff
+
+name: pr
+
+name: print
+
+name: printenv
+
+name: printf
+
+name: prlimit
+
+name: process_wait.py
+
+name: prove
+
+name: ps
+
+name: ptar
+
+name: ptardiff
+
+name: ptargrep
+
+name: ptx
+
+name: pulse_active_port_change.py
+
+name: pwck
+
+name: pwconv
+
+name: pwd
+
+name: pwdx
+
+name: pwmake
+
+name: pwscore
+
+name: pwunconv
+
+name: py3clean
+
+name: py3compile
+
+name: py3versions
+
+name: pydoc3
+
+name: pydoc3.8
+
+name: pygettext3
+
+name: pygettext3.8
+
+name: pyjwt3
+
+name: python
+
+name: python3
+
+name: python3.8
+
+name: qcollectiongenerator
+
+name: qdbus
+
+name: qdbuscpp2xml
+
+name: qdbusviewer
+
+name: qdbusxml2cpp
+
+name: qdoc
+
+name: qdoc3
+
+name: qgltf
+
+name: qhelpconverter
+
+name: qhelpgenerator
+
+name: qlalr
+
+name: qmake
+
+name: qml
+
+name: qml1plugindump
+
+name: qmlbundle
+
+name: qmlcachegen
+
+name: qmleasing
+
+name: qmlimportscanner
+
+name: qmljs
+
+name: qmllint
+
+name: qmlmin
+
+name: qmlplugindump
+
+name: qmlprofiler
+
+name: qmlscene
+
+name: qmltestrunner
+
+name: qmlviewer
+
+name: qtattributionsscanner
+
+name: qtchooser
+
+name: qtconfig
+
+name: qtdiag
+
+name: qtpaths
+
+name: qtplugininfo
+
+name: qvkgen
+
+name: rarp
+
+name: raw
+
+name: rbash
+
+name: rcc
+
+name: rcp
+
+name: rdebsums
+
+name: rdma
+
+name: readlink
+
+name: readprofile
+
+name: realpath
+
+name: reboot
+
+name: recovery_info.py
+
+name: removable_storage_test.py
+
+name: removable_storage_watcher.py
+
+name: remove-shell
+
+name: rename.ul
+
+name: renice
+
+name: repc
+
+name: reset
+
+name: resize2fs
+
+name: resizepart
+
+name: resolution_test.py
+
+name: resolvectl
+
+name: rev
+
+name: rfcomm-tester
+
+name: rfkill
+
+name: rgrep
+
+name: rlogin
+
+name: rm
+
+name: rmcp-ping
+
+name: rmcpping
+
+name: rmdir
+
+name: rmmod
+
+name: rmt
+
+name: rmt-tar
+
+name: rotatelogs
+
+name: rotation_test.py
+
+name: roundtrip_qr.py
+
+name: route
+
+name: routef
+
+name: routel
+
+name: rsh
+
+name: rtacct
+
+name: rtcwake
+
+name: rtmon
+
+name: rtstat
+
+name: run-mailcap
+
+name: run-parts
+
+name: runcon
+
+name: runlevel
+
+name: runuser
+
+name: rview
+
+name: savelog
+
+name: sco-tester
+
+name: scp
+
+name: screenoff.sh
+
+name: screenshot_validation
+
+name: script
+
+name: scriptreplay
+
+name: sdiff
+
+name: sed
+
+name: see
+
+name: select-editor
+
+name: sensible-browser
+
+name: sensible-editor
+
+name: sensible-pager
+
+name: seq
+
+name: serial_loopback.py
+
+name: service
+
+name: setarch
+
+name: setcap
+
+name: setpci
+
+name: setpriv
+
+name: setsid
+
+name: setterm
+
+name: sfdisk
+
+name: sftp
+
+name: sg
+
+name: sh
+
+name: sha1sum
+
+name: sha224sum
+
+name: sha256sum
+
+name: sha384sum
+
+name: sha512sum
+
+name: shadowconfig
+
+name: shasum
+
+name: shell-wrapper
+
+name: short-idle-check.sh
+
+name: shred
+
+name: shuf
+
+name: shutdown
+
+name: skill
+
+name: slabtop
+
+name: slattach
+
+name: sleep
+
+name: sleep_test.py
+
+name: sleep_test_log_check.py
+
+name: sleep_time_check.py
+
+name: slogin
+
+name: smartctl
+
+name: smartd
+
+name: smp-tester
+
+name: snap
+
+name: snap_confinement_test.py
+
+name: snap_tests.py
+
+name: snapctl
+
+name: snapd_resource.py
+
+name: snice
+
+name: socketcan_test.py
+
+name: sof_ri_info.py
+
+name: sort
+
+name: sources_test.sh
+
+name: splain
+
+name: split
+
+name: split-logfile
+
+name: sru
+
+name: ss
+
+name: ssh
+
+name: ssh-add
+
+name: ssh-agent
+
+name: ssh-argv0
+
+name: ssh-copy-id
+
+name: ssh-keygen
+
+name: ssh-keyscan
+
+name: sshd
+
+name: start-stop-daemon
+
+name: stat
+
+name: stdbuf
+
+name: storage_test.py
+
+name: stress-ng
+
+name: stress_ng_test.py
+
+name: stty
+
+name: su
+
+name: sudo
+
+name: sudoedit
+
+name: sudoreplay
+
+name: sulogin
+
+name: sum
+
+name: swaplabel
+
+name: swapoff
+
+name: swapon
+
+name: switch_root
+
+name: sync
+
+name: sysctl
+
+name: system_info.py
+
+name: systemctl
+
+name: systemd
+
+name: systemd-analyze
+
+name: systemd-ask-password
+
+name: systemd-cat
+
+name: systemd-cgls
+
+name: systemd-cgtop
+
+name: systemd-delta
+
+name: systemd-detect-virt
+
+name: systemd-escape
+
+name: systemd-hwdb
+
+name: systemd-id128
+
+name: systemd-inhibit
+
+name: systemd-machine-id-setup
+
+name: systemd-mount
+
+name: systemd-notify
+
+name: systemd-path
+
+name: systemd-resolve
+
+name: systemd-run
+
+name: systemd-socket-activate
+
+name: systemd-stdio-bridge
+
+name: systemd-sysusers
+
+name: systemd-tmpfiles
+
+name: systemd-tty-ask-password-agent
+
+name: systemd-umount
+
+name: tabs
+
+name: tac
+
+name: tail
+
+name: tar
+
+name: tarcat
+
+name: taskset
+
+name: tc
+
+name: tee
+
+name: telinit
+
+name: tempfile
+
+name: test
+
+name: test-cpu
+
+name: test-firmware
+
+name: test-functional-18.04
+
+name: test-functional-20.04
+
+name: test-functional-22.04
+
+name: test-gpgpu
+
+name: test-iso-install
+
+name: test-memory
+
+name: test-network
+
+name: test-network-underspeed
+
+name: test-nvdimm
+
+name: test-regression
+
+name: test-runner
+
+name: test-storage
+
+name: test-stress
+
+name: test-usb
+
+name: test-virtualization
+
+name: test_algs.sh
+
+name: test_algs_tpm2_encryptdecrypt.sh
+
+name: test_algs_tpm2_getpubak.sh
+
+name: test_algs_tpm2_getpubek.sh
+
+name: test_algs_tpm2_hmac.sh
+
+name: test_algs_tpm2_quote.sh
+
+name: test_algs_tpm2_readpublic.sh
+
+name: test_algs_tpm2_sign.sh
+
+name: test_algs_tpm2_unseal.sh
+
+name: test_algs_tpm2_verifysignature.sh
+
+name: test_all.sh
+
+name: test_bt_keyboard.py
+
+name: test_smoking.sh
+
+name: test_tpm2_activecredential.sh
+
+name: test_tpm2_akparse.sh
+
+name: test_tpm2_certify.sh
+
+name: test_tpm2_create_all.sh
+
+name: test_tpm2_createprimary_all.sh
+
+name: test_tpm2_encryptdecrypt.sh
+
+name: test_tpm2_evictcontrol.sh
+
+name: test_tpm2_getpubak.sh
+
+name: test_tpm2_getpubek.sh
+
+name: test_tpm2_getrandom.sh
+
+name: test_tpm2_getrandom_func.sh
+
+name: test_tpm2_hash.sh
+
+name: test_tpm2_hash_all.sh
+
+name: test_tpm2_hmac.sh
+
+name: test_tpm2_listpcrs.sh
+
+name: test_tpm2_load.sh
+
+name: test_tpm2_loadexternal.sh
+
+name: test_tpm2_makecredential.sh
+
+name: test_tpm2_nv.sh
+
+name: test_tpm2_quote.sh
+
+name: test_tpm2_readpublic.sh
+
+name: test_tpm2_rsadecrypt.sh
+
+name: test_tpm2_rsaencrypt.sh
+
+name: test_tpm2_sign.sh
+
+name: test_tpm2_takeownership_all.sh
+
+name: test_tpm2_unseal.sh
+
+name: test_tpm2_verifysignature.sh
+
+name: threaded_memtest
+
+name: tic
+
+name: timedatectl
+
+name: timedatectl.real
+
+name: timeout
+
+name: tipc
+
+name: tload
+
+name: toe
+
+name: top
+
+name: touch
+
+name: touchpad_confidence_bit.py
+
+name: touchpad_driver_info.py
+
+name: touchpad_test.py
+
+name: tpm2_activatecredential
+
+name: tpm2_capabilities.py
+
+name: tpm2_certify
+
+name: tpm2_certifycreation
+
+name: tpm2_changeauth
+
+name: tpm2_changeeps
+
+name: tpm2_changepps
+
+name: tpm2_checkquote
+
+name: tpm2_clear
+
+name: tpm2_clearcontrol
+
+name: tpm2_clockrateadjust
+
+name: tpm2_create
+
+name: tpm2_createak
+
+name: tpm2_createek
+
+name: tpm2_createpolicy
+
+name: tpm2_createprimary
+
+name: tpm2_dictionarylockout
+
+name: tpm2_duplicate
+
+name: tpm2_encryptdecrypt
+
+name: tpm2_evictcontrol
+
+name: tpm2_flushcontext
+
+name: tpm2_getcap
+
+name: tpm2_getekcertificate
+
+name: tpm2_getrandom
+
+name: tpm2_gettestresult
+
+name: tpm2_gettime
+
+name: tpm2_hash
+
+name: tpm2_hierarchycontrol
+
+name: tpm2_hmac
+
+name: tpm2_import
+
+name: tpm2_incrementalselftest
+
+name: tpm2_load
+
+name: tpm2_loadexternal
+
+name: tpm2_makecredential
+
+name: tpm2_nvcertify
+
+name: tpm2_nvdefine
+
+name: tpm2_nvextend
+
+name: tpm2_nvincrement
+
+name: tpm2_nvread
+
+name: tpm2_nvreadlock
+
+name: tpm2_nvreadpublic
+
+name: tpm2_nvsetbits
+
+name: tpm2_nvundefine
+
+name: tpm2_nvwrite
+
+name: tpm2_nvwritelock
+
+name: tpm2_pcrallocate
+
+name: tpm2_pcrevent
+
+name: tpm2_pcrextend
+
+name: tpm2_pcrread
+
+name: tpm2_pcrreset
+
+name: tpm2_policyauthorize
+
+name: tpm2_policyauthorizenv
+
+name: tpm2_policyauthvalue
+
+name: tpm2_policycommandcode
+
+name: tpm2_policycountertimer
+
+name: tpm2_policyduplicationselect
+
+name: tpm2_policylocality
+
+name: tpm2_policynamehash
+
+name: tpm2_policynv
+
+name: tpm2_policynvwritten
+
+name: tpm2_policyor
+
+name: tpm2_policypassword
+
+name: tpm2_policypcr
+
+name: tpm2_policyrestart
+
+name: tpm2_policysecret
+
+name: tpm2_policysigned
+
+name: tpm2_policytemplate
+
+name: tpm2_policyticket
+
+name: tpm2_print
+
+name: tpm2_quote
+
+name: tpm2_rc_decode
+
+name: tpm2_readclock
+
+name: tpm2_readpublic
+
+name: tpm2_rsadecrypt
+
+name: tpm2_rsaencrypt
+
+name: tpm2_selftest
+
+name: tpm2_send
+
+name: tpm2_setclock
+
+name: tpm2_setprimarypolicy
+
+name: tpm2_shutdown
+
+name: tpm2_sign
+
+name: tpm2_startauthsession
+
+name: tpm2_startup
+
+name: tpm2_stirrandom
+
+name: tpm2_testparms
+
+name: tpm2_unseal
+
+name: tpm2_verifysignature
+
+name: tpm_sysfs_resoource.py
+
+name: tput
+
+name: tqdm
+
+name: tr
+
+name: true
+
+name: truncate
+
+name: tset
+
+name: tsort
+
+name: tty
+
+name: tune2fs
+
+name: tzconfig
+
+name: tzselect
+
+name: ubuntucore_image_checks.py
+
+name: ucf
+
+name: ucfq
+
+name: ucfr
+
+name: udev_resource.py
+
+name: udevadm
+
+name: uic
+
+name: uic3
+
+name: umount
+
+name: uname
+
+name: uname_resource.py
+
+name: uncompress
+
+name: unexpand
+
+name: uniq
+
+name: unix_chkpwd
+
+name: unix_update
+
+name: unlink
+
+name: unshare
+
+name: unsquashfs
+
+name: unxz
+
+name: update-alternatives
+
+name: update-ca-certificates
+
+name: update-cracklib
+
+name: update-icon-caches
+
+name: update-mime
+
+name: update-mime-database
+
+name: update-passwd
+
+name: update-pciids
+
+name: update-rc.d
+
+name: update-smart-drivedb
+
+name: uptime
+
+name: usb-devices
+
+name: usbhid-dump
+
+name: usbreset
+
+name: useradd
+
+name: userchan-tester
+
+name: userdel
+
+name: usermod
+
+name: users
+
+name: utmpdump
+
+name: uuidd
+
+name: uuidgen
+
+name: uuidparse
+
+name: vcs-run
+
+name: vdir
+
+name: veritysetup
+
+name: vi
+
+name: view
+
+name: vigr
+
+name: vim.tiny
+
+name: vipw
+
+name: virtualization.py
+
+name: visudo
+
+name: vmstat
+
+name: volume_test.py
+
+name: w
+
+name: w.procps
+
+name: wall
+
+name: watch
+
+name: watchdog_config_test.py
+
+name: wc
+
+name: wdctl
+
+name: wget
+
+name: whereis
+
+name: which
+
+name: who
+
+name: whoami
+
+name: wifi_ap_wizard.py
+
+name: wifi_client_test.py
+
+name: wifi_client_test_netplan.py
+
+name: wifi_master_mode.py
+
+name: wifi_nmcli_backup.py
+
+name: wifi_nmcli_test.py
+
+name: wifi_time2reconnect.py
+
+name: window_test.py
+
+name: wipefs
+
+name: wmctrl
+
+name: wpa_action
+
+name: wpa_cli
+
+name: wpa_passphrase
+
+name: wpa_supplicant
+
+name: wrapper_local
+
+name: wwan_tests.py
+
+name: xargs
+
+name: xdg-open
+
+name: xdg-settings
+
+name: xinput_resource.py
+
+name: xmlpatterns
+
+name: xmlpatternsvalidator
+
+name: xrandr_cycle.py
+
+name: xsubpp
+
+name: xtables-legacy-multi
+
+name: xtables-monitor
+
+name: xtables-nft-multi
+
+name: xxd
+
+name: xz
+
+name: xzcat
+
+name: xzcmp
+
+name: xzdiff
+
+name: xzegrep
+
+name: xzfgrep
+
+name: xzgrep
+
+name: xzless
+
+name: xzmore
+
+name: yes
+
+name: ypdomainname
+
+name: zcat
+
+name: zcav
+
+name: zcmp
+
+name: zdiff
+
+name: zdump
+
+name: zegrep
+
+name: zfgrep
+
+name: zforce
+
+name: zgrep
+
+name: zic
+
+name: zipdetails
+
+name: zless
+
+name: zmore
+
+name: znew
+
+name: zramctl
+

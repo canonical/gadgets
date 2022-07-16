@@ -1,0 +1,145 @@
+[
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-codec",
+        "name": "video10",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video10",
+        "product": "bcm2835-codec-decode",
+        "product_slug": "bcm2835-codec-decode"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-codec",
+        "name": "video11",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video11",
+        "product": "bcm2835-codec-encode",
+        "product_slug": "bcm2835-codec-encode"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-codec",
+        "name": "video12",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-codec/video4linux/video12",
+        "product": "bcm2835-codec-isp",
+        "product_slug": "bcm2835-codec-isp"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-isp",
+        "name": "video13",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video13",
+        "product": "bcm2835-isp",
+        "product_slug": "bcm2835-isp"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-isp",
+        "name": "video14",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video14",
+        "product": "bcm2835-isp",
+        "product_slug": "bcm2835-isp"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-isp",
+        "name": "video15",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video15",
+        "product": "bcm2835-isp",
+        "product_slug": "bcm2835-isp"
+    },
+    {
+        "bus": "video4linux",
+        "driver": "bcm2835-isp",
+        "name": "video16",
+        "path": "/devices/platform/soc/3f00b840.mailbox/bcm2835-isp/video4linux/video16",
+        "product": "bcm2835-isp",
+        "product_slug": "bcm2835-isp"
+    },
+    {
+        "bus": "vchiq",
+        "category": "MMAL",
+        "driver": "bcm2835_vchiq",
+        "name": "vchiq",
+        "path": "/devices/platform/soc/3f00b840.mailbox/vchiq/vchiq"
+    },
+    {
+        "bus": "watchdog",
+        "category": "WATCHDOG",
+        "driver": "bcm2835-wdt",
+        "name": "watchdog0",
+        "path": "/devices/platform/soc/3f100000.watchdog/bcm2835-wdt/watchdog/watchdog0"
+    },
+    {
+        "bus": "mmc",
+        "category": "DISK",
+        "driver": "mmcblk",
+        "name": "mmcblk0",
+        "path": "/devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001",
+        "product": "8GTF4R",
+        "product_slug": "8GTF4R"
+    },
+    {
+        "bus": "mmc_rpmb",
+        "category": "CARDREADER",
+        "driver": "mmcblk",
+        "name": "mmcblk0rpmb",
+        "path": "/devices/platform/soc/3f202000.mmc/mmc_host/mmc0/mmc0:0001/mmcblk0rpmb",
+        "product": "8GTF4R",
+        "product_slug": "8GTF4R"
+    },
+    {
+        "bus": "usb",
+        "driver": "usb",
+        "name": "bus/usb/001/001",
+        "path": "/devices/platform/soc/3f980000.usb/usb1",
+        "product": "2.0 root hub",
+        "product_slug": "2.0_root_hub",
+        "vendor": "Linux Foundation",
+        "vendor_slug": "Linux_Foundation"
+    },
+    {
+        "bus": "usb",
+        "category": "OTHER",
+        "driver": "hub",
+        "path": "/devices/platform/soc/3f980000.usb/usb1/1-0:1.0",
+        "product": "2.0 root hub",
+        "product_id": 2,
+        "product_slug": "2.0_root_hub",
+        "vendor": "Linux Foundation",
+        "vendor_id": 7531,
+        "vendor_slug": "Linux_Foundation"
+    },
+    {
+        "bus": "usb",
+        "driver": "usb",
+        "name": "bus/usb/001/002",
+        "path": "/devices/platform/soc/3f980000.usb/usb1/1-1",
+        "product": "RTL8153 Gigabit Ethernet Adapter",
+        "product_slug": "RTL8153_Gigabit_Ethernet_Adapter",
+        "vendor": "Realtek Semiconductor Corp.",
+        "vendor_slug": "Realtek_Semiconductor_Corp."
+    },
+    {
+        "bus": "usb",
+        "category": "NETWORK",
+        "driver": "r8152",
+        "interface": "enx00e04c68e179",
+        "mac": "00:e0:4c:68:e1:79",
+        "path": "/devices/platform/soc/3f980000.usb/usb1/1-1/1-1:1.0",
+        "product": "RTL8153 Gigabit Ethernet Adapter",
+        "product_id": 33107,
+        "product_slug": "RTL8153_Gigabit_Ethernet_Adapter",
+        "vendor": "Realtek Semiconductor Corp.",
+        "vendor_id": 3034,
+        "vendor_slug": "Realtek_Semiconductor_Corp."
+    },
+    {
+        "bus": "drm",
+        "category": "VIDEO",
+        "driver": "vc4-drm",
+        "name": "dri/card0",
+        "path": "/devices/platform/soc/soc:gpu/drm/card0",
+        "product": "drm-platform-soc_gpu",
+        "product_slug": "drm-platform-soc_gpu"
+    }
+]
