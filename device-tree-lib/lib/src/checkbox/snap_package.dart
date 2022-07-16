@@ -13,7 +13,6 @@ class SnapPackage with _$SnapPackage {
       required String revision,
       required String status,
       required String type,
-      required String type,
       required String version}) = _SnapPackage;
 
   factory SnapPackage.fromJson(Map<String, Object?> json) =>

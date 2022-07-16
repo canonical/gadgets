@@ -28,7 +28,6 @@ mixin _$SnapPackage {
   String get revision => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,7 +50,6 @@ abstract class $SnapPackageCopyWith<$Res> {
       String revision,
       String status,
       String type,
-      String type,
       String version});
 }
 
@@ -72,7 +70,6 @@ class _$SnapPackageCopyWithImpl<$Res> implements $SnapPackageCopyWith<$Res> {
     Object? installDate = freezed,
     Object? revision = freezed,
     Object? status = freezed,
-    Object? type = freezed,
     Object? type = freezed,
     Object? version = freezed,
   }) {
@@ -109,10 +106,6 @@ class _$SnapPackageCopyWithImpl<$Res> implements $SnapPackageCopyWith<$Res> {
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -137,7 +130,6 @@ abstract class _$$_SnapPackageCopyWith<$Res>
       String revision,
       String status,
       String type,
-      String type,
       String version});
 }
 
@@ -160,7 +152,6 @@ class __$$_SnapPackageCopyWithImpl<$Res> extends _$SnapPackageCopyWithImpl<$Res>
     Object? installDate = freezed,
     Object? revision = freezed,
     Object? status = freezed,
-    Object? type = freezed,
     Object? type = freezed,
     Object? version = freezed,
   }) {
@@ -197,10 +188,6 @@ class __$$_SnapPackageCopyWithImpl<$Res> extends _$SnapPackageCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -220,7 +207,6 @@ class _$_SnapPackage implements _SnapPackage {
       required this.installDate,
       required this.revision,
       required this.status,
-      required this.type,
       required this.type,
       required this.version});
 
@@ -244,13 +230,11 @@ class _$_SnapPackage implements _SnapPackage {
   @override
   final String type;
   @override
-  final String type;
-  @override
   final String version;
 
   @override
   String toString() {
-    return 'SnapPackage(name: $name, confinement: $confinement, developer: $developer, devmode: $devmode, installDate: $installDate, revision: $revision, status: $status, type: $type, type: $type, version: $version)';
+    return 'SnapPackage(name: $name, confinement: $confinement, developer: $developer, devmode: $devmode, installDate: $installDate, revision: $revision, status: $status, type: $type, version: $version)';
   }
 
   @override
@@ -268,7 +252,6 @@ class _$_SnapPackage implements _SnapPackage {
             const DeepCollectionEquality().equals(other.revision, revision) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.version, version));
   }
 
@@ -283,7 +266,6 @@ class _$_SnapPackage implements _SnapPackage {
       const DeepCollectionEquality().hash(installDate),
       const DeepCollectionEquality().hash(revision),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(version));
 
@@ -310,7 +292,6 @@ abstract class _SnapPackage implements SnapPackage {
       required final String revision,
       required final String status,
       required final String type,
-      required final String type,
       required final String version}) = _$_SnapPackage;
 
   factory _SnapPackage.fromJson(Map<String, dynamic> json) =
@@ -330,8 +311,6 @@ abstract class _SnapPackage implements SnapPackage {
   String get revision;
   @override
   String get status;
-  @override
-  String get type;
   @override
   String get type;
   @override
