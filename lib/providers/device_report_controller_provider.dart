@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'device_report_controller.dart';
+import '../device_report_controller.dart';
 import 'package:meta/meta.dart';
 
 const reportPath = String.fromEnvironment("INXI_REPORT_FILE");

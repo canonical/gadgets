@@ -102,13 +102,29 @@ List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
       height: 28,
       child: ListTile(
         dense: true,
-        title: const Text('Add'),
+        title: const Text('Add Note'),
         contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-        leading: Icon(Icons.add_circle_rounded, color: iconColor),
+        leading: Transform.scale(
+            scaleX: -1,
+            child: Icon(Icons.add_comment_outlined, color: iconColor)),
       ),
     ),
     const PopupMenuDivider(height: 1),
     PopupMenuItem(
+      value: 0,
+      height: 28,
+      child: ListTile(
+        dense: true,
+        title: const Text('Report Problem'),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+        leading: Icon(Icons.report_problem_outlined, color: iconColor),
+      ),
+    ),
+    const PopupMenuDivider(height: 1),
+  ];
+
+  if (!isInternal) {
+    items.add(PopupMenuItem(
       value: 1,
       height: 28,
       child: ListTile(
@@ -117,11 +133,10 @@ List<PopupMenuEntry<int>> _popupMenuItems(BuildContext context, TreeNode node) {
         contentPadding: const EdgeInsets.symmetric(horizontal: 4),
         leading: Icon(Icons.delete_rounded, color: iconColor),
       ),
-    )
-  ];
+    ));
+  }
 
   if (isInternal) {
-    items.add(const PopupMenuDivider(height: 1));
     items.add(PopupMenuItem(
       value: 2,
       height: 28,

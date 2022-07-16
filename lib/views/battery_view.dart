@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:gadgets/device_report_controller.dart';
-import 'package:gadgets/device_report_controller_provider.dart';
+import 'package:gadgets/providers/device_report_controller_provider.dart';
 import 'package:unicons/unicons.dart';
 
 import 'rounded_rectangle_background.dart';

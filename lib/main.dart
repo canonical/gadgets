@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 import 'package:window_size/window_size.dart';
 
-import 'device_report_controller_provider.dart';
+import 'providers/device_report_controller_provider.dart';
 import 'device_report_controller.dart';
 
 void main(List<String> args) {

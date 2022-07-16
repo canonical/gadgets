@@ -5,7 +5,7 @@ import 'package:gadgets/views/battery_view.dart';
 import 'package:gadgets/views/certification_summary_view.dart';
 import 'package:gadgets/views/cpu_flags_view.dart';
 import 'package:gadgets/views/cpu_view.dart';
-import 'package:gadgets/device_report_controller_provider.dart';
+import 'package:gadgets/providers/device_report_controller_provider.dart';
 import 'package:gadgets/node/node_selection.dart';
 import 'package:gadgets/views/partition_view.dart';
 import 'package:gadgets/views/usb_device_view.dart';
@@ -14,7 +14,7 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:device_tree_lib/all.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:gadgets/certification_status_provider.dart';
+import 'package:gadgets/providers/certification_status_provider.dart';
 
 import '../node/tree_node_tile.dart';
 

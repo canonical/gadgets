@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:gadgets/device_report_controller_provider.dart';
+import 'package:gadgets/providers/device_report_controller_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/node/node_selection.dart';
 

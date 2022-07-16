@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'certification_status_provider.dart';
+import 'providers/certification_status_provider.dart';
 
 // via https://gist.github.com/NearHuscarl/29c5577b94571d00926723c85a370e43
 Color darken(Color color, [double amount = .1]) {

@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:unicons/unicons.dart';
 
-import 'package:gadgets/certification_status_provider.dart';
+import 'package:gadgets/providers/certification_status_provider.dart';
 
 class CertificationSummaryView extends ConsumerWidget {
   final CertificationSummary certificationSummary;
