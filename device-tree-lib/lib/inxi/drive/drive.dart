@@ -13,7 +13,7 @@ class Drive with _$Drive implements TreeNodeRepresentable {
   factory Drive(
       {required String id,
       required String blockSize,
-      required String vendor,
+      String? vendor,
       required String serial,
       required String type,
       required String scheme,
@@ -31,7 +31,7 @@ class Drive with _$Drive implements TreeNodeRepresentable {
     return Drive(
         id: map[InxiKeyDrive.id]!,
         blockSize: map[InxiKeyDrive.blockSize]!,
-        vendor: map[InxiKeyDrive.vendor]!,
+        vendor: map[InxiKeyDrive.vendor],
         serial: map[InxiKeyDrive.serial]!,
         type: map[InxiKeyDrive.type]!,
         scheme: map[InxiKeyDrive.scheme]!,

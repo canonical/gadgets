@@ -22,7 +22,7 @@ Drive _$DriveFromJson(Map<String, dynamic> json) {
 mixin _$Drive {
   String get id => throw _privateConstructorUsedError;
   String get blockSize => throw _privateConstructorUsedError;
-  String get vendor => throw _privateConstructorUsedError;
+  String? get vendor => throw _privateConstructorUsedError;
   String get serial => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get scheme => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $DriveCopyWith<$Res> {
   $Res call(
       {String id,
       String blockSize,
-      String vendor,
+      String? vendor,
       String serial,
       String type,
       String scheme,
@@ -101,7 +101,7 @@ class _$DriveCopyWithImpl<$Res> implements $DriveCopyWith<$Res> {
       vendor: vendor == freezed
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       serial: serial == freezed
           ? _value.serial
           : serial // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ abstract class _$$_DriveCopyWith<$Res> implements $DriveCopyWith<$Res> {
   $Res call(
       {String id,
       String blockSize,
-      String vendor,
+      String? vendor,
       String serial,
       String type,
       String scheme,
@@ -216,7 +216,7 @@ class __$$_DriveCopyWithImpl<$Res> extends _$DriveCopyWithImpl<$Res>
       vendor: vendor == freezed
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       serial: serial == freezed
           ? _value.serial
           : serial // ignore: cast_nullable_to_non_nullable
@@ -275,7 +275,7 @@ class _$_Drive extends _Drive {
   _$_Drive(
       {required this.id,
       required this.blockSize,
-      required this.vendor,
+      this.vendor,
       required this.serial,
       required this.type,
       required this.scheme,
@@ -298,7 +298,7 @@ class _$_Drive extends _Drive {
   @override
   final String blockSize;
   @override
-  final String vendor;
+  final String? vendor;
   @override
   final String serial;
   @override
@@ -390,7 +390,7 @@ abstract class _Drive extends Drive {
   factory _Drive(
       {required final String id,
       required final String blockSize,
-      required final String vendor,
+      final String? vendor,
       required final String serial,
       required final String type,
       required final String scheme,
@@ -412,7 +412,7 @@ abstract class _Drive extends Drive {
   @override
   String get blockSize;
   @override
-  String get vendor;
+  String? get vendor;
   @override
   String get serial;
   @override

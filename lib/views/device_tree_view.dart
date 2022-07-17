@@ -91,7 +91,7 @@ class DeviceTreeViewState extends ConsumerState<DeviceTreeView> {
                           cpuSummary: node.parent?.data as CPUSummary,
                           isSelected: selectionState,
                         ));
-                  } else if (data is CompilerFlags) {
+                  } else if (data is CPUCompilerFlags) {
                     return AutoScrollTag(
                         key: const ValueKey("cpu-compiler-flags"),
                         controller: deviceReportController.scrollController,

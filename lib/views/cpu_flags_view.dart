@@ -7,7 +7,7 @@ import 'package:gadgets/views/device_tree_view.dart';
 import 'package:unicons/unicons.dart';
 
 class CompilerFlagsView extends ConsumerWidget {
-  final CompilerFlags flags;
+  final CPUCompilerFlags flags;
   final bool isSelected;
 
   const CompilerFlagsView(

@@ -9,7 +9,7 @@ part of 'drive.dart';
 _$_Drive _$$_DriveFromJson(Map<String, dynamic> json) => _$_Drive(
       id: json['id'] as String,
       blockSize: json['blockSize'] as String,
-      vendor: json['vendor'] as String,
+      vendor: json['vendor'] as String?,
       serial: json['serial'] as String,
       type: json['type'] as String,
       scheme: json['scheme'] as String,
