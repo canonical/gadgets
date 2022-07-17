@@ -26,6 +26,8 @@ export 'inxi/cpu/cpu_compiler_flags.dart';
 export 'inxi/cpu/cpu_core_frequency_info.dart';
 export 'inxi/cpu/cpu.dart';
 
+export 'inxi/graphics/graphics_summary.dart';
+
 export 'device_tree.dart';
 export 'info.dart';
 export 'device_tree_parser.dart';
@@ -34,11 +36,10 @@ export 'inxi/bluetooth/bluetooth_summary.dart';
 
 export 'system.dart';
 export 'partition.dart';
-export 'graphics.dart';
-export 'inxi/cpu/cpu_summary.dart';
-export 'inxi/battery/battery_summary.dart';
 export 'machine.dart';
 export 'with_icon.dart';
 export 'partition.dart';
 export 'certification_summary.dart';
 export 'certification_status.dart';
+
+export 'tree_node_representable.dart';

@@ -3,10 +3,8 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:device_tree_lib/device_tree_lib.dart';
-import 'package:device_tree_lib/inxi/drive/drive_summary.dart';
 import 'package:device_tree_lib/memory.dart';
 import 'package:device_tree_lib/raid.dart';
-import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
 class ReportNotFoundError implements Exception {}
