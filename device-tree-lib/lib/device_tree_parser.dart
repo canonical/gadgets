@@ -16,7 +16,6 @@ class DeviceTreeParser {
   Future<DeviceTree> parse() async {
     final parsedReport = json.decode(await report.readAsString());
     final deviceTree = DeviceTree.fromReport(parsedReport);
-    return deviceTree.copyWith(
-        overriddenMachineSummary: deviceTree.machineSummary);
+    return deviceTree.copyWith(machineSummary: deviceTree.machineSummary);
   }
 }

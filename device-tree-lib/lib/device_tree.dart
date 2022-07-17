@@ -6,6 +6,9 @@ import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:device_tree_lib/memory.dart';
 import 'package:device_tree_lib/raid.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'device_tree.freezed.dart';
 
 class ReportNotFoundError implements Exception {}
 
@@ -19,35 +22,24 @@ class UnexpectedReportFormat implements Exception {
   const UnexpectedReportFormat(this.report);
 }
 
-class DeviceTree implements TreeNodeRepresentable {
-  final DeviceInfo info;
-  final USBSummary? usbSummary;
-  final AudioSummary audioSummary;
-  final BluetoothSummary? bluetoothSummary;
-  final BatterySummary batterySummary;
-  final CPUSummary cpuSummary;
-  final DriveSummary driveSummary;
-  final GraphicsSummary graphicsSummary;
-  final MachineSummary? machineSummary;
-  final MemorySummary? memorySummary;
-  final PartitionSummary partitionSummary;
-  final RAIDSummary raidSummary;
-  final SystemSummary systemSummary;
+@freezed
+class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
+  const DeviceTree._();
 
-  const DeviceTree(
-      {required this.info,
-      required this.usbSummary,
-      required this.audioSummary,
-      required this.bluetoothSummary,
-      required this.batterySummary,
-      required this.cpuSummary,
-      required this.driveSummary,
-      required this.graphicsSummary,
-      required this.machineSummary,
-      required this.memorySummary,
-      required this.partitionSummary,
-      required this.raidSummary,
-      required this.systemSummary});
+  factory DeviceTree(
+      {required DeviceInfo info,
+      USBSummary? usbSummary,
+      required AudioSummary audioSummary,
+      BluetoothSummary? bluetoothSummary,
+      required BatterySummary batterySummary,
+      required CPUSummary cpuSummary,
+      required DriveSummary driveSummary,
+      required GraphicsSummary graphicsSummary,
+      MachineSummary? machineSummary,
+      MemorySummary? memorySummary,
+      required PartitionSummary partitionSummary,
+      required RAIDSummary raidSummary,
+      required SystemSummary systemSummary}) = _DeviceTree;
 
   factory DeviceTree.fromReport(Map<String, dynamic> map) {
     final tree = DeviceTree(
@@ -74,26 +66,8 @@ class DeviceTree implements TreeNodeRepresentable {
         systemSummary: SystemSummary.fromReport(map));
 
     // FIXME: This is pretty horrid.
-    final machineSummary =
-        tree.machineSummary?.copyWith(overriddenDeviceTree: tree);
-    return tree.copyWith(overriddenMachineSummary: machineSummary);
-  }
-
-  DeviceTree copyWith({MachineSummary? overriddenMachineSummary}) {
-    return DeviceTree(
-        info: info,
-        usbSummary: usbSummary,
-        audioSummary: audioSummary,
-        bluetoothSummary: bluetoothSummary,
-        batterySummary: batterySummary,
-        cpuSummary: cpuSummary,
-        driveSummary: driveSummary,
-        graphicsSummary: graphicsSummary,
-        machineSummary: overriddenMachineSummary, // is overridden
-        memorySummary: memorySummary,
-        partitionSummary: partitionSummary,
-        raidSummary: raidSummary,
-        systemSummary: systemSummary);
+    final machineSummary = tree.machineSummary?.copyWith(deviceTree: tree);
+    return tree.copyWith(machineSummary: machineSummary);
   }
 
   static Future<DeviceTree> from({required File file}) async {
