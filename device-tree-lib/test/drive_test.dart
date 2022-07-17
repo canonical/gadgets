@@ -1,6 +1,5 @@
-import 'package:device_tree_lib/drive.dart';
+import 'package:device_tree_lib/inxi/drive/drive_summary.dart';
 import 'package:test/test.dart';
-import 'package:device_tree_lib/device_tree_lib.dart';
 
 void main() {
   group('Test parsing drive information', () {
