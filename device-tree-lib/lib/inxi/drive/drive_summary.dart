@@ -1,25 +1,36 @@
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'drive.dart';
 import 'drive_capacity.dart';
 import 'drive_keys.dart';
 
-class DriveSummary implements TreeNodeRepresentable {
-  final DriveCapacity capacity;
-  final Iterable<Drive> drives;
+part 'drive_summary.freezed.dart';
+part 'drive_summary.g.dart';
 
-  DriveSummary(this.capacity, this.drives);
+@freezed
+class DriveSummary with _$DriveSummary implements TreeNodeRepresentable {
+  const DriveSummary._();
+
+  factory DriveSummary(
+      {required DriveCapacity capacity,
+      required List<Drive> drives}) = _DriveSummary;
+
   factory DriveSummary.fromReport(Map<String, dynamic> reportMap) {
     final maps = (reportMap["Drives"]! as List).cast<Map<String, dynamic>>();
     final capacity = DriveCapacity.fromMap(
         maps.firstWhere((element) => element[InxiKeyDrive.total] != null));
-    final Iterable<Drive> drives = maps
+    final drives = maps
         .where((element) => element[InxiKeyDrive.id] != null)
-        .map((d) => Drive.fromMap(d));
+        .map((d) => Drive.fromMap(d))
+        .toList();
 
-    return DriveSummary(capacity, drives);
+    return DriveSummary(capacity: capacity, drives: drives);
   }
+
+  factory DriveSummary.fromJson(Map<String, dynamic> json) =>
+      _$DriveSummaryFromJson(json);
 
   @override
   TreeNode treeNodeRepresentation() {

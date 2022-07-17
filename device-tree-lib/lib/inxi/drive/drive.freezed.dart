@@ -27,8 +27,8 @@ mixin _$Drive {
   String get type => throw _privateConstructorUsedError;
   String get scheme => throw _privateConstructorUsedError;
   String get speed => throw _privateConstructorUsedError;
-  int get lanes => throw _privateConstructorUsedError;
-  String get temperature => throw _privateConstructorUsedError;
+  int? get lanes => throw _privateConstructorUsedError;
+  String? get temperature => throw _privateConstructorUsedError;
   String get size => throw _privateConstructorUsedError;
   String get model => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
@@ -53,8 +53,8 @@ abstract class $DriveCopyWith<$Res> {
       String type,
       String scheme,
       String speed,
-      int lanes,
-      String temperature,
+      int? lanes,
+      String? temperature,
       String size,
       String model,
       String rev,
@@ -121,11 +121,11 @@ class _$DriveCopyWithImpl<$Res> implements $DriveCopyWith<$Res> {
       lanes: lanes == freezed
           ? _value.lanes
           : lanes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       temperature: temperature == freezed
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -167,8 +167,8 @@ abstract class _$$_DriveCopyWith<$Res> implements $DriveCopyWith<$Res> {
       String type,
       String scheme,
       String speed,
-      int lanes,
-      String temperature,
+      int? lanes,
+      String? temperature,
       String size,
       String model,
       String rev,
@@ -236,11 +236,11 @@ class __$$_DriveCopyWithImpl<$Res> extends _$DriveCopyWithImpl<$Res>
       lanes: lanes == freezed
           ? _value.lanes
           : lanes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       temperature: temperature == freezed
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -280,8 +280,8 @@ class _$_Drive extends _Drive {
       required this.type,
       required this.scheme,
       required this.speed,
-      required this.lanes,
-      required this.temperature,
+      this.lanes,
+      this.temperature,
       required this.size,
       required this.model,
       required this.rev,
@@ -308,9 +308,9 @@ class _$_Drive extends _Drive {
   @override
   final String speed;
   @override
-  final int lanes;
+  final int? lanes;
   @override
-  final String temperature;
+  final String? temperature;
   @override
   final String size;
   @override
@@ -395,8 +395,8 @@ abstract class _Drive extends Drive {
       required final String type,
       required final String scheme,
       required final String speed,
-      required final int lanes,
-      required final String temperature,
+      final int? lanes,
+      final String? temperature,
       required final String size,
       required final String model,
       required final String rev,
@@ -422,9 +422,9 @@ abstract class _Drive extends Drive {
   @override
   String get speed;
   @override
-  int get lanes;
+  int? get lanes;
   @override
-  String get temperature;
+  String? get temperature;
   @override
   String get size;
   @override
