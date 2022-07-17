@@ -55,6 +55,7 @@ abstract class $DeviceTreeCopyWith<$Res> {
       RAIDSummary raidSummary,
       SystemSummary systemSummary});
 
+  $DeviceInfoCopyWith<$Res> get info;
   $AudioSummaryCopyWith<$Res> get audioSummary;
   $BluetoothSummaryCopyWith<$Res>? get bluetoothSummary;
   $BatterySummaryCopyWith<$Res> get batterySummary;
@@ -62,6 +63,8 @@ abstract class $DeviceTreeCopyWith<$Res> {
   $DriveSummaryCopyWith<$Res> get driveSummary;
   $GraphicsSummaryCopyWith<$Res> get graphicsSummary;
   $MachineSummaryCopyWith<$Res>? get machineSummary;
+  $MemorySummaryCopyWith<$Res>? get memorySummary;
+  $PartitionSummaryCopyWith<$Res> get partitionSummary;
 }
 
 /// @nodoc
@@ -145,6 +148,13 @@ class _$DeviceTreeCopyWithImpl<$Res> implements $DeviceTreeCopyWith<$Res> {
   }
 
   @override
+  $DeviceInfoCopyWith<$Res> get info {
+    return $DeviceInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
+  }
+
+  @override
   $AudioSummaryCopyWith<$Res> get audioSummary {
     return $AudioSummaryCopyWith<$Res>(_value.audioSummary, (value) {
       return _then(_value.copyWith(audioSummary: value));
@@ -200,6 +210,24 @@ class _$DeviceTreeCopyWithImpl<$Res> implements $DeviceTreeCopyWith<$Res> {
       return _then(_value.copyWith(machineSummary: value));
     });
   }
+
+  @override
+  $MemorySummaryCopyWith<$Res>? get memorySummary {
+    if (_value.memorySummary == null) {
+      return null;
+    }
+
+    return $MemorySummaryCopyWith<$Res>(_value.memorySummary!, (value) {
+      return _then(_value.copyWith(memorySummary: value));
+    });
+  }
+
+  @override
+  $PartitionSummaryCopyWith<$Res> get partitionSummary {
+    return $PartitionSummaryCopyWith<$Res>(_value.partitionSummary, (value) {
+      return _then(_value.copyWith(partitionSummary: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -225,6 +253,8 @@ abstract class _$$_DeviceTreeCopyWith<$Res>
       SystemSummary systemSummary});
 
   @override
+  $DeviceInfoCopyWith<$Res> get info;
+  @override
   $AudioSummaryCopyWith<$Res> get audioSummary;
   @override
   $BluetoothSummaryCopyWith<$Res>? get bluetoothSummary;
@@ -238,6 +268,10 @@ abstract class _$$_DeviceTreeCopyWith<$Res>
   $GraphicsSummaryCopyWith<$Res> get graphicsSummary;
   @override
   $MachineSummaryCopyWith<$Res>? get machineSummary;
+  @override
+  $MemorySummaryCopyWith<$Res>? get memorySummary;
+  @override
+  $PartitionSummaryCopyWith<$Res> get partitionSummary;
 }
 
 /// @nodoc

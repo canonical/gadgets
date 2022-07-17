@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/detail_node.dart';
+import 'package:device_tree_lib/presentation/detail_node.dart';
 import 'package:device_tree_lib/inxi/machine/machine_keys.dart';
 import 'package:device_tree_lib/with_icon.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';

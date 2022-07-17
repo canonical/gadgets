@@ -1,6 +1,10 @@
-import 'package:device_tree_lib/detail_node.dart';
+import 'package:device_tree_lib/presentation/detail_node.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'device_info.freezed.dart';
+part 'device_info.g.dart';
 
 class DeviceInfoInxiKey {
   static final String tool = "tool";
@@ -16,31 +20,22 @@ class DeviceInfoInxiKey {
   static final String wakeups = "wakeups";
 }
 
-class DeviceInfo implements TreeNodeRepresentable {
-  final String? tool;
-  final String uptime;
-  final String shell;
-  final String clangVersion;
-  final String version; // not sure which version this is?
-  final String inxiVersion;
-  final String initSystem;
-  final int? runLevel;
-  final String gccVersion;
-  final String? defaultShell;
-  final int? wakeups;
+@freezed
+class DeviceInfo with _$DeviceInfo implements TreeNodeRepresentable {
+  const DeviceInfo._();
 
-  const DeviceInfo(
-      this.tool,
-      this.uptime,
-      this.shell,
-      this.clangVersion,
-      this.version,
-      this.inxiVersion,
-      this.initSystem,
-      this.runLevel,
-      this.gccVersion,
-      this.defaultShell,
-      this.wakeups);
+  factory DeviceInfo(
+      {String? tool,
+      required String uptime,
+      required String shell,
+      required String clangVersion,
+      required String version,
+      required String inxiVersion,
+      required String initSystem,
+      int? runLevel,
+      required String gccVersion,
+      String? defaultShell,
+      int? wakeups}) = _DeviceInfo;
 
   factory DeviceInfo.fromReport(Map<String, dynamic> report) {
     return DeviceInfo.fromMap(report["Info"]!.first);
@@ -67,9 +62,22 @@ class DeviceInfo implements TreeNodeRepresentable {
     var wakeups =
         rawWakeups != null ? int.parse(map[DeviceInfoInxiKey.wakeups]) : null;
 
-    return DeviceInfo(tool, uptime, shell, clang, version, inxiVersion,
-        initSystem, runLevel, gccVersion, defaultShell, wakeups);
+    return DeviceInfo(
+        tool: tool,
+        uptime: uptime,
+        shell: shell,
+        clangVersion: clang,
+        version: version,
+        inxiVersion: inxiVersion,
+        initSystem: initSystem,
+        runLevel: runLevel,
+        gccVersion: gccVersion,
+        defaultShell: defaultShell,
+        wakeups: wakeups);
   }
+
+  factory DeviceInfo.fromJson(Map<String, dynamic> json) =>
+      _$DeviceInfoFromJson(json);
 
   @override
   TreeNode treeNodeRepresentation() {

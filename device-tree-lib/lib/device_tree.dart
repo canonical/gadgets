@@ -3,7 +3,7 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:device_tree_lib/device_tree_lib.dart';
-import 'package:device_tree_lib/memory.dart';
+import 'package:device_tree_lib/inxi/memory/memory_summary.dart';
 import 'package:device_tree_lib/raid.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

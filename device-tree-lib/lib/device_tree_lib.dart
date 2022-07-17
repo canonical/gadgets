@@ -42,8 +42,13 @@ export 'inxi/machine/uefi.dart';
 export 'inxi/partition/partition.dart';
 export 'inxi/partition/partition_summary.dart';
 
+export 'inxi/memory/memory_capacity.dart';
+export 'inxi/memory/memory_slot_summary.dart';
+export 'inxi/memory/memory_slot.dart';
+export 'inxi/memory/memory_summary.dart';
+
 export 'device_tree.dart';
-export 'info.dart';
+export 'inxi/device_info/device_info.dart';
 export 'device_tree_parser.dart';
 export 'usb.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../detail_node.dart';
+import '../../presentation/detail_node.dart';
 
 import 'cpu_compiler_flags.dart';
 import 'cpu_core_frequency_info.dart';
