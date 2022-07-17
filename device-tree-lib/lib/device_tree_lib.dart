@@ -15,11 +15,15 @@ export 'inxi/battery/battery.dart';
 export 'inxi/battery/battery_like.dart';
 export 'inxi/battery/no_battery_detected.dart';
 
+export 'inxi/bluetooth/bluetooth_chip.dart';
+export 'inxi/bluetooth/bluetooth_link.dart';
+export 'inxi/bluetooth/bluetooth_service.dart';
+
 export 'device_tree.dart';
 export 'info.dart';
 export 'device_tree_parser.dart';
 export 'usb.dart';
-export 'bluetooth.dart';
+export 'inxi/bluetooth/bluetooth_summary.dart';
 
 export 'system.dart';
 export 'partition.dart';
