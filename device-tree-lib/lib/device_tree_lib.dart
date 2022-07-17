@@ -8,6 +8,13 @@ export 'inxi/drive/drive_capacity.dart';
 export 'inxi/drive/drive.dart';
 export 'inxi/audio/audio.dart';
 
+export 'inxi/battery/battery_summary.dart';
+export 'inxi/battery/peripheral_battery.dart';
+export 'inxi/battery/machine_battery.dart';
+export 'inxi/battery/battery.dart';
+export 'inxi/battery/battery_like.dart';
+export 'inxi/battery/no_battery_detected.dart';
+
 export 'device_tree.dart';
 export 'info.dart';
 export 'device_tree_parser.dart';
@@ -18,7 +25,7 @@ export 'system.dart';
 export 'partition.dart';
 export 'graphics.dart';
 export 'cpu.dart';
-export 'battery.dart';
+export 'inxi/battery/battery_summary.dart';
 export 'machine.dart';
 export 'with_icon.dart';
 export 'partition.dart';
