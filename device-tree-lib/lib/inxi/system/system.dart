@@ -1,17 +1,24 @@
 import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:unicons/unicons.dart';
-import 'presentation/detail_node.dart';
+import '../../presentation/detail_node.dart';
 import 'package:collection/collection.dart';
 
-class SystemSummary implements TreeNodeRepresentable, WithIcon {
-  final DeviceTree? deviceTree;
-  final Kernel kernel;
-  final Environment? environment;
+part 'system.freezed.dart';
+// part 'system.g.dart';
 
-  SystemSummary(
-      {required this.kernel, required this.environment, this.deviceTree});
+@freezed
+class SystemSummary
+    with _$SystemSummary
+    implements TreeNodeRepresentable, WithIcon {
+  const SystemSummary._();
+
+  factory SystemSummary(
+      {required Kernel kernel,
+      Environment? environment,
+      DeviceTree? deviceTree}) = _SystemSummary;
 
   factory SystemSummary.fromReport(Map<String, dynamic> report) {
     final rawSystemEntries = report['System'] as List;
@@ -27,6 +34,9 @@ class SystemSummary implements TreeNodeRepresentable, WithIcon {
             ? Environment.fromMap(environmentMap)
             : null);
   }
+
+  // factory SystemSummary.fromJson(Map<String, dynamic> json) =>
+  //    _$SystemSummaryFromJson(json);
 
   @override
   TreeNode treeNodeRepresentation() =>
@@ -68,26 +78,27 @@ class _InxiKeyEnvironment {
   static const String distro = 'Distro';
 }
 
-class Kernel implements TreeNodeRepresentable {
-  final String compilerVersion;
-  final String compiler;
-  final int bits;
-  final String host;
-  final String kernelVersion;
-  final String? parameters;
+@freezed
+class Kernel with _$Kernel implements TreeNodeRepresentable {
+  const Kernel._();
 
-  Kernel(this.compilerVersion, this.compiler, this.bits, this.host,
-      this.kernelVersion, this.parameters);
+  factory Kernel(
+      {required String compilerVersion,
+      required String compiler,
+      required int bits,
+      required String host,
+      required String kernelVersion,
+      required String? parameters}) = _Kernel;
 
-  factory Kernel.fromMap(Map<String, dynamic> map) {
-    return Kernel(
-        map[_InxiKeyKernel.compilerVersion]!,
-        map[_InxiKeyKernel.compiler]!,
-        map[_InxiKeyKernel.bits]!,
-        map[_InxiKeyKernel.host]!,
-        map[_InxiKeyKernel.kernelVersion]!,
-        map[_InxiKeyKernel.parameters]);
-  }
+  factory Kernel.fromMap(Map<String, dynamic> map) => Kernel(
+      compilerVersion: map[_InxiKeyKernel.compilerVersion]!,
+      compiler: map[_InxiKeyKernel.compiler]!,
+      bits: map[_InxiKeyKernel.bits]!,
+      host: map[_InxiKeyKernel.host]!,
+      kernelVersion: map[_InxiKeyKernel.kernelVersion]!,
+      parameters: map[_InxiKeyKernel.parameters]);
+
+  // factory Kernel.fromJson(Map<String, dynamic> json) => _$KernelFromJson(json);
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['Kernel'] != null;
@@ -113,22 +124,24 @@ class Kernel implements TreeNodeRepresentable {
       ];
 }
 
-class Environment implements TreeNodeRepresentable {
-  final String displayManager;
-  final String console;
-  final String windowManager;
-  final String distro;
+@freezed
+class Environment with _$Environment implements TreeNodeRepresentable {
+  const Environment._();
 
-  Environment(
-      this.displayManager, this.console, this.windowManager, this.distro);
+  factory Environment(
+      {required String displayManager,
+      required String console,
+      required String windowManager,
+      required String distro}) = _Environment;
 
-  factory Environment.fromMap(Map<String, dynamic> map) {
-    return Environment(
-        map[_InxiKeyEnvironment.displayManager]!,
-        map[_InxiKeyEnvironment.console]!,
-        map[_InxiKeyEnvironment.windowManager]!,
-        map[_InxiKeyEnvironment.distro]!);
-  }
+  factory Environment.fromMap(Map<String, dynamic> map) => Environment(
+      displayManager: map[_InxiKeyEnvironment.displayManager]!,
+      console: map[_InxiKeyEnvironment.console]!,
+      windowManager: map[_InxiKeyEnvironment.windowManager]!,
+      distro: map[_InxiKeyEnvironment.distro]!);
+
+  // factory Environment.fromJson(Map<String, dynamic> json) =>
+  //    _$EnvironmentFromJson(json);
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['Console'] != null && map['DM'] != null;

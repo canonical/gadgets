@@ -54,7 +54,7 @@ export 'inxi/device_info/device_info.dart';
 export 'device_tree_parser.dart';
 export 'usb.dart';
 
-export 'system.dart';
+export 'inxi/system/system.dart';
 export 'inxi/partition/partition.dart';
 export 'with_icon.dart';
 export 'certification_summary.dart';

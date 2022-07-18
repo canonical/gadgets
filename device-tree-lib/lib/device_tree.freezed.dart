@@ -66,6 +66,7 @@ abstract class $DeviceTreeCopyWith<$Res> {
   $MemorySummaryCopyWith<$Res>? get memorySummary;
   $PartitionSummaryCopyWith<$Res> get partitionSummary;
   $RAIDSummaryCopyWith<$Res> get raidSummary;
+  $SystemSummaryCopyWith<$Res> get systemSummary;
 }
 
 /// @nodoc
@@ -236,6 +237,13 @@ class _$DeviceTreeCopyWithImpl<$Res> implements $DeviceTreeCopyWith<$Res> {
       return _then(_value.copyWith(raidSummary: value));
     });
   }
+
+  @override
+  $SystemSummaryCopyWith<$Res> get systemSummary {
+    return $SystemSummaryCopyWith<$Res>(_value.systemSummary, (value) {
+      return _then(_value.copyWith(systemSummary: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -282,6 +290,8 @@ abstract class _$$_DeviceTreeCopyWith<$Res>
   $PartitionSummaryCopyWith<$Res> get partitionSummary;
   @override
   $RAIDSummaryCopyWith<$Res> get raidSummary;
+  @override
+  $SystemSummaryCopyWith<$Res> get systemSummary;
 }
 
 /// @nodoc

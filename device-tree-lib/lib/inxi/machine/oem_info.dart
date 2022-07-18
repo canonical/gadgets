@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../system.dart';
+import '../system/system.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../device_tree.dart';
