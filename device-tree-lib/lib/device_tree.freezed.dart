@@ -56,6 +56,7 @@ abstract class $DeviceTreeCopyWith<$Res> {
       SystemSummary systemSummary});
 
   $DeviceInfoCopyWith<$Res> get info;
+  $USBSummaryCopyWith<$Res>? get usbSummary;
   $AudioSummaryCopyWith<$Res> get audioSummary;
   $BluetoothSummaryCopyWith<$Res>? get bluetoothSummary;
   $BatterySummaryCopyWith<$Res> get batterySummary;
@@ -153,6 +154,17 @@ class _$DeviceTreeCopyWithImpl<$Res> implements $DeviceTreeCopyWith<$Res> {
   $DeviceInfoCopyWith<$Res> get info {
     return $DeviceInfoCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
+    });
+  }
+
+  @override
+  $USBSummaryCopyWith<$Res>? get usbSummary {
+    if (_value.usbSummary == null) {
+      return null;
+    }
+
+    return $USBSummaryCopyWith<$Res>(_value.usbSummary!, (value) {
+      return _then(_value.copyWith(usbSummary: value));
     });
   }
 
@@ -270,6 +282,8 @@ abstract class _$$_DeviceTreeCopyWith<$Res>
 
   @override
   $DeviceInfoCopyWith<$Res> get info;
+  @override
+  $USBSummaryCopyWith<$Res>? get usbSummary;
   @override
   $AudioSummaryCopyWith<$Res> get audioSummary;
   @override

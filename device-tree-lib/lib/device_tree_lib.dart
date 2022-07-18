@@ -49,15 +49,19 @@ export 'inxi/memory/memory_summary.dart';
 
 export 'inxi/raid/raid.dart';
 
+export 'inxi/usb/usb.dart';
+
 export 'device_tree.dart';
 export 'inxi/device_info/device_info.dart';
 export 'device_tree_parser.dart';
-export 'usb.dart';
 
 export 'inxi/system/system.dart';
 export 'inxi/partition/partition.dart';
-export 'with_icon.dart';
-export 'certification_summary.dart';
-export 'certification_status.dart';
+
+export 'presentation/with_icon.dart';
+export 'presentation/detail_node.dart';
+
+export 'certification/certification_summary.dart';
+export 'certification/certification_status.dart';
 
 export 'tree_node_representable.dart';

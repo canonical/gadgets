@@ -1,8 +1,11 @@
 import 'package:device_tree_lib/device_tree_lib.dart';
-import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:unicons/unicons.dart';
+
+part 'usb.freezed.dart';
+part 'usb.g.dart';
 
 class USBInxiKey {
   static final String revision = "rev";
@@ -20,15 +23,21 @@ class USBInxiKey {
   static final String name = "Device";
 }
 
-class USBSummary implements TreeNodeRepresentable, WithIcon {
-  Iterable<USBDevice> devices;
-  USBSummary(this.devices);
+@freezed
+class USBSummary with _$USBSummary implements TreeNodeRepresentable, WithIcon {
+  const USBSummary._();
+
+  factory USBSummary({required List<USBDevice> devices}) = _USBSummary;
 
   factory USBSummary.fromReport(Map<String, dynamic> report) {
     Iterable<Map<String, dynamic>> usbDeviceMaps =
         List<Map<String, dynamic>>.from(report["USB"]!);
-    return USBSummary(usbDeviceMaps.map((m) => USBDevice.fromMap(m)));
+    return USBSummary(
+        devices: usbDeviceMaps.map((m) => USBDevice.fromMap(m)).toList());
   }
+
+  factory USBSummary.fromJson(Map<String, dynamic> json) =>
+      _$USBSummaryFromJson(json);
 
   static bool isDetectedIn({required Map<String, dynamic> report}) {
     if (!report.containsKey('USB')) {
@@ -60,36 +69,24 @@ class USBSummary implements TreeNodeRepresentable, WithIcon {
   get iconData => Icons.usb;
 }
 
-class USBDevice implements TreeNodeRepresentable, WithIcon {
-  final String revision;
-  final String speed;
-  final String chipID;
-  final String info;
-  final int? ports;
-  final String classID;
+@freezed
+class USBDevice with _$USBDevice implements TreeNodeRepresentable, WithIcon {
+  const USBDevice._();
 
-  final String? hub;
-  final String? type;
-  final String? serial;
-  final String? driver;
-  final String? interfaces;
-  final String? power;
-  final String? name;
-
-  const USBDevice(
-      this.revision,
-      this.speed,
-      this.chipID,
-      this.hub,
-      this.info,
-      this.ports,
-      this.classID,
-      this.type,
-      this.serial,
-      this.driver,
-      this.interfaces,
-      this.power,
-      this.name);
+  factory USBDevice(
+      {required String revision,
+      required String speed,
+      required String chipID,
+      String? hub,
+      required String info,
+      int? ports,
+      required String classID,
+      String? type,
+      String? serial,
+      String? driver,
+      String? interfaces,
+      String? power,
+      String? name}) = _USBDevice;
 
   factory USBDevice.fromMap(Map<String, dynamic> map) {
     var revision = map[USBInxiKey.revision] as String;
@@ -114,9 +111,24 @@ class USBDevice implements TreeNodeRepresentable, WithIcon {
     var power = map[USBInxiKey.power] as String?;
     var name = map[USBInxiKey.name] as String?;
 
-    return USBDevice(revision, speed, chipID, hub, info, ports, classID, type,
-        serial, driver, interfaces, power, name);
+    return USBDevice(
+        revision: revision,
+        speed: speed,
+        chipID: chipID,
+        hub: hub,
+        info: info,
+        ports: ports,
+        classID: classID,
+        type: type,
+        serial: serial,
+        driver: driver,
+        interfaces: interfaces,
+        power: power,
+        name: name);
   }
+
+  factory USBDevice.fromJson(Map<String, dynamic> json) =>
+      _$USBDeviceFromJson(json);
 
   @override
   TreeNode treeNodeRepresentation() {

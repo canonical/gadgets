@@ -1,6 +1,6 @@
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'device_tree.dart';
+import '../device_tree.dart';
 import 'certification_status.dart';
 
 class CertificationSummary implements TreeNodeRepresentable {

@@ -1,10 +1,9 @@
-import 'package:device_tree_lib/presentation/detail_node.dart';
-import 'package:device_tree_lib/inxi/machine/machine_keys.dart';
-import 'package:device_tree_lib/with_icon.dart';
-import 'package:device_tree_lib/tree_node_representable.dart';
+import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'machine_keys.dart';
 
 part 'uefi.freezed.dart';
 part 'uefi.g.dart';
