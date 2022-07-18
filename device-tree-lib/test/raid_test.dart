@@ -1,4 +1,4 @@
-import 'package:device_tree_lib/raid.dart';
+import 'package:device_tree_lib/inxi/raid/raid.dart';
 import 'package:test/test.dart';
 
 const irisReport = {
