@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+DeviceTree _$DeviceTreeFromJson(Map<String, dynamic> json) {
+  return _DeviceTree.fromJson(json);
+}
+
 /// @nodoc
 mixin _$DeviceTree {
   DeviceInfo get info => throw _privateConstructorUsedError;
@@ -30,6 +34,7 @@ mixin _$DeviceTree {
   RAIDSummary get raidSummary => throw _privateConstructorUsedError;
   SystemSummary get systemSummary => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DeviceTreeCopyWith<DeviceTree> get copyWith =>
       throw _privateConstructorUsedError;
@@ -392,7 +397,7 @@ class __$$_DeviceTreeCopyWithImpl<$Res> extends _$DeviceTreeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_DeviceTree extends _DeviceTree {
   _$_DeviceTree(
       {required this.info,
@@ -409,6 +414,9 @@ class _$_DeviceTree extends _DeviceTree {
       required this.raidSummary,
       required this.systemSummary})
       : super._();
+
+  factory _$_DeviceTree.fromJson(Map<String, dynamic> json) =>
+      _$$_DeviceTreeFromJson(json);
 
   @override
   final DeviceInfo info;
@@ -474,6 +482,7 @@ class _$_DeviceTree extends _DeviceTree {
                 .equals(other.systemSummary, systemSummary));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -495,6 +504,13 @@ class _$_DeviceTree extends _DeviceTree {
   @override
   _$$_DeviceTreeCopyWith<_$_DeviceTree> get copyWith =>
       __$$_DeviceTreeCopyWithImpl<_$_DeviceTree>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DeviceTreeToJson(
+      this,
+    );
+  }
 }
 
 abstract class _DeviceTree extends DeviceTree {
@@ -513,6 +529,9 @@ abstract class _DeviceTree extends DeviceTree {
       required final RAIDSummary raidSummary,
       required final SystemSummary systemSummary}) = _$_DeviceTree;
   _DeviceTree._() : super._();
+
+  factory _DeviceTree.fromJson(Map<String, dynamic> json) =
+      _$_DeviceTree.fromJson;
 
   @override
   DeviceInfo get info;

@@ -9,6 +9,7 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'device_tree.freezed.dart';
+part 'device_tree.g.dart';
 
 class ReportNotFoundError implements Exception {}
 
@@ -69,6 +70,9 @@ class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
     final machineSummary = tree.machineSummary?.copyWith(deviceTree: tree);
     return tree.copyWith(machineSummary: machineSummary);
   }
+
+  factory DeviceTree.fromJson(Map<String, dynamic> json) =>
+      _$DeviceTreeFromJson(json);
 
   static Future<DeviceTree> from({required File file}) async {
     final rawData = await json.decode(await file.readAsString());

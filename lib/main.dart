@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:gadgets/views/device_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 import 'package:window_size/window_size.dart';
 
-import 'providers/device_report_controller_provider.dart';
-import 'device_report_controller.dart';
+import 'router/router.dart';
 
 void main(List<String> args) {
   Logger.root.level = Level.INFO;
@@ -30,7 +28,7 @@ void main(List<String> args) {
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowMinSize(const Size(600, 500));
   }
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: GadgetsApp()));
 }
 
 void generateSampleTree(TreeNode parent) {
@@ -64,77 +62,26 @@ const Map<String, List<String>> kDataSample = {
   'F': ['F 1', 'F 2'],
 };
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GadgetsApp extends ConsumerWidget {
+  const GadgetsApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = ref.watch(appRouterProvider);
+
     return YaruTheme(
       data: const YaruThemeData(themeMode: ThemeMode.light),
-      builder: (context, yaru, child) => MaterialApp(
-        title: 'Inspector Gadget',
-        debugShowCheckedModeBanner: false,
-        theme: yaru.variant?.theme ?? yaruLight,
-        darkTheme: yaru.variant?.darkTheme ?? yaruDark,
-        highContrastTheme: yaruHighContrastLight,
-        highContrastDarkTheme: yaruHighContrastDark,
-        home: const HomeScreen(title: 'Inspector Gadget'),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends ConsumerStatefulWidget {
-  const HomeScreen({super.key, required this.title});
-
-  final String title;
-
-  @override
-  HomeScreenState createState() => HomeScreenState();
-}
-
-class HomeScreenState extends ConsumerState<HomeScreen> {
-  @override
-  void dispose() {
-    ref.read(deviceReportControllerProvider).dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
-
-    return DeviceReportControllerScope(
-      controller: deviceReportController,
-      child: ref.watch(deviceReportController.treeControllerProvider).when(
-          data: (TreeViewController treeViewController) {
-        return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
-      }, error: (error, trace) {
-        if (kDebugMode) {
-          print(error);
-          print(trace);
-        }
-        return Center(
-            child: Text('Error in device report controller scope: $error'));
-      }, loading: () {
-        return const Center(child: CircularProgressIndicator());
-      }),
-    );
-  }
-}
-
-class _Unfocus extends StatelessWidget {
-  const _Unfocus({Key? key, required this.child}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: FocusScope.of(context).unfocus,
-      child: child,
+      builder: (context, yaru, child) => MaterialApp.router(
+          title: 'Inspector Gadget',
+          debugShowCheckedModeBanner: false,
+          theme: yaru.variant?.theme ?? yaruLight,
+          darkTheme: yaru.variant?.darkTheme ?? yaruDark,
+          highContrastTheme: yaruHighContrastLight,
+          highContrastDarkTheme: yaruHighContrastDark,
+          // home: const HomeScreen(title: 'Inspector Gadget',
+          routerDelegate: appRouter.delegate(),
+          routeInformationParser: appRouter.defaultRouteParser()),
     );
   }
 }

@@ -7,7 +7,7 @@ import '../../presentation/detail_node.dart';
 import 'package:collection/collection.dart';
 
 part 'system.freezed.dart';
-// part 'system.g.dart';
+part 'system.g.dart';
 
 @freezed
 class SystemSummary
@@ -35,8 +35,8 @@ class SystemSummary
             : null);
   }
 
-  // factory SystemSummary.fromJson(Map<String, dynamic> json) =>
-  //    _$SystemSummaryFromJson(json);
+  factory SystemSummary.fromJson(Map<String, dynamic> json) =>
+      _$SystemSummaryFromJson(json);
 
   @override
   TreeNode treeNodeRepresentation() =>
@@ -98,7 +98,7 @@ class Kernel with _$Kernel implements TreeNodeRepresentable {
       kernelVersion: map[_InxiKeyKernel.kernelVersion]!,
       parameters: map[_InxiKeyKernel.parameters]);
 
-  // factory Kernel.fromJson(Map<String, dynamic> json) => _$KernelFromJson(json);
+  factory Kernel.fromJson(Map<String, dynamic> json) => _$KernelFromJson(json);
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['Kernel'] != null;
@@ -140,8 +140,8 @@ class Environment with _$Environment implements TreeNodeRepresentable {
       windowManager: map[_InxiKeyEnvironment.windowManager]!,
       distro: map[_InxiKeyEnvironment.distro]!);
 
-  // factory Environment.fromJson(Map<String, dynamic> json) =>
-  //    _$EnvironmentFromJson(json);
+  factory Environment.fromJson(Map<String, dynamic> json) =>
+      _$EnvironmentFromJson(json);
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['Console'] != null && map['DM'] != null;

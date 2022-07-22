@@ -1,3 +1,4 @@
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
@@ -75,10 +76,11 @@ StateProvider<IMap<String, CertificationStatus>> certificationStatusProvider =
         .add("Graphics", CertificationStatus.passed)
         .add("Power Management", CertificationStatus.passed)
         .add("Audio", CertificationStatus.passed)
-        .add("USB", CertificationStatus.passedWithWarnings)
+        // .add("USB", CertificationStatus.passedWithWarnings)
         .add("Bluetooth", CertificationStatus.passed)
         .add("Chicony Integrated Camera", CertificationStatus.passed)
-        .add("Foxconn / Hon Hai Wireless_Device", CertificationStatus.passed)
+        .add("Foxconn / Hon Hai Wireless_Device",
+            CertificationStatus.passedWithWarnings)
         .add("Hi-speed hub with single TT", CertificationStatus.passed)
         .add("Super-speed hub", CertificationStatus.unknown)
         .add("PARALLELS FaceTime HD Camera",

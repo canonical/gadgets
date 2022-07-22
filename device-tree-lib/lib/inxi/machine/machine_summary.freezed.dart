@@ -14,12 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+MachineSummary _$MachineSummaryFromJson(Map<String, dynamic> json) {
+  return _MachineSummary.fromJson(json);
+}
+
 /// @nodoc
 mixin _$MachineSummary {
   DeviceTree? get deviceTree => throw _privateConstructorUsedError;
   UEFI get uefi => throw _privateConstructorUsedError;
   OEMInfo? get oemInfo => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MachineSummaryCopyWith<MachineSummary> get copyWith =>
       throw _privateConstructorUsedError;
@@ -150,10 +155,13 @@ class __$$_MachineSummaryCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_MachineSummary extends _MachineSummary {
   _$_MachineSummary({this.deviceTree, required this.uefi, this.oemInfo})
       : super._();
+
+  factory _$_MachineSummary.fromJson(Map<String, dynamic> json) =>
+      _$$_MachineSummaryFromJson(json);
 
   @override
   final DeviceTree? deviceTree;
@@ -178,6 +186,7 @@ class _$_MachineSummary extends _MachineSummary {
             const DeepCollectionEquality().equals(other.oemInfo, oemInfo));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -189,6 +198,13 @@ class _$_MachineSummary extends _MachineSummary {
   @override
   _$$_MachineSummaryCopyWith<_$_MachineSummary> get copyWith =>
       __$$_MachineSummaryCopyWithImpl<_$_MachineSummary>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MachineSummaryToJson(
+      this,
+    );
+  }
 }
 
 abstract class _MachineSummary extends MachineSummary {
@@ -197,6 +213,9 @@ abstract class _MachineSummary extends MachineSummary {
       required final UEFI uefi,
       final OEMInfo? oemInfo}) = _$_MachineSummary;
   _MachineSummary._() : super._();
+
+  factory _MachineSummary.fromJson(Map<String, dynamic> json) =
+      _$_MachineSummary.fromJson;
 
   @override
   DeviceTree? get deviceTree;

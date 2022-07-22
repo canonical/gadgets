@@ -14,12 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+SystemSummary _$SystemSummaryFromJson(Map<String, dynamic> json) {
+  return _SystemSummary.fromJson(json);
+}
+
 /// @nodoc
 mixin _$SystemSummary {
   Kernel get kernel => throw _privateConstructorUsedError;
   Environment? get environment => throw _privateConstructorUsedError;
   DeviceTree? get deviceTree => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SystemSummaryCopyWith<SystemSummary> get copyWith =>
       throw _privateConstructorUsedError;
@@ -150,10 +155,13 @@ class __$$_SystemSummaryCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_SystemSummary extends _SystemSummary {
   _$_SystemSummary({required this.kernel, this.environment, this.deviceTree})
       : super._();
+
+  factory _$_SystemSummary.fromJson(Map<String, dynamic> json) =>
+      _$$_SystemSummaryFromJson(json);
 
   @override
   final Kernel kernel;
@@ -179,6 +187,7 @@ class _$_SystemSummary extends _SystemSummary {
                 .equals(other.deviceTree, deviceTree));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -190,6 +199,13 @@ class _$_SystemSummary extends _SystemSummary {
   @override
   _$$_SystemSummaryCopyWith<_$_SystemSummary> get copyWith =>
       __$$_SystemSummaryCopyWithImpl<_$_SystemSummary>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SystemSummaryToJson(
+      this,
+    );
+  }
 }
 
 abstract class _SystemSummary extends SystemSummary {
@@ -198,6 +214,9 @@ abstract class _SystemSummary extends SystemSummary {
       final Environment? environment,
       final DeviceTree? deviceTree}) = _$_SystemSummary;
   _SystemSummary._() : super._();
+
+  factory _SystemSummary.fromJson(Map<String, dynamic> json) =
+      _$_SystemSummary.fromJson;
 
   @override
   Kernel get kernel;
@@ -211,6 +230,10 @@ abstract class _SystemSummary extends SystemSummary {
       throw _privateConstructorUsedError;
 }
 
+Kernel _$KernelFromJson(Map<String, dynamic> json) {
+  return _Kernel.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Kernel {
   String get compilerVersion => throw _privateConstructorUsedError;
@@ -220,6 +243,7 @@ mixin _$Kernel {
   String get kernelVersion => throw _privateConstructorUsedError;
   String? get parameters => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $KernelCopyWith<Kernel> get copyWith => throw _privateConstructorUsedError;
 }
@@ -345,7 +369,7 @@ class __$$_KernelCopyWithImpl<$Res> extends _$KernelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Kernel extends _Kernel {
   _$_Kernel(
       {required this.compilerVersion,
@@ -355,6 +379,9 @@ class _$_Kernel extends _Kernel {
       required this.kernelVersion,
       required this.parameters})
       : super._();
+
+  factory _$_Kernel.fromJson(Map<String, dynamic> json) =>
+      _$$_KernelFromJson(json);
 
   @override
   final String compilerVersion;
@@ -390,6 +417,7 @@ class _$_Kernel extends _Kernel {
                 .equals(other.parameters, parameters));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -404,6 +432,13 @@ class _$_Kernel extends _Kernel {
   @override
   _$$_KernelCopyWith<_$_Kernel> get copyWith =>
       __$$_KernelCopyWithImpl<_$_Kernel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_KernelToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Kernel extends Kernel {
@@ -415,6 +450,8 @@ abstract class _Kernel extends Kernel {
       required final String kernelVersion,
       required final String? parameters}) = _$_Kernel;
   _Kernel._() : super._();
+
+  factory _Kernel.fromJson(Map<String, dynamic> json) = _$_Kernel.fromJson;
 
   @override
   String get compilerVersion;
@@ -434,6 +471,10 @@ abstract class _Kernel extends Kernel {
       throw _privateConstructorUsedError;
 }
 
+Environment _$EnvironmentFromJson(Map<String, dynamic> json) {
+  return _Environment.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Environment {
   String get displayManager => throw _privateConstructorUsedError;
@@ -441,6 +482,7 @@ mixin _$Environment {
   String get windowManager => throw _privateConstructorUsedError;
   String get distro => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EnvironmentCopyWith<Environment> get copyWith =>
       throw _privateConstructorUsedError;
@@ -547,7 +589,7 @@ class __$$_EnvironmentCopyWithImpl<$Res> extends _$EnvironmentCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Environment extends _Environment {
   _$_Environment(
       {required this.displayManager,
@@ -555,6 +597,9 @@ class _$_Environment extends _Environment {
       required this.windowManager,
       required this.distro})
       : super._();
+
+  factory _$_Environment.fromJson(Map<String, dynamic> json) =>
+      _$$_EnvironmentFromJson(json);
 
   @override
   final String displayManager;
@@ -583,6 +628,7 @@ class _$_Environment extends _Environment {
             const DeepCollectionEquality().equals(other.distro, distro));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -595,6 +641,13 @@ class _$_Environment extends _Environment {
   @override
   _$$_EnvironmentCopyWith<_$_Environment> get copyWith =>
       __$$_EnvironmentCopyWithImpl<_$_Environment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_EnvironmentToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Environment extends Environment {
@@ -604,6 +657,9 @@ abstract class _Environment extends Environment {
       required final String windowManager,
       required final String distro}) = _$_Environment;
   _Environment._() : super._();
+
+  factory _Environment.fromJson(Map<String, dynamic> json) =
+      _$_Environment.fromJson;
 
   @override
   String get displayManager;

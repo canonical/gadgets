@@ -1,7 +1,11 @@
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+
+class UnexpectedCertificationStatus implements Exception {}
+
 enum CertificationStatus {
+  unknown,
   passed,
   passedWithWarnings,
-  unknown,
   failed;
 
   String get description {
@@ -18,6 +22,8 @@ enum CertificationStatus {
       case failed:
         return "Device is not fully Ubuntu compatible";
     }
+
+    throw UnexpectedCertificationStatus();
   }
 
   String get detail {
@@ -34,6 +40,8 @@ enum CertificationStatus {
       case failed:
         return "Your device has components with known compatibility issues.";
     }
+
+    throw UnexpectedCertificationStatus();
   }
 
   String get testDescription {
@@ -50,6 +58,8 @@ enum CertificationStatus {
       case failed:
         return "Confirmed not compatible";
     }
+
+    throw UnexpectedCertificationStatus();
   }
 
   String get testDetail {
@@ -66,5 +76,7 @@ enum CertificationStatus {
       case failed:
         return "At least one required test failed.";
     }
+
+    throw UnexpectedCertificationStatus();
   }
 }

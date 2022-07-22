@@ -9,7 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:unicons/unicons.dart';
 
 part 'machine_summary.freezed.dart';
-// part 'machine_summary.g.dart';
+part 'machine_summary.g.dart';
 
 @freezed
 class MachineSummary
@@ -40,8 +40,8 @@ class MachineSummary
             oemInfoMapMaybe != null ? OEMInfo.fromMap(oemInfoMapMaybe) : null);
   }
 
-  // factory MachineSummary.fromJson(Map<String, dynamic> json) =>
-  //    _$MachineSummaryFromJson(json);
+  factory MachineSummary.fromJson(Map<String, dynamic> json) =>
+      _$MachineSummaryFromJson(json);
 
   static bool isDetectedIn({required Map<String, dynamic> report}) {
     final entries = report["Machine"];
