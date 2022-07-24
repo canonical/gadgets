@@ -18,6 +18,16 @@ class TestListScreen extends ConsumerWidget {
         submissionProvider?.expand((submission) => submission.results);
 
     final theme = Theme.of(context);
+    PlutoGridConfiguration config = theme.brightness == Brightness.light
+        ? const PlutoGridConfiguration()
+        : const PlutoGridConfiguration.dark();
+
+    if (theme.brightness == Brightness.dark) {
+      config = config.copyWith(
+          style: config.style.copyWith(
+              gridBackgroundColor: theme.backgroundColor,
+              rowColor: theme.backgroundColor));
+    }
 
     if (results != null) {
       return Scaffold(
@@ -32,9 +42,7 @@ class TestListScreen extends ConsumerWidget {
               columnGroups: ResultColumn.plutoColumnGroups.toList(),
               rows: results.map((result) => result.toPlutoRow()).toList(),
               mode: PlutoGridMode.select,
-              configuration: theme.brightness == Brightness.light
-                  ? const PlutoGridConfiguration()
-                  : const PlutoGridConfiguration.dark(),
+              configuration: config,
               onChanged: (PlutoGridOnChangedEvent event) {
                 Logger.root.info(event);
               },
