@@ -43,6 +43,72 @@ enum KnownTestCategory {
   const KnownTestCategory(this.id);
 }
 
+enum ResultStatus {
+  passed("pass"),
+  skip("skip"),
+  failed("fail");
+
+  final String status;
+  const ResultStatus(this.status);
+
+  static String presentedValue(String value) {
+    if (value == ResultOutcome.passed.outcome) {
+      return "Passed";
+    } else if (value == ResultOutcome.skipped.outcome) {
+      return "Skipped";
+    } else if (value == ResultOutcome.failed.outcome) {
+      return "Failed";
+    }
+    return value;
+  }
+}
+
+enum ResultOutcome {
+  passed("pass"),
+  skipped("skip"),
+  notSupported("not-supported"),
+  failed("fail");
+
+  final String outcome;
+  const ResultOutcome(this.outcome);
+
+  static String presentedValue(String value) {
+    if (value == ResultOutcome.passed.outcome) {
+      return "Passed";
+    } else if (value == ResultOutcome.skipped.outcome) {
+      return "Skipped";
+    } else if (value == ResultOutcome.notSupported.outcome) {
+      return "Not Supported";
+    } else if (value == ResultOutcome.failed.outcome) {
+      return "Failed";
+    }
+    return value;
+  }
+}
+
+enum ResultCertificationStatus {
+  passed("pass"),
+  optional("optional"),
+  unspecified("unspecified"),
+  failed("fail");
+
+  final String status;
+  const ResultCertificationStatus(this.status);
+
+  static String presentedValue(String value) {
+    if (value == ResultCertificationStatus.passed.status) {
+      return "Passed";
+    } else if (value == ResultCertificationStatus.optional.status) {
+      return "Optional";
+    } else if (value == ResultCertificationStatus.unspecified.status) {
+      return "Unknown";
+    } else if (value == ResultCertificationStatus.failed.status) {
+      return "Failed";
+    }
+    return value;
+  }
+}
+
 @freezed
 class Submission with _$Submission {
   factory Submission({

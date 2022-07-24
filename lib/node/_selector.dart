@@ -45,30 +45,48 @@ class _NodeSelector extends ConsumerWidget {
             detail: descendentStatus.testDetail,
             icon: descendentStatus.icon(theme: theme),
             followUp: FollowUp("Learn More", () {
+              ScaffoldMessenger.of(context).removeCurrentSnackBar();
+
               ref
                   .watch(appRouterProvider)
                   .navigate(TestListScreenRoute(cid: "CID X"));
+
+              /*
+              showMaterialModalBottomSheet(
+                  context: context,
+                  isDismissible: false,
+                  builder: (context) {
+                    final submissionProvider =
+                        ref.watch(deviceCertificationStatusProvider("CID X"));
+
+                    final results = submissionProvider
+                        ?.expand((submission) => submission.results);
+
+                    if (results != null) {
+                      return PlutoGrid(
+                          columns: ResultColumn.plutoColumns.toList(),
+                          rows: results
+                              .map((result) => result.toPlutoRow())
+                              .toList(),
+                          mode: PlutoGridMode.select,
+                          configuration: theme.brightness == Brightness.light
+                              ? const PlutoGridConfiguration()
+                              : const PlutoGridConfiguration.dark(),
+                          onChanged: (PlutoGridOnChangedEvent event) {
+                            Logger.root.info(event);
+                          },
+                          onLoaded: (PlutoGridOnLoadedEvent event) {
+                            Logger.root.info(event);
+                          });
+                    } else {
+                      return const Text("(No results)");
+                    }
+                  });
+                  */
             }),
           );
         },
         icon: descendentStatus.icon(theme: theme),
         color: descendentStatus.color(theme: theme));
-
-    /*
-    return AnimatedBuilder(
-      animation: deviceReportController,
-      builder: (_, __) {
-        return Checkbox(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(3)),
-          ),
-          activeColor: kSelectionColor,
-          value: isSelected(ref, id),
-          onChanged: (_) =>
-              toggleSelectionForSubtree(ref, treeController, id: id),
-        );
-      },
-    );
-    */
   }
 }
