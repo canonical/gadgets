@@ -1,5 +1,7 @@
+import 'package:device_tree_lib/inxi/executor/inxi_executor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gadgets/providers/submission_provider.dart';
 import '../device_report_controller.dart';
 import 'package:meta/meta.dart';
 
@@ -14,7 +16,7 @@ final deviceReportControllerProvider = Provider((_) {
   if (reportPath != '') {
     return DeviceReportController(inputPath: reportPath);
   }
-  return DeviceReportController();
+  return DeviceReportController(runInxi: true);
 });
 
 @immutable

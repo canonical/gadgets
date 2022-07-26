@@ -1,3 +1,4 @@
+import 'package:device_tree_lib/inxi/executor/inxi_executor.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,7 +13,10 @@ import 'dart:io';
 import 'package:device_tree_lib/device_tree_lib.dart';
 
 class DeviceReportController {
+  // FIXME: Refactor the inputPath and treeControllerProvider away.
+  // ... by making DeviceTree required (load indication then bubbles above here).
   final String? inputPath;
+  final bool? runInxi;
 
   late final treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
@@ -20,6 +24,11 @@ class DeviceReportController {
     if (path != null) {
       final deviceTree = await DeviceTree.from(file: File(path));
       final rootNode = generateTree(deviceTree, null);
+      return TreeViewController(rootNode: rootNode);
+    } else if (runInxi != null && runInxi!) {
+      final executor = InxiExecutor();
+      final inputTree = (await executor.run()).deviceTree;
+      final rootNode = generateTree(inputTree, null);
       return TreeViewController(rootNode: rootNode);
     }
     final rootNode = TreeNode(id: sampleRootId);
@@ -29,7 +38,7 @@ class DeviceReportController {
     return treeController;
   });
 
-  DeviceReportController({this.inputPath});
+  DeviceReportController({this.inputPath, this.runInxi});
 
   final double? nodeHeight = null;
 

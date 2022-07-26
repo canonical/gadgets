@@ -29,6 +29,7 @@ class InxiExecutor {
             ],
             runInShell: true)
         .catchError((error, stackTrace) {
+      print("Executing inxi failed:");
       print(error);
       print(stackTrace);
       dir.delete();
@@ -51,9 +52,11 @@ class InxiExecutor {
     final jq = await Process.start('jq', [], runInShell: true);
 
     cat.stdout.pipe(perl.stdin).catchError((error) {
+      print("inxi output -> cat error occurred:");
       print(error);
     });
     await perl.stdout.pipe(jq.stdin).catchError((error) {
+      print("ANSI escape sequence removal failed:");
       print(error);
     });
 
