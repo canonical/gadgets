@@ -15,12 +15,6 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class HomeScreenState extends ConsumerState<HomeScreen> {
   @override
-  void dispose() {
-    ref.read(deviceReportControllerProvider).dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final deviceReportController = ref.watch(deviceReportControllerProvider);
     return DeviceReportControllerScope(

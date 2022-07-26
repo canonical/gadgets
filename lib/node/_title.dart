@@ -7,31 +7,25 @@ class _NodeTitle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
     final nodeScope = TreeNodeScope.of(context);
 
-    return AnimatedBuilder(
-      animation: deviceReportController,
-      builder: (_, __) {
-        final TextStyle? textStyle;
-        if (presentedSelectionState) {
-          textStyle = Theme.of(context)
-              .textTheme //
-              .subtitle1
-              ?.copyWith(
-                  color: kSelectionColor,
-                  fontWeight: FontWeight.w100,
-                  overflow: TextOverflow.ellipsis);
-        } else {
-          textStyle = Theme.of(context).textTheme.subtitle1?.copyWith(
-              fontWeight: FontWeight.w100, overflow: TextOverflow.ellipsis);
-        }
-        return Text(
-          nodeScope.node.label,
-          style: textStyle,
-          overflow: TextOverflow.ellipsis,
-        );
-      },
+    final TextStyle? textStyle;
+    if (presentedSelectionState) {
+      textStyle = Theme.of(context)
+          .textTheme //
+          .subtitle1
+          ?.copyWith(
+              color: kSelectionColor,
+              fontWeight: FontWeight.w100,
+              overflow: TextOverflow.ellipsis);
+    } else {
+      textStyle = Theme.of(context).textTheme.subtitle1?.copyWith(
+          fontWeight: FontWeight.w100, overflow: TextOverflow.ellipsis);
+    }
+    return Text(
+      nodeScope.node.label,
+      style: textStyle,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
