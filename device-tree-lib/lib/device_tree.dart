@@ -42,6 +42,10 @@ class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
       required RAIDSummary raidSummary,
       required SystemSummary systemSummary}) = _DeviceTree;
 
+  factory DeviceTree.fromJsonBlob(dynamic blob) {
+    return DeviceTree.fromReport(_ensureMap(blob));
+  }
+
   factory DeviceTree.fromReport(Map<String, dynamic> map) {
     final tree = DeviceTree(
         info: DeviceInfo.fromReport(map),
@@ -74,11 +78,7 @@ class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
   factory DeviceTree.fromJson(Map<String, dynamic> json) =>
       _$DeviceTreeFromJson(json);
 
-  static Future<DeviceTree> from({required File file}) async {
-    final rawData = await json.decode(await file.readAsString());
-
-    // it's either a map or a list.
-    // when a list, need to reduce it down to a map.
+  static Map<String, dynamic> _ensureMap(dynamic rawData) {
     if (rawData is List) {
       final Map<String, dynamic> map = {};
       final rawList = rawData.cast<Map<String, dynamic>>();
@@ -86,11 +86,19 @@ class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
         assert(entry.length == 1);
         map[entry.keys.first] = entry.values.first;
       }
-      return DeviceTree.fromReport(map);
+      return map;
     } else if (rawData is Map) {
-      return DeviceTree.fromReport(rawData as Map<String, dynamic>);
+      return rawData as Map<String, dynamic>;
     }
     throw UnexpectedReportFormat(rawData);
+  }
+
+  static Future<DeviceTree> from({required File file}) async {
+    final rawData = await json.decode(await file.readAsString());
+
+    // it's either a map or a list.
+    // when a list, need to reduce it down to a map.
+    return DeviceTree.fromReport(_ensureMap(rawData));
   }
 
   @override

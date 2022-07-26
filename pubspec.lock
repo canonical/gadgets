@@ -501,6 +501,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  process_runner:
+    dependency: transitive
+    description:
+      name: process_runner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.2"
   pub_semver:
     dependency: transitive
     description:
@@ -529,13 +536,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
-  reflectable:
-    dependency: transitive
-    description:
-      name: reflectable
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.9"
   riverpod:
     dependency: transitive
     description:

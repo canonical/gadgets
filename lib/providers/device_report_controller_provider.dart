@@ -1,11 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../device_report_controller.dart';
 import 'package:meta/meta.dart';
 
 const reportPath = String.fromEnvironment("INXI_REPORT_FILE");
 
-final deviceReportControllerProvider = Provider((_) =>
-    DeviceReportController(inputPath: reportPath != "" ? reportPath : null));
+// FIXME: Make this dynamic and probably a future provider?
+final deviceReportControllerProvider = Provider((_) {
+  // FIXME: Introduce a HTTP driven way to get a device report.
+  if (kIsWeb) {
+    return DeviceReportController(inputPath: null);
+  }
+  if (reportPath != '') {
+    return DeviceReportController(inputPath: reportPath);
+  }
+  return DeviceReportController();
+});
 
 @immutable
 class NodeSelectionState {

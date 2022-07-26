@@ -11,7 +11,7 @@ import 'dart:core';
 import 'dart:io';
 import 'package:device_tree_lib/device_tree_lib.dart';
 
-class DeviceReportController with ChangeNotifier {
+class DeviceReportController {
   final String? inputPath;
 
   late final treeControllerProvider =
@@ -31,12 +31,6 @@ class DeviceReportController with ChangeNotifier {
 
   DeviceReportController({this.inputPath});
 
-  //* == == == == == TreeView == == == == ==
-
-  // late final Map<String, bool> _selectedNodes = {};
-
-  //* == == == == == Scroll == == == == ==
-
   final double? nodeHeight = null;
 
   late final scrollController = AutoScrollController();
@@ -52,14 +46,6 @@ class DeviceReportController with ChangeNotifier {
           preferPosition: AutoScrollPosition.begin,
           duration: const Duration(milliseconds: 500));
     });
-  }
-
-  //* == == == == == General == == == == ==
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
   }
 }
 

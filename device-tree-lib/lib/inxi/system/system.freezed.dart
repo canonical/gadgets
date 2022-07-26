@@ -239,7 +239,7 @@ mixin _$Kernel {
   String get compilerVersion => throw _privateConstructorUsedError;
   String get compiler => throw _privateConstructorUsedError;
   int get bits => throw _privateConstructorUsedError;
-  String get host => throw _privateConstructorUsedError;
+  String? get host => throw _privateConstructorUsedError;
   String get kernelVersion => throw _privateConstructorUsedError;
   String? get parameters => throw _privateConstructorUsedError;
 
@@ -256,7 +256,7 @@ abstract class $KernelCopyWith<$Res> {
       {String compilerVersion,
       String compiler,
       int bits,
-      String host,
+      String? host,
       String kernelVersion,
       String? parameters});
 }
@@ -294,7 +294,7 @@ class _$KernelCopyWithImpl<$Res> implements $KernelCopyWith<$Res> {
       host: host == freezed
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       kernelVersion: kernelVersion == freezed
           ? _value.kernelVersion
           : kernelVersion // ignore: cast_nullable_to_non_nullable
@@ -316,7 +316,7 @@ abstract class _$$_KernelCopyWith<$Res> implements $KernelCopyWith<$Res> {
       {String compilerVersion,
       String compiler,
       int bits,
-      String host,
+      String? host,
       String kernelVersion,
       String? parameters});
 }
@@ -355,7 +355,7 @@ class __$$_KernelCopyWithImpl<$Res> extends _$KernelCopyWithImpl<$Res>
       host: host == freezed
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       kernelVersion: kernelVersion == freezed
           ? _value.kernelVersion
           : kernelVersion // ignore: cast_nullable_to_non_nullable
@@ -375,7 +375,7 @@ class _$_Kernel extends _Kernel {
       {required this.compilerVersion,
       required this.compiler,
       required this.bits,
-      required this.host,
+      this.host,
       required this.kernelVersion,
       required this.parameters})
       : super._();
@@ -390,7 +390,7 @@ class _$_Kernel extends _Kernel {
   @override
   final int bits;
   @override
-  final String host;
+  final String? host;
   @override
   final String kernelVersion;
   @override
@@ -446,7 +446,7 @@ abstract class _Kernel extends Kernel {
       {required final String compilerVersion,
       required final String compiler,
       required final int bits,
-      required final String host,
+      final String? host,
       required final String kernelVersion,
       required final String? parameters}) = _$_Kernel;
   _Kernel._() : super._();
@@ -460,7 +460,7 @@ abstract class _Kernel extends Kernel {
   @override
   int get bits;
   @override
-  String get host;
+  String? get host;
   @override
   String get kernelVersion;
   @override

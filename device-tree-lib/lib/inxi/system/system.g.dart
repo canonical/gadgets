@@ -28,7 +28,7 @@ _$_Kernel _$$_KernelFromJson(Map<String, dynamic> json) => _$_Kernel(
       compilerVersion: json['compilerVersion'] as String,
       compiler: json['compiler'] as String,
       bits: json['bits'] as int,
-      host: json['host'] as String,
+      host: json['host'] as String?,
       kernelVersion: json['kernelVersion'] as String,
       parameters: json['parameters'] as String?,
     );

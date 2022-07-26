@@ -86,7 +86,7 @@ class Kernel with _$Kernel implements TreeNodeRepresentable {
       {required String compilerVersion,
       required String compiler,
       required int bits,
-      required String host,
+      String? host,
       required String kernelVersion,
       required String? parameters}) = _Kernel;
 
@@ -94,7 +94,7 @@ class Kernel with _$Kernel implements TreeNodeRepresentable {
       compilerVersion: map[_InxiKeyKernel.compilerVersion]!,
       compiler: map[_InxiKeyKernel.compiler]!,
       bits: map[_InxiKeyKernel.bits]!,
-      host: map[_InxiKeyKernel.host]!,
+      host: map[_InxiKeyKernel.host],
       kernelVersion: map[_InxiKeyKernel.kernelVersion]!,
       parameters: map[_InxiKeyKernel.parameters]);
 

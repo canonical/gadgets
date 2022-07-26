@@ -19,6 +19,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   json_annotation: ^4.6.0
   collection: ^1.16.0
+  path: ^1.8.2
 
 dev_dependencies:
   freezed: ^2.1.0+1
