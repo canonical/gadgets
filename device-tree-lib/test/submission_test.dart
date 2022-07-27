@@ -1,4 +1,5 @@
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
+import 'package:device_tree_lib/checkbox/submission/submission_archive.dart';
 import 'package:test/test.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -13,8 +14,10 @@ void main() {
     submissionMap = json.decode(await submissionFile.readAsString());
     submission = Submission.fromJson(submissionMap);
   }));
-  group('Test parsing Checkbox submission parsing', () {
-    test('Test parsing submission_201908-27277_27293', () {
+  group('Test Checkbox submission parsing', () {
+    test(
+        'Test parsing submission.json from uncompressed submission_201908-27277_27293',
+        () {
       // some basic assertions done here (more meaningful roundtrip test below).
       expect(submission.architecture, 'armhf');
       expect(submission.attachmentResults?.length, 20);
@@ -29,6 +32,15 @@ void main() {
       // test that roundtripping data keeps the submission unchanged.
       final bool roundtripUnchanged = deserializedSubmission == submission;
       expect(roundtripUnchanged, true);
+    });
+
+    test('Test parsing submission.json from .tar.xz', () async {
+      final bytes =
+          await File('./test/fixture/submission_201908-27277_272935.tar.xz')
+              .readAsBytes();
+      final dearchivedSubmission =
+          SubmissionArchive.submission(fromBytes: bytes);
+      expect(dearchivedSubmission, equals(submission));
     });
 
     test('Test filtering submission results by category', () {
