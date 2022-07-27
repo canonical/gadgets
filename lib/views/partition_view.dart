@@ -19,7 +19,6 @@ class PartitionView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
-    // final reportController = ref.watch(deviceReportControllerProvider);
 
     return InkWell(
         child: SizedBox(

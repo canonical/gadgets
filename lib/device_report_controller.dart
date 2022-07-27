@@ -13,11 +13,12 @@ import 'dart:io';
 import 'package:device_tree_lib/device_tree_lib.dart';
 
 class DeviceReportController {
-  // FIXME: Refactor the inputPath and treeControllerProvider away.
-  // ... by making DeviceTree required (load indication then bubbles above here).
-  final String? inputPath;
-  final bool? runInxi;
+  final DeviceTree deviceTree;
 
+  late final treeController =
+      TreeViewController(rootNode: generateTree(deviceTree, null));
+
+  /*
   late final treeControllerProvider =
       FutureProvider<TreeViewController>((ref) async {
     final path = inputPath;
@@ -37,24 +38,23 @@ class DeviceReportController {
     final treeController = TreeViewController(rootNode: rootNode);
     return treeController;
   });
+  */
 
-  DeviceReportController({this.inputPath, this.runInxi});
+  DeviceReportController({required this.deviceTree});
 
   final double? nodeHeight = null;
 
   late final scrollController = AutoScrollController();
 
   void scrollTo(WidgetRef ref, TreeNode node) {
-    ref.read(treeControllerProvider).whenData((treeController) {
-      final nodeToScroll =
-          node.parent == treeController.rootNode ? node : node.parent ?? node;
+    final nodeToScroll =
+        node.parent == treeController.rootNode ? node : node.parent ?? node;
 
-      final nodeIndex = treeController.indexOf(nodeToScroll);
+    final nodeIndex = treeController.indexOf(nodeToScroll);
 
-      scrollController.scrollToIndex(nodeIndex,
-          preferPosition: AutoScrollPosition.begin,
-          duration: const Duration(milliseconds: 500));
-    });
+    scrollController.scrollToIndex(nodeIndex,
+        preferPosition: AutoScrollPosition.begin,
+        duration: const Duration(milliseconds: 500));
   }
 }
 
@@ -67,6 +67,24 @@ class DeviceReportControllerScope extends InheritedWidget {
 
   final DeviceReportController controller;
 
+  static DeviceReportControllerScope of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<DeviceReportControllerScope>()!;
+  }
+
   @override
-  bool updateShouldNotify(DeviceReportControllerScope oldWidget) => false;
+  bool updateShouldNotify(DeviceReportControllerScope oldWidget) =>
+      controller.deviceTree != oldWidget.controller.deviceTree;
+}
+
+@immutable
+class NodeSelectionState {
+  final String id;
+  final bool isSelected;
+
+  const NodeSelectionState({required this.id, required this.isSelected});
+
+  NodeSelectionState copyWith({String? id, bool? isSelected}) =>
+      NodeSelectionState(
+          id: id ?? this.id, isSelected: isSelected ?? this.isSelected);
 }

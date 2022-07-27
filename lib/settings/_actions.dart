@@ -33,46 +33,36 @@ class _Actions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
-    final treeController =
-        ref.watch(deviceReportController.treeControllerProvider);
+    final deviceReportController =
+        DeviceReportControllerScope.of(context).controller;
 
-    return treeController.when(
-        data: (treeController) {
-          return Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              _Action(
-                label: const Text('Add Top Level Node'),
-                onPressed: () async => await showAddNodeDialog(context, ref),
-              ),
-              _Action(
-                label: const Text('Expand All'),
-                onPressed: treeController.expandAll,
-              ),
-              _Action(
-                label: const Text('Collapse All'),
-                onPressed: treeController.collapseAll,
-              ),
-              _Action(
-                label: const Text('Select All'),
-                onPressed: () => selectAll(ref, treeController, true),
-              ),
-              _Action(
-                label: const Text('Deselect All'),
-                onPressed: () => selectAll(ref, treeController, false),
-              ),
-            ],
-          );
-        },
-        error: (error, trace) {
-          if (kDebugMode) {
-            print(error);
-            print(trace);
-          }
-          return Center(child: Text('Error in tree view: $error'));
-        },
-        loading: () => const Center(child: CircularProgressIndicator()));
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: [
+        _Action(
+          label: const Text('Add Top Level Node'),
+          onPressed: () async => await showAddNodeDialog(context, ref),
+        ),
+        _Action(
+          label: const Text('Expand All'),
+          onPressed: deviceReportController.treeController.expandAll,
+        ),
+        _Action(
+          label: const Text('Collapse All'),
+          onPressed: deviceReportController.treeController.collapseAll,
+        ),
+        _Action(
+          label: const Text('Select All'),
+          onPressed: () =>
+              selectAll(ref, deviceReportController.treeController, true),
+        ),
+        _Action(
+          label: const Text('Deselect All'),
+          onPressed: () =>
+              selectAll(ref, deviceReportController.treeController, false),
+        ),
+      ],
+    );
   }
 }

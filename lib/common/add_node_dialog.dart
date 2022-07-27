@@ -1,50 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gadgets/providers/device_report_controller_provider.dart';
+import 'package:gadgets/device_report_controller.dart';
 
 const _kDarkBlue = Color(0xFF1565C0);
 
 Future<void> showAddNodeDialog(BuildContext context, WidgetRef ref,
     [TreeNode? node]) async {
-  final deviceReportController = ref.read(deviceReportControllerProvider);
+  final deviceReportController =
+      DeviceReportControllerScope.of(context).controller;
+  final treeController = deviceReportController.treeController;
 
-  ref
-      .watch(deviceReportController.treeControllerProvider)
-      .whenData((treeController) async {
-    final theNode = node ?? treeController.rootNode;
-    final isSmallDisplay = MediaQuery.of(context).size.width < 600;
+  final theNode = node ?? treeController.rootNode;
+  final isSmallDisplay = MediaQuery.of(context).size.width < 600;
 
-    FormData? formData;
+  FormData? formData;
 
-    if (isSmallDisplay) {
-      formData = await showModalBottomSheet<FormData>(
-        enableDrag: false,
-        context: context,
-        builder: (_) => AddNodeDialog(parentLabel: theNode.id),
-      );
+  if (isSmallDisplay) {
+    formData = await showModalBottomSheet<FormData>(
+      enableDrag: false,
+      context: context,
+      builder: (_) => AddNodeDialog(parentLabel: theNode.id),
+    );
+  } else {
+    formData = await showDialog<FormData>(
+      context: context,
+      builder: (_) => Dialog(
+        child: AddNodeDialog(parentLabel: theNode.id),
+      ),
+    );
+  }
+  if (formData != null) {
+    theNode.addChild(TreeNode(id: formData.id, label: formData.label));
+
+    if (theNode.isRoot) {
+      treeController.reset(keepExpandedNodes: true);
+      //
+    } else if (treeController.isExpanded(theNode.id)) {
+      //
+      treeController.refreshNode(theNode);
     } else {
-      formData = await showDialog<FormData>(
-        context: context,
-        builder: (_) => Dialog(
-          child: AddNodeDialog(parentLabel: theNode.id),
-        ),
-      );
+      treeController.expandNode(theNode);
     }
-    if (formData != null) {
-      theNode.addChild(TreeNode(id: formData.id, label: formData.label));
-
-      if (theNode.isRoot) {
-        treeController.reset(keepExpandedNodes: true);
-        //
-      } else if (treeController.isExpanded(theNode.id)) {
-        //
-        treeController.refreshNode(theNode);
-      } else {
-        treeController.expandNode(theNode);
-      }
-    }
-  });
+  }
 }
 
 class AddNodeDialog extends StatefulWidget {

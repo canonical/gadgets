@@ -25,7 +25,9 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
+    final deviceReportController =
+        DeviceReportControllerScope.of(context).controller;
+
     return TextField(
       controller: controller,
       cursorColor: Colors.blueGrey,
@@ -60,29 +62,26 @@ class __FindNodeFieldState extends ConsumerState<_FindNodeField> {
   }
 
   void _submitted(DeviceReportController deviceReportController) {
-    final deviceReportController = ref.read(deviceReportControllerProvider);
-    final treeController =
-        ref.read(deviceReportController.treeControllerProvider);
+    final deviceReportController =
+        DeviceReportControllerScope.of(context).controller;
 
-    treeController.whenData((treeController) {
-      final id = controller.text.trim();
-      final node = treeController.find(id);
+    final id = controller.text.trim();
+    final node = deviceReportController.treeController.find(id);
 
-      if (node == null) {
-        showSnackBar(
-          context,
-          message: 'No node was found with ID:  $id',
-          duration: const Duration(seconds: 3),
-        );
-      } else {
-        toggleSelection(ref: ref, id: id, shouldSelect: true);
-        if (!treeController.isExpanded(id)) {
-          treeController.expandUntil(node);
-        }
-        deviceReportController.scrollTo(ref, node);
+    if (node == null) {
+      showSnackBar(
+        context,
+        message: 'No node was found with ID:  $id',
+        duration: const Duration(seconds: 3),
+      );
+    } else {
+      toggleSelection(ref: ref, id: id, shouldSelect: true);
+      if (!deviceReportController.treeController.isExpanded(id)) {
+        deviceReportController.treeController.expandUntil(node);
       }
-      controller.clear();
-      focusNode.unfocus();
-    });
+      deviceReportController.scrollTo(ref, node);
+    }
+    controller.clear();
+    focusNode.unfocus();
   }
 }

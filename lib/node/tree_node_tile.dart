@@ -1,6 +1,7 @@
 import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
+import 'package:gadgets/device_report_controller.dart';
 import 'package:gadgets/presentation/result_presentation.dart';
 import 'package:gadgets/providers/device_report_controller_provider.dart';
 import 'package:gadgets/node/node_selection.dart';
@@ -39,9 +40,9 @@ class TreeNodeTile extends ConsumerStatefulWidget {
 class TreeNodeTileState extends ConsumerState<TreeNodeTile> {
   @override
   Widget build(BuildContext context) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
-    final treeController =
-        ref.watch(deviceReportController.treeControllerProvider).value!;
+    final deviceReportController =
+        DeviceReportControllerScope.of(context).controller;
+    final treeController = deviceReportController.treeController;
     final nodeScope = TreeNodeScope.of(context);
     final isInternalNode = nodeScope.node.children.isNotEmpty;
     final isRoot =

@@ -20,10 +20,8 @@ class CPUView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nodeScope = TreeNodeScope.of(context);
-    // final reportController = ref.watch(deviceReportControllerProvider);
     final secondaryTextStyle =
         TextStyle(color: Theme.of(context).textTheme.bodySmall?.color);
-    final freqs = cpuSummary.coreFrequencyInfo?.minMaxFreqs;
 
     return InkWell(
         child: SizedBox(

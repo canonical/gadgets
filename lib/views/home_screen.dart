@@ -15,25 +15,14 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class HomeScreenState extends ConsumerState<HomeScreen> {
   @override
-  Widget build(BuildContext context) {
-    final deviceReportController = ref.watch(deviceReportControllerProvider);
-    return DeviceReportControllerScope(
-      controller: deviceReportController,
-      child: ref.watch(deviceReportController.treeControllerProvider).when(
-          data: (TreeViewController treeViewController) {
-        return const _Unfocus(child: Scaffold(body: DeviceTreeView()));
-      }, error: (error, trace) {
-        if (kDebugMode) {
-          print(error);
-          print(trace);
-        }
-        return Center(
-            child: Text('Error in device report controller scope: $error'));
-      }, loading: () {
-        return const Center(child: CircularProgressIndicator());
-      }),
-    );
-  }
+  Widget build(BuildContext context) =>
+      ref.watch(deviceReportControllerProvider).when(
+          data: (deviceReportController) => DeviceReportControllerScope(
+              controller: deviceReportController,
+              child: const _Unfocus(child: Scaffold(body: DeviceTreeView()))),
+          error: (error, stackTrace) => ErrorWidget(error),
+          loading: () =>
+              const Center(child: CircularProgressIndicator.adaptive()));
 }
 
 class _Unfocus extends StatelessWidget {
