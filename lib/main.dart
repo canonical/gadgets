@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gadgets/views/home_screen.dart';
+import 'package:gadgets/views/test_list_screen.dart';
 import 'package:logging/logging.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
@@ -10,13 +12,14 @@ import 'package:window_size/window_size.dart';
 
 import 'router/router.dart';
 
+import 'package:stack_trace/stack_trace.dart';
+
 void main(List<String> args) {
   Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.time}: ${record.message}');
   });
-
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
     if (kReleaseMode) {
@@ -61,6 +64,15 @@ const Map<String, List<String>> kDataSample = {
   'E': ['E 1'],
   'F': ['F 1', 'F 2'],
 };
+
+/*
+final routes = RouteMap(routes: {
+  '/': (_) => const MaterialPage(
+        child: HomeScreen(),
+      ),
+  '/tests/:cid': (info) =>
+      MaterialPage(child: TestListScreen(cid: info.pathParameters['cid']!)),
+});*/
 
 class GadgetsApp extends ConsumerWidget {
   const GadgetsApp({super.key});

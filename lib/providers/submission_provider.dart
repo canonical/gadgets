@@ -16,7 +16,7 @@ final submission = Submission.fromJson(parsedSubmissionJson);
 
 StateProvider<IMap<String, IList<Submission>>> submissionProvider =
     StateProvider((_) =>
-        IMap<String, IList<Submission>>().add("CID X", [submission].toIList()));
+        IMap<String, IList<Submission>>().add("X", [submission].toIList()));
 
 final deviceCertificationStatusProvider =
     StateProvider.family<IList<Submission>?, String>(

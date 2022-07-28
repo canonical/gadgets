@@ -84,9 +84,9 @@ enum ResultColumn {
       case duration:
         return (dynamic value) => "${value}s";
 
-      case category:
-        return (dynamic value) =>
-            (value as String).replaceFirst(" (", "\n(").replaceAll("tests", "");
+      // case category:
+      //  return (dynamic value) =>
+      //      (value as String).replaceFirst(" (", "\n(").replaceAll("tests", "");
 
       case outcome:
         return (dynamic value) => ResultOutcome.presentedValue(value);
@@ -106,9 +106,9 @@ enum ResultColumn {
   double get width {
     switch (this) {
       case category:
-        return 235.0;
+        return 265.0;
       case categoryID:
-        return 255.0;
+        return 260.0;
       case certificationStatus:
         return 100.0;
       case status:

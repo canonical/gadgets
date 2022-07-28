@@ -8,7 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 
 class TestListScreen extends ConsumerWidget {
-  const TestListScreen({super.key, required String cid});
+  const TestListScreen({super.key, @PathParam('cid') required String cid});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,7 +16,7 @@ class TestListScreen extends ConsumerWidget {
     // print(router.current.args);
 
     final submissionProvider =
-        ref.watch(deviceCertificationStatusProvider("CID X"));
+        ref.watch(deviceCertificationStatusProvider("X"));
 
     final results =
         submissionProvider?.expand((submission) => submission.results);
@@ -32,6 +32,8 @@ class TestListScreen extends ConsumerWidget {
               gridBackgroundColor: theme.backgroundColor,
               rowColor: theme.backgroundColor));
     }
+
+    config = config.copyWith(style: config.style.copyWith(rowHeight: 34));
 
     if (results != null) {
       return Scaffold(

@@ -55,7 +55,7 @@ dependencies:
   modal_bottom_sheet: ^2.1.0
   dio: ^4.0.6
   pluto_grid: ^5.0.4
-  meta: ^1.8.0
+  meta: ^1.7.0
 
 dev_dependencies:
   flutter_test:

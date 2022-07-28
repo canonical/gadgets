@@ -22,7 +22,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const HomeScreen());
     },
     TestListScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<TestListScreenRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<TestListScreenRouteArgs>(
+          orElse: () =>
+              TestListScreenRouteArgs(cid: pathParams.getString('cid')));
       return MaterialPageX<dynamic>(
           routeData: routeData,
           child: TestListScreen(key: args.key, cid: args.cid));
@@ -31,17 +34,15 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   List<RouteConfig> get routes => [
-        RouteConfig('/#redirect',
-            path: '/', redirectTo: '/summary', fullMatch: true),
-        RouteConfig(HomeScreenRoute.name, path: '/summary'),
-        RouteConfig(TestListScreenRoute.name, path: '/tests/:cid')
+        RouteConfig(HomeScreenRoute.name, path: '/'),
+        RouteConfig(TestListScreenRoute.name, path: 'tests/:cid')
       ];
 }
 
 /// generated route for
 /// [HomeScreen]
 class HomeScreenRoute extends PageRouteInfo<void> {
-  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/summary');
+  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/');
 
   static const String name = 'HomeScreenRoute';
 }
@@ -51,8 +52,9 @@ class HomeScreenRoute extends PageRouteInfo<void> {
 class TestListScreenRoute extends PageRouteInfo<TestListScreenRouteArgs> {
   TestListScreenRoute({Key? key, required String cid})
       : super(TestListScreenRoute.name,
-            path: '/tests/:cid',
-            args: TestListScreenRouteArgs(key: key, cid: cid));
+            path: 'tests/:cid',
+            args: TestListScreenRouteArgs(key: key, cid: cid),
+            rawPathParams: {'cid': cid});
 
   static const String name = 'TestListScreenRoute';
 }

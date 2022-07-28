@@ -46,43 +46,9 @@ class _NodeSelector extends ConsumerWidget {
             icon: descendentStatus.icon(theme: theme),
             followUp: FollowUp("Learn More", () {
               ScaffoldMessenger.of(context).removeCurrentSnackBar();
-
               ref
                   .watch(appRouterProvider)
-                  .navigate(TestListScreenRoute(cid: "CID X"));
-
-              /*
-              showMaterialModalBottomSheet(
-                  context: context,
-                  isDismissible: false,
-                  builder: (context) {
-                    final submissionProvider =
-                        ref.watch(deviceCertificationStatusProvider("CID X"));
-
-                    final results = submissionProvider
-                        ?.expand((submission) => submission.results);
-
-                    if (results != null) {
-                      return PlutoGrid(
-                          columns: ResultColumn.plutoColumns.toList(),
-                          rows: results
-                              .map((result) => result.toPlutoRow())
-                              .toList(),
-                          mode: PlutoGridMode.select,
-                          configuration: theme.brightness == Brightness.light
-                              ? const PlutoGridConfiguration()
-                              : const PlutoGridConfiguration.dark(),
-                          onChanged: (PlutoGridOnChangedEvent event) {
-                            Logger.root.info(event);
-                          },
-                          onLoaded: (PlutoGridOnLoadedEvent event) {
-                            Logger.root.info(event);
-                          });
-                    } else {
-                      return const Text("(No results)");
-                    }
-                  });
-                  */
+                  .navigate(TestListScreenRoute(cid: 'X'));
             }),
           );
         },

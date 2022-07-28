@@ -1,5 +1,5 @@
 import 'package:archive/archive.dart';
-import 'package:device_tree_lib/archives/unarchiver.dart';
+import 'package:device_tree_lib/archives/detarball.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
