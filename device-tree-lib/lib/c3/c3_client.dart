@@ -32,14 +32,22 @@ final remoteReportProvider =
   return DeviceReport.fromJson(report.data);
 });
 
+class SubmissionParams {
+  final String hardwareID;
+  final String submissionID;
+
+  const SubmissionParams(
+      {required this.hardwareID, required this.submissionID});
+}
+
 final remoteSubmissionProvider =
-    FutureProviderFamily<Submission, String>((ref, id) async {
+    FutureProviderFamily<Submission, SubmissionParams>((ref, params) async {
   final credentials = ref.watch(c3CredentialsProvider);
 
   final tempDir = await Directory.systemTemp.createTemp('gadgets-download');
-  final tempPath = join(tempDir.path, "${id}.tar.xz");
+  final tempPath = join(tempDir.path, "${params.submissionID}.tar.xz");
   final response = await Dio().get(
-      'https://certification.canonical.com/hardware/201907-27197/submission/${id}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
+      'https://certification.canonical.com/hardware/${params.hardwareID}/submission/${params.submissionID}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
       options: Options(responseType: ResponseType.bytes));
 
   final responseData = response.data;

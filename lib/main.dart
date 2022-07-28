@@ -25,7 +25,7 @@ void main(List<String> args) {
   };
 
   WidgetsFlutterBinding.ensureInitialized();
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     setWindowMinSize(const Size(600, 500));
   }
   runApp(const ProviderScope(child: GadgetsApp()));

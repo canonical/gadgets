@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/presentation/result_presentation.dart';
@@ -11,6 +12,9 @@ class TestListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // final router = AutoRouter.of(context);
+    // print(router.current.args);
+
     final submissionProvider =
         ref.watch(deviceCertificationStatusProvider("CID X"));
 

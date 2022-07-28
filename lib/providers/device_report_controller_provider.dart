@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:device_tree_lib/device_tree.dart';
@@ -18,8 +19,8 @@ final deviceReportControllerProvider = FutureProvider((_) async {
     return DeviceReportController(deviceTree: exampleTree);
   }
   if (reportPath != '') {
-    final inputTree =
-        DeviceTree.fromJsonBlob(await File(reportPath).readAsString());
+    final inputTree = DeviceTree.fromJsonBlob(
+        json.decode(await File(reportPath).readAsString()));
     return DeviceReportController(deviceTree: inputTree);
   }
   final inputTree = (await InxiExecutor().run()).deviceTree;

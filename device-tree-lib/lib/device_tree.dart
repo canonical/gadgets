@@ -90,6 +90,7 @@ class DeviceTree with _$DeviceTree implements TreeNodeRepresentable {
     } else if (rawData is Map) {
       return rawData as Map<String, dynamic>;
     }
+    print(rawData.runtimeType);
     throw UnexpectedReportFormat(rawData);
   }
 

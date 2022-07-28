@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:device_tree_lib/device_tree_lib.dart';
-import 'package:dio/dio.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
