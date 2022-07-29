@@ -1,23 +1,26 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' if (dart.library.html) 'dart:html';
 
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:device_tree_lib/device_tree_lib.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // FIXME: Remove this faking.
-File report = File(
-    './device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json');
-final Map<String, dynamic> parsedSubmissionJson =
-    json.decode(report.readAsStringSync());
 
-final submission = Submission.fromJson(parsedSubmissionJson);
+Future<Submission> exampleSubmission() async {
+  return Submission.fromJson(json.decode(await rootBundle.loadString(
+      './device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json')));
+}
 
-StateProvider<IMap<String, IList<Submission>>> submissionProvider =
-    StateProvider((_) =>
-        IMap<String, IList<Submission>>().add("X", [submission].toIList()));
+FutureProvider<IMap<String, IList<Submission>>> submissionProvider =
+    FutureProvider((_) async {
+  final submission = await exampleSubmission();
+  return IMap<String, IList<Submission>>().add("X", [submission].toIList());
+});
 
-final deviceCertificationStatusProvider =
-    StateProvider.family<IList<Submission>?, String>(
-        (ref, id) => ref.watch(submissionProvider)[id]);
+final deviceSubmissionProvider =
+    FutureProviderFamily<IList<Submission>?, String>((ref, id) async {
+  return IList<Submission>([await exampleSubmission()]);
+});

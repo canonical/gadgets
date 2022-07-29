@@ -1,48 +1,57 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:device_tree_lib/checkbox/submission/result.dart';
+import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/presentation/result_presentation.dart';
 import 'package:gadgets/providers/submission_provider.dart';
-import 'package:gadgets/router/router.dart';
 import 'package:logging/logging.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 StateProvider<String?> filterProvider = StateProvider<String?>((ref) => null);
 
-class TestListScreen extends ConsumerWidget {
-  const TestListScreen({super.key, @PathParam('cid') required String cid});
+class TestListScreen extends ConsumerStatefulWidget {
+  final String cid;
+  const TestListScreen({super.key, @PathParam('cid') required this.cid});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // final router = AutoRouter.of(context);
-    // print(router.current.args);
+  TestListState createState() => TestListState();
+}
 
-    final submissionProvider =
-        ref.watch(deviceCertificationStatusProvider("X"));
+class TestListState extends ConsumerState<TestListScreen> {
+  late PlutoGridStateManager stateManager;
 
-    final filterQuery = ref.watch(filterProvider);
-
-    final results = submissionProvider
-        ?.expand((submission) => submission.results.where((element) {
+  Iterable<Result>? filteredResults(
+      Iterable<Submission>? submissions, String? filterQuery) {
+    return submissions
+        ?.expand((submission) => submission.results.where((result) {
               String? query = filterQuery?.toLowerCase();
-              String? categoryId = element.categoryId?.toLowerCase();
-              String? category = element.category.toLowerCase();
+              String? categoryId = result.categoryId?.toLowerCase();
+              String category = result.category.toLowerCase();
+              String? comments = result.comments?.toLowerCase();
               if (query == null) {
                 return true;
               }
-              return (categoryId != null ? categoryId.contains(query) : true) ||
-                  category.contains(query);
+              return (categoryId != null
+                      ? categoryId.contains(query)
+                      : false) ||
+                  category.contains(query) ||
+                  result.name.toLowerCase().contains(query) ||
+                  (comments != null
+                      ? comments.toLowerCase().contains(query)
+                      : false);
             }));
+  }
 
-    print(ref.read(filterProvider));
-    print(results?.map((e) => e.name));
+  @override
+  Widget build(BuildContext context) {
+    final submissions = ref.watch(deviceSubmissionProvider("X"));
 
     final theme = Theme.of(context);
     PlutoGridConfiguration config = theme.brightness == Brightness.light
         ? const PlutoGridConfiguration()
         : const PlutoGridConfiguration.dark();
-
     if (theme.brightness == Brightness.dark) {
       config = config.copyWith(
           style: config.style.copyWith(
@@ -52,51 +61,71 @@ class TestListScreen extends ConsumerWidget {
 
     config = config.copyWith(style: config.style.copyWith(rowHeight: 34));
 
-    if (results != null) {
-      return Scaffold(
-          appBar: AppBar(
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.settings_outlined),
-                tooltip: 'Settings',
-                onPressed: () {
-                  showMaterialModalBottomSheet(
-                    context: context,
-                    builder: (context) => Container(),
-                  );
-                },
-              )
-            ],
-            title: TextField(
-              style: const TextStyle(fontSize: 12),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                    gapPadding: 0,
-                    borderRadius: BorderRadius.all(Radius.circular(8))),
-                labelText: 'Filter',
-              ),
-              onChanged: (value) {
-                ref.read(filterProvider.notifier).state = value;
-              },
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            tooltip: 'Settings',
+            onPressed: () {
+              stateManager.showSetColumnsPopup(context);
+              /*
+              showMaterialModalBottomSheet(
+                context: context,
+                builder: (context) => Container(),
+              );*/
+            },
+          )
+        ],
+        title: TextField(
+          style: const TextStyle(fontSize: 12),
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+            prefixIcon: Icon(Icons.search),
+            border: OutlineInputBorder(
+                gapPadding: 0,
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            labelText: 'Filter',
           ),
-          body: PlutoGrid(
-              columns: ResultColumn.plutoColumns.toList(),
-              columnGroups: ResultColumn.plutoColumnGroups.toList(),
-              rows: results.map((result) => result.toPlutoRow()).toList(),
-              mode: PlutoGridMode.select,
-              configuration: config,
-              onChanged: (PlutoGridOnChangedEvent event) {
-                Logger.root.info(event);
-              },
-              onLoaded: (PlutoGridOnLoadedEvent event) {
-                Logger.root.info(event);
-              }));
-    } else {
-      return const Text("No results");
-    }
+          onChanged: (value) {
+            ref.read(filterProvider.notifier).state = value;
+          },
+        ),
+      ),
+      body: submissions.when(
+          data: (submissions) {
+            final filterQuery = ref.watch(filterProvider);
+            final results = filteredResults(submissions, filterQuery);
+
+            ref.listen<String?>(filterProvider, (_, filterString) {
+              final filtered = filteredResults(submissions, filterString);
+              stateManager.refRows.removeWhereFromOriginal((element) => true);
+              stateManager.refRows.addAll(
+                  filtered != null ? filtered.map((e) => e.toPlutoRow()) : []);
+
+              stateManager.notifyListeners();
+            });
+
+            return PlutoGrid(
+                columns: ResultColumn.plutoColumns.toList(),
+                columnGroups: ResultColumn.plutoColumnGroups.toList(),
+                rows: results!.map((result) => result.toPlutoRow()).toList(),
+                mode: PlutoGridMode.select,
+                configuration: config,
+                onChanged: (PlutoGridOnChangedEvent event) {
+                  // Logger.root.info(event);
+                },
+                onLoaded: (PlutoGridOnLoadedEvent event) {
+                  stateManager = event.stateManager;
+                });
+            /*
+            return DataTable(
+                columns: resultDataColumns.toList(),
+                rows: results!.map((e) => dataRow(e)).toList());
+                */
+          },
+          error: (error, stackTrace) => ErrorWidget(error),
+          loading: () => const CircularProgressIndicator.adaptive()),
+    );
   }
 }

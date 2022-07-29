@@ -12,7 +12,8 @@ class _NodeActionsChip extends ConsumerStatefulWidget {
 }
 
 class _NodeActionsChipState extends ConsumerState<_NodeActionsChip> {
-  final GlobalKey<PopupMenuButtonState> _popupMenuKey = GlobalKey();
+  final GlobalKey<PopupMenuButtonState> _popupMenuKey =
+      GlobalKey(debugLabel: "Actions");
 
   PopupMenuButtonState? get _menu => _popupMenuKey.currentState;
 

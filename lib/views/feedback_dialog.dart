@@ -14,7 +14,7 @@ class FeedbackDialog extends StatefulWidget {
 class _FeedbackDialogState extends State<FeedbackDialog> {
   final TreeNode node;
   final TextEditingController _controller = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey();
+  final GlobalKey<FormState> _formKey = GlobalKey(debugLabel: "Feedback");
 
   _FeedbackDialogState({required this.node});
 

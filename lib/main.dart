@@ -26,6 +26,7 @@ void main(List<String> args) {
       exit(1);
     }
   };
+  // FlutterError.demangleStackTrace = (details) => details;
 
   WidgetsFlutterBinding.ensureInitialized();
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {

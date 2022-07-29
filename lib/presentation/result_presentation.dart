@@ -4,6 +4,7 @@ import 'package:pluto_grid/pluto_grid.dart';
 import 'package:device_tree_lib/checkbox/submission/result.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:unicons/unicons.dart';
+import 'double_extensions.dart';
 
 Map<String, IconData> _iconMap = {
   "skip": Icons.skip_next,
@@ -37,16 +38,22 @@ Map<String, IconData> _iconMap = {
 enum ResultColumn {
   category("Name"),
   categoryID("ID"),
+  name("Name"),
   status("Status"),
   outcome("Outcome"),
   certificationStatus("Required"),
-  duration("Duration");
+  duration("Duration"),
+  comments("Comments");
 
   final String columnName;
   const ResultColumn(this.columnName);
 
   dynamic value(Result result) {
     switch (this) {
+      case name:
+        return result.name;
+      case comments:
+        return result.comments;
       case category:
         return result.category;
       case categoryID:
@@ -80,7 +87,12 @@ enum ResultColumn {
   String Function(dynamic value)? get formatter {
     switch (this) {
       case duration:
-        return (dynamic value) => "${value}s";
+        return (dynamic value) {
+          if (value is double) {
+            return "${value.toPrecision(2)}s";
+          }
+          return "${value}s";
+        };
 
       // case category:
       //  return (dynamic value) =>
@@ -95,6 +107,14 @@ enum ResultColumn {
       case certificationStatus:
         return (dynamic value) =>
             ResultCertificationStatus.presentedValue(value);
+
+      case comments:
+        return (dynamic value) {
+          if (value == null) {
+            return "";
+          }
+          return value;
+        };
 
       default:
         return null;
@@ -120,13 +140,40 @@ enum ResultColumn {
     }
   }
 
+  bool get hidden {
+    switch (this) {
+      case comments:
+      case categoryID:
+      case outcome:
+      case certificationStatus:
+        return true;
+
+      default:
+        return false;
+    }
+  }
+
+  bool get hasTooltip {
+    switch (this) {
+      case name:
+      case categoryID:
+        return true;
+
+      default:
+        return false;
+    }
+  }
+
   static Iterable<PlutoColumn> plutoColumns = ResultColumn.values.map((c) {
     final column = PlutoColumn(
-        title: c.name,
+        hide: c.hidden,
+        title: c.columnName,
         field: c.name,
         type: c.type,
         formatter: c.formatter,
         width: c.width,
+        enableFilterMenuItem: true,
+        enableRowChecked: false,
         renderer: (rendererContext) {
           Color? textColor;
           if (['unspecified', 'skip', 'not-supported']
@@ -144,7 +191,7 @@ enum ResultColumn {
               : rendererContext.cell.value.toString();
 
           final text = Tooltip(
-              message: message,
+              message: c.hasTooltip ? message : "",
               child: Text(
                 message,
                 style: TextStyle(
@@ -181,6 +228,15 @@ enum ResultColumn {
         title: "Test Result",
         fields: [ResultColumn.status.name, ResultColumn.outcome.name])
   ];
+
+  // FIXME: Put these back in the ResultColumn type.
+  static Iterable<DataColumn> resultDataColumns = ResultColumn.values.map((c) {
+    return DataColumn(
+        label: Text(
+      c.columnName,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ));
+  });
 }
 
 extension Presentation on Result {
@@ -191,5 +247,12 @@ extension Presentation on Result {
             dict.add(column.name, PlutoCell(value: column.value(this))));
 
     return PlutoRow(cells: columnMap.unlock);
+  }
+
+  DataRow toDataRow() {
+    return DataRow(
+        cells: ResultColumn.values
+            .map((column) => DataCell(Text(column.value(this).toString())))
+            .toList());
   }
 }

@@ -9,7 +9,6 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'sample_tree.dart';
 
 import 'dart:core';
-import 'dart:io';
 import 'package:device_tree_lib/device_tree_lib.dart';
 
 class DeviceReportController {
@@ -17,28 +16,6 @@ class DeviceReportController {
 
   late final treeController =
       TreeViewController(rootNode: generateTree(deviceTree, null));
-
-  /*
-  late final treeControllerProvider =
-      FutureProvider<TreeViewController>((ref) async {
-    final path = inputPath;
-    if (path != null) {
-      final deviceTree = await DeviceTree.from(file: File(path));
-      final rootNode = generateTree(deviceTree, null);
-      return TreeViewController(rootNode: rootNode);
-    } else if (runInxi != null && runInxi!) {
-      final executor = InxiExecutor();
-      final inputTree = (await executor.run()).deviceTree;
-      final rootNode = generateTree(inputTree, null);
-      return TreeViewController(rootNode: rootNode);
-    }
-    final rootNode = TreeNode(id: sampleRootId);
-    generateSampleTree(rootNode);
-
-    final treeController = TreeViewController(rootNode: rootNode);
-    return treeController;
-  });
-  */
 
   DeviceReportController({required this.deviceTree});
 
