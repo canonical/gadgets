@@ -1,7 +1,5 @@
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:device_tree_lib/checkbox/submission/result.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
@@ -44,8 +42,8 @@ enum ResultColumn {
   certificationStatus("Required"),
   duration("Duration");
 
-  final String name;
-  const ResultColumn(this.name);
+  final String columnName;
+  const ResultColumn(this.columnName);
 
   dynamic value(Result result) {
     switch (this) {

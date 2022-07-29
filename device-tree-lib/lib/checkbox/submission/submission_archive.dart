@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:archive/archive.dart';
 import 'package:device_tree_lib/archives/detarball.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
