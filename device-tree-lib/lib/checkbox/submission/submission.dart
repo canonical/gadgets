@@ -137,7 +137,6 @@ class Submission with _$Submission {
   }) = _Submission;
 
   factory Submission.fromJson(Map<String, dynamic> json) {
-    print(json);
     return _$SubmissionFromJson(json);
   }
 }
