@@ -5,11 +5,11 @@
     <title>detarballing in teh browser</title>
   </head>
   <body>
-    <script type="module">
+    <script type="module" defer>
       import init, {decompress_from_xz_tarball} from "./pkg/detarball.js";
       init()
         .then(async () => {
-            const response = await fetch('./submission.tar.xz');
+            const response = await fetch('./test/fixture/submission.tar.xz');
             const data = await response.arrayBuffer();
             const decompressed_data = decompress_from_xz_tarball(new Uint8Array(data), "submission.json");
             console.log(decompressed_data);

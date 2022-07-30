@@ -21,7 +21,7 @@ Device _$DeviceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Device {
   String get bus => throw _privateConstructorUsedError;
-  String get driver => throw _privateConstructorUsedError;
+  String? get driver => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
   String? get product => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $DeviceCopyWith<$Res> {
       _$DeviceCopyWithImpl<$Res>;
   $Res call(
       {String bus,
-      String driver,
+      String? driver,
       String? name,
       String path,
       String? product,
@@ -95,7 +95,7 @@ class _$DeviceCopyWithImpl<$Res> implements $DeviceCopyWith<$Res> {
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ abstract class _$$_DeviceCopyWith<$Res> implements $DeviceCopyWith<$Res> {
   @override
   $Res call(
       {String bus,
-      String driver,
+      String? driver,
       String? name,
       String path,
       String? product,
@@ -198,7 +198,7 @@ class __$$_DeviceCopyWithImpl<$Res> extends _$DeviceCopyWithImpl<$Res>
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -252,7 +252,7 @@ class __$$_DeviceCopyWithImpl<$Res> extends _$DeviceCopyWithImpl<$Res>
 class _$_Device implements _Device {
   _$_Device(
       {required this.bus,
-      required this.driver,
+      this.driver,
       this.name,
       required this.path,
       this.product,
@@ -271,7 +271,7 @@ class _$_Device implements _Device {
   @override
   final String bus;
   @override
-  final String driver;
+  final String? driver;
   @override
   final String? name;
   @override
@@ -360,7 +360,7 @@ class _$_Device implements _Device {
 abstract class _Device implements Device {
   factory _Device(
       {required final String bus,
-      required final String driver,
+      final String? driver,
       final String? name,
       required final String path,
       final String? product,
@@ -378,7 +378,7 @@ abstract class _Device implements Device {
   @override
   String get bus;
   @override
-  String get driver;
+  String? get driver;
   @override
   String? get name;
   @override

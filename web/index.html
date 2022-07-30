@@ -38,10 +38,13 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <script src="./pkg/detarball.js" type="module" defer>
+  </script>
 </head>
 <body>
-  <script type="module" src="pkg/detarball.js" defer> </script>
-  <script>
+  <script type="module">
+    import init, { decompress_from_xz_tarball } from './pkg/detarball.js';
+        
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -51,6 +54,9 @@
       }).then(function(engineInitializer) {
         return engineInitializer.initializeEngine();
       }).then(function(appRunner) {
+        // FIXME: Remove this hack when ES6 module support works OK in Flutter.
+        window.decompress_from_xz_tarball = decompress_from_xz_tarball;
+        window.initDetarball = init;
         return appRunner.runApp();
       });
     });

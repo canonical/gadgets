@@ -7,7 +7,7 @@ part 'device.g.dart';
 class Device with _$Device {
   factory Device({
     required String bus,
-    required String driver,
+    String? driver,
     String? name,
     required String path,
     String? product,

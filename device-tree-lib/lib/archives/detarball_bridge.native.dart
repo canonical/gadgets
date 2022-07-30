@@ -28,6 +28,7 @@ Future<Submission> submission({required List<int> fromBytes}) async {
   return Submission.fromJson(json.decode(submissionData));
 }
 
+/*
 Future<String> decompressFromXZTarballStream(
     Stream<Uint8List> lzmaStream, String filenameSuffix) async {
   final cat = await Process.start('cat', []);
@@ -40,7 +41,7 @@ Future<String> decompressFromXZTarballStream(
 
   final out = await jq.stdout.transform(utf8.decoder).first;
   return out;
-}
+}*/
 
 Future<String> decompressFromXZTarball(
     Uint8List lzmaData, String filenameSuffix) async {

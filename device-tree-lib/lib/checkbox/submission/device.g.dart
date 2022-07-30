@@ -8,7 +8,7 @@ part of 'device.dart';
 
 _$_Device _$$_DeviceFromJson(Map<String, dynamic> json) => _$_Device(
       bus: json['bus'] as String,
-      driver: json['driver'] as String,
+      driver: json['driver'] as String?,
       name: json['name'] as String?,
       path: json['path'] as String,
       product: json['product'] as String?,

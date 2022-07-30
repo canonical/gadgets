@@ -1,10 +1,8 @@
+import 'package:device_tree_lib/archives/detarball_bridge.dart';
 import 'package:device_tree_lib/c3/device_report/device_report.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
-import 'package:device_tree_lib/archives/detarball.dart';
-import 'package:riverpod/riverpod.dart';
-import 'package:archive/archive.dart';
-import 'package:path/path.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class C3Credentials {
   final String username;
@@ -55,7 +53,7 @@ final remoteSubmissionProvider =
   */
 
   final response = await Dio().get(
-      'http://localhost:8000/submission_201908-27277_272935.tar.xz',
+      'http://127.0.0.1:8000/rust/test/fixture/submission.tar.xz',
       options: Options(responseType: ResponseType.bytes));
 
   final responseData = response.data;
