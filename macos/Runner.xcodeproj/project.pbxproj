@@ -72,7 +72,7 @@
 		33E51914231749380026EE4D /* Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Release.entitlements; sourceTree = "<group>"; };
 		33E5194F232828860026EE4D /* AppInfo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppInfo.xcconfig; sourceTree = "<group>"; };
 		5FCB648E28953FB400342806 /* libdetarball.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdetarball.dylib; path = ../detarball/rust/target/release/libdetarball.dylib; sourceTree = "<group>"; };
-		5FCB649228953FE800342806 /* detarball_bridge_generated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = detarball_bridge_generated.h; path = ../detarball/lib/detarball_bridge_generated.h; sourceTree = "<group>"; };
+		5FCB649228953FE800342806 /* detarball_bridge_generated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = detarball_bridge_generated.h; path = ../detarball/include/detarball_bridge_generated.h; sourceTree = "<group>"; };
 		5FD210F6D3C39BF1D493A3B8 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -187,6 +187,7 @@
 			buildConfigurationList = 33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
 				0D8689FD9D022FD5FF2C50D3 /* [CP] Check Pods Manifest.lock */,
+				5F7D36BC2895B8FF00BEFBB8 /* Build detarball and Rust - Dart bindings */,
 				33CC10E92044A3C60003C045 /* Sources */,
 				33CC10EA2044A3C60003C045 /* Frameworks */,
 				33CC10EB2044A3C60003C045 /* Resources */,
@@ -321,6 +322,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/macos_assemble.sh && touch Flutter/ephemeral/tripwire";
+		};
+		5F7D36BC2895B8FF00BEFBB8 /* Build detarball and Rust - Dart bindings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"\"$(SRCROOT)/../detarball/rust/Cargo.toml\"",
+				"\"$(SRCROOT)/../detarball/rust/src/*.rs\"",
+			);
+			name = "Build detarball and Rust - Dart bindings";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"\"$(SRCROOT)/../detarball/rust/target/release/libdetarball.dylib\"",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $SRCROOT/../detarball/rust\ncargo build --release\n";
 		};
 		88A14E516E38C366894C2829 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
