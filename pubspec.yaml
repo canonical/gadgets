@@ -48,6 +48,8 @@ dependencies:
   fast_immutable_collections: ^7.4.1
   device_tree_lib:
     path: ./device-tree-lib
+  detarball:
+    path: ./detarball
   scroll_to_index: ^3.0.1
   rating_dialog: ^2.0.4
   logging: ^1.0.2
@@ -56,6 +58,8 @@ dependencies:
   dio: ^4.0.6
   pluto_grid: ^5.0.4
   meta: ^1.7.0
+  crypto: ^3.0.2
+  flutter_rust_bridge: ^1.38.1
 
 dev_dependencies:
   flutter_test:

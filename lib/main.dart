@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:gadgets/views/home_screen.dart';
-import 'package:gadgets/views/test_list_screen.dart';
 import 'package:logging/logging.dart';
 import 'package:yaru/yaru.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
@@ -11,8 +9,6 @@ import 'package:flutter/foundation.dart';
 import 'package:window_size/window_size.dart';
 
 import 'router/router.dart';
-
-import 'package:stack_trace/stack_trace.dart';
 
 void main(List<String> args) {
   Logger.root.level = Level.INFO;
@@ -32,6 +28,7 @@ void main(List<String> args) {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     setWindowMinSize(const Size(600, 500));
   }
+
   runApp(const ProviderScope(child: GadgetsApp()));
 }
 

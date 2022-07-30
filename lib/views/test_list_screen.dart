@@ -3,6 +3,7 @@ import 'package:device_tree_lib/checkbox/submission/result.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gadgets/c3_client.dart';
 import 'package:gadgets/presentation/result_presentation.dart';
 import 'package:gadgets/providers/submission_provider.dart';
 import 'package:logging/logging.dart';
@@ -46,7 +47,9 @@ class TestListState extends ConsumerState<TestListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final submissions = ref.watch(deviceSubmissionProvider("X"));
+    final submissions = ref.watch(remoteSubmissionProvider(
+        const SubmissionParams(
+            hardwareID: "201901-26809", submissionID: "274829")));
 
     final theme = Theme.of(context);
     PlutoGridConfiguration config = theme.brightness == Brightness.light
@@ -93,12 +96,12 @@ class TestListState extends ConsumerState<TestListScreen> {
         ),
       ),
       body: submissions.when(
-          data: (submissions) {
+          data: (submission) {
             final filterQuery = ref.watch(filterProvider);
-            final results = filteredResults(submissions, filterQuery);
+            final results = filteredResults([submission], filterQuery);
 
             ref.listen<String?>(filterProvider, (_, filterString) {
-              final filtered = filteredResults(submissions, filterString);
+              final filtered = filteredResults([submission], filterString);
               stateManager.refRows.removeWhereFromOriginal((element) => true);
               stateManager.refRows.addAll(
                   filtered != null ? filtered.map((e) => e.toPlutoRow()) : []);
@@ -124,7 +127,11 @@ class TestListState extends ConsumerState<TestListScreen> {
                 rows: results!.map((e) => dataRow(e)).toList());
                 */
           },
-          error: (error, stackTrace) => ErrorWidget(error),
+          error: (error, stackTrace) {
+            Logger.root.severe(error);
+            Logger.root.severe(stackTrace);
+            return ErrorWidget(error);
+          },
           loading: () => const CircularProgressIndicator.adaptive()),
     );
   }

@@ -1,19 +1,18 @@
 extern crate tar;
-
 use lzma_rs;
 use std::io::Read;
 use tar::Archive;
 use wasm_bindgen::prelude::wasm_bindgen;
 
 #[wasm_bindgen]
-pub fn decompress_from_xz_tarball(input: Vec<u8>, entry_suffix: &str) -> String {
+pub fn decompress_from_xz_tarball(input: Vec<u8>, entry_suffix: String) -> String {
     let mut decomp: Vec<u8> = Vec::new();
     lzma_rs::xz_decompress(&mut input.as_slice(), &mut decomp).unwrap();
 
     let mut a = Archive::new(decomp.as_slice());
 
     let submission_file = a.entries().unwrap().find(|x| match x {
-        Ok(t) => t.header().path().unwrap().ends_with(entry_suffix),
+        Ok(t) => t.header().path().unwrap().ends_with(&entry_suffix),
         Err(_) => false,
     });
 
@@ -34,7 +33,7 @@ mod tests {
         io::Read,
     };
 
-    use crate::decompress_from_xz_tarball;
+    use crate::detarball::decompress_from_xz_tarball;
 
     #[test]
     fn it_works() {
@@ -47,7 +46,7 @@ mod tests {
         let bytes_read = f.read(&mut buffer).unwrap();
         assert_eq!(bytes_read, 326192);
 
-        let contents = decompress_from_xz_tarball(buffer, r#"submission.json"#);
+        let contents = decompress_from_xz_tarball(buffer, "submission.json".to_owned());
         assert_eq!(contents.len(), 579388);
     }
 }

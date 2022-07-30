@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:device_tree_lib/c3/device_report/device_report.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
-import 'package:device_tree_lib/checkbox/submission/submission_archive.dart';
 import 'package:dio/dio.dart';
+import 'package:gadgets/submission_archive.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:archive/archive.dart';
 import 'package:path/path.dart';
@@ -44,16 +45,28 @@ final remoteSubmissionProvider =
     FutureProviderFamily<Submission, SubmissionParams>((ref, params) async {
   final credentials = ref.watch(c3CredentialsProvider);
 
-  final tempDir = await Directory.systemTemp.createTemp('gadgets-download');
-  final tempPath = join(tempDir.path, "${params.submissionID}.tar.xz");
+  // final response = await Dio().get(
+  //    'https://certification.canonical.com/hardware/${params.hardwareID}/submission/${params.submissionID}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
+  //    options: Options(responseType: ResponseType.bytes));
+
+  /*
   final response = await Dio().get(
-      'https://certification.canonical.com/hardware/${params.hardwareID}/submission/${params.submissionID}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
+      'http://localhost:8000/submission_201908-27277_272935.tar.xz',
+      options: Options(responseType: ResponseType.stream));
+
+  final ResponseBody responseData = response.data;
+  */
+
+  final response = await Dio().get(
+      'http://localhost:8000/submission_201908-27277_272935.tar.xz',
       options: Options(responseType: ResponseType.bytes));
 
   final responseData = response.data;
+
   if (responseData == null) {
     throw NoSubmissionData();
   }
 
   return SubmissionArchive.submission(fromBytes: responseData);
+  // return SubmissionArchive.submissionFromStream(responseData.stream);
 });

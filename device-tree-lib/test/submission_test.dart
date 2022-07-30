@@ -1,5 +1,5 @@
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
-import 'package:device_tree_lib/checkbox/submission/submission_archive.dart';
+
 import 'package:test/test.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -34,6 +34,7 @@ void main() {
       expect(roundtripUnchanged, true);
     });
 
+/* // FIXME: Move this test to the app
     test('Test parsing submission.json from .tar.xz', () async {
       final bytes =
           await File('./test/fixture/submission_201908-27277_272935.tar.xz')
@@ -42,6 +43,7 @@ void main() {
           SubmissionArchive.submission(fromBytes: bytes);
       expect(dearchivedSubmission, equals(submission));
     });
+    */
 
     test('Test filtering submission results by category', () {
       final audioResults =
