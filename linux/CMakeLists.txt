@@ -75,8 +75,17 @@ apply_standard_settings(${BINARY_NAME})
 target_link_libraries(${BINARY_NAME} PRIVATE flutter)
 target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::GTK)
 
+add_custom_target(
+ detarball_rust_bridge ALL
+ COMMAND cargo build --release
+ BYPRODUCTS ${CMAKE_CURRENT_SOURCE_DIR}/../detarball/rust/target/release/libdetarball.so
+ COMMENT "Generating detarball Rust bridge"
+ WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../detarball/rust
+)
+
+
 # Run the Flutter tool portions of the build. This must not be removed.
-add_dependencies(${BINARY_NAME} flutter_assemble)
+add_dependencies(${BINARY_NAME} flutter_assemble detarball_rust_bridge)
 
 # Only the install-generated bundle's copy of the executable will launch
 # correctly, since the resources must in the right relative locations. To avoid

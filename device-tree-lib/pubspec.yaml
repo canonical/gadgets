@@ -24,7 +24,8 @@ dependencies:
   riverpod: ^2.0.0-dev.9
   archive: ^3.3.1
   crypto: ^3.0.2
-  chunked_stream: ^1.4.1
+  detarball:
+    path: ../detarball/dart
 
 dev_dependencies:
   freezed: ^2.1.0+1

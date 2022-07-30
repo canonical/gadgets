@@ -7,9 +7,16 @@ edition = "2021"
 name = "detarball"
 crate-type = ["cdylib"]
 
+[build-dependencies]
+flutter_rust_bridge_codegen = "1.38.2"
+
 [dependencies]
 anyhow = { version = "1.0.58", features = ["backtrace"] }
-flutter_rust_bridge = "1.38.1"
+flutter_rust_bridge = "1.38.2"
 tar = "0.4"
 lzma-rs = "0.2.0"
 wasm-bindgen = "0.2.82"
+
+[dev-dependencies]
+flutter_rust_bridge_codegen = "1.38.2"
+

@@ -36,9 +36,9 @@ Map<String, IconData> _iconMap = {
 };
 
 enum ResultColumn {
-  category("Name"),
-  categoryID("ID"),
-  name("Name"),
+  category("Category Name"),
+  categoryID("Category ID"),
+  name("Case"),
   status("Status"),
   outcome("Outcome"),
   certificationStatus("Required"),

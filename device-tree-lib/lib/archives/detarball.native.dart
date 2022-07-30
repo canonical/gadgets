@@ -14,19 +14,14 @@ Future<String> decompressFromXZTarballStream(
   tar.stdout.pipe(jq.stdin);
 
   final out = await jq.stdout.transform(utf8.decoder).first;
-  print(out);
   return out;
 }
 
 Future<String> decompressFromXZTarball(
     Uint8List lzmaData, String filenameSuffix) async {
-  // final lzmaSha = sha1.convert(lzmaData);
-  // print("input shasum: $lzmaSha");
-
   final xzcat = await Process.start('xzcat', []);
   final tar = await Process.start('tar', ['-xO', 'submission.json']);
 
-  // print("about to execute");
   xzcat.stdin.add(List<int>.from(lzmaData));
   xzcat.stdout.pipe(tar.stdin);
 
@@ -34,7 +29,5 @@ Future<String> decompressFromXZTarball(
       .transform(utf8.decoder)
       .map((str) => str)
       .fold<String>("", (prev, item) => prev + item);
-  // print("printing output");
-  // print(output);
   return output;
 }

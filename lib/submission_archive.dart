@@ -21,6 +21,8 @@ class SubmissionArchive {
         ? DynamicLibrary.process()
         : Platform.isMacOS
             ? DynamicLibrary.executable()
+            : Platform.isLinux ? 
+            DynamicLibrary.open('detarball/rust/target/release/libdetarball.so')
             : DynamicLibrary.open(path);
   }
 
