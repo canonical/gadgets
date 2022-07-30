@@ -1,10 +1,7 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:device_tree_lib/c3/device_report/device_report.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
-import 'package:gadgets/submission_archive.dart';
+import 'package:device_tree_lib/archives/detarball.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:archive/archive.dart';
 import 'package:path/path.dart';
@@ -67,6 +64,6 @@ final remoteSubmissionProvider =
     throw NoSubmissionData();
   }
 
-  return SubmissionArchive.submission(fromBytes: responseData);
+  return submission(fromBytes: responseData);
   // return SubmissionArchive.submissionFromStream(responseData.stream);
 });

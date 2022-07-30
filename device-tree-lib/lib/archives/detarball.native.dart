@@ -1,7 +1,32 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:crypto/crypto.dart';
+
+import 'package:detarball/detarball_bridge_generated.dart';
+
+import '../checkbox/submission/submission.dart';
+
+DynamicLibrary detarballLibrary() {
+  const base = 'detarball';
+  final path = Platform.isWindows ? '$base.dll' : 'lib$base.so';
+  return Platform.isIOS
+      ? DynamicLibrary.process()
+      : Platform.isMacOS
+          ? DynamicLibrary.executable()
+          : Platform.isLinux
+              ? DynamicLibrary.open(
+                  'detarball/rust/target/release/libdetarball.so')
+              : DynamicLibrary.open(path);
+}
+
+Future<Submission> submission({required List<int> fromBytes}) async {
+  final lzmaData = Uint8List.fromList(fromBytes);
+  final submissionData = await DetarballImpl(detarballLibrary())
+      .decompressFromXzTarball(input: lzmaData, entrySuffix: "submission.json");
+
+  return Submission.fromJson(json.decode(submissionData));
+}
 
 Future<String> decompressFromXZTarballStream(
     Stream<Uint8List> lzmaStream, String filenameSuffix) async {
