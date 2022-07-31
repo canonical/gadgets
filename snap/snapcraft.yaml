@@ -24,15 +24,27 @@ apps:
       - dbus-gadgets
 parts:
   gadgets:
+    override-pull: |
+      snapcraftctl pull
+      # rustup
+      wget -O - https://sh.rustup.rs -sSf | sh -s -- -y
+      export PATH="$HOME/.cargo/bin:$PATH"
+      rustup install stable
+      # llvm
+      wget -O - https://apt.llvm.org/llvm.sh | bash -s -- 10 # LLVM 10 = newest available for bionic
     override-build: |
       dart pub global activate ffigen
       snapcraftctl build
     source: .
     plugin: flutter
     flutter-target: lib/main.dart
-    flutter-revision: 3.0.5
+    # flutter-revision: 3.0.5
     build-packages:
-      - cargo
-      - llvm
+      - lsb-release
+      - wget
+      - software-properties-common
     stage-packages:
       - inxi
+      - jq
+    build-environment:
+      - PATH: "$HOME/.cargo/bin:$PATH"
