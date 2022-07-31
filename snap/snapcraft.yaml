@@ -55,7 +55,7 @@ parts:
   gadgets:
     override-pull: |
       snapcraftctl pull
-      wget -OsSf - https://sh.rustup.rs | bash -s -- -y
+      wget -O - https://sh.rustup.rs | bash -s -- -y
       export PATH="$HOME/.cargo/bin:$PATH"
       rustup install stable
     override-build: |
@@ -66,7 +66,7 @@ parts:
     flutter-target: lib/main.dart
     # flutter-revision: 3.0.5
     build-packages:
-      - llvm-10
+      - llvm-10 # appears to be the newest available for bionic
       - lsb-release
       - wget
       - software-properties-common
