@@ -83,7 +83,7 @@ class GadgetsApp extends ConsumerWidget {
     return YaruTheme(
       data: const YaruThemeData(themeMode: ThemeMode.light),
       builder: (context, yaru, child) => MaterialApp.router(
-          title: 'Inspector Gadget',
+          title: 'Gadgets',
           debugShowCheckedModeBanner: false,
           theme: yaru.variant?.theme ?? yaruLight,
           darkTheme: yaru.variant?.darkTheme ?? yaruDark,
