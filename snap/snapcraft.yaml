@@ -16,15 +16,23 @@ slots:
 apps:
   gadgets:
     command: gadgets
-    extensions: [flutter-master]
+    extensions: [flutter-stable]
     plugs:
+      - hardware-observe
       - network
     slots:
       - dbus-gadgets
 parts:
   gadgets:
+    override-build: |
+      dart pub global activate ffigen
+      snapcraftctl build
     source: .
     plugin: flutter
     flutter-target: lib/main.dart
+    flutter-revision: 3.0.5
+    build-packages:
+      - cargo
+      - llvm
     stage-packages:
       - inxi
