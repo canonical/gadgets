@@ -13,6 +13,7 @@ plugs:
     read:
       - /etc/inxi.conf
       - /etc/issue
+      - /etc/apt/sources.list
 slots:
   dbus-gadgets:
     interface: dbus
