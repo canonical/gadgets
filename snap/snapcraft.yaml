@@ -7,11 +7,26 @@ confinement: strict
 base: core18
 grade: stable
 
+plugs:
+  inxi-config:
+    interface: system-files
+    read:
+      - /etc/inxi.conf
+      - /etc/issue
 slots:
   dbus-gadgets:
     interface: dbus
     bus: session
     name: com.canonical.gadgets
+
+package-repositories:
+  - type: apt
+    ppa: unit193/inxi
+  - type: apt
+    components: [main]
+    suites: [llvm-toolchain-bionic-10]
+    key-id: 6084F3CF814B57C1CF12EFD515CF4D18AF4F7421
+    url: http://apt.llvm.org/bionic
 
 apps:
   gadgets:
@@ -19,19 +34,50 @@ apps:
     extensions: [flutter-stable]
     plugs:
       - hardware-observe
+      - system-observe
+      - network-setup-observe
+      - network-observe
+      - mount-observe
+      - login-session-observe
+      - kernel-module-observe
+      - inxi-config
       - network
+      - home
     slots:
       - dbus-gadgets
+    environment:
+        LC_ALL: "C.UTF-8"
+        PERL5LIB: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/perl-base/:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/perl5/5.26/:$SNAP/usr/share/perl5/:$SNAP/usr/share/perl/5.26.1/:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/perl/5.26/:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/perl/5.26.1/"
+        HOME: "$SNAP_USER_COMMON"
+        # LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/"
 parts:
+  #inxi:
+  #  override-pull: |
+      # shortcut to installing inxi dependencies (grab them from the inxi version shipped in focal)
+      # apt-get install -y $(apt-cache depends inxi | grep Depends | sed "s/.*ends:\ //" | tr '\n' ' ')
+      #    snapcraftctl pull
+      #chmod ugo+x ./inxi
+    #override-build: |
+      # cpan -i Data::Dumper
+      #snapcraftctl build
+      #organize:
+      #inxi: bin/inxi  
+      #source: https://github.com/smxi/inxi
+      # source-branch: master
+      #source-type: git
+      #plugin: dump
+      #build-packages:
+      #- wget
+      #stage-packages:
+      #- inxi
+      # - perl-base
+      #- libdata-dump-perl
   gadgets:
     override-pull: |
       snapcraftctl pull
-      # rustup
-      wget -O - https://sh.rustup.rs -sSf | sh -s -- -y
+      wget -OsSf - https://sh.rustup.rs | bash -s -- -y
       export PATH="$HOME/.cargo/bin:$PATH"
       rustup install stable
-      # llvm
-      wget -O - https://apt.llvm.org/llvm.sh | bash -s -- 10 # LLVM 10 = newest available for bionic
     override-build: |
       dart pub global activate ffigen
       snapcraftctl build
@@ -40,11 +86,12 @@ parts:
     flutter-target: lib/main.dart
     # flutter-revision: 3.0.5
     build-packages:
+      - llvm-10
       - lsb-release
       - wget
       - software-properties-common
-    stage-packages:
-      - inxi
-      - jq
     build-environment:
       - PATH: "$HOME/.cargo/bin:$PATH"
+    stage-packages:
+       - jq
+       - inxi
