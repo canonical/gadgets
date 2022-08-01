@@ -1,0 +1,16 @@
+header:
+  license:
+    spdx-id: GPL-3.0
+    copyright-owner: Apache Software Foundation
+
+  paths-ignore:
+    - "build"
+    - "licenses"
+    - "**/*.md"
+    - "LICENSE"
+    - "NOTICE"
+    - "linux/**/*"
+    - "web/**/*"
+    - "macos/**/*"
+  
+  comment: on-failure
