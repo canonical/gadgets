@@ -1,4 +1,13 @@
 header:
+  language:
+    Dart:
+      extensions:
+        - ".dart"
+      comment_style_id: SlashAsterisk
+    Rust:
+      extensions:
+        - ".rs"
+      comment_style_id: SlashAsterisk
   license:
     spdx-id: "GPL-3.0-or-later"
     copyright-owner: Canonical Ltd
@@ -48,5 +57,7 @@ header:
     - "detarball/rust/target"
     - "**/*.g.dart" # TODO: Remove from version control and add to .gitignore
     - "**/*.freezed.dart" # TODO: Remove from version control and add to .gitignore
+    - "**/generated_*.dart" # TODO: Remove from version control and add to .gitignore
+    - "**/*_generated.dart" # TODO: Remove from version control and add to .gitignore
   
   comment: on-failure
