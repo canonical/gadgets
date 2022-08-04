@@ -45,6 +45,10 @@ flutter run -d linux|chrome|macos
 
 There are some tests in the `device-tree-lib` folder which are runnable from over there with `flutter test`.
 
+## License
+
+Gadgets is licensed under the GPL 3.0 license. See LICENSE for more info.
+
 ## TODO
 
 Mind dump of some directions of investigation:
