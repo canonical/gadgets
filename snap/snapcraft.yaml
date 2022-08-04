@@ -60,6 +60,15 @@ parts:
       rustup install stable
     override-build: |
       dart pub global activate ffigen
+
+      # doing a redundant `cargo build --release` here,
+      # since the cargo build triggered via linux/CMakeLists.txt
+      # sometimes fails (specifically on a clean source checkout).
+      #
+      # perhaps it is a dependency to the wrong (too late) target
+      # in the CMake build?
+      (cd detarball/rust; cargo clean && cargo build --release)
+      
       snapcraftctl build
     source: .
     plugin: flutter
