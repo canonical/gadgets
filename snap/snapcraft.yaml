@@ -67,6 +67,10 @@ parts:
     # flutter-revision: 3.0.5
     build-packages:
       - llvm-10 # appears to be the newest available for bionic
+      - llvm-10-dev
+      - libclang-cpp10-dev
+      - libclang-10-dev
+      - libclang-common-10-dev
       - lsb-release
       - wget
       - software-properties-common
