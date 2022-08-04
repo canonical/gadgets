@@ -53,3 +53,7 @@ app.*.map.json
 .monarch/
 
 *.snap
+
+**/*_generated.h
+**/*_generated.dart
+**/*_generated.rs
