@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pushd detarball/rust
 wasm-pack build --target web
 popd

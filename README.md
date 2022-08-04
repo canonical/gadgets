@@ -18,7 +18,7 @@ sudo snap connect gadgets:network-observe :network-observe
 sudo snap connect gadgets:system-observe :system-observe
 sudo snap connect gadgets:inxi-config :system-files
 sudo snap connect gadgets:network-setup-observe :network-setup-observe
-sudo snap connect gadgets:login-session-observe :laogin-session-observe
+sudo snap connect gadgets:login-session-observe :login-session-observe
 sudo snap connect gadgets:kernel-module-observe :kernel-module-observe
 sudo snap connect gadgets:hardware-observe :hardware-observe
 sudo snap connect gadgets:mount-observe :mount-observe
@@ -32,7 +32,7 @@ At least the following are required for local development:
 - Stable version of `rustc`, `cargo`, `rustfmt` (Easiest acquired with [rustup](https://rustup.rs/)). Tested with 1.62, will probably work with older versions too if needed.
 - LLVM 9 or later.
 - [jq](https://stedolan.github.io/jq/).
-- [inxi](https://github.com/smxi/inxi). On Ubuntu 22.04 the version bundled with the OS is new enough, on 18.04 it is not ([unit193/inxi](https://launchpad.net/~unit193/+archive/ubuntu/inxi) PPA is used in the Ubuntu COre 18.04 Snap based build as a way of installing it).
+- [inxi](https://github.com/smxi/inxi). On Ubuntu 22.04 the version bundled with the OS is new enough, on 18.04 it is not ([unit193/inxi](https://launchpad.net/~unit193/+archive/ubuntu/inxi) PPA is used in the Ubuntu Core 18.04 Snap based build as a way of installing it).
 
 The application is built & run for local development as follows:
 
@@ -58,3 +58,4 @@ Mind dump of some directions of investigation:
 - [ ] Checkbox integration
 - [ ] Roadmap
 - [ ] lshw?
+- [ ] Investigate pulling checkbox providers in via a mechanism similar to https://git.launchpad.net/checkbox/tree/snap/snapcraft.yaml?h=series_uc22#n12

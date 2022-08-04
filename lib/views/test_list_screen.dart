@@ -149,7 +149,8 @@ class TestListState extends ConsumerState<TestListScreen> {
             Logger.root.severe(stackTrace);
             return ErrorWidget(error);
           },
-          loading: () => const CircularProgressIndicator.adaptive()),
+          loading: () =>
+              const Center(child: CircularProgressIndicator.adaptive())),
     );
   }
 }
