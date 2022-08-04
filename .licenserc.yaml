@@ -59,5 +59,7 @@ header:
     - "**/*.freezed.dart" # TODO: Remove from version control and add to .gitignore
     - "**/generated_*.dart" # TODO: Remove from version control and add to .gitignore
     - "**/*_generated.dart" # TODO: Remove from version control and add to .gitignore
+    - "**/*_generated.h"
+    - "**/*_generated.rs"
   
   comment: on-failure
