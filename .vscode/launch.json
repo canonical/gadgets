@@ -5,44 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "device-tree-reporter",
+            "name": "Gadgets",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main.dart"
+            "program": "lib/main.dart",
+	    "flutterMode": "debug"
         },
         {
-            "name": "device-tree-reporter (profile mode)",
+            "name": "Gadgets (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
             "program": "lib/main.dart"
         },
         {
-            "name": "device-tree-reporter (release mode)",
+            "name": "Gadgets (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
             "program": "lib/main.dart"
-        },
-        {
-            "name": "device-tree-lib",
-            "cwd": "device-tree-lib",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "device-tree-lib (profile mode)",
-            "cwd": "device-tree-lib",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "device-tree-lib (release mode)",
-            "cwd": "device-tree-lib",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
         }
     ]
 }

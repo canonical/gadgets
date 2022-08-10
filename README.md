@@ -45,6 +45,8 @@ flutter run -d linux|chrome|macos
 
 There are some tests in the `device-tree-lib` folder which are runnable from over there with `flutter test`.
 
+For VS Code users, launch configurations exist for the application (`.vscode/launch.json`).
+
 ## License
 
 Gadgets is licensed under the GPL 3.0 license. See LICENSE for more info.
@@ -63,3 +65,6 @@ Mind dump of some directions of investigation:
 - [ ] Roadmap
 - [ ] lshw?
 - [ ] Investigate pulling checkbox providers in via a mechanism similar to https://git.launchpad.net/checkbox/tree/snap/snapcraft.yaml?h=series_uc22#n12
+- [ ] Error handling for inxi report reading
+- [ ] Drag and drop of inxi reports
+- [ ] Drag and drop
