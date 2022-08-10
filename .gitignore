@@ -53,6 +53,8 @@ app.*.map.json
 .monarch/
 
 *.snap
+*_amd64.txt
+*_arm64.txt
 
 **/*_generated.h
 **/*_generated.dart
