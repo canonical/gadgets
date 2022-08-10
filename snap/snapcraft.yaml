@@ -6,6 +6,9 @@ description: A tool for inspecting hardware and OS components available on your 
 confinement: strict
 base: core18
 grade: stable
+architectures:
+  - build-on: amd64
+  - build-on: arm64
 
 plugs:
   inxi-config:
