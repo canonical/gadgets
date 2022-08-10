@@ -23,7 +23,7 @@ mixin _$DeviceInfo {
   String? get tool => throw _privateConstructorUsedError;
   String get uptime => throw _privateConstructorUsedError;
   String get shell => throw _privateConstructorUsedError;
-  String get clangVersion => throw _privateConstructorUsedError;
+  String? get clangVersion => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
   String get inxiVersion => throw _privateConstructorUsedError;
   String get initSystem => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $DeviceInfoCopyWith<$Res> {
       {String? tool,
       String uptime,
       String shell,
-      String clangVersion,
+      String? clangVersion,
       String version,
       String inxiVersion,
       String initSystem,
@@ -95,7 +95,7 @@ class _$DeviceInfoCopyWithImpl<$Res> implements $DeviceInfoCopyWith<$Res> {
       clangVersion: clangVersion == freezed
           ? _value.clangVersion
           : clangVersion // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ abstract class _$$_DeviceInfoCopyWith<$Res>
       {String? tool,
       String uptime,
       String shell,
-      String clangVersion,
+      String? clangVersion,
       String version,
       String inxiVersion,
       String initSystem,
@@ -189,7 +189,7 @@ class __$$_DeviceInfoCopyWithImpl<$Res> extends _$DeviceInfoCopyWithImpl<$Res>
       clangVersion: clangVersion == freezed
           ? _value.clangVersion
           : clangVersion // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$_DeviceInfo extends _DeviceInfo {
       {this.tool,
       required this.uptime,
       required this.shell,
-      required this.clangVersion,
+      this.clangVersion,
       required this.version,
       required this.inxiVersion,
       required this.initSystem,
@@ -249,7 +249,7 @@ class _$_DeviceInfo extends _DeviceInfo {
   @override
   final String shell;
   @override
-  final String clangVersion;
+  final String? clangVersion;
   @override
   final String version;
   @override
@@ -327,7 +327,7 @@ abstract class _DeviceInfo extends DeviceInfo {
       {final String? tool,
       required final String uptime,
       required final String shell,
-      required final String clangVersion,
+      final String? clangVersion,
       required final String version,
       required final String inxiVersion,
       required final String initSystem,
@@ -347,7 +347,7 @@ abstract class _DeviceInfo extends DeviceInfo {
   @override
   String get shell;
   @override
-  String get clangVersion;
+  String? get clangVersion;
   @override
   String get version;
   @override

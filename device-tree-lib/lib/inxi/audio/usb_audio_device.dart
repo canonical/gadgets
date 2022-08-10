@@ -32,17 +32,19 @@ class USBAudioDevice with _$USBAudioDevice implements AudioDevice {
   factory USBAudioDevice(
       {required String name,
       required String driver,
-      required String classID,
+      required String type,
+      String? classID,
       String? version,
       String? vendor,
       String? speed,
-      required String busID,
-      required String chipID}) = _USBAudioDevice;
+      String? busID,
+      String? chipID}) = _USBAudioDevice;
 
   factory USBAudioDevice.fromMap(Map<String, dynamic> map) {
     return USBAudioDevice(
         name: map[InxiKeyAudio.name],
         driver: map[InxiKeyAudio.driver],
+        type: map[InxiKeyAudio.type],
         classID: map[InxiKeyAudio.classID],
         version: map[InxiKeyAudio.version],
         vendor: map[InxiKeyAudio.vendor],

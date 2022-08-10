@@ -153,9 +153,8 @@ class Submission with _$Submission {
     @JsonKey(name: 'kernel-cmdline') required String kernelCmdline,
   }) = _Submission;
 
-  factory Submission.fromJson(Map<String, dynamic> json) {
-    return _$SubmissionFromJson(json);
-  }
+  factory Submission.fromJson(Map<String, dynamic> json) =>
+      _$SubmissionFromJson(json);
 }
 
 Iterable<Result> results(

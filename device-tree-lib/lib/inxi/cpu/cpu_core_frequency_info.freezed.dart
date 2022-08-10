@@ -24,11 +24,11 @@ mixin _$CPUCoreFrequencyInfo {
   String get driver => throw _privateConstructorUsedError;
   int get avg => throw _privateConstructorUsedError;
   String get boost => throw _privateConstructorUsedError;
-  String get extClock => throw _privateConstructorUsedError;
+  String? get extClock => throw _privateConstructorUsedError;
   String get governor => throw _privateConstructorUsedError;
-  String get volts => throw _privateConstructorUsedError;
+  String? get volts => throw _privateConstructorUsedError;
   int get bogomips => throw _privateConstructorUsedError;
-  String get baseBoost => throw _privateConstructorUsedError;
+  String? get baseBoost => throw _privateConstructorUsedError;
   List<int> get coreFrequencies => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,11 +47,11 @@ abstract class $CPUCoreFrequencyInfoCopyWith<$Res> {
       String driver,
       int avg,
       String boost,
-      String extClock,
+      String? extClock,
       String governor,
-      String volts,
+      String? volts,
       int bogomips,
-      String baseBoost,
+      String? baseBoost,
       List<int> coreFrequencies});
 }
 
@@ -97,7 +97,7 @@ class _$CPUCoreFrequencyInfoCopyWithImpl<$Res>
       extClock: extClock == freezed
           ? _value.extClock
           : extClock // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       governor: governor == freezed
           ? _value.governor
           : governor // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ class _$CPUCoreFrequencyInfoCopyWithImpl<$Res>
       volts: volts == freezed
           ? _value.volts
           : volts // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bogomips: bogomips == freezed
           ? _value.bogomips
           : bogomips // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ class _$CPUCoreFrequencyInfoCopyWithImpl<$Res>
       baseBoost: baseBoost == freezed
           ? _value.baseBoost
           : baseBoost // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       coreFrequencies: coreFrequencies == freezed
           ? _value.coreFrequencies
           : coreFrequencies // ignore: cast_nullable_to_non_nullable
@@ -134,11 +134,11 @@ abstract class _$$_CPUCoreFrequencyInfoCopyWith<$Res>
       String driver,
       int avg,
       String boost,
-      String extClock,
+      String? extClock,
       String governor,
-      String volts,
+      String? volts,
       int bogomips,
-      String baseBoost,
+      String? baseBoost,
       List<int> coreFrequencies});
 }
 
@@ -186,7 +186,7 @@ class __$$_CPUCoreFrequencyInfoCopyWithImpl<$Res>
       extClock: extClock == freezed
           ? _value.extClock
           : extClock // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       governor: governor == freezed
           ? _value.governor
           : governor // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class __$$_CPUCoreFrequencyInfoCopyWithImpl<$Res>
       volts: volts == freezed
           ? _value.volts
           : volts // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bogomips: bogomips == freezed
           ? _value.bogomips
           : bogomips // ignore: cast_nullable_to_non_nullable
@@ -202,7 +202,7 @@ class __$$_CPUCoreFrequencyInfoCopyWithImpl<$Res>
       baseBoost: baseBoost == freezed
           ? _value.baseBoost
           : baseBoost // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       coreFrequencies: coreFrequencies == freezed
           ? _value._coreFrequencies
           : coreFrequencies // ignore: cast_nullable_to_non_nullable
@@ -219,11 +219,11 @@ class _$_CPUCoreFrequencyInfo extends _CPUCoreFrequencyInfo {
       required this.driver,
       required this.avg,
       required this.boost,
-      required this.extClock,
+      this.extClock,
       required this.governor,
-      required this.volts,
+      this.volts,
       required this.bogomips,
-      required this.baseBoost,
+      this.baseBoost,
       required final List<int> coreFrequencies})
       : _coreFrequencies = coreFrequencies,
         super._();
@@ -240,15 +240,15 @@ class _$_CPUCoreFrequencyInfo extends _CPUCoreFrequencyInfo {
   @override
   final String boost;
   @override
-  final String extClock;
+  final String? extClock;
   @override
   final String governor;
   @override
-  final String volts;
+  final String? volts;
   @override
   final int bogomips;
   @override
-  final String baseBoost;
+  final String? baseBoost;
   final List<int> _coreFrequencies;
   @override
   List<int> get coreFrequencies {
@@ -314,11 +314,11 @@ abstract class _CPUCoreFrequencyInfo extends CPUCoreFrequencyInfo {
       required final String driver,
       required final int avg,
       required final String boost,
-      required final String extClock,
+      final String? extClock,
       required final String governor,
-      required final String volts,
+      final String? volts,
       required final int bogomips,
-      required final String baseBoost,
+      final String? baseBoost,
       required final List<int> coreFrequencies}) = _$_CPUCoreFrequencyInfo;
   _CPUCoreFrequencyInfo._() : super._();
 
@@ -334,15 +334,15 @@ abstract class _CPUCoreFrequencyInfo extends CPUCoreFrequencyInfo {
   @override
   String get boost;
   @override
-  String get extClock;
+  String? get extClock;
   @override
   String get governor;
   @override
-  String get volts;
+  String? get volts;
   @override
   int get bogomips;
   @override
-  String get baseBoost;
+  String? get baseBoost;
   @override
   List<int> get coreFrequencies;
   @override

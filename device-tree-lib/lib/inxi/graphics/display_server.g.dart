@@ -10,7 +10,7 @@ _$_DisplayServer _$$_DisplayServerFromJson(Map<String, dynamic> json) =>
     _$_DisplayServer(
       driver: json['driver'] as String,
       loaded: json['loaded'] as String?,
-      version: json['version'] as String,
+      version: json['version'] as String?,
       screens: json['screens'] as String,
       gpu: json['gpu'] as String,
       X: json['X'] as String?,

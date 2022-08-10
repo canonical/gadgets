@@ -27,5 +27,13 @@ void main() {
           await DeviceTree.from(file: File('./test/fixture/inxi-athena.json'));
       expect(deviceTree.info.uptime, '12h 29m');
     });
+
+    test(
+        'Test reading inxi report from the Athena host made with the confined snap and its (different) inxi version which does not have access to all of /proc etc',
+        () async {
+      final deviceTree = await DeviceTree.from(
+          file: File('./test/fixture/inxi-athena-confined.json'));
+      expect(deviceTree.info.uptime, '1d 3h 41m');
+    });
   });
 }

@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import 'package:device_tree_lib/int_parsing.dart';
 import 'package:device_tree_lib/tree_node_representable.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -34,11 +35,11 @@ class CPUCoreFrequencyInfo
       required String driver,
       required int avg,
       required String boost,
-      required String extClock,
+      String? extClock,
       required String governor,
-      required String volts,
+      String? volts,
       required int bogomips,
-      required String baseBoost,
+      String? baseBoost,
       required List<int> coreFrequencies}) = _CPUCoreFrequencyInfo;
 
   factory CPUCoreFrequencyInfo.fromMap(Map<String, dynamic> map) {
@@ -49,7 +50,7 @@ class CPUCoreFrequencyInfo
       if (freq == null) {
         break;
       }
-      freqs.add(freq);
+      freqs.add(maybeParseInt(freq)!);
       i++;
     }
     return CPUCoreFrequencyInfo(
@@ -75,8 +76,12 @@ class CPUCoreFrequencyInfo
     return Tuple2(items.first, items.last);
   }
 
-  Tuple2<int, int> get baseBoostFreqs {
-    final items = baseBoost.split("/").map((f) => int.parse(f));
+  Tuple2<int, int>? get baseBoostFreqs {
+    final items = baseBoost?.split("/").map((f) => int.parse(f));
+    if (items == null) {
+      return null;
+    }
+
     assert(items.length == 2);
     return Tuple2(items.first, items.last);
   }
@@ -84,8 +89,8 @@ class CPUCoreFrequencyInfo
   int get minFreq => minMaxFreqs.item1;
   int get maxFreq => minMaxFreqs.item2;
 
-  int get baseFreq => baseBoostFreqs.item1;
-  int get boostFreq => baseBoostFreqs.item2;
+  int? get baseFreq => baseBoostFreqs?.item1;
+  int? get boostFreq => baseBoostFreqs?.item2;
 
   static bool isRepresentation(Map<String, dynamic> map) {
     return map['driver'] != null;

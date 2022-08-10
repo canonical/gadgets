@@ -1,0 +1,1222 @@
+[
+  {
+    "System": [
+      {
+        "v": "11.2.0",
+        "parameters": "BOOT_IMAGE=/vmlinuz-5.15.0-45-generic root=UUID=1eb80bc1-3f78-48bd-a8f8-a7aa6e01c65b ro quiet splash rd.driver.blacklist=nouveau nvidia-drm.modeset=1 vt.handoff=7",
+        "Kernel": "5.15.0-45-generic",
+        "arch": "x86_64",
+        "compiler": "gcc",
+        "bits": 64
+      },
+      {
+        "v": "3.22.30",
+        "Desktop": "GNOME",
+        "tk": "GTK",
+        "dm": "N/A",
+        "Distro": "Ubuntu Core 18",
+        "wm": "gnome-shell"
+      }
+    ]
+  },
+  {
+    "Machine": [
+      {
+        "Type": "Desktop",
+        "Mobo": "ASRock",
+        "UEFI": "American Megatrends",
+        "model": "X399 Taichi",
+        "date": "12/04/2019",
+        "v": "P3.90",
+        "serial": "<superuser required>"
+      }
+    ]
+  },
+  {
+    "Battery": [
+      {
+        "status": "discharging",
+        "serial": "<filter>",
+        "Device": "hidpp_battery_1",
+        "model": "Logitech Wireless Mouse MX Master 3",
+        "charge": "Low"
+      }
+    ]
+  },
+  {
+    "Memory": [
+      {
+        "used": "21 GiB (22.3%)",
+        "total": "94.25 GiB",
+        "RAM": ""
+      },
+      {
+        "RAM Report": "",
+        "missing": "Required tool dmidecode not installed. Check --recommends"
+      }
+    ]
+  },
+  {
+    "PCI Slots": [
+      {
+        "Missing": "Required tool dmidecode not installed. Check --recommends"
+      }
+    ]
+  },
+  {
+    "CPU": [
+      {
+        "process": "GF 14nm",
+        "built": "2017-19",
+        "bits": 64,
+        "model-id": "1",
+        "stepping": "1",
+        "model": "AMD Ryzen Threadripper 1950X",
+        "type": "MT MCP MCM",
+        "family": "0x17 (23)",
+        "microcode": "0x8001137",
+        "arch": "Zen",
+        "Info": ""
+      },
+      {
+        "L3": "32 MiB",
+        "desc": "4x8 MiB",
+        "threads": "32",
+        "dies": "2",
+        "smt": "enabled",
+        "Topology": "",
+        "desc": "d-16x32 KiB; i-16x64 KiB",
+        "cache": "",
+        "desc": "16x512 KiB",
+        "tpc": "2",
+        "cpus": "1",
+        "cores": "16",
+        "L2": "8 MiB",
+        "L1": "1.5 MiB"
+      },
+      {
+        "28": "3657",
+        "4": "3272",
+        "bogomips": 217167,
+        "31": "2172",
+        "32": "2074",
+        "22": "2372",
+        "scaling": "",
+        "2": "2158",
+        "boost": "enabled",
+        "driver": "acpi-cpufreq",
+        "26": "2088",
+        "avg": 2444,
+        "13": "2710",
+        "23": "2099",
+        "19": "2078",
+        "10": "2109",
+        "Speed (MHz)": "",
+        "20": "3672",
+        "min/max": "2200/3400",
+        "15": "2116",
+        "14": "2077",
+        "29": "2182",
+        "8": "2457",
+        "7": "2461",
+        "24": "2087",
+        "9": "2666",
+        "governor": "schedutil",
+        "6": "3389",
+        "18": "1996",
+        "25": "2102",
+        "5": "3633",
+        "17": "1991",
+        "high": "3672",
+        "11": "2293",
+        "cores": "",
+        "30": "2170",
+        "12": "3635",
+        "27": "2091",
+        "1": "2175",
+        "16": "2164",
+        "3": "2103",
+        "21": "1976"
+      },
+      {
+        "Flags": "3dnowprefetch abm adx aes amd_dcm aperfmperf apic arat avic avx avx2 bmi1 bmi2 bpext clflush clflushopt clzero cmov cmp_legacy constant_tsc cpb cpuid cr8_legacy cx16 cx8 de decodeassists extapic extd_apicid f16c flushbyasid fma fpu fsgsbase fxsr fxsr_opt ht hw_pstate ibpb irperf lahf_lm lbrv lm mca mce misalignsse mmx mmxext monitor movbe msr mtrr mwaitx nonstop_tsc nopl npt nrip_save nx osvw overflow_recov pae pat pausefilter pclmulqdq pdpe1gb perfctr_core perfctr_llc perfctr_nb pfthreshold pge pni popcnt pse pse36 rapl rdrand rdseed rdtscp rep_good sep sev sha_ni skinit smap smca sme smep ssbd sse sse2 sse4_1 sse4_2 sse4a ssse3 succor svm svm_lock syscall tce topoext tsc tsc_scale v_vmsave_vmload vgif vmcb_clean vme vmmcall wdt xgetbv1 xsave xsavec xsaveerptr xsaveopt xsaves"
+      },
+      {
+        "Vulnerabilities": ""
+      },
+      {
+        "Type": "itlb_multihit",
+        "status": "Not affected"
+      },
+      {
+        "Type": "l1tf",
+        "status": "Not affected"
+      },
+      {
+        "status": "Not affected",
+        "Type": "mds"
+      },
+      {
+        "status": "Not affected",
+        "Type": "meltdown"
+      },
+      {
+        "status": "Not affected",
+        "Type": "mmio_stale_data"
+      },
+      {
+        "mitigation": "untrained return thunk; SMT vulnerable",
+        "Type": "retbleed"
+      },
+      {
+        "Type": "spec_store_bypass",
+        "mitigation": "Speculative Store Bypass disabled via prctl and seccomp"
+      },
+      {
+        "Type": "spectre_v1",
+        "mitigation": "usercopy/swapgs barriers and __user pointer sanitization"
+      },
+      {
+        "Type": "spectre_v2",
+        "mitigation": "Retpolines, IBPB: conditional, STIBP: disabled, RSB filling"
+      },
+      {
+        "status": "Not affected",
+        "Type": "srbds"
+      },
+      {
+        "Type": "tsx_async_abort",
+        "status": "Not affected"
+      }
+    ]
+  },
+  {
+    "Graphics": [
+      {
+        "built": "2020-22",
+        "Device": "NVIDIA",
+        "arch": "Ampere",
+        "link-max": "",
+        "driver": "nvidia",
+        "empty": "DP-2,DP-3,HDMI-A-1",
+        "vendor": "Micro-Star MSI",
+        "code": "GAxxx",
+        "non-free": "515.xx+",
+        "class-ID": "0300",
+        "lanes": "16",
+        "off": "DP-1",
+        "pcie": "",
+        "chip-ID": "10de:2204",
+        "process": "TSMC n7 (7nm)",
+        "speed": "8 GT/s",
+        "gen": 4,
+        "status": "current (as of 2022-07)",
+        "active": "none",
+        "v": "515.65.01",
+        "gen": 3,
+        "alternate": "nvidiafb,nouveau,nvidia_drm",
+        "bus-ID": "43:00.0",
+        "ports": "",
+        "speed": "16 GT/s"
+      },
+      {
+        "class-ID": "0300",
+        "chip-ID": "046d:0893",
+        "Device": "Logitech StreamCam",
+        "type": "USB",
+        "bus-ID": "1-2:2",
+        "driver": "hid-generic,snd-usb-audio,usbhid,uvcvideo",
+        "serial": "<filter>"
+      },
+      {
+        "Display": "x11",
+        "screens": "1",
+        "display-ID": ":1",
+        "server": "X.Org",
+        "compositor": "gnome-shell",
+        "v": "1.21.1.3",
+        "gpu": "nvidia,nvidia-nvswitch",
+        "driver": "",
+        "note": " X driver n/a"
+      },
+      {
+        "s-diag": "804mm (31.65\")",
+        "Screen": "0",
+        "s-dpi": "139",
+        "s-size": "702x392mm (27.64x15.43\")",
+        "s-res": "3840x2160"
+      },
+      {
+        "size": "697x392mm (27.44x15.43\")",
+        "x": "0.298",
+        "white": "",
+        "blue": "",
+        "chroma": "",
+        "modes": "3840x2160, 2560x1440, 2048x1280, 1920x1200, 2048x1080, 1920x1080, 1600x1200, 1600x900, 1280x1024, 1152x864, 1280x720, 1024x768, 800x600, 720x576, 720x480, 640x480",
+        "x": "0.639",
+        "y": "0.329",
+        "hz": "60",
+        "green": "",
+        "res": "3840x2160",
+        "diag": "800mm (31.5\")",
+        "Monitor": "DP-1",
+        "y": "0.329",
+        "y": "0.600",
+        "x": "0.314",
+        "built": 2019,
+        "serial": "<filter>",
+        "note": "disabled",
+        "dpi": "140",
+        "mapped": "DP-0",
+        "model": "Dell U3219Q",
+        "red": "",
+        "y": "0.059",
+        "ratio": "16:9",
+        "gamma": 1.2,
+        "x": "0.149"
+      },
+      {
+        "Message": "Unable to show GL data. Required tool glxinfo missing."
+      }
+    ]
+  },
+  {
+    "Audio": [
+      {
+        "lanes": "16",
+        "chip-ID": "1022:1457",
+        "pcie": "",
+        "driver": "snd_hda_intel",
+        "Device": "AMD Family 17h HD Audio",
+        "speed": "8 GT/s",
+        "gen": 3,
+        "chip-ID": "046d:0893",
+        "serial": "<filter>",
+        "bus-ID": "1-2:2",
+        "vendor": "ASRock",
+        "class-ID": "0403",
+        "v": "kernel",
+        "bus-ID": "0a:00.3",
+        "class-ID": "0300"
+      },
+      {
+        "bus-ID": "43:00.1",
+        "link-max": "",
+        "class-ID": "0403",
+        "chip-ID": "10de:1aef",
+        "v": "kernel",
+        "vendor": "Micro-Star MSI",
+        "driver": "snd_hda_intel",
+        "pcie": "",
+        "gen": 4,
+        "lanes": "16",
+        "gen": 3,
+        "speed": "16 GT/s",
+        "speed": "8 GT/s",
+        "Device": "NVIDIA"
+      },
+      {
+        "type": "USB",
+        "Device": "Logitech StreamCam",
+        "driver": "hid-generic,snd-usb-audio,usbhid,uvcvideo"
+      },
+      {
+        "driver": "snd-usb-audio",
+        "bus-ID": "1-4:5",
+        "Device": "Apogee MiC 96k",
+        "type": "USB",
+        "class-ID": "0102",
+        "chip-ID": "0c60:001b"
+      },
+      {
+        "v": "N/A",
+        "Sound Server": "ALSA",
+        "running": "yes"
+      },
+      {
+        "v": "11.1",
+        "Sound Server": "PulseAudio",
+        "running": "no"
+      }
+    ]
+  },
+  {
+    "Network": [
+      {
+        "chip-ID": "8086:1539",
+        "class-ID": "0200",
+        "v": "kernel",
+        "vendor": "ASRock",
+        "bus-ID": "04:00.0",
+        "port": "2000",
+        "gen": 1,
+        "speed": "2.5 GT/s",
+        "Device": "Intel I211 Gigabit Network",
+        "driver": "igb",
+        "pcie": "",
+        "lanes": "1"
+      },
+      {
+        "IF": "enp4s0",
+        "state": "down",
+        "mac": "<filter>"
+      },
+      {
+        "port": "N/A",
+        "class-ID": "0280",
+        "bus-ID": "05:00.0",
+        "v": "kernel",
+        "lanes": "1",
+        "speed": "2.5 GT/s",
+        "gen": 1,
+        "Device": "Intel",
+        "driver": "iwlwifi",
+        "pcie": "",
+        "chip-ID": "8086:24fb"
+      },
+      {
+        "state": "down",
+        "IF": "wlp5s0",
+        "mac": "<filter>"
+      },
+      {
+        "bus-ID": "06:00.0",
+        "port": "1000",
+        "class-ID": "0200",
+        "chip-ID": "8086:1539",
+        "v": "kernel",
+        "vendor": "ASRock",
+        "driver": "igb",
+        "pcie": "",
+        "lanes": "1",
+        "gen": 1,
+        "speed": "2.5 GT/s",
+        "Device": "Intel I211 Gigabit Network"
+      },
+      {
+        "mac": "<filter>",
+        "state": "down",
+        "IF": "enp6s0"
+      },
+      {
+        "v": "kernel",
+        "vendor": "ASUSTeK",
+        "bus-ID": "08:00.0",
+        "link-max": "",
+        "port": "N/A",
+        "speed": "8 GT/s",
+        "Device": "Aquantia",
+        "chip-ID": "1d6a:94c0",
+        "class-ID": "0200",
+        "gen": 3,
+        "speed": "16 GT/s",
+        "pcie": "",
+        "gen": 4,
+        "lanes": "2",
+        "driver": "atlantic"
+      },
+      {
+        "IF": "enp8s0",
+        "mac": "<filter>",
+        "state": "up",
+        "duplex": "full",
+        "speed": "10000 Mbps"
+      },
+      {
+        "scope": "global",
+        "type": "dynamic noprefixroute",
+        "broadcast": "<filter>",
+        "IP v4": "<filter>"
+      },
+      {
+        "IP v6": "<filter>",
+        "scope": "link",
+        "type": "noprefixroute"
+      },
+      {
+        "state": "down",
+        "IF-ID": "br-0c5012e696c1",
+        "mac": "<filter>"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "mac": "<filter>",
+        "speed": "10000 Mbps",
+        "IF-ID": "br-87f3c8170877",
+        "duplex": "unknown",
+        "state": "up"
+      },
+      {
+        "Message": "Output throttled. IPs: 2; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "br-9109f3df3cb6",
+        "state": "down",
+        "mac": "<filter>"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "br-e39b7cf806de",
+        "mac": "<filter>",
+        "state": "down"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "cali1d14864f3b9",
+        "duplex": "full",
+        "state": "up",
+        "speed": "10000 Mbps",
+        "mac": "<filter>"
+      },
+      {
+        "state": "up",
+        "mac": "<filter>",
+        "IF-ID": "cali3297253e049",
+        "speed": "10000 Mbps",
+        "duplex": "full"
+      },
+      {
+        "mac": "<filter>",
+        "duplex": "full",
+        "state": "up",
+        "speed": "10000 Mbps",
+        "IF-ID": "cali3fd2bd64805"
+      },
+      {
+        "IF-ID": "cali4b6bbce5305",
+        "state": "up",
+        "mac": "<filter>",
+        "duplex": "full",
+        "speed": "10000 Mbps"
+      },
+      {
+        "duplex": "full",
+        "IF-ID": "cali5010610d18d",
+        "speed": "10000 Mbps",
+        "mac": "<filter>",
+        "state": "up"
+      },
+      {
+        "mac": "<filter>",
+        "duplex": "full",
+        "IF-ID": "cali7b16ed613c8",
+        "speed": "10000 Mbps",
+        "state": "up"
+      },
+      {
+        "mac": "<filter>",
+        "speed": "10000 Mbps",
+        "state": "up",
+        "duplex": "full",
+        "IF-ID": "cali7f2bc010594"
+      },
+      {
+        "speed": "10000 Mbps",
+        "duplex": "full",
+        "IF-ID": "cali84d3abfdbe6",
+        "mac": "<filter>",
+        "state": "up"
+      },
+      {
+        "speed": "10000 Mbps",
+        "state": "up",
+        "mac": "<filter>",
+        "duplex": "full",
+        "IF-ID": "cali894ddb5f8c4"
+      },
+      {
+        "mac": "<filter>",
+        "IF-ID": "cali94f87897190",
+        "speed": "10000 Mbps",
+        "state": "up",
+        "duplex": "full"
+      },
+      {
+        "mac": "<filter>",
+        "speed": "10000 Mbps",
+        "duplex": "full",
+        "state": "up",
+        "IF-ID": "cali9553aece046"
+      },
+      {
+        "mac": "<filter>",
+        "duplex": "full",
+        "IF-ID": "cali96c4f162491",
+        "speed": "10000 Mbps",
+        "state": "up"
+      },
+      {
+        "state": "up",
+        "IF-ID": "caliaac47b72485",
+        "duplex": "full",
+        "mac": "<filter>",
+        "speed": "10000 Mbps"
+      },
+      {
+        "speed": "10000 Mbps",
+        "duplex": "full",
+        "state": "up",
+        "mac": "<filter>",
+        "IF-ID": "caliaf00e8de569"
+      },
+      {
+        "speed": "10000 Mbps",
+        "mac": "<filter>",
+        "IF-ID": "calib0a7dd85fec",
+        "duplex": "full",
+        "state": "up"
+      },
+      {
+        "duplex": "full",
+        "state": "up",
+        "mac": "<filter>",
+        "IF-ID": "calib5a09576898",
+        "speed": "10000 Mbps"
+      },
+      {
+        "speed": "10000 Mbps",
+        "mac": "<filter>",
+        "state": "up",
+        "IF-ID": "calibad49792df1",
+        "duplex": "full"
+      },
+      {
+        "speed": "10000 Mbps",
+        "mac": "<filter>",
+        "IF-ID": "calic767aa861c8",
+        "state": "up",
+        "duplex": "full"
+      },
+      {
+        "state": "up",
+        "IF-ID": "calid9a9e0588e8",
+        "duplex": "full",
+        "speed": "10000 Mbps",
+        "mac": "<filter>"
+      },
+      {
+        "speed": "10000 Mbps",
+        "IF-ID": "calie508867d6a8",
+        "state": "up",
+        "mac": "<filter>",
+        "duplex": "full"
+      },
+      {
+        "state": "down",
+        "mac": "<filter>",
+        "IF-ID": "docker0"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "state": "down",
+        "mac": "<filter>",
+        "IF-ID": "lxcbr0"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "IF-ID": "lxdbr0",
+        "mac": "<filter>",
+        "state": "down"
+      },
+      {
+        "Message": "Output throttled. IPs: 3; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "mac": "<filter>",
+        "IF-ID": "mpqemubr0",
+        "state": "down"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "mac": "N/A",
+        "speed": "-1",
+        "duplex": "full",
+        "state": "unknown",
+        "IF-ID": "tailscale0"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "mac": "<filter>",
+        "duplex": "full",
+        "speed": "10000 Mbps",
+        "IF-ID": "veth32cd4ff",
+        "state": "up"
+      },
+      {
+        "mac": "<filter>",
+        "state": "down",
+        "IF-ID": "virbr0"
+      },
+      {
+        "Message": "Output throttled. IPs: 1; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "mac": "<filter>",
+        "speed": "-1",
+        "IF-ID": "vxlan.calico",
+        "state": "unknown",
+        "duplex": "unknown"
+      },
+      {
+        "Message": "Output throttled. IPs: 2; Limit: 10; Override: --limit [1-x;-1 all]"
+      },
+      {
+        "WAN IP": "No WAN IP found. Connected to web? SSL issues? Try enabling dig"
+      }
+    ]
+  },
+  {
+    "Bluetooth": [
+      {
+        "driver": "btusb",
+        "class-ID": "e001",
+        "chip-ID": "8087:0aa7",
+        "bus-ID": "1-9:4",
+        "Device": "N/A",
+        "type": "USB",
+        "v": "0.8"
+      },
+      {
+        "state": "down",
+        "software": "yes",
+        "ID": "hci0",
+        "Report": "rfkill",
+        "address": "see --recommends",
+        "bt-service": "N/A",
+        "rfk-id": "0",
+        "rfk-block": "",
+        "hardware": "no"
+      }
+    ]
+  },
+  {
+    "Logical": [
+      {
+        "Message": "No logical block device data found."
+      }
+    ]
+  },
+  {
+    "RAID": [
+      {
+        "Message": "No RAID data found."
+      }
+    ]
+  },
+  {
+    "Drives": [
+      {
+        "Local Storage": "",
+        "total": "3.64 TiB",
+        "used": "721.87 GiB (19.4%)"
+      },
+      {
+        "SMART Message": "Required tool smartctl not installed. Check --recommends"
+      },
+      {
+        "vendor": "Western Digital",
+        "temp": "56.9 C",
+        "logical": "512 B",
+        "rev": "111110WD",
+        "lanes": "4",
+        "model": "WDS100T3X0C-00SJG0",
+        "maj-min": "259:0",
+        "block-size": "",
+        "serial": "<filter>",
+        "physical": "512 B",
+        "type": "SSD",
+        "size": "931.51 GiB",
+        "ID": "/dev/nvme0n1",
+        "speed": "31.6 Gb/s",
+        "scheme": "GPT"
+      },
+      {
+        "size": "931.51 GiB",
+        "speed": "31.6 Gb/s",
+        "ID": "/dev/nvme1n1",
+        "block-size": "",
+        "physical": "512 B",
+        "serial": "<filter>",
+        "type": "SSD",
+        "scheme": "GPT",
+        "vendor": "Samsung",
+        "logical": "512 B",
+        "temp": "54.9 C",
+        "maj-min": "259:4",
+        "lanes": "4",
+        "model": "SSD 970 EVO Plus 1TB",
+        "rev": "2B2QEXM7"
+      },
+      {
+        "logical": "512 B",
+        "vendor": "Crucial",
+        "maj-min": "8:0",
+        "model": "CT2000MX500SSD1",
+        "rev": "010",
+        "scheme": "GPT",
+        "type": "SSD",
+        "ID": "/dev/sda",
+        "speed": "3.0 Gb/s",
+        "size": "1.82 TiB",
+        "physical": "4096 B",
+        "block-size": "",
+        "serial": "<filter>"
+      },
+      {
+        "Message": "No optical or floppy data found."
+      }
+    ]
+  },
+  {
+    "Partition": [
+      {
+        "ID": "/etc",
+        "maj-min": "253:0",
+        "uuid": "N/A",
+        "dev": "/dev/dm-0",
+        "label": "N/A",
+        "fs": "ext4",
+        "mapped": "nvme1n1p3_crypt",
+        "used": "721.49 GiB (78.9%)",
+        "size": "913.92 GiB (98.31%)",
+        "raw-size": "929.59 GiB"
+      },
+      {
+        "fs": "ext4",
+        "size": "943.2 MiB (96.54%)",
+        "used": "359.3 MiB (38.1%)",
+        "raw-size": "977 MiB",
+        "label": "N/A",
+        "dev": "/dev/nvme1n1p2",
+        "ID": "/var/lib/snapd/hostfs/boot",
+        "uuid": "64eab53c-263e-4544-9c0b-55fbb3cfa872",
+        "maj-min": "259:6"
+      },
+      {
+        "used": "32.2 MiB (33.6%)",
+        "size": "96 MiB (96.00%)",
+        "raw-size": "100 MiB",
+        "fs": "vfat",
+        "dev": "/dev/nvme0n1p1",
+        "label": "N/A",
+        "ID": "/var/lib/snapd/hostfs/boot/efi",
+        "uuid": "2212-7AFB",
+        "maj-min": "259:1"
+      }
+    ]
+  },
+  {
+    "Swap": [
+      {
+        "Message": "No admin swap data available."
+      },
+      {
+        "size": "2 GiB",
+        "file": "/swapfile",
+        "priority": "-2",
+        "ID": "swap-1",
+        "used": "0 KiB (0.0%)",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "Unmounted": [
+      {
+        "size": "16 MiB",
+        "maj-min": "259:2",
+        "label": "N/A",
+        "fs": "<missing: file>",
+        "uuid": "N/A",
+        "ID": "/dev/nvme0n1p2"
+      },
+      {
+        "size": "931.4 GiB",
+        "label": "N/A",
+        "fs": "ntfs",
+        "maj-min": "259:3",
+        "uuid": "846082FC6082F3E8",
+        "ID": "/dev/nvme0n1p3"
+      },
+      {
+        "ID": "/dev/nvme1n1p1",
+        "uuid": "AC2A-210F",
+        "maj-min": "259:5",
+        "label": "N/A",
+        "fs": "vfat",
+        "size": "976 MiB"
+      },
+      {
+        "maj-min": "8:1",
+        "label": "Data",
+        "fs": "ext4",
+        "size": "1.36 TiB",
+        "ID": "/dev/sda1",
+        "uuid": "f51266fb-2b44-41af-827b-f90d2635ec2a"
+      },
+      {
+        "fs": "swap",
+        "label": "N/A",
+        "maj-min": "8:2",
+        "size": "125 GiB",
+        "ID": "/dev/sda2",
+        "uuid": "62c6e2a4-4372-49eb-8fd3-5f6bdb730813"
+      },
+      {
+        "ID": "/dev/sda3",
+        "uuid": "f2008fcd-e1dd-4d21-a69b-47a7aa570404",
+        "label": "N/A",
+        "maj-min": "8:3",
+        "fs": "swap",
+        "size": "97.66 GiB"
+      },
+      {
+        "fs": "ext4",
+        "label": "N/A",
+        "maj-min": "8:4",
+        "size": "2 GiB",
+        "ID": "/dev/sda4",
+        "uuid": "4acd4369-ec90-4c70-909d-56507fc66e14"
+      },
+      {
+        "uuid": "1e193930-a188-40fc-b13e-c407d019ba57",
+        "ID": "/dev/sda5",
+        "size": "241 GiB",
+        "maj-min": "8:5",
+        "label": "N/A",
+        "fs": "ext4"
+      }
+    ]
+  },
+  {
+    "USB": [
+      {
+        "speed": "480 Mb/s",
+        "class-ID": "0900",
+        "info": "Hi-speed hub with single TT",
+        "Hub": "1-0:1",
+        "chip-ID": "1d6b:0002",
+        "rev": "2.0",
+        "ports": "14"
+      },
+      {
+        "interfaces": "6",
+        "power": "500mA",
+        "info": "Logitech StreamCam",
+        "serial": "<filter>",
+        "chip-ID": "046d:0893",
+        "speed": "480 Mb/s",
+        "type": "Video,Audio,HID",
+        "class-ID": "0300",
+        "rev": "2.1",
+        "Device": "1-2:2",
+        "driver": "hid-generic,snd-usb-audio,usbhid,uvcvideo"
+      },
+      {
+        "type": "Audio",
+        "chip-ID": "0c60:001b",
+        "info": "Apogee MiC 96k",
+        "speed": "12 Mb/s",
+        "power": "10mA",
+        "interfaces": "2",
+        "driver": "snd-usb-audio",
+        "rev": "2.0",
+        "class-ID": "0102",
+        "Device": "1-4:5"
+      },
+      {
+        "speed": "12 Mb/s",
+        "chip-ID": "8087:0aa7",
+        "info": "N/A",
+        "type": "Bluetooth",
+        "interfaces": "2",
+        "power": "100mA",
+        "driver": "btusb",
+        "rev": "2.0",
+        "class-ID": "e001",
+        "Device": "1-9:4"
+      },
+      {
+        "chip-ID": "1d6b:0003",
+        "rev": "3.1",
+        "ports": "8",
+        "speed": "10 Gb/s",
+        "class-ID": "0900",
+        "info": "Super-speed hub",
+        "Hub": "2-0:1"
+      },
+      {
+        "Hub": "3-0:1",
+        "info": "Hi-speed hub with single TT",
+        "class-ID": "0900",
+        "speed": "480 Mb/s",
+        "ports": "4",
+        "chip-ID": "1d6b:0002",
+        "rev": "2.0"
+      },
+      {
+        "speed": "480 Mb/s",
+        "class-ID": "0900",
+        "info": "Hi-speed hub with multiple TTs",
+        "Hub": "3-1:6",
+        "chip-ID": "0451:8442",
+        "rev": "2.1",
+        "ports": "6"
+      },
+      {
+        "speed": "12 Mb/s",
+        "chip-ID": "3297:1969",
+        "info": "ZSA Moonlander Mark I",
+        "type": "Keyboard,Mouse,HID",
+        "interfaces": "4",
+        "power": "500mA",
+        "driver": "hid-generic,usbhid",
+        "class-ID": "0300",
+        "Device": "3-1.1:10",
+        "rev": "2.1"
+      },
+      {
+        "driver": "logitech-djreceiver,usbhid",
+        "class-ID": "0300",
+        "rev": "2.0",
+        "Device": "3-1.2:7",
+        "type": "Keyboard,Mouse,HID",
+        "info": "Logitech USB Receiver",
+        "chip-ID": "046d:c52b",
+        "speed": "12 Mb/s",
+        "power": "98mA",
+        "interfaces": "3"
+      },
+      {
+        "interfaces": "1",
+        "chip-ID": "0451:82ff",
+        "speed": "480 Mb/s",
+        "info": "N/A",
+        "type": "HID",
+        "rev": "2.0",
+        "class-ID": "0300",
+        "Device": "3-1.5:8",
+        "serial": "<filter>",
+        "driver": "hid-generic,usbhid"
+      },
+      {
+        "speed": "480 Mb/s",
+        "info": "N/A",
+        "type": "Billboard",
+        "chip-ID": "0451:82ee",
+        "interfaces": "1",
+        "driver": "N/A",
+        "serial": "<filter>",
+        "Device": "3-1.6:9",
+        "class-ID": "1100",
+        "rev": "2.0"
+      },
+      {
+        "speed": "5 Gb/s",
+        "Hub": "4-0:1",
+        "info": "Super-speed hub",
+        "class-ID": "0900",
+        "chip-ID": "1d6b:0003",
+        "rev": "3.0",
+        "ports": "4"
+      },
+      {
+        "Hub": "4-1:3",
+        "class-ID": "0900",
+        "info": "Super-speed hub",
+        "speed": "5 Gb/s",
+        "ports": "4",
+        "rev": "3.1",
+        "chip-ID": "0451:8440"
+      },
+      {
+        "chip-ID": "1d6b:0002",
+        "rev": "2.0",
+        "ports": "4",
+        "speed": "480 Mb/s",
+        "info": "Hi-speed hub with single TT",
+        "class-ID": "0900",
+        "Hub": "5-0:1"
+      },
+      {
+        "interfaces": "3",
+        "power": "98mA",
+        "speed": "12 Mb/s",
+        "chip-ID": "046d:c52b",
+        "info": "Logitech USB Receiver",
+        "type": "Keyboard,Mouse,HID",
+        "class-ID": "0300",
+        "rev": "2.0",
+        "Device": "5-3:2",
+        "driver": "logitech-djreceiver,usbhid"
+      },
+      {
+        "power": "100mA",
+        "interfaces": "3",
+        "type": "Keyboard,Mouse,HID",
+        "info": "Microsoft 2.4GHz Transceiver v9.0",
+        "chip-ID": "045e:07a5",
+        "speed": "12 Mb/s",
+        "Device": "5-4:3",
+        "class-ID": "0300",
+        "rev": "2.0",
+        "driver": "hid-generic,usbhid"
+      },
+      {
+        "speed": "5 Gb/s",
+        "Hub": "6-0:1",
+        "class-ID": "0900",
+        "info": "Super-speed hub",
+        "rev": "3.0",
+        "chip-ID": "1d6b:0003",
+        "ports": "4"
+      }
+    ]
+  },
+  {
+    "Sensors": [
+      {
+        "Missing": "Required tool sensors not installed. Check --recommends"
+      }
+    ]
+  },
+  {
+    "Repos": [
+      {
+        "Packages": "No packages detected. Unsupported package manager?"
+      },
+      {
+        "Active apt repos in": "/etc/apt/sources.list"
+      },
+      [
+        "deb-src http://archive.ubuntu.com/ubuntu jammy main restricted",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy main restricted",
+        "deb-src http://fi.archive.ubuntu.com/ubuntu/ jammy universe main multiverse restricted",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy-updates main restricted",
+        "deb-src http://fi.archive.ubuntu.com/ubuntu/ jammy-updates universe main multiverse restricted",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy universe",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy-updates universe",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy multiverse",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy-updates multiverse",
+        "deb http://fi.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse",
+        "deb-src http://fi.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse",
+        "deb http://security.ubuntu.com/ubuntu jammy-security main restricted",
+        "deb-src http://security.ubuntu.com/ubuntu jammy-security universe main multiverse restricted",
+        "deb http://security.ubuntu.com/ubuntu jammy-security universe",
+        "deb http://security.ubuntu.com/ubuntu jammy-security multiverse"
+      ]
+    ]
+  },
+  {
+    "Processes": [
+      {
+        "CPU top": "5 of 947"
+      },
+      {
+        "1": "",
+        "command": "gadgets",
+        "pid": "2871274",
+        "cpu": "94.0%",
+        "mem": "102.2 MiB (0.1%)"
+      },
+      {
+        "cpu": "41.8%",
+        "2": "",
+        "pid": "114700",
+        "command": "firefox",
+        "mem": "1500.1 MiB (1.5%)"
+      },
+      {
+        "command": "code",
+        "pid": "2678722",
+        "cpu": "32.2%",
+        "mem": "276.9 MiB (0.2%)",
+        "3": ""
+      },
+      {
+        "pid": "10012",
+        "command": "gvfs-udisks2-volume-monitor",
+        "cpu": "27.7%",
+        "4": "",
+        "mem": "13.3 MiB (0.0%)"
+      },
+      {
+        "mem": "523.7 MiB (0.5%)",
+        "command": "code",
+        "pid": "2678757",
+        "cpu": "19.8%",
+        "5": ""
+      },
+      {
+        "Memory top": "5 of 947"
+      },
+      {
+        "mem": "1500.1 MiB (1.5%)",
+        "pid": "114700",
+        "command": "firefox",
+        "1": "",
+        "cpu": "41.8%"
+      },
+      {
+        "cpu": "0.2%",
+        "mem": "1204.7 MiB (1.2%)",
+        "command": "gnome-software",
+        "pid": "10504",
+        "2": ""
+      },
+      {
+        "cpu": "3.7%",
+        "pid": "10201",
+        "command": "gnome-shell",
+        "3": "",
+        "mem": "1161.5 MiB (1.2%)"
+      },
+      {
+        "mem": "1078.4 MiB (1.1%)",
+        "4": "",
+        "command": "com.gitlab.newsflash",
+        "pid": "2127588",
+        "cpu": "1.3%"
+      },
+      {
+        "command": "kubelite",
+        "pid": "1944316",
+        "mem": "924.0 MiB (0.9%)",
+        "5": "",
+        "cpu": "15.9%"
+      }
+    ]
+  },
+  {
+    "Info": [
+      {
+        "Shell": "DASH",
+        "running-in": "gadgets",
+        "gcc": "N/A",
+        "Uptime": "1d 3h 41m",
+        "wakeups": "22",
+        "Processes": 947,
+        "inxi": "3.3.20",
+        "default": "fish",
+        "Init": "systemd",
+        "tool": "systemctl",
+        "v": "N/A",
+        "Compilers": ""
+      }
+    ]
+  }
+]

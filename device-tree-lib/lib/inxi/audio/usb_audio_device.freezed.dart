@@ -22,12 +22,13 @@ USBAudioDevice _$USBAudioDeviceFromJson(Map<String, dynamic> json) {
 mixin _$USBAudioDevice {
   String get name => throw _privateConstructorUsedError;
   String get driver => throw _privateConstructorUsedError;
-  String get classID => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  String? get classID => throw _privateConstructorUsedError;
   String? get version => throw _privateConstructorUsedError;
   String? get vendor => throw _privateConstructorUsedError;
   String? get speed => throw _privateConstructorUsedError;
-  String get busID => throw _privateConstructorUsedError;
-  String get chipID => throw _privateConstructorUsedError;
+  String? get busID => throw _privateConstructorUsedError;
+  String? get chipID => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,12 +44,13 @@ abstract class $USBAudioDeviceCopyWith<$Res> {
   $Res call(
       {String name,
       String driver,
-      String classID,
+      String type,
+      String? classID,
       String? version,
       String? vendor,
       String? speed,
-      String busID,
-      String chipID});
+      String? busID,
+      String? chipID});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$USBAudioDeviceCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? driver = freezed,
+    Object? type = freezed,
     Object? classID = freezed,
     Object? version = freezed,
     Object? vendor = freezed,
@@ -80,10 +83,14 @@ class _$USBAudioDeviceCopyWithImpl<$Res>
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       classID: classID == freezed
           ? _value.classID
           : classID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -99,11 +106,11 @@ class _$USBAudioDeviceCopyWithImpl<$Res>
       busID: busID == freezed
           ? _value.busID
           : busID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       chipID: chipID == freezed
           ? _value.chipID
           : chipID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -118,12 +125,13 @@ abstract class _$$_USBAudioDeviceCopyWith<$Res>
   $Res call(
       {String name,
       String driver,
-      String classID,
+      String type,
+      String? classID,
       String? version,
       String? vendor,
       String? speed,
-      String busID,
-      String chipID});
+      String? busID,
+      String? chipID});
 }
 
 /// @nodoc
@@ -141,6 +149,7 @@ class __$$_USBAudioDeviceCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? driver = freezed,
+    Object? type = freezed,
     Object? classID = freezed,
     Object? version = freezed,
     Object? vendor = freezed,
@@ -157,10 +166,14 @@ class __$$_USBAudioDeviceCopyWithImpl<$Res>
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       classID: classID == freezed
           ? _value.classID
           : classID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -176,11 +189,11 @@ class __$$_USBAudioDeviceCopyWithImpl<$Res>
       busID: busID == freezed
           ? _value.busID
           : busID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       chipID: chipID == freezed
           ? _value.chipID
           : chipID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -191,12 +204,13 @@ class _$_USBAudioDevice extends _USBAudioDevice {
   _$_USBAudioDevice(
       {required this.name,
       required this.driver,
-      required this.classID,
+      required this.type,
+      this.classID,
       this.version,
       this.vendor,
       this.speed,
-      required this.busID,
-      required this.chipID})
+      this.busID,
+      this.chipID})
       : super._();
 
   factory _$_USBAudioDevice.fromJson(Map<String, dynamic> json) =>
@@ -207,7 +221,9 @@ class _$_USBAudioDevice extends _USBAudioDevice {
   @override
   final String driver;
   @override
-  final String classID;
+  final String type;
+  @override
+  final String? classID;
   @override
   final String? version;
   @override
@@ -215,13 +231,13 @@ class _$_USBAudioDevice extends _USBAudioDevice {
   @override
   final String? speed;
   @override
-  final String busID;
+  final String? busID;
   @override
-  final String chipID;
+  final String? chipID;
 
   @override
   String toString() {
-    return 'USBAudioDevice(name: $name, driver: $driver, classID: $classID, version: $version, vendor: $vendor, speed: $speed, busID: $busID, chipID: $chipID)';
+    return 'USBAudioDevice(name: $name, driver: $driver, type: $type, classID: $classID, version: $version, vendor: $vendor, speed: $speed, busID: $busID, chipID: $chipID)';
   }
 
   @override
@@ -231,6 +247,7 @@ class _$_USBAudioDevice extends _USBAudioDevice {
             other is _$_USBAudioDevice &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.driver, driver) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.classID, classID) &&
             const DeepCollectionEquality().equals(other.version, version) &&
             const DeepCollectionEquality().equals(other.vendor, vendor) &&
@@ -245,6 +262,7 @@ class _$_USBAudioDevice extends _USBAudioDevice {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(driver),
+      const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(classID),
       const DeepCollectionEquality().hash(version),
       const DeepCollectionEquality().hash(vendor),
@@ -269,12 +287,13 @@ abstract class _USBAudioDevice extends USBAudioDevice {
   factory _USBAudioDevice(
       {required final String name,
       required final String driver,
-      required final String classID,
+      required final String type,
+      final String? classID,
       final String? version,
       final String? vendor,
       final String? speed,
-      required final String busID,
-      required final String chipID}) = _$_USBAudioDevice;
+      final String? busID,
+      final String? chipID}) = _$_USBAudioDevice;
   _USBAudioDevice._() : super._();
 
   factory _USBAudioDevice.fromJson(Map<String, dynamic> json) =
@@ -285,7 +304,9 @@ abstract class _USBAudioDevice extends USBAudioDevice {
   @override
   String get driver;
   @override
-  String get classID;
+  String get type;
+  @override
+  String? get classID;
   @override
   String? get version;
   @override
@@ -293,9 +314,9 @@ abstract class _USBAudioDevice extends USBAudioDevice {
   @override
   String? get speed;
   @override
-  String get busID;
+  String? get busID;
   @override
-  String get chipID;
+  String? get chipID;
   @override
   @JsonKey(ignore: true)
   _$$_USBAudioDeviceCopyWith<_$_USBAudioDevice> get copyWith =>

@@ -24,7 +24,7 @@ mixin _$PeripheralBattery {
   String get serial => throw _privateConstructorUsedError;
   String get model => throw _privateConstructorUsedError;
   String get charge => throw _privateConstructorUsedError;
-  String get rechargeable => throw _privateConstructorUsedError;
+  String? get rechargeable => throw _privateConstructorUsedError;
   String get device => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $PeripheralBatteryCopyWith<$Res> {
       String serial,
       String model,
       String charge,
-      String rechargeable,
+      String? rechargeable,
       String device});
 }
 
@@ -85,7 +85,7 @@ class _$PeripheralBatteryCopyWithImpl<$Res>
       rechargeable: rechargeable == freezed
           ? _value.rechargeable
           : rechargeable // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       device: device == freezed
           ? _value.device
           : device // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$_PeripheralBatteryCopyWith<$Res>
       String serial,
       String model,
       String charge,
-      String rechargeable,
+      String? rechargeable,
       String device});
 }
 
@@ -150,7 +150,7 @@ class __$$_PeripheralBatteryCopyWithImpl<$Res>
       rechargeable: rechargeable == freezed
           ? _value.rechargeable
           : rechargeable // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       device: device == freezed
           ? _value.device
           : device // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class _$_PeripheralBattery extends _PeripheralBattery {
       required this.serial,
       required this.model,
       required this.charge,
-      required this.rechargeable,
+      this.rechargeable,
       required this.device})
       : super._();
 
@@ -183,7 +183,7 @@ class _$_PeripheralBattery extends _PeripheralBattery {
   @override
   final String charge;
   @override
-  final String rechargeable;
+  final String? rechargeable;
   @override
   final String device;
 
@@ -237,7 +237,7 @@ abstract class _PeripheralBattery extends PeripheralBattery {
       required final String serial,
       required final String model,
       required final String charge,
-      required final String rechargeable,
+      final String? rechargeable,
       required final String device}) = _$_PeripheralBattery;
   _PeripheralBattery._() : super._();
 
@@ -253,7 +253,7 @@ abstract class _PeripheralBattery extends PeripheralBattery {
   @override
   String get charge;
   @override
-  String get rechargeable;
+  String? get rechargeable;
   @override
   String get device;
   @override

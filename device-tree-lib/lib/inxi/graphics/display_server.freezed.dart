@@ -22,7 +22,7 @@ DisplayServer _$DisplayServerFromJson(Map<String, dynamic> json) {
 mixin _$DisplayServer {
   String get driver => throw _privateConstructorUsedError;
   String? get loaded => throw _privateConstructorUsedError;
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
   String get screens => throw _privateConstructorUsedError;
   String get gpu => throw _privateConstructorUsedError;
   String? get X => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $DisplayServerCopyWith<$Res> {
   $Res call(
       {String driver,
       String? loaded,
-      String version,
+      String? version,
       String screens,
       String gpu,
       String? X,
@@ -92,7 +92,7 @@ class _$DisplayServerCopyWithImpl<$Res>
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       screens: screens == freezed
           ? _value.screens
           : screens // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ abstract class _$$_DisplayServerCopyWith<$Res>
   $Res call(
       {String driver,
       String? loaded,
-      String version,
+      String? version,
       String screens,
       String gpu,
       String? X,
@@ -187,7 +187,7 @@ class __$$_DisplayServerCopyWithImpl<$Res>
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       screens: screens == freezed
           ? _value.screens
           : screens // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class _$_DisplayServer extends _DisplayServer {
   _$_DisplayServer(
       {required this.driver,
       this.loaded,
-      required this.version,
+      this.version,
       required this.screens,
       required this.gpu,
       this.X,
@@ -249,7 +249,7 @@ class _$_DisplayServer extends _DisplayServer {
   @override
   final String? loaded;
   @override
-  final String version;
+  final String? version;
   @override
   final String screens;
   @override
@@ -324,7 +324,7 @@ abstract class _DisplayServer extends DisplayServer {
   factory _DisplayServer(
       {required final String driver,
       final String? loaded,
-      required final String version,
+      final String? version,
       required final String screens,
       required final String gpu,
       final String? X,
@@ -343,7 +343,7 @@ abstract class _DisplayServer extends DisplayServer {
   @override
   String? get loaded;
   @override
-  String get version;
+  String? get version;
   @override
   String get screens;
   @override

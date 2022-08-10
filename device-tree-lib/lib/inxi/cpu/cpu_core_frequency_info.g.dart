@@ -13,11 +13,11 @@ _$_CPUCoreFrequencyInfo _$$_CPUCoreFrequencyInfoFromJson(
       driver: json['driver'] as String,
       avg: json['avg'] as int,
       boost: json['boost'] as String,
-      extClock: json['extClock'] as String,
+      extClock: json['extClock'] as String?,
       governor: json['governor'] as String,
-      volts: json['volts'] as String,
+      volts: json['volts'] as String?,
       bogomips: json['bogomips'] as int,
-      baseBoost: json['baseBoost'] as String,
+      baseBoost: json['baseBoost'] as String?,
       coreFrequencies: (json['coreFrequencies'] as List<dynamic>)
           .map((e) => e as int)
           .toList(),

@@ -35,7 +35,7 @@ class PeripheralBattery
       required String serial,
       required String model,
       required String charge,
-      required String rechargeable,
+      String? rechargeable,
       required String device}) = _PeripheralBattery;
 
   factory PeripheralBattery.fromMap(Map<String, dynamic> map) {

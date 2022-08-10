@@ -54,7 +54,7 @@ class USBGraphicsDevice
       _$USBGraphicsDeviceFromJson(json);
 
   static bool representsUSBGraphicsDevice(Map<String, dynamic> map) {
-    return map[InxiKeyGraphics.serial] != null;
+    return map[InxiKeyGraphics.type] == "USB";
   }
 
   @override

@@ -11,7 +11,7 @@ _$_DeviceInfo _$$_DeviceInfoFromJson(Map<String, dynamic> json) =>
       tool: json['tool'] as String?,
       uptime: json['uptime'] as String,
       shell: json['shell'] as String,
-      clangVersion: json['clangVersion'] as String,
+      clangVersion: json['clangVersion'] as String?,
       version: json['version'] as String,
       inxiVersion: json['inxiVersion'] as String,
       initSystem: json['initSystem'] as String,

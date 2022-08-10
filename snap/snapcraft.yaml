@@ -91,3 +91,5 @@ parts:
     stage-packages:
        - jq
        - inxi
+       - x11-utils
+       - x11-xserver-utils

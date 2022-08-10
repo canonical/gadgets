@@ -32,7 +32,8 @@ class PCIAudioDevice with _$PCIAudioDevice implements AudioDevice {
   factory PCIAudioDevice(
       {required String name,
       required String driver,
-      required String classID,
+      String? type,
+      String? classID,
       required int lanes,
       required int gen,
       required String pcie}) = _PCIAudioDevice;
@@ -41,6 +42,7 @@ class PCIAudioDevice with _$PCIAudioDevice implements AudioDevice {
     return PCIAudioDevice(
         name: map[InxiKeyAudio.name],
         driver: map[InxiKeyAudio.driver],
+        type: map[InxiKeyAudio.type],
         classID: map[InxiKeyAudio.classID],
         lanes: int.parse(map[InxiKeyAudio.lanes]),
         gen: map[InxiKeyAudio.gen],

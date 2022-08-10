@@ -12,7 +12,7 @@ _$_PeripheralBattery _$$_PeripheralBatteryFromJson(Map<String, dynamic> json) =>
       serial: json['serial'] as String,
       model: json['model'] as String,
       charge: json['charge'] as String,
-      rechargeable: json['rechargeable'] as String,
+      rechargeable: json['rechargeable'] as String?,
       device: json['device'] as String,
     );
 

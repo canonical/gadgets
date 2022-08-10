@@ -20,6 +20,8 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'drive_keys.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:device_tree_lib/int_parsing.dart';
+
 part 'drive.freezed.dart';
 part 'drive.g.dart';
 
@@ -53,7 +55,7 @@ class Drive with _$Drive implements TreeNodeRepresentable {
         type: map[InxiKeyDrive.type]!,
         scheme: map[InxiKeyDrive.scheme]!,
         speed: map[InxiKeyDrive.speed]!,
-        lanes: map[InxiKeyDrive.lanes],
+        lanes: maybeParseInt(map[InxiKeyDrive.lanes]),
         temperature: map[InxiKeyDrive.temperature],
         size: map[InxiKeyDrive.size]!,
         model: map[InxiKeyDrive.model]!,

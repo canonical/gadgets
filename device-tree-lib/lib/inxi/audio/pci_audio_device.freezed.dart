@@ -22,7 +22,8 @@ PCIAudioDevice _$PCIAudioDeviceFromJson(Map<String, dynamic> json) {
 mixin _$PCIAudioDevice {
   String get name => throw _privateConstructorUsedError;
   String get driver => throw _privateConstructorUsedError;
-  String get classID => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  String? get classID => throw _privateConstructorUsedError;
   int get lanes => throw _privateConstructorUsedError;
   int get gen => throw _privateConstructorUsedError;
   String get pcie => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $PCIAudioDeviceCopyWith<$Res> {
   $Res call(
       {String name,
       String driver,
-      String classID,
+      String? type,
+      String? classID,
       int lanes,
       int gen,
       String pcie});
@@ -60,6 +62,7 @@ class _$PCIAudioDeviceCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? driver = freezed,
+    Object? type = freezed,
     Object? classID = freezed,
     Object? lanes = freezed,
     Object? gen = freezed,
@@ -74,10 +77,14 @@ class _$PCIAudioDeviceCopyWithImpl<$Res>
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       classID: classID == freezed
           ? _value.classID
           : classID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lanes: lanes == freezed
           ? _value.lanes
           : lanes // ignore: cast_nullable_to_non_nullable
@@ -104,7 +111,8 @@ abstract class _$$_PCIAudioDeviceCopyWith<$Res>
   $Res call(
       {String name,
       String driver,
-      String classID,
+      String? type,
+      String? classID,
       int lanes,
       int gen,
       String pcie});
@@ -125,6 +133,7 @@ class __$$_PCIAudioDeviceCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? driver = freezed,
+    Object? type = freezed,
     Object? classID = freezed,
     Object? lanes = freezed,
     Object? gen = freezed,
@@ -139,10 +148,14 @@ class __$$_PCIAudioDeviceCopyWithImpl<$Res>
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       classID: classID == freezed
           ? _value.classID
           : classID // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lanes: lanes == freezed
           ? _value.lanes
           : lanes // ignore: cast_nullable_to_non_nullable
@@ -165,7 +178,8 @@ class _$_PCIAudioDevice extends _PCIAudioDevice {
   _$_PCIAudioDevice(
       {required this.name,
       required this.driver,
-      required this.classID,
+      this.type,
+      this.classID,
       required this.lanes,
       required this.gen,
       required this.pcie})
@@ -179,7 +193,9 @@ class _$_PCIAudioDevice extends _PCIAudioDevice {
   @override
   final String driver;
   @override
-  final String classID;
+  final String? type;
+  @override
+  final String? classID;
   @override
   final int lanes;
   @override
@@ -189,7 +205,7 @@ class _$_PCIAudioDevice extends _PCIAudioDevice {
 
   @override
   String toString() {
-    return 'PCIAudioDevice(name: $name, driver: $driver, classID: $classID, lanes: $lanes, gen: $gen, pcie: $pcie)';
+    return 'PCIAudioDevice(name: $name, driver: $driver, type: $type, classID: $classID, lanes: $lanes, gen: $gen, pcie: $pcie)';
   }
 
   @override
@@ -199,6 +215,7 @@ class _$_PCIAudioDevice extends _PCIAudioDevice {
             other is _$_PCIAudioDevice &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.driver, driver) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.classID, classID) &&
             const DeepCollectionEquality().equals(other.lanes, lanes) &&
             const DeepCollectionEquality().equals(other.gen, gen) &&
@@ -211,6 +228,7 @@ class _$_PCIAudioDevice extends _PCIAudioDevice {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(driver),
+      const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(classID),
       const DeepCollectionEquality().hash(lanes),
       const DeepCollectionEquality().hash(gen),
@@ -233,7 +251,8 @@ abstract class _PCIAudioDevice extends PCIAudioDevice {
   factory _PCIAudioDevice(
       {required final String name,
       required final String driver,
-      required final String classID,
+      final String? type,
+      final String? classID,
       required final int lanes,
       required final int gen,
       required final String pcie}) = _$_PCIAudioDevice;
@@ -247,7 +266,9 @@ abstract class _PCIAudioDevice extends PCIAudioDevice {
   @override
   String get driver;
   @override
-  String get classID;
+  String? get type;
+  @override
+  String? get classID;
   @override
   int get lanes;
   @override

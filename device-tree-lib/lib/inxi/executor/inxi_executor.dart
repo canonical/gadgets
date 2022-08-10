@@ -19,6 +19,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:device_tree_lib/device_tree.dart';
+import 'package:logging/logging.dart';
 
 class InxiExecutionResult {
   final DeviceTree deviceTree;
@@ -46,9 +47,8 @@ class InxiExecutor {
             ],
             runInShell: true)
         .catchError((error, stackTrace) {
-      print("Executing inxi failed:");
-      print(error);
-      print(stackTrace);
+      Logger.root
+          .severe("Executing inxi failed: $error\nStack trace:\n$stackTrace");
       dir.delete();
     });
 
@@ -78,13 +78,17 @@ class InxiExecutor {
     });
 
     final tempOutputFile = File(tempOutputPath);
-    final jqOutput = await jq.stdout.transform(utf8.decoder).first;
+    final jqOutput = await jq.stdout
+        .transform(utf8.decoder)
+        .expand((element) => [element])
+        .join("");
 
     final result = InxiExecutionResult(
         DeviceTree.fromJsonBlob(json.decode(jqOutput)),
         stdout: jqOutput);
 
     await tempOutputFile.delete();
+    await dir.delete();
     return result;
   }
 }

@@ -47,7 +47,7 @@ class DeviceInfo with _$DeviceInfo implements TreeNodeRepresentable {
       {String? tool,
       required String uptime,
       required String shell,
-      required String clangVersion,
+      String? clangVersion,
       required String version,
       required String inxiVersion,
       required String initSystem,
@@ -65,7 +65,7 @@ class DeviceInfo with _$DeviceInfo implements TreeNodeRepresentable {
     var tool = map[DeviceInfoInxiKey.tool] as String?;
     var uptime = map[DeviceInfoInxiKey.uptime] as String;
     var shell = map[DeviceInfoInxiKey.shell] as String;
-    var clang = map[DeviceInfoInxiKey.clang] as String;
+    var clang = map[DeviceInfoInxiKey.clang];
     var version = map[DeviceInfoInxiKey.version] as String;
     var inxiVersion = map[DeviceInfoInxiKey.inxiVersion] as String;
     var initSystem = map[DeviceInfoInxiKey.initSystem] as String;

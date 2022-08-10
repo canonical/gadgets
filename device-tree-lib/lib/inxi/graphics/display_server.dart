@@ -30,7 +30,7 @@ class DisplayServer with _$DisplayServer implements TreeNodeRepresentable {
   factory DisplayServer(
       {required String driver,
       String? loaded,
-      required String version,
+      String? version,
       required String screens,
       required String gpu,
       String? X,
@@ -43,7 +43,7 @@ class DisplayServer with _$DisplayServer implements TreeNodeRepresentable {
   factory DisplayServer.fromMap(Map<String, dynamic> map) => DisplayServer(
       driver: map[InxiKeyGraphics.driver]!,
       loaded: map[InxiKeyGraphics.loaded],
-      version: map[InxiKeyGraphics.version]!,
+      version: map[InxiKeyGraphics.version],
       screens: map[InxiKeyGraphics.screens]!,
       gpu: map[InxiKeyGraphics.gpu]!,
       X: map[InxiKeyGraphics.x],
