@@ -45,7 +45,7 @@ mixin _$Submission {
   DkmsInfo? get dkmsInfo => throw _privateConstructorUsedError;
   List<Device> get devices => throw _privateConstructorUsedError;
   @JsonKey(name: 'modprobe-info')
-  List<dynamic> get modprobeInfo => throw _privateConstructorUsedError;
+  List<dynamic>? get modprobeInfo => throw _privateConstructorUsedError;
   @JsonKey(name: 'pci_subsystem_id')
   dynamic get pciSubsystemId => throw _privateConstructorUsedError;
   String get kernel => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ mixin _$Submission {
   Memory get memory => throw _privateConstructorUsedError;
   Processor get processor => throw _privateConstructorUsedError;
   @JsonKey(name: 'kernel-cmdline')
-  String get kernelCmdline => throw _privateConstructorUsedError;
+  String? get kernelCmdline => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -90,7 +90,7 @@ abstract class $SubmissionCopyWith<$Res> {
           DkmsInfo? dkmsInfo,
       List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          List<dynamic> modprobeInfo,
+          List<dynamic>? modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           dynamic pciSubsystemId,
       String kernel,
@@ -98,7 +98,7 @@ abstract class $SubmissionCopyWith<$Res> {
       Memory memory,
       Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          String kernelCmdline});
+          String? kernelCmdline});
 
   $DistributionCopyWith<$Res> get distribution;
   $DkmsInfoCopyWith<$Res>? get dkmsInfo;
@@ -198,7 +198,7 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       modprobeInfo: modprobeInfo == freezed
           ? _value.modprobeInfo
           : modprobeInfo // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
       pciSubsystemId: pciSubsystemId == freezed
           ? _value.pciSubsystemId
           : pciSubsystemId // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class _$SubmissionCopyWithImpl<$Res> implements $SubmissionCopyWith<$Res> {
       kernelCmdline: kernelCmdline == freezed
           ? _value.kernelCmdline
           : kernelCmdline // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -290,7 +290,7 @@ abstract class _$$_SubmissionCopyWith<$Res>
           DkmsInfo? dkmsInfo,
       List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          List<dynamic> modprobeInfo,
+          List<dynamic>? modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           dynamic pciSubsystemId,
       String kernel,
@@ -298,7 +298,7 @@ abstract class _$$_SubmissionCopyWith<$Res>
       Memory memory,
       Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          String kernelCmdline});
+          String? kernelCmdline});
 
   @override
   $DistributionCopyWith<$Res> get distribution;
@@ -404,7 +404,7 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       modprobeInfo: modprobeInfo == freezed
           ? _value._modprobeInfo
           : modprobeInfo // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
       pciSubsystemId: pciSubsystemId == freezed
           ? _value.pciSubsystemId
           : pciSubsystemId // ignore: cast_nullable_to_non_nullable
@@ -428,7 +428,7 @@ class __$$_SubmissionCopyWithImpl<$Res> extends _$SubmissionCopyWithImpl<$Res>
       kernelCmdline: kernelCmdline == freezed
           ? _value.kernelCmdline
           : kernelCmdline // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -460,7 +460,7 @@ class _$_Submission implements _Submission {
           this.dkmsInfo,
       required final List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          required final List<dynamic> modprobeInfo,
+          final List<dynamic>? modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           this.pciSubsystemId,
       required this.kernel,
@@ -468,7 +468,7 @@ class _$_Submission implements _Submission {
       required this.memory,
       required this.processor,
       @JsonKey(name: 'kernel-cmdline')
-          required this.kernelCmdline})
+          this.kernelCmdline})
       : _packages = packages,
         _snapPackages = snapPackages,
         _results = results,
@@ -562,12 +562,14 @@ class _$_Submission implements _Submission {
     return EqualUnmodifiableListView(_devices);
   }
 
-  final List<dynamic> _modprobeInfo;
+  final List<dynamic>? _modprobeInfo;
   @override
   @JsonKey(name: 'modprobe-info')
-  List<dynamic> get modprobeInfo {
+  List<dynamic>? get modprobeInfo {
+    final value = _modprobeInfo;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_modprobeInfo);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -583,7 +585,7 @@ class _$_Submission implements _Submission {
   final Processor processor;
   @override
   @JsonKey(name: 'kernel-cmdline')
-  final String kernelCmdline;
+  final String? kernelCmdline;
 
   @override
   String toString() {
@@ -696,7 +698,7 @@ abstract class _Submission implements Submission {
           final DkmsInfo? dkmsInfo,
       required final List<Device> devices,
       @JsonKey(name: 'modprobe-info')
-          required final List<dynamic> modprobeInfo,
+          final List<dynamic>? modprobeInfo,
       @JsonKey(name: 'pci_subsystem_id')
           final dynamic pciSubsystemId,
       required final String kernel,
@@ -704,7 +706,7 @@ abstract class _Submission implements Submission {
       required final Memory memory,
       required final Processor processor,
       @JsonKey(name: 'kernel-cmdline')
-          required final String kernelCmdline}) = _$_Submission;
+          final String? kernelCmdline}) = _$_Submission;
 
   factory _Submission.fromJson(Map<String, dynamic> json) =
       _$_Submission.fromJson;
@@ -747,7 +749,7 @@ abstract class _Submission implements Submission {
   List<Device> get devices;
   @override
   @JsonKey(name: 'modprobe-info')
-  List<dynamic> get modprobeInfo;
+  List<dynamic>? get modprobeInfo;
   @override
   @JsonKey(name: 'pci_subsystem_id')
   dynamic get pciSubsystemId;
@@ -761,7 +763,7 @@ abstract class _Submission implements Submission {
   Processor get processor;
   @override
   @JsonKey(name: 'kernel-cmdline')
-  String get kernelCmdline;
+  String? get kernelCmdline;
   @override
   @JsonKey(ignore: true)
   _$$_SubmissionCopyWith<_$_Submission> get copyWith =>

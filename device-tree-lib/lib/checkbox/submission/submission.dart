@@ -144,13 +144,13 @@ class Submission with _$Submission {
     @JsonKey(name: 'category_map') required Map<String, String> categoryMap,
     @JsonKey(name: 'dkms_info') DkmsInfo? dkmsInfo,
     required List<Device> devices,
-    @JsonKey(name: 'modprobe-info') required List<dynamic> modprobeInfo,
+    @JsonKey(name: 'modprobe-info') List<dynamic>? modprobeInfo,
     @JsonKey(name: 'pci_subsystem_id') dynamic pciSubsystemId,
     required String kernel,
     required String architecture,
     required Memory memory,
     required Processor processor,
-    @JsonKey(name: 'kernel-cmdline') required String kernelCmdline,
+    @JsonKey(name: 'kernel-cmdline') String? kernelCmdline,
   }) = _Submission;
 
   factory Submission.fromJson(Map<String, dynamic> json) =>

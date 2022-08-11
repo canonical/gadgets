@@ -37,13 +37,13 @@ _$_Submission _$$_SubmissionFromJson(Map<String, dynamic> json) =>
       devices: (json['devices'] as List<dynamic>)
           .map((e) => Device.fromJson(e as Map<String, dynamic>))
           .toList(),
-      modprobeInfo: json['modprobe-info'] as List<dynamic>,
+      modprobeInfo: json['modprobe-info'] as List<dynamic>?,
       pciSubsystemId: json['pci_subsystem_id'],
       kernel: json['kernel'] as String,
       architecture: json['architecture'] as String,
       memory: Memory.fromJson(json['memory'] as Map<String, dynamic>),
       processor: Processor.fromJson(json['processor'] as Map<String, dynamic>),
-      kernelCmdline: json['kernel-cmdline'] as String,
+      kernelCmdline: json['kernel-cmdline'] as String?,
     );
 
 Map<String, dynamic> _$$_SubmissionToJson(_$_Submission instance) =>
