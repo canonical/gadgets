@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:path/path.dart';
@@ -52,21 +53,30 @@ class InxiExecutor {
       dir.delete();
     });
 
-    print(inxi.stdout);
-    print(inxi.stderr);
+    Logger.root.fine("inxi output: ${inxi.stdout}");
+    Logger.root.fine(inxi.stdout);
+
+    if (inxi.stderr != null &&
+        inxi.stderr is String &&
+        inxi.stderr.length > 0) {
+      Logger.root.severe(inxi.stderr);
+    }
 
     // :vomit:
     final cat = await Process.start('cat', [tempOutputPath], runInShell: false);
 
     // :vomit: :vomit:
+    // this piping below is just replicating ./bin/run-inxi.sh
     final perl = await Process.start(
-            'perl', ['-pe', 's/[0-9]{3,3}\\#[0-9]\\#[0-9]#//g'],
-            runInShell: true)
+            '/usr/bin/perl', ['-pe', 's/[0-9]{3,3}\\#[0-9]\\#[0-9]#//g'],
+            runInShell: false)
         .catchError((error) {
       print(error);
     });
 
-    final jq = await Process.start('jq', [], runInShell: true);
+    // . needed for reading from stdin
+    // because jq in snapped builds is older than 1.5
+    final jq = await Process.start('jq', ["."], runInShell: false);
 
     cat.stdout.pipe(perl.stdin).catchError((error) {
       print("inxi output -> cat error occurred:");
@@ -78,6 +88,7 @@ class InxiExecutor {
     });
 
     final tempOutputFile = File(tempOutputPath);
+
     final jqOutput = await jq.stdout
         .transform(utf8.decoder)
         .expand((element) => [element])
@@ -92,3 +103,21 @@ class InxiExecutor {
     return result;
   }
 }
+
+/* // Another way to read the stdout (and wait for predictably process to also have exit)
+   // This was investigated because https://github.com/dart-lang/sdk/issues/31666
+    final List<int> output = <int>[];
+    final Completer<int> completer = Completer<int>();
+    jq.stdout.listen((List<int> event) {
+      output.addAll(event);
+      stdout.add(event);
+    }, onDone: () async => completer.complete(await jq.exitCode));
+
+    final int exitCode = await completer.future;
+
+    if (exitCode != 0) {
+      stderr.write('Running inxi | perl | jq failed with $exitCode.\n');
+    }
+
+    final jqOutput = utf8.decoder.convert(output).trim();
+    */
