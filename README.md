@@ -43,6 +43,12 @@ dart pub global activate ffigen
 flutter run -d linux|chrome|macos
 ```
 
+To access C3 API dependent functionality in the app, you need to provide environment variables `C3_API_KEY` and `C3_API_USERNAME`:
+
+```bash
+flutter run -d linux --dart-define=C3_API_KEY=ddb2a45ab96fef2836b136b902ff5e651882039e --dart-define=C3_API_USERNAME=mz2 --verbose
+```
+
 There are some tests in the `device-tree-lib` folder which are runnable from over there with `flutter test`.
 
 For VS Code users, launch configurations exist for the application (`.vscode/launch.json`).
