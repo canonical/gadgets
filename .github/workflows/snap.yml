@@ -25,7 +25,7 @@ jobs:
         run: |
           snapcraft remote-build
         env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_LOGIN }}
       - name: Upload AMD64 build
         uses: actions/upload-artifact@v3
         with:
@@ -40,9 +40,9 @@ jobs:
         run: |
           snapcraft upload gadgets_*_amd64.snap
         env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_LOGIN }}
       - name: snapcraft upload ARM64 build
         run: |
           snapcraft upload gadgets_*_arm64.snap
         env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_LOGIN }}
