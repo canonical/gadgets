@@ -1,0 +1,46 @@
+name: Build Snap remotely on Launchpad
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  snap:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: install snapcraft
+        run: |
+          sudo snap install snapcraft --classic
+
+      - name: snapcraft remote-build
+        run: |
+          snapcraft remote-build
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
+      - name: Upload AMD64 build
+        with:
+          name: gadgets_amd64.snap
+          path: gadgets_*_amd64.snap
+      - name: Upload ARM64 build
+        with:
+          name: gadgets_amd64.snap
+          path: gadgets_*_arm64.snap
+      - name: snapcraft upload AMD64 build
+        run: |
+          snapcraft upload gadgets_*_amd64.snap
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
+      - name: snapcraft upload ARM64 build
+        run: |
+          snapcraft upload gadgets_*_arm64.snap
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
