@@ -27,10 +27,12 @@ jobs:
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{secrets.SNAPCRAFT_LOGIN}}
       - name: Upload AMD64 build
+        uses: actions/upload-artifact@v3
         with:
           name: gadgets_amd64.snap
           path: gadgets_*_amd64.snap
       - name: Upload ARM64 build
+        uses: actions/upload-artifact@v3
         with:
           name: gadgets_amd64.snap
           path: gadgets_*_arm64.snap

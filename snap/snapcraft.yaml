@@ -5,7 +5,7 @@ description: A tool for inspecting hardware and OS components available on your 
 
 confinement: strict
 base: core18
-grade: stable
+grade: devel
 architectures:
   - build-on: amd64
   - build-on: arm64
