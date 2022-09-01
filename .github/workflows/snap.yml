@@ -17,11 +17,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: install snapcraft
-        run: |
-          sudo snap install snapcraft --classic
-
-
       - name: snapcraft remote-build
         uses: snapcore/action-build@v1
         id: snapcraft
@@ -29,7 +24,7 @@ jobs:
           'snapcraft-args': 'remote-build'
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_LOGIN }}
-          
+
       - name: Upload AMD64 build
         uses: actions/upload-artifact@v3
         with:
