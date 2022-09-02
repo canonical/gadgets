@@ -22,6 +22,7 @@ jobs:
           sudo snap refresh snapd --channel=latest/edge
           sudo snap install snapcraft --edge --classic
           snapcraft remote-build
+        timeout-minutes: 60
         env:
           UBUNTU_STORE_AUTH: ${{ secrets.SNAPCRAFT_LOGIN }}
 
