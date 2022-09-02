@@ -19,6 +19,7 @@ jobs:
 
       - name: snapcraft remote-build
         run: |
+          sudo snap refresh snapd --channel=latest/edge
           sudo snap install snapcraft --edge --classic
           snapcraft remote-build
         env:
