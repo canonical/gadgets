@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo snap refresh snapd --channel=latest/edge
           sudo snap install snapcraft --edge --classic
-          snapcraft remote-build --launchpad-accept-public-upload
+          snapcraft remote-build --launchpad-accept-public-upload --launchpad-user ce-certification-qa@lists.canonical.com
         env:
           UBUNTU_STORE_AUTH: ${{ secrets.SNAPCRAFT_LOGIN }}
 
