@@ -11,11 +11,12 @@ name = "detarball"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.38.2"
+flutter_rust_bridge_codegen = "1.78.0"
+
 
 [dependencies]
 anyhow = { version = "1.0.58", features = ["backtrace"] }
-flutter_rust_bridge = "1.38.2"
+flutter_rust_bridge = "1.78.0"
 tar = "0.4"
 lzma-rs = "0.2.0"
 wasm-bindgen = "0.2.82"

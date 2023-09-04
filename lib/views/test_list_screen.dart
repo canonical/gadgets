@@ -22,10 +22,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gadgets/c3_client.dart';
 import 'package:gadgets/presentation/result_presentation.dart';
-import 'package:gadgets/providers/submission_provider.dart';
 import 'package:logging/logging.dart';
 import 'package:pluto_grid/pluto_grid.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 StateProvider<String?> filterProvider = StateProvider<String?>((ref) => null);
 

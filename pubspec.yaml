@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.3 <3.0.0"
+  sdk: '>=3.0.1 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -54,9 +54,8 @@ dependencies:
   rating_dialog: ^2.0.4
   logging: ^1.0.2
   auto_route: ^4.2.1
-  modal_bottom_sheet: ^2.1.0
   dio: ^4.0.6
-  pluto_grid: ^5.0.4
+  pluto_grid: ^7.0.2
   meta: ^1.7.0
   crypto: ^3.0.2
   flutter_rust_bridge: ^1.38.1

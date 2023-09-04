@@ -1,0 +1,47 @@
+name: Build Snap remotely on Launchpad
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  snap:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: snapcraft remote-build
+        run: |
+          sudo snap refresh snapd --channel=latest/edge
+          sudo snap install snapcraft --edge --classic
+          snapcraft remote-build --launchpad-accept-public-upload --launchpad-user ce-certification-qa@lists.canonical.com
+        env:
+          UBUNTU_STORE_AUTH: ${{ secrets.SNAPCRAFT_LOGIN }}
+
+      - name: Upload AMD64 build
+        uses: actions/upload-artifact@v3
+        with:
+          name: gadgets_amd64.snap
+          path: gadgets_*_amd64.snap
+      - name: Upload ARM64 build
+        uses: actions/upload-artifact@v3
+        with:
+          name: gadgets_amd64.snap
+          path: gadgets_*_arm64.snap
+      - name: snapcraft upload AMD64 build
+        run: |
+          snapcraft upload gadgets_*_amd64.snap
+        env:
+          UBUNTU_STORE_AUTH: ${{ secrets.SNAPCRAFT_LOGIN }}
+      - name: snapcraft upload ARM64 build
+        run: |
+          snapcraft upload gadgets_*_arm64.snap
+        env:
+          UBUNTU_STORE_AUTH: ${{ secrets.SNAPCRAFT_LOGIN }}
