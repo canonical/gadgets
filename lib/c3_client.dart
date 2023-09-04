@@ -19,6 +19,7 @@ import 'package:device_tree_lib/archives/detarball_bridge.dart';
 import 'package:device_tree_lib/c3/device_report/device_report.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class C3Credentials {
@@ -30,6 +31,15 @@ class C3Credentials {
 
 class NoSubmissionData implements Exception {}
 
+Options _options({required C3Credentials credentials}) {
+  return Options(
+      responseType: ResponseType.bytes,
+      contentType: "application/json; charset=utf8",
+      headers: {
+        "Authorization": "ApiKey ${credentials.username}:${credentials.apiKey}"
+      });
+}
+
 Provider<C3Credentials> c3CredentialsProvider = Provider<C3Credentials>((_) =>
     const C3Credentials(
         username: String.fromEnvironment("C3_API_USERNAME"),
@@ -38,9 +48,11 @@ Provider<C3Credentials> c3CredentialsProvider = Provider<C3Credentials>((_) =>
 final remoteReportProvider =
     FutureProviderFamily<DeviceReport, String>((ref, id) async {
   final credentials = ref.watch(c3CredentialsProvider);
+  final dio = ref.watch(dioProvider);
 
-  final report = await Dio().get(
-      'https://certification.canonical.com/api/v1/reports/summary/${id}/?format=json&username=${credentials.username}&api_key=${credentials.apiKey}');
+  final report = await dio.get(
+      'https://certification.canonical.com/api/v1/reports/summary/$id/?format=json',
+      options: _options(credentials: credentials));
 
   return DeviceReport.fromJson(report.data);
 });
@@ -53,32 +65,35 @@ class SubmissionParams {
       {required this.hardwareID, required this.submissionID});
 }
 
+final dioProvider = Provider((ref) {
+  final dio = Dio();
+  return dio;
+});
+
 final remoteSubmissionProvider =
     FutureProviderFamily<Submission, SubmissionParams>((ref, params) async {
   final credentials = ref.watch(c3CredentialsProvider);
+  final dio = ref.watch(dioProvider);
 
-  // final response = await Dio().get(
-  //    'https://certification.canonical.com/hardware/${params.hardwareID}/submission/${params.submissionID}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
-  //    options: Options(responseType: ResponseType.bytes));
+  // TODO: Remove this web build specific faking once c3 accepts CORS.
+  if (kIsWeb) {
+    final response = await dio.get(
+        'http://127.0.0.1:8000/rust/test/fixture/submission.tar.xz',
+        options: Options(responseType: ResponseType.bytes));
 
-  /*
-  final response = await Dio().get(
-      'http://localhost:8000/submission_201908-27277_272935.tar.xz',
-      options: Options(responseType: ResponseType.stream));
+    final responseData = response.data;
 
-  final ResponseBody responseData = response.data;
-  */
+    if (responseData == null) {
+      throw NoSubmissionData();
+    }
 
-  final response = await Dio().get(
-      'http://127.0.0.1:8000/rust/test/fixture/submission.tar.xz',
-      options: Options(responseType: ResponseType.bytes));
+    return submission(fromBytes: responseData);
+  } else {
+    final response = await dio.get(
+        'https://certification.canonical.com/api/v1/reports/summary/${params.submissionID}/download?format=tar',
+        options: _options(credentials: credentials));
 
-  final responseData = response.data;
-
-  if (responseData == null) {
-    throw NoSubmissionData();
+    final responseData = response.data;
+    return submission(fromBytes: responseData);
   }
-
-  return submission(fromBytes: responseData);
-  // return SubmissionArchive.submissionFromStream(responseData.stream);
 });
