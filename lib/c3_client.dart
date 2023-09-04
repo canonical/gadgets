@@ -15,10 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:device_tree_lib/archives/detarball_bridge.dart';
 import 'package:device_tree_lib/c3/device_report/device_report.dart';
 import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class C3Credentials {
@@ -55,8 +59,6 @@ class SubmissionParams {
 
 final remoteSubmissionProvider =
     FutureProviderFamily<Submission, SubmissionParams>((ref, params) async {
-  final credentials = ref.watch(c3CredentialsProvider);
-
   // final response = await Dio().get(
   //    'https://certification.canonical.com/hardware/${params.hardwareID}/submission/${params.submissionID}/data/?username=${credentials.username}&api_key=${credentials.apiKey}',
   //    options: Options(responseType: ResponseType.bytes));
@@ -69,6 +71,8 @@ final remoteSubmissionProvider =
   final ResponseBody responseData = response.data;
   */
 
+  /*
+  final credentials = ref.watch(c3CredentialsProvider);
   final response = await Dio().get(
       'http://127.0.0.1:8000/rust/test/fixture/submission.tar.xz',
       options: Options(responseType: ResponseType.bytes));
@@ -78,7 +82,14 @@ final remoteSubmissionProvider =
   if (responseData == null) {
     throw NoSubmissionData();
   }
+  // return submission(fromBytes: responseData.buffer.asUint8List());
 
-  return submission(fromBytes: responseData);
+  */
+
+  final responseData = await rootBundle.loadString(
+      'device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json');
+
+  return Submission.fromJson(json.decode(responseData));
+
   // return SubmissionArchive.submissionFromStream(responseData.stream);
 });
