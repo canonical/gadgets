@@ -18,7 +18,7 @@ flutter_rust_bridge_codegen = "1.78.0"
 anyhow = { version = "1.0.58", features = ["backtrace"] }
 flutter_rust_bridge = "1.78.0"
 tar = "0.4"
-lzma-rs = "0.2.0"
+lzma-rs = "0.3.0"
 wasm-bindgen = "0.2.82"
 
 [dev-dependencies]
