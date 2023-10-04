@@ -53,6 +53,7 @@ Future<void> ensureInitialized() async {
   }
 }
 
+/*
 Future<String> decompressFromXZTarball(
     Uint8List lzmaData, String filenameSuffix) async {
   await ensureInitialized();
@@ -66,3 +67,5 @@ Future<Submission> submission({required List<int> fromBytes}) async {
 
   return Submission.fromJson(json.decode(submissionData));
 }
+
+*/
