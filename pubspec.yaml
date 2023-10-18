@@ -33,7 +33,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  yaru: ^0.3.3
+  yaru: ^1.1.0
   flutter_fancy_tree_view:
     git:
       url: https://github.com/mz2/flutter_tree_view.git
@@ -82,7 +82,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/ubuntu_certified_hardware.png
-    - device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json # FIXME: Stop including this.
+  #  - device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json # FIXME: Stop including this.
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
