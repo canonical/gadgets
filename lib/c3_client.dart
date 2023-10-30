@@ -24,6 +24,8 @@ import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gadgets/example_data.dart';
+import 'package:gadgets/providers/submission_provider.dart';
 
 class C3Credentials {
   final String username;
@@ -86,10 +88,11 @@ final remoteSubmissionProvider =
 
   */
 
-  final responseData = await rootBundle.loadString(
-      'device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json');
+  // final responseData = await rootBundle.loadString(
+  //    './device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json');
 
-  return Submission.fromJson(json.decode(responseData));
+  // return Submission.fromJson(json.decode(responseData));
+  return Submission.fromJson(submissionExample);
 
   // return SubmissionArchive.submissionFromStream(responseData.stream);
 });
