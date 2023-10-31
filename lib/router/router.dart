@@ -23,14 +23,18 @@ import 'package:gadgets/views/test_list_screen.dart';
 
 part 'router.gr.dart';
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route,Screen',
-  routes: <AutoRoute>[
-    AutoRoute(page: HomeScreen, path: '/', initial: true),
-    AutoRoute(page: TestListScreen, path: 'tests/:cid')
-  ],
-)
-class AppRouter extends _$AppRouter {}
+@AutoRouterConfig(replaceInRouteName: 'Page,Route,Screen')
+class AppRouter extends _$AppRouter {
+  @override
+  RouteType get defaultRouteType =>
+      const RouteType.material(); //.cupertino, .adaptive ..etc
+
+  @override
+  List<AutoRoute> get routes => <AutoRoute>[
+        // AutoRoute(page: HomeScreen, path: '/', initial: true),
+        AutoRoute(page: TestListScreenRoute.page, path: '/', initial: true)
+      ];
+}
 
 Provider<AppRouter> appRouterProvider =
     Provider<AppRouter>((ref) => AppRouter());

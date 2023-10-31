@@ -27,9 +27,10 @@ import 'package:pluto_grid/pluto_grid.dart';
 
 StateProvider<String?> filterProvider = StateProvider<String?>((ref) => null);
 
+@RoutePage()
 class TestListScreen extends ConsumerStatefulWidget {
-  final String cid;
-  const TestListScreen({super.key, @PathParam('cid') required this.cid});
+  final String cid = "123";
+  const TestListScreen({super.key});
 
   @override
   TestListState createState() => TestListState();

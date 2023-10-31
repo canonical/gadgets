@@ -53,30 +53,29 @@ class _ActionsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        const _SettingsHeader(text: 'Actions'),
-        const Spacer(),
-        const Tooltip(
+    return const Row(
+      children: [
+        _SettingsHeader(text: 'Actions'),
+        Spacer(),
+        Tooltip(
           message: 'The selection functionality is not part of the\n'
               'TreeView API. It\'s just present to demonstrate\n'
               'how customizable the TreeView is.',
           verticalOffset: 16,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.deepOrange,
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-          textStyle: const TextStyle(
+          textStyle: TextStyle(
             fontSize: 16,
             color: Colors.white,
             letterSpacing: 1.025,
             height: 1.5,
           ),
-          padding: const EdgeInsets.all(16),
-          child:
-              const Icon(Icons.info_outline_rounded, color: Colors.deepOrange),
+          padding: EdgeInsets.all(16),
+          child: Icon(Icons.info_outline_rounded, color: Colors.deepOrange),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8),
       ],
     );
   }

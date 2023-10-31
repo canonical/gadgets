@@ -63,9 +63,7 @@ class _NodeSelector extends ConsumerWidget {
             icon: descendentStatus.icon(theme: theme),
             followUp: FollowUp("Learn More", () {
               ScaffoldMessenger.of(context).removeCurrentSnackBar();
-              ref
-                  .watch(appRouterProvider)
-                  .navigate(TestListScreenRoute(cid: 'X'));
+              ref.watch(appRouterProvider).navigate(TestListScreenRoute());
             }),
           );
         },

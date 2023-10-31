@@ -24,7 +24,6 @@ import 'package:device_tree_lib/checkbox/submission/submission.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gadgets/example_data.dart';
 import 'package:gadgets/providers/submission_provider.dart';
 
 class C3Credentials {
@@ -92,7 +91,15 @@ final remoteSubmissionProvider =
   //    './device-tree-lib/test/fixture/submission_201908-27277_272935/submission.json');
 
   // return Submission.fromJson(json.decode(responseData));
-  return Submission.fromJson(submissionExample);
+
+  // fetch submission from https://www.dropbox.com/scl/fi/xdjmdgqoik81fpsgrzwat/submission.json?rlkey=nygzb45ku8xkueytxny2w46k0&dl=0 using dio
+  final response = await Dio().get(
+    'https://dl.dropboxusercontent.com/scl/fi/xdjmdgqoik81fpsgrzwat/submission.json?rlkey=nygzb45ku8xkueytxny2w46k0&dl=0',
+    options: Options(responseType: ResponseType.json),
+  );
+
+  final jsonData = json.decode(response.data);
+  return Submission.fromJson(jsonData);
 
   // return SubmissionArchive.submissionFromStream(responseData.stream);
 });
