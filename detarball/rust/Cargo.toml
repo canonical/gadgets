@@ -11,7 +11,7 @@ name = "detarball"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.78.0"
+flutter_rust_bridge_codegen = "1.82.6"
 
 
 [dependencies]
@@ -22,5 +22,5 @@ lzma-rs = "0.2.0"
 wasm-bindgen = "0.2.82"
 
 [dev-dependencies]
-flutter_rust_bridge_codegen = "1.38.2"
+flutter_rust_bridge_codegen = "1.82.6"
 
