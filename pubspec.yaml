@@ -54,7 +54,7 @@ dependencies:
   rating_dialog: ^2.0.4
   logging: ^1.0.2
   auto_route: ^7.8.4
-  dio: ^4.0.6
+  dio: ^5.0.0
   pluto_grid: ^7.0.2
   meta: ^1.7.0
   crypto: ^3.0.2
